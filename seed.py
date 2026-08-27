@@ -75,8 +75,9 @@ def main() -> None:
     org_chamber = add_org("Boulder Chamber", "forum_host", "https://www.boulderchamber.com")
     org_lwv = add_org("League of Women Voters of Boulder County", "civic", "https://www.lwvbc.org")
     org_progressives = add_org("Boulder Progressives", "advocacy", None)
-    org_plan = add_org("PLAN-Boulder County", "advocacy", None)
-    org_open = add_org("Open Boulder", "advocacy", None)
+    org_plan = add_org("PLAN-Boulder County", "advocacy", "https://www.planboulder.org")
+    org_open = add_org("Open Boulder", "advocacy", "https://www.openboulder.org")
+    org_better = add_org("Better Boulder", "advocacy", "https://betterboulder.com")
     org_elevated = add_org("Boulder Elevated", "advocacy", None)
     org_axios = add_org("Axios Boulder", "newspaper", "https://www.axios.com/local/boulder")
     org_beat = add_org("Boulder Beat", "newspaper", "https://boulderbeat.news")
@@ -116,6 +117,14 @@ def main() -> None:
         )
         return cur.lastrowid  # type: ignore[return-value]
 
+    e2017 = add_election(
+        2017, "2017-11-07",
+        "Five council seats, no directly elected mayor. Top four winners: four-year terms; fifth: two-year term (Cindy Carlisle). Municipalization and capital-improvement measures on the same ballot.",
+    )
+    e2019 = add_election(
+        2019, "2019-11-05",
+        "Six council seats after Jill Grano resigned January 2019 (the vacancy added a two-year seat). No directly elected mayor. Top four: four-year terms; fifth and sixth: two-year.",
+    )
     e2021 = add_election(
         2021, "2021-11-02",
         "Five council seats, no directly elected mayor (council still appointed the mayor). Top four winners: four-year terms; fifth: two-year term. Last cycle before the 2023 RCV mayoral election.",
@@ -140,6 +149,14 @@ def main() -> None:
         )
         return cur.lastrowid  # type: ignore[return-value]
 
+    r2017_council = add_race(
+        e2017, council_office, 5, "plurality",
+        "Fourteen candidates. Fifth-place winner served a two-year term (Cindy Carlisle).",
+    )
+    r2019_council = add_race(
+        e2019, council_office, 6, "plurality",
+        "Fifteen candidates. Fifth-place (Adam Swetlik) and sixth-place (Mark Wallach) served two-year terms; sixth seat filled the Grano vacancy.",
+    )
     r2021_council = add_race(
         e2021, council_office, 5, "plurality",
         "Ten candidates. Fifth-place winner served a two-year term (Tara Winer).",
@@ -192,13 +209,40 @@ def main() -> None:
         "Dan Williams",
         "Steve Rosenblum",
         "David Takahashi",
+        "Mary Dolores Young",
+        "Sam Weaver",
+        "Mirabai Nagle",
+        "Cindy Carlisle",
+        "John Gerstle",
+        "Jan Burton",
+        "Mark McIntyre",
+        "Bill Rigler",
+        "Eric Budd",
+        "Ed Byrne",
+        "Camilo Casas",
+        "Adam Swetlik",
+        "Rachel Friend",
+        "Junie Joseph",
+        "Susan Peterson",
+        "Corina Julca",
+        "Brian Dolan",
+        "Nikki McCord",
+        "Paul Cure",
+        "Andy Celani",
+        "Gala Orba",
     ]
     pid: dict[str, int] = {}
     notes_by_name = {
         "Jennifer Robins": "Appears as Jenny Robins in some 2023/2025 coverage; Jennifer Robins on the 2025 certified results.",
         "Montserrat Palacios": "BRL 2025 questionnaire listed Montserrat Palacios Rodarte; 2025 certified results list Montserrat Palacios.",
         "Maxwell Lord": "BRL listed Max Lord; certified results list Maxwell Lord.",
-        "Jill Grano": "Elected 2017; resigned 2019 to become community affairs director for Rep. Joe Neguse. Running again 2026.",
+        "Jill Grano": "Elected 2017 (certified as Jill Adler Grano); resigned January 2019 to become community affairs director for Rep. Joe Neguse. Running again 2026. The 2019 sixth seat filled that vacancy.",
+        "Mary Dolores Young": "Incumbent reelected 2017. Certified ENR lists Mary Dolores Young; some coverage shortens to Mary Young.",
+        "Mirabai Nagle": "Elected 2017. Certified ENR lists Mirabai Kuk Nagle.",
+        "Cindy Carlisle": "Elected 2017 in fifth place (two-year term).",
+        "Adam Swetlik": "Lost 2017; elected 2019 in fifth place (two-year term).",
+        "Gala Orba": "2019 certified ENR lists Gala Wilhelmina Orba.",
+        "Mark McIntyre": "Ran 2017 and 2019; lost both. Later a co-organizer of the 2025 VOTES! collaborative forum (Daily Camera).",
         "Mark Wallach": "Resigned July 23 2026 immediately after the 8-1 airport/FAA-grant vote. Seat vacant until Nov 3 2026.",
         "Aaron Brockett": "Appointed mayor by council 2021; won the first direct RCV mayoral election 2023.",
         "Taishya Adams": "Elected to council 2023; entered the 2026 mayoral race (cannot also run for her council seat).",
@@ -219,6 +263,39 @@ def main() -> None:
             (pid[person], race, status, incumbent, certified_on, matching, campaign_url, notes),
         )
         return cur.lastrowid  # type: ignore[return-value]
+
+    # 2017 council — fifth-place winner served two years
+    cand("Mary Dolores Young", r2017_council, "elected", 1)
+    cand("Sam Weaver", r2017_council, "elected", 1)
+    cand("Jill Grano", r2017_council, "elected")
+    cand("Mirabai Nagle", r2017_council, "elected")
+    cand("Cindy Carlisle", r2017_council, "elected", notes="Fifth place; two-year term.")
+    cand("John Gerstle", r2017_council, "lost")
+    cand("Jan Burton", r2017_council, "lost")
+    cand("Mark McIntyre", r2017_council, "lost")
+    cand("Bill Rigler", r2017_council, "lost")
+    cand("Eric Budd", r2017_council, "lost")
+    cand("Matt Benjamin", r2017_council, "lost")
+    cand("Ed Byrne", r2017_council, "lost")
+    cand("Adam Swetlik", r2017_council, "lost")
+    cand("Camilo Casas", r2017_council, "lost")
+
+    # 2019 council — six seats after Grano resignation
+    cand("Bob Yates", r2019_council, "elected", 1)
+    cand("Junie Joseph", r2019_council, "elected")
+    cand("Rachel Friend", r2019_council, "elected")
+    cand("Aaron Brockett", r2019_council, "elected", 1)
+    cand("Adam Swetlik", r2019_council, "elected", notes="Fifth place; two-year term.")
+    cand("Mark Wallach", r2019_council, "elected", notes="Sixth place; two-year term filling the Grano vacancy.")
+    cand("Mark McIntyre", r2019_council, "lost")
+    cand("Susan Peterson", r2019_council, "lost")
+    cand("Benita Duran", r2019_council, "lost")
+    cand("Corina Julca", r2019_council, "lost")
+    cand("Brian Dolan", r2019_council, "lost")
+    cand("Nikki McCord", r2019_council, "lost")
+    cand("Paul Cure", r2019_council, "lost")
+    cand("Andy Celani", r2019_council, "lost")
+    cand("Gala Orba", r2019_council, "lost")
 
     # 2021 council — fifth-place winner served two years
     c2021_wallach = cand("Mark Wallach", r2021_council, "elected", 1)
@@ -376,6 +453,66 @@ def main() -> None:
         "City Council | City of Boulder",
         "official", 2026, org_city, "2026-08-27",
         "Sitting members as of Aug 27 2026. Wallach absent (resigned). Eight names listed.",
+    )
+    s_2017_enr = add_source(
+        "https://electionresults.bouldercounty.gov/ElectionResults2017C/",
+        "Boulder County 2017 Coordinated Election official results (ENR)",
+        "results", 2017, org_county, "2017-11-21",
+        "Official results last updated 11/21/2017 4:23 PM. City council and city measures used here.",
+    )
+    add_source(
+        "https://bouldercounty.gov/elections/by-year/2017-election/",
+        "2017 Election Results and Information - Boulder County",
+        "results", 2017, org_county, None,
+        "County hub. Links the official ENR, SOV, and summary of votes.",
+    )
+    s_2017_summary = add_source(
+        "https://assets.bouldercounty.gov/wp-content/uploads/2017/11/Results_Cumulative_Final.pdf",
+        "2017 Coordinated Election — Official Summary of Votes",
+        "results", 2017, org_county, "2017-11-20",
+        "City council contest: 72,574 active city voters, 31,765 city ballots counted. Candidate totals match the ENR.",
+    )
+    s_2019_enr = add_source(
+        "https://electionresults.bouldercounty.gov/ElectionResults2019C/",
+        "Boulder County 2019 Coordinated Election official results (ENR)",
+        "results", 2019, org_county, "2019-11-14",
+        "Official results last updated 11/14/2019 4:35 PM. City council and city measures used here.",
+    )
+    add_source(
+        "https://bouldercounty.gov/elections/by-year/2019-election/",
+        "2019 Election Results and Information - Boulder County",
+        "results", 2019, org_county, None,
+        "County hub. Links the official ENR, SOV, and summary of votes.",
+    )
+    add_source(
+        "https://assets.bouldercounty.gov/wp-content/uploads/2019/11/2019C-Official-Summary-Of-Votes.pdf",
+        "2019 Coordinated Election — Official Summary of Votes",
+        "results", 2019, org_county, None,
+        "County summary PDF linked from the 2019 election hub.",
+    )
+    add_source(
+        "https://boulderbeat.news/2019/11/05/2019-election-results-city-of-boulder/",
+        "2019 Election Results (City of Boulder) — Boulder Beat",
+        "article", 2019, org_beat, "2019-11-30",
+        "City-level turnout used here: 34,971 city ballots, 68,749 active city voters. Candidate totals match the certified ENR.",
+    )
+    add_source(
+        "https://www.dailycamera.com/ci_31437033/boulder-city-council-election-results/",
+        "Jill Grano, Mirabai Nagle, Cindy Carlisle elected to Boulder City Council (Daily Camera)",
+        "article", 2017, org_camera, "2017-11-07",
+        "Incumbents Mary Young and Sam Weaver reelected; Carlisle fifth place was a two-year term. Night-of totals; certified numbers come from the ENR.",
+    )
+    add_source(
+        "https://bouldercolorado.gov/elections/election-committee-filings",
+        "Election Committee Filings | City of Boulder",
+        "official", 2026, org_city, None,
+        "Municipal campaign-finance filings live here, not on TRACER. Line items not scraped this pass; matching-funds flags come from the clerk candidate list.",
+    )
+    add_source(
+        "https://bouldercolorado.gov/election-guidelines",
+        "Election Guidelines | City of Boulder",
+        "official", 2026, org_city, None,
+        "Campaign-finance calendar: 42/28/21/14 days out, Thursday before, 30 days after. City, not SOS/TRACER.",
     )
     s_2023_results_page = add_source(
         "https://bouldercounty.gov/elections/by-year/2023-election/",
@@ -630,11 +767,15 @@ def main() -> None:
         orgs={
             "chamber": org_chamber,
             "plan": org_plan,
+            "open": org_open,
+            "better": org_better,
             "progressives": org_progressives,
             "brl": org_brl,
             "camera": org_camera,
             "lwv": org_lwv,
             "beat": org_beat,
+            "weekly": org_weekly,
+            "city": org_city,
         },
     )
     ingest_measures(
@@ -643,6 +784,8 @@ def main() -> None:
         org_city=org_city,
         org_brl=org_brl,
         org_camera=org_camera,
+        e2017=e2017,
+        e2019=e2019,
         e2021=e2021,
         e2023=e2023,
         e2025=e2025,
@@ -731,15 +874,60 @@ def main() -> None:
         c_id = cur.fetchone()[0]
         add_result(c_id, 1, votes, share, place, elected, s_2021_sov, "Official summary of votes. Fifth place was a two-year term.")
 
+    # 2017 council — official ENR 11/21/2017; shares from the same page
+    council_2017 = [
+        ("Mary Dolores Young", 14956, 10.97, 1, 1),
+        ("Sam Weaver", 14545, 10.67, 2, 1),
+        ("Jill Grano", 13496, 9.90, 3, 1),
+        ("Mirabai Nagle", 12659, 9.29, 4, 1),
+        ("Cindy Carlisle", 12359, 9.07, 5, 1),
+        ("John Gerstle", 11535, 8.46, 6, 0),
+        ("Jan Burton", 11273, 8.27, 7, 0),
+        ("Mark McIntyre", 10373, 7.61, 8, 0),
+        ("Bill Rigler", 8742, 6.41, 9, 0),
+        ("Eric Budd", 8600, 6.31, 10, 0),
+        ("Matt Benjamin", 7561, 5.55, 11, 0),
+        ("Ed Byrne", 7143, 5.24, 12, 0),
+        ("Adam Swetlik", 1940, 1.42, 13, 0),
+        ("Camilo Casas", 1100, 0.81, 14, 0),
+    ]
+    for person, votes, share, place, elected in council_2017:
+        cur.execute("SELECT id FROM candidacies WHERE person_id=? AND race_id=?", (pid[person], r2017_council))
+        c_id = cur.fetchone()[0]
+        add_result(c_id, 1, votes, share, place, elected, s_2017_enr, "Official ENR 11/21/2017. Fifth place was a two-year term.")
+
+    # 2019 council — official ENR 11/14/2019
+    council_2019 = [
+        ("Bob Yates", 17508, 10.36, 1, 1),
+        ("Junie Joseph", 17322, 10.25, 2, 1),
+        ("Rachel Friend", 17230, 10.20, 3, 1),
+        ("Aaron Brockett", 15779, 9.34, 4, 1),
+        ("Adam Swetlik", 14442, 8.55, 5, 1),
+        ("Mark Wallach", 14173, 8.39, 6, 1),
+        ("Mark McIntyre", 13493, 7.99, 7, 0),
+        ("Susan Peterson", 12961, 7.67, 8, 0),
+        ("Benita Duran", 11576, 6.85, 9, 0),
+        ("Corina Julca", 11048, 6.54, 10, 0),
+        ("Brian Dolan", 10855, 6.43, 11, 0),
+        ("Nikki McCord", 4207, 2.49, 12, 0),
+        ("Paul Cure", 4046, 2.40, 13, 0),
+        ("Andy Celani", 2438, 1.44, 14, 0),
+        ("Gala Orba", 1852, 1.10, 15, 0),
+    ]
+    for person, votes, share, place, elected in council_2019:
+        cur.execute("SELECT id FROM candidacies WHERE person_id=? AND race_id=?", (pid[person], r2019_council))
+        c_id = cur.fetchone()[0]
+        add_result(c_id, 1, votes, share, place, elected, s_2019_enr, "Official ENR 11/14/2019. Fifth and sixth places were two-year terms.")
+
     # --- meta ---
     cur.executemany(
         "INSERT INTO meta (key, value) VALUES (?,?)",
         [
             ("built_at", "2026-08-27"),
             ("builder", "GrokJi"),
-            ("scope", "City of Boulder mayor + city council + city ballot measures, 2021–2026. Not county, not BVSD, not state."),
+            ("scope", "City of Boulder mayor + city council + city ballot measures, 2017–2026. Not county, not BVSD, not state."),
             ("editorial", "No endorsements. Quotes and vote totals are sourced. Comparison pages stack sourced answers; they do not score candidates."),
-            ("next_harvest", "2026 Chamber forum when the Chamber releases it; Vote411; campaign finance; forum transcripts; 2019 cycle."),
+            ("next_harvest", "2026 Chamber forum when the Chamber releases it; Vote411; campaign-finance line items from city clerk filings; Chamber/Open Boulder questionnaire verbatim; forum transcripts."),
         ],
     )
 

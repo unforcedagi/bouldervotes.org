@@ -26,17 +26,21 @@ Python 3 stdlib only. No npm, no framework. How to extend it: [OPERATING.md](OPE
 
 ## What’s in the database
 
-- People who ran or held office 2021–2026 (city mayor + council)
+- People who ran or held office 2017–2026 (city mayor + council)
+- Certified 2017 council (five seats; fifth was a two-year term) and city measures 2L–2Q
+- Certified 2019 council (six seats after Grano’s resignation) and city measures 2G/2H/2I
 - Certified 2021 council (five seats; fifth was a two-year term) and city measures 2I/2J/300/301/302
 - Certified 2023 mayor RCV + council (including the recount)
 - Certified 2025 council totals
 - Certified 2026 field (clerk list retrieved 2026-08-26)
 - BRL written questionnaires: 2023 14×6 and 2025 11×6
 - Boulder Beat 2023 emailed yes/no questionnaire (rent stabilization, occupancy, encampments, oversight, 2A, Safe Zones)
-- Forum calendar 2021–2026 with recordings where they exist
-- City ballot measures 2021–2026
+- Catalog of Chamber / Open Boulder / PLAN / Boulder Weekly questionnaires (linked; verbatim ingested only for BRL and Beat)
+- Forum calendar 2017–2026 with recordings where they exist (including the 2025 VOTES! collaborative forum)
+- One-sheet print packet for each 2026 candidate
+- City ballot measures 2017–2026
 
-What’s *not* in it: invented positions, campaign-finance line items, most 2026 campaign sites, the 2026 Chamber recording (parked until they publish), county/BVSD races, 2019 and earlier.
+What’s *not* in it: invented positions, campaign-finance *dollar* line items (the clerk filing page is linked; matching-funds flags are on the clerk candidate list), most 2026 campaign sites, the 2026 Chamber recording (parked until they publish), county/BVSD races, 2015 and earlier.
 
 ## Schema idea
 

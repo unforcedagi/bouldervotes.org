@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DB = ROOT / "data" / "bouldervotes.db"
 OUT = ROOT / "docs"
-YEARS = (2026, 2025, 2023, 2021)
+YEARS = (2026, 2025, 2023, 2021, 2019, 2017)
 
 CSS = """
 :root {
@@ -117,10 +117,12 @@ footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid 
 }
 @media print {
   header { position: static; }
-  nav.util, .jump { display: none; }
+  nav.util, .jump, .print-hint { display: none; }
   a { color: inherit; text-decoration: none; }
   details.quote > summary { display: none; }
   details.quote > blockquote { display: block; }
+  @page { size: letter; margin: 0.55in; }
+  h1 { font-size: 1.45rem; }
 }
 """
 
@@ -170,6 +172,7 @@ def page(title: str, body: str, *, prefix: str = "", year: int | None = None) ->
     util = [
         f'<a href="{prefix}issues.html">Issues</a>',
         f'<a href="{prefix}people.html">People</a>',
+        f'<a href="{prefix}print/index.html">Print</a>',
         f'<a href="{prefix}about.html">About</a>',
     ]
     home = f"{prefix}index.html"
@@ -196,6 +199,8 @@ def page(title: str, body: str, *, prefix: str = "", year: int | None = None) ->
   City of Boulder only. Cited, not scored, not an endorsement.
   <a href="{prefix}sources.html">Sources</a> ·
   <a href="{prefix}forums.html">Forums</a> ·
+  <a href="{prefix}questionnaires.html">Questionnaires</a> ·
+  <a href="{prefix}print/index.html">Print</a> ·
   <a href="{prefix}measures.html">All measures</a> ·
   <a href="https://bouldervotes.org/">bouldervotes.org</a>
 </footer>
@@ -211,6 +216,7 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "people").mkdir(exist_ok=True)
     (OUT / "issues").mkdir(exist_ok=True)
+    (OUT / "print").mkdir(exist_ok=True)
 
     def race_id(year: int, office: str) -> int | None:
         row = q(
@@ -360,7 +366,11 @@ def main() -> None:
             if m["yes_votes"] is not None and m["no_votes"] is not None:
                 total = m["yes_votes"] + m["no_votes"]
                 pct = 100.0 * m["yes_votes"] / total if total else 0
-                result = f"Passed · yes {m['yes_votes']:,} ({pct:.0f}%)" if m["result_passed"] else f"{m['status']}"
+                result = (
+                    f"Passed · yes {m['yes_votes']:,} ({pct:.0f}%)"
+                    if m["result_passed"]
+                    else f"Failed · yes {m['yes_votes']:,} ({pct:.0f}%)"
+                )
             else:
                 result = m["status"]
             bits.append(
@@ -434,6 +444,8 @@ def main() -> None:
             2025: "Four council seats, no mayor. Last odd-year municipal election.",
             2023: "First direct ranked-choice mayor, four council seats. 34,249 city ballots counted.",
             2021: "Five council seats, no directly elected mayor. Top four: four-year terms; fifth: two-year. 33,772 city ballots; 68,885 active city voters.",
+            2019: "Six council seats after Jill Grano resigned (the vacancy added a two-year seat). No directly elected mayor. Top four: four-year; fifth and sixth: two-year. 34,971 city ballots; 68,749 active city voters.",
+            2017: "Five council seats, no directly elected mayor. Top four: four-year terms; fifth: two-year. 31,765 city ballots; 72,574 active city voters.",
         }[year]
         jump = '<p class="jump"><a href="#mayor">Mayor</a>' if mayor else '<p class="jump">'
         if council:
@@ -451,12 +463,21 @@ def main() -> None:
             for r in mayor:
                 bits.append(candidate_card(r, year, "mayor"))
         if council:
-            seats = {2026: 5, 2025: 4, 2023: 4, 2021: 5}[year]
+            seats = {2026: 5, 2025: 4, 2023: 4, 2021: 5, 2019: 6, 2017: 5}[year]
             bits.append(f"<h2 id='council'>City council · {seats} seats · {len(council)} candidates</h2>")
             if year == 2026:
                 bits.append(
                     "<p class='note'>Five seats because Wallach resigned July 23 (before Aug 1) and Adams is running for mayor. "
-                    "Not on this ballot (terms through 2028): Benjamin, Speer, Kaplan.</p>"
+                    "Not on this ballot (terms through 2028): Benjamin, Speer, Kaplan. "
+                    "Matching-funds flags are from the city clerk list. Dollar line items live on "
+                    "<a href='https://bouldercolorado.gov/elections/election-committee-filings'>city committee filings</a> "
+                    "(not TRACER) and are not scraped here. "
+                    "<a href='print/index.html'>Print one sheet per candidate</a>.</p>"
+                )
+            if year == 2019:
+                bits.append(
+                    "<p class='note'>Six seats because Jill Grano resigned in January 2019. "
+                    "Fifth place (Swetlik) and sixth place (Wallach) served two-year terms.</p>"
                 )
             if year != 2026:
                 bits.append(results_table(year, "council"))
@@ -492,10 +513,8 @@ def main() -> None:
         if as_home:
             (OUT / "2026.html").write_text(html_page, encoding="utf-8")
 
-    write_year_page(2026, as_home=True)
-    write_year_page(2025)
-    write_year_page(2023)
-    write_year_page(2021)
+    for y in YEARS:
+        write_year_page(y, as_home=(y == 2026))
 
     # ----- issues hub -----
     hub = [
@@ -783,6 +802,11 @@ def main() -> None:
             bits.append("</ul>")
 
         latest = cands[0]["year"] if cands else None
+        if any(c["year"] == 2026 for c in cands):
+            bits.insert(
+                1,
+                f"<p class='print-hint'><a href='../print/{esc(p['slug'])}.html'>Print this candidate (one letter-size sheet)</a></p>",
+            )
         (OUT / "people" / f"{p['slug']}.html").write_text(
             page(p["full_name"], "\n".join(bits), prefix="../", year=latest),
             encoding="utf-8",
@@ -840,16 +864,184 @@ def main() -> None:
         encoding="utf-8",
     )
 
+    qn_html = [
+        "<h1>Questionnaires</h1>",
+        "<p class='lede'>Written candidate Q&amp;A we have located. Full verbatim is ingested only when we copied it into the database (BRL, Boulder Beat). Everything else is linked, not scored.</p>",
+        "<p>The Chamber does send questions every cycle; the 2025 extended-response PDF is the one we have as a file. PLAN used a questionnaire for 2025 endorsements and did not publish the dump on the endorsement page. Open Boulder published 2025 PDFs for eight of eleven candidates. Better Boulder co-hosted the 2025 VOTES! forum with PLAN and Open Boulder (first year of that collaboration).</p>",
+    ]
+    qn_rows = q(
+        """SELECT s.year, s.title, s.url, s.kind, s.notes, o.name AS org
+           FROM sources s LEFT JOIN organizations o ON o.id=s.org_id
+           WHERE s.kind='questionnaire'
+           ORDER BY s.year DESC, s.title"""
+    ).fetchall()
+    qn_html.append("<table><tr><th>Year</th><th>Source</th></tr>")
+    for s in qn_rows:
+        org = f"{esc(s['org'])} · " if s["org"] else ""
+        note = f"<div class='meta'>{esc(s['notes'])}</div>" if s["notes"] else ""
+        qn_html.append(
+            f"<tr><td>{s['year'] or ''}</td><td>{org}<a href='{esc(s['url'])}'>{esc(s['title'])}</a>{note}</td></tr>"
+        )
+    qn_html.append("</table>")
+    qn_html.append(
+        "<p class='note'>Forum videos, including YouTube, live on the <a href='forums.html'>forums</a> page. "
+        "We do not invent spoken quotes from a journalist’s grouping or an auto-transcript.</p>"
+    )
+    (OUT / "questionnaires.html").write_text(page("Questionnaires", "\n".join(qn_html)), encoding="utf-8")
+
+    # ----- print packet: one letter-size sheet per 2026 candidate -----
+    def print_sheet(row, office: str) -> str:
+        answers = q(
+            """SELECT a.verbatim, a.stance, q.prompt, q.year AS q_year, q.kind AS q_kind,
+                      COALESCE(q.issue_slug,'other') AS issue_slug,
+                      COALESCE(i.name,'This race / other') AS issue_name,
+                      s.title AS source_title, s.url AS source_url
+               FROM answers a
+               JOIN questions q ON q.id=a.question_id
+               JOIN sources s ON s.id=a.source_id
+               LEFT JOIN issues i ON i.slug=q.issue_slug
+               WHERE a.person_id=?
+               ORDER BY q.year DESC, a.id""",
+            (row["person_id"],),
+        ).fetchall()
+        cands = q(
+            """SELECT c.*, e.year, o.name AS office
+               FROM candidacies c
+               JOIN races r ON r.id=c.race_id
+               JOIN elections e ON e.id=r.election_id
+               JOIN offices o ON o.id=r.office_id
+               WHERE c.person_id=? ORDER BY e.year DESC""",
+            (row["person_id"],),
+        ).fetchall()
+        flags = []
+        if row["is_incumbent"]:
+            flags.append("incumbent")
+        if row["matching_funds"]:
+            flags.append("matching funds")
+        flag_txt = f" · {esc(', '.join(flags))}" if flags else ""
+        site = (
+            f"<p><a href='{esc(row['campaign_url'])}'>{esc(row['campaign_url'])}</a></p>"
+            if row["campaign_url"]
+            else ""
+        )
+        bits = [
+            f"<p class='print-hint'>File → Print. One letter-size sheet. Not an endorsement.</p>",
+            f"<h1>{esc(row['full_name'])}</h1>",
+            f"<p class='lede'>2026 {esc(office)}{flag_txt}</p>",
+            site,
+            "<h2>Campaigns</h2>",
+        ]
+        tbody = ["<tr><th>Year</th><th>Office</th><th>Outcome</th></tr>"]
+        for c in cands:
+            tbody.append(
+                f"<tr><td>{c['year']}</td><td>{esc(c['office'])}</td><td>{esc(c['status'])}</td></tr>"
+            )
+        bits.append(f"<table>{''.join(tbody)}</table>")
+        if answers:
+            years_in = sorted({a["q_year"] for a in answers if a["q_year"]}, reverse=True)
+            issues = []
+            seen = set()
+            for a in answers:
+                if a["issue_slug"] not in seen and a["issue_slug"] != "other":
+                    seen.add(a["issue_slug"])
+                    issues.append((a["issue_slug"], a["issue_name"]))
+            if issues and years_in:
+                bits.append("<h2>What they have said</h2>")
+                head = "<tr><th>Issue</th>" + "".join(f"<th>{y}</th>" for y in years_in) + "</tr>"
+                mrows = [head]
+                for slug, iname in issues:
+                    cells = f"<td>{esc(iname)}</td>"
+                    for y in years_in:
+                        hits = [a for a in answers if a["issue_slug"] == slug and a["q_year"] == y]
+                        if not hits:
+                            cells += "<td class='empty'>—</td>"
+                        else:
+                            label = hits[0]["stance"].upper() if hits[0]["stance"] else "said"
+                            cells += f"<td>{esc(label)}</td>"
+                    mrows.append(f"<tr>{cells}</tr>")
+                bits.append(f"<table class='matrix'>{''.join(mrows)}</table>")
+            bits.append("<h2>Three quotes</h2>")
+            used_issues = set()
+            n = 0
+            for a in answers:
+                if a["issue_slug"] in used_issues:
+                    continue
+                used_issues.add(a["issue_slug"])
+                bits.append(
+                    f"<div class='card'><div class='meta'>{a['q_year']} · {esc(a['issue_name'])} "
+                    f"{stance_html(a['stance'])}</div>"
+                    f"<h3>{esc(a['prompt'])}</h3>{quote_block(a['verbatim'])}"
+                    f"<p class='note'><a href='{esc(a['source_url'])}'>{esc(a['source_title'])}</a></p></div>"
+                )
+                n += 1
+                if n >= 3:
+                    break
+            if n == 0:
+                bits.append('<p class="empty">No sourced quotes on file yet.</p>')
+        else:
+            bits.append('<p class="empty">No sourced answers on file yet this cycle.</p>')
+        money = "yes" if row["matching_funds"] else "not marked on the clerk list"
+        bits.append("<h2>Money</h2>")
+        bits.append(
+            f"<p>Matching funds: {money}. Line items (how much raised) are filed with the "
+            f"<a href='https://bouldercolorado.gov/elections/election-committee-filings'>city clerk</a>, "
+            f"not TRACER. We have not copied dollar amounts yet.</p>"
+        )
+        bits.append(
+            f"<p class='note'><a href='../people/{esc(row['slug'])}.html'>Full dossier</a> · "
+            f"<a href='../2026.html'>2026 ballot</a></p>"
+        )
+        return page(f"Print · {row['full_name']}", "\n".join(bits), prefix="../", year=2026)
+
+    print_index = [
+        "<h1>Print packet</h1>",
+        "<p class='lede'>One letter-size sheet per 2026 candidate: timeline, the issue grid, three quotes. Print from the browser. Later in the race, forums often restrict who is invited using fundraising thresholds — matching-funds flags are the first money signal we have; dollar amounts still live at the city clerk.</p>",
+        "<p class='print-hint'>Open a sheet, then File → Print. No JavaScript.</p>",
+        "<h2>Mayor</h2>",
+    ]
+    for r in candidates_for(2026, "mayor"):
+        (OUT / "print" / f"{r['slug']}.html").write_text(print_sheet(r, "mayor"), encoding="utf-8")
+        flags = []
+        if r["is_incumbent"]:
+            flags.append("incumbent")
+        if r["matching_funds"]:
+            flags.append("matching funds")
+        extra = f" · {esc(', '.join(flags))}" if flags else ""
+        print_index.append(
+            f"<div class='card'><h3><a href='{esc(r['slug'])}.html'>{esc(r['full_name'])}</a>{extra}</h3>"
+            f"<div class='meta'><a href='{esc(r['slug'])}.html'>print sheet</a></div></div>"
+        )
+    print_index.append("<h2>City council</h2>")
+    for r in candidates_for(2026, "council"):
+        (OUT / "print" / f"{r['slug']}.html").write_text(print_sheet(r, "city council"), encoding="utf-8")
+        flags = []
+        if r["is_incumbent"]:
+            flags.append("incumbent")
+        if r["matching_funds"]:
+            flags.append("matching funds")
+        extra = f" · {esc(', '.join(flags))}" if flags else ""
+        print_index.append(
+            f"<div class='card'><h3><a href='{esc(r['slug'])}.html'>{esc(r['full_name'])}</a>{extra}</h3>"
+            f"<div class='meta'><a href='{esc(r['slug'])}.html'>print sheet</a></div></div>"
+        )
+    (OUT / "print" / "index.html").write_text(
+        page("Print packet", "\n".join(print_index), prefix="../", year=2026),
+        encoding="utf-8",
+    )
+
     about = """
     <h1>About</h1>
     <p>Boulder Votes is a map of City of Boulder elections for people who have to mark a ballot, especially older voters. It is not a feed and not a scorecard.</p>
     <h2>How to use it</h2>
     <ul>
-      <li><strong>Zoom a year</strong> — the 2026 / 2025 / 2023 rail. You see that year’s ballot: people as cards, measures, the issues they have actually answered.</li>
+      <li><strong>Zoom a year</strong> — the year rail. You see that year’s ballot: people as cards, measures, the issues they have actually answered.</li>
       <li><strong>Zoom a person</strong> — the dossier. A grid of issues across the years they ran. Returning candidates keep one page.</li>
       <li><strong>Zoom an issue</strong> — pick the year. You see the people on that ballot. Earlier answers from returning candidates are labelled as earlier.</li>
+      <li><strong>Print</strong> — one letter-size sheet per 2026 candidate. File → Print.</li>
     </ul>
-    <p>A number without a source is not published. Two quotes are never averaged. A dash is a dash.</p>
+    <p>Years on the rail now run 2017–2026. 2015 and earlier are out of scope for now.</p>
+    <p>A number without a source is not published. Two quotes are never averaged. A dash is a dash. We do not score candidates.</p>
+    <p>Municipal campaign-finance filings are with the <a href="https://bouldercolorado.gov/elections/election-committee-filings">city clerk</a>, not TRACER. Matching-funds flags are on the clerk candidate list. Dollar amounts are not copied here yet.</p>
     <p>No JavaScript. Large type. Print unfolds the folded answers.</p>
     """
     (OUT / "about.html").write_text(page("About", about), encoding="utf-8")

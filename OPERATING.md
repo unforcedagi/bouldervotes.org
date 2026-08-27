@@ -34,7 +34,7 @@ GitHub Pages serves `docs/` from `main`. After a merge to `main`, Pages rebuilds
 
 1. Put it in `seed.py` or `ingest.py`, hanging off a `sources` row.
 2. Rebuild. Confirm it on the person page **and** the matching `issues/<slug>-<year>.html`.
-3. If it is a new year, add the year to `YEARS` in `build.py` and to `how` / council `seats`.
+3. If it is a new year, add the year to `YEARS` in `build.py` and to `how` / council `seats`. Rebuild will pick up the year page from the loop.
 
 Do not invent campaign URLs, attendance, or nos from silence. If only four people were named as endorsing a measure, store those four.
 
@@ -54,10 +54,19 @@ Work in a git worktree, not on `main`. Branch, commit, PR to `unforcedagi/boulde
 
 Local git identity in this repo is `unforcedagi` / `unforcedagi@users.noreply.github.com`.
 
+## Print packet
+
+`build.py` writes `docs/print/<slug>.html` for every 2026 candidate and `docs/print/index.html`. One letter-size sheet: timeline, issue grid, three quotes, matching-funds flag. No JavaScript. File → Print.
+
+## Campaign finance
+
+Municipal filings are the city clerk (`election-committee-filings`), not TRACER. Matching-funds flags come from the clerk candidate list and already hang on `candidacies.matching_funds`. Do not invent dollar amounts. When the first required statements land, harvest line items as sourced facts.
+
 ## What is parked
 
 - 2026 Chamber forum recording — they said they would publish; wait.
 - Vote411 / LWV 2026 questionnaire — when it opens.
-- Campaign-finance line items (city clerk, not TRACER).
-- 2019 and earlier cycles.
+- Campaign-finance *dollar* line items (the filing page is linked).
+- Verbatim ingest of Chamber 2025 extended PDF and Open Boulder 2025 PDFs (catalogued, not copied into `answers` yet).
+- 2015 and earlier cycles.
 - Forum transcripts as quotes (videos are linked; do not invent spoken words from a journalist’s grouping).
