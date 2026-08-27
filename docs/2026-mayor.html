@@ -25,7 +25,7 @@ body {
   line-height: 1.55;
 }
 header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
-header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; max-width: 46rem; }
+header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
 .brand { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; color: var(--ink); }
 .tagline { color: var(--muted); font-size: 0.95rem; margin: 0.25rem 0 0.75rem; }
 nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; font-size: 0.95rem; }
@@ -33,6 +33,7 @@ nav a { color: var(--link); }
 h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.75rem; }
 h2 { font-size: 1.25rem; margin: 1.75rem 0 0.5rem; }
 h3 { font-size: 1.05rem; margin: 1.2rem 0 0.35rem; }
+h4 { font-size: 1rem; margin: 1rem 0 0.3rem; }
 p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
@@ -54,47 +55,62 @@ th { font-weight: 600; }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
-blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.toc { font-size: 0.95rem; margin: 0 0 1.5rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
+.toc a { margin-right: 0.9rem; }
+.record { margin: 0.6rem 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
+.record-head { margin: 0 0 0.25rem; }
+details.quote { margin: 0.35rem 0 0.4rem; }
+details.quote > summary {
+  cursor: pointer;
+  color: var(--ink);
+  list-style: none;
+}
+details.quote > summary::-webkit-details-marker { display: none; }
+details.quote > summary::after { content: " — read full answer"; color: var(--link); font-size: 0.9rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
 .year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
 }
 @media print {
-  nav { display: none; }
+  nav, .toc { display: none; }
   a { color: inherit; text-decoration: none; }
+  details.quote { display: block; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
 }
 </style>
 </head>
 <body>
 <header>
   <a class="brand" href="index.html">Boulder Votes</a>
-  <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
+  <p class="tagline">Who is running, what they have said, cited. One issue at a time.</p>
   <nav>
     <a href="index.html">Home</a>
     <a href="2026.html">2026</a>
-    <a href="2025.html">2025</a>
-    <a href="2023.html">2023</a>
+    <a href="issues.html">Issues</a>
+    <a href="people.html">People</a>
     <a href="forums.html">Forums</a>
     <a href="measures.html">Measures</a>
-    <a href="sources.html">Sources</a>
+    <a href="2025.html">2025</a>
+    <a href="2023.html">2023</a>
     <a href="about.html">About</a>
   </nav>
 </header>
 <main>
 
     <h1>2026 mayor</h1>
-    <p>One seat. Ranked-choice voting — the second time Boulder has used it for mayor. Election day is Tuesday, November 3, 2026. Official ballot order was drawn by lot on August 25. The same information lives on the <a href="2026.html">2026 year page</a> with forums and measures.</p>
-    <p>Voters mark candidates in order of preference. If no one has a majority of first-choice rankings, the last-place candidate is eliminated and those ballots move to the next choice, until someone crosses 50%.</p>
+    <p>One seat, ranked-choice, second use. Ballot order drawn August 25. The comparison lives on <a href="issues.html">Issues</a>; this page is the field. See also the <a href="2026.html">2026 year page</a>.</p>
     <table><tr><th>Candidate</th><th></th><th>Certified</th></tr><tr><td><a href="people/taishya-adams.html">Taishya Adams</a> · <a href="https://www.adamsforboulder.com/">campaign site</a></td><td></td><td>2026-08-05</td></tr><tr><td><a href="people/aaron-brockett.html">Aaron Brockett</a> · <a href="https://brockett4mayor.org/">campaign site</a></td><td><span class="badge inc">incumbent</span><span class="badge match">matching funds</span></td><td>2026-08-11</td></tr><tr><td><a href="people/jameson-goldstein.html">Jameson Goldstein</a></td><td></td><td>2026-08-24</td></tr><tr><td><a href="people/aquiles-la-grave.html">Aquiles La Grave</a></td><td></td><td>2026-08-24</td></tr><tr><td><a href="people/lisa-ann-jacobs.html">Lisa Ann Jacobs</a></td><td></td><td>2026-08-24</td></tr><tr><td><a href="people/fred-smith.html">Fred Smith</a></td><td></td><td>2026-08-10</td></tr></table>
-    <p class="cite">Candidate list and matching-funds flags: <a href="https://bouldercolorado.gov/2026-city-boulder-mayoral-and-city-council-candidates">City of Boulder clerk, retrieved Aug 26 2026</a>. RCV explainer: <a href="https://bouldercolorado.gov/guide/ranked-choice-voting-guide">city RCV guide</a>.</p>
-    <p class="note">Aaron Brockett is the sitting mayor. Taishya Adams is a sitting councilmember; running for mayor means she is not running to keep her council seat.</p>
+    <p class="cite"><a href="https://bouldercolorado.gov/2026-city-boulder-mayoral-and-city-council-candidates">City clerk, retrieved Aug 26 2026</a>. <a href="https://bouldercolorado.gov/guide/ranked-choice-voting-guide">RCV guide</a>.</p>
     
 </main>
 <footer>
-  Prototype. Every number on this site is cited. We do not endorse candidates.
-  City of Boulder only — not county, school board, or state races.
-  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
+  Prototype. Every number is cited. We do not endorse candidates.
+  City of Boulder only. Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
+  <a href="sources.html">Source catalog</a>.
 </footer>
 </body>
 </html>

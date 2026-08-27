@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wildfire resilience — Boulder Votes</title>
+<style>
+:root {
+  --paper: #f6f0e4;
+  --ink: #1c1916;
+  --muted: #5c5348;
+  --rule: #d4c7b0;
+  --link: #1f4b73;
+  --link-visited: #5a3d6e;
+  --mark: #8b2e1a;
+  --won: #215c3a;
+}
+* { box-sizing: border-box; }
+html { font-size: 20px; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+}
+header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
+header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
+.brand { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; color: var(--ink); }
+.tagline { color: var(--muted); font-size: 0.95rem; margin: 0.25rem 0 0.75rem; }
+nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; font-size: 0.95rem; }
+nav a { color: var(--link); }
+h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.75rem; }
+h2 { font-size: 1.25rem; margin: 1.75rem 0 0.5rem; }
+h3 { font-size: 1.05rem; margin: 1.2rem 0 0.35rem; }
+h4 { font-size: 1rem; margin: 1rem 0 0.3rem; }
+p, li { max-width: 42rem; }
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+.lede { font-size: 1.1rem; }
+.note, .empty { color: var(--muted); font-size: 0.95rem; }
+.empty { font-style: italic; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
+th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
+.badge.match { border-color: var(--mark); color: var(--mark); }
+.badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
+ul.plain { padding-left: 1.1rem; }
+footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
+.cite { font-size: 0.9rem; }
+.toc { font-size: 0.95rem; margin: 0 0 1.5rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
+.toc a { margin-right: 0.9rem; }
+.record { margin: 0.6rem 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
+.record-head { margin: 0 0 0.25rem; }
+details.quote { margin: 0.35rem 0 0.4rem; }
+details.quote > summary {
+  cursor: pointer;
+  color: var(--ink);
+  list-style: none;
+}
+details.quote > summary::-webkit-details-marker { display: none; }
+details.quote > summary::after { content: " — read full answer"; color: var(--link); font-size: 0.9rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
+@media (max-width: 640px) {
+  html { font-size: 18px; }
+  table { font-size: 0.9rem; }
+}
+@media print {
+  nav, .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  details.quote { display: block; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="../index.html">Boulder Votes</a>
+  <p class="tagline">Who is running, what they have said, cited. One issue at a time.</p>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../2026.html">2026</a>
+    <a href="../issues.html">Issues</a>
+    <a href="../people.html">People</a>
+    <a href="../forums.html">Forums</a>
+    <a href="../measures.html">Measures</a>
+    <a href="../2025.html">2025</a>
+    <a href="../2023.html">2023</a>
+    <a href="../about.html">About</a>
+  </nav>
+</header>
+<main>
+<h1>Wildfire resilience</h1>
+<p class='lede'>Hardening existing homes, defensible space.</p>
+<p>Each block is one question, in one year, from one kind of source. A person may appear twice if they answered two different sources. That is the point.</p>
+<h2>2025</h2>
+<h3>Should Boulder require existing homes (not just new construction) to meet wildfire mitigation standards — such as clearing five feet around structures and banning wood fences near homes?</h3>
+<p class='note'>written questionnaire</p>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/07/2025-boulder-city-council-election-where-candidates-stand-on-making-the-city-more-wildfire-resilient/'>2025 Boulder City Council election: Where candidates stand on wildfire mitigation</a></p>
+<div class='record'>
+<p class='record-head'><a href='../people/matt-benjamin.html'>Matt Benjamin</a> <span class='stance yes'>yes</span> </p>
+<details class='quote'><summary>Yes. I support requiring wildfire mitigation and home hardening measures for existing homes because the risk of wildfire in Boulder is too urgent to ignore. The Marshall Fire showed us that fire…</summary><blockquote class='answer'>Yes. I support requiring wildfire mitigation and home hardening measures for existing homes because the risk of wildfire in Boulder is too urgent to ignore. The Marshall Fire showed us that fire doesn’t stop at the wildland–urban interface; it can sweep through neighborhoods and destroy lives and property in minutes.
+
+Science shows that steps like creating a five-foot buffer of noncombustible material around homes or limiting combustible fencing near structures dramatically improve survivability. These are practical, proven measures that reduce the likelihood of homes igniting from embers or spreading fire between properties. I also recognize these requirements may create financial and logistical challenges for homeowners, particularly in denser neighborhoods. That’s why I believe mandates must be paired with education, phased timelines, and financial assistance programs such as grants, rebates, or low-interest loans.
+
+This ensures residents aren’t left on their own to shoulder the costs of resilience. Protecting our community requires both individual responsibility and city leadership. By adopting common-sense wildfire mitigation standards, while supporting homeowners with resources, we can reduce risks for families, safeguard first responders, and make Boulder a more resilient community in the face of climate-driven wildfire.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/lauren-folkerts.html'>Lauren Folkerts</a> <span class='stance yes'>yes</span> </p>
+<details class='quote'><summary>Yes, I support requiring wildfire mitigation and home hardening for existing homes, but only if those requirements come with strong financial support and technical assistance so families aren’t…</summary><blockquote class='answer'>Yes, I support requiring wildfire mitigation and home hardening for existing homes, but only if those requirements come with strong financial support and technical assistance so families aren’t priced out of safety.
+
+As an architect, I know that small changes, like replacing combustible materials near homes or maintaining a five-foot defensible space, can dramatically reduce the chance of ignition. But I also know from personal experience that these improvements can be costly. That’s why new standards must be paired with incentives, subsidies, and practical guidance so they’re fair and achievable for everyone.
+
+Wildfire resilience isn’t just about individual properties; it’s also about community. Neighbors helping each other with mitigation projects, supporting one another during evacuations, and coming together in recovery, those connections save lives. Boulder can set a model by combining strong standards with real support and strong community networks.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a> <span class='stance yes'>yes</span> </p>
+<details class='quote'><summary>Yes. Wildfire risk is one of the greatest threats facing Boulder, and the areas at the highest risk could require mitigation and home hardening as a critical step in protecting lives, homes, and our…</summary><blockquote class='answer'>Yes. Wildfire risk is one of the greatest threats facing Boulder, and the areas at the highest risk could require mitigation and home hardening as a critical step in protecting lives, homes, and our community as a whole. That said, I believe these requirements must be paired with strong support systems so that the burden doesn’t fall unfairly on homeowners, especially those with limited resources. This means exploring subsidies, grants, and technical assistance to make compliance realistic and equitable.
+
+As someone who has worked on resilience and ecological stewardship, I see this as both a safety measure and an opportunity to build smarter, more sustainable systems. Clear standards such as defensible space around structures and fire-resistant materials can drastically reduce community-wide risk. But enforcement must go hand in hand with education, collaboration, and financial support.
+
+Ultimately, my approach is to treat wildfire mitigation not as an individual responsibility alone, but as a shared commitment to community safety.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/rob-kaplan.html'>Rob Kaplan</a> <span class='stance yes'>yes</span> </p>
+<details class='quote'><summary>Yes. With my working experience in the wildland urban interface (WUI) for over 18 years, it is clear that without retroactive requirements, the International WUI code is just a piece of paper with…</summary><blockquote class='answer'>Yes. With my working experience in the wildland urban interface (WUI) for over 18 years, it is clear that without retroactive requirements, the International WUI code is just a piece of paper with words, not a tool for real change. To truly protect our community, I would recommend phasing in the code with three basic and effective measures for existing homes, all of which can be substantially subsidized through the city’s $2,000 WRAP program and the county’s $500 rebate. These measures are: limbing tree branches up to six feet from the ground, installing 1/8-inch mesh on all passive venting to keep embers out, and creating a five-foot noncombustible perimeter around the home. These steps are practical and cost-effective, and they give firefighters a better chance to protect homes and save lives during a wildfire.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/maxwell-lord.html'>Maxwell Lord</a> <span class='stance mixed'>mixed</span> </p>
+<details class='quote'><summary>I think that the updated WUI districts and code are an important step to fire hardening the city. I also believe that forcing homeowners to make changes to their homes is not the role of the city…</summary><blockquote class='answer'>I think that the updated WUI districts and code are an important step to fire hardening the city. I also believe that forcing homeowners to make changes to their homes is not the role of the city government, particularly when we make it so hard to do so. I think that people want to protect their homes, they want to protect our city, but the city makes it too difficult to acquire permits, or really even information. The new WUI map is confusing, the codes, while important, are difficult for people to understand. I think rather than forcing anything, we need to focus on outreach, and streamline permits for homeowners who are trying to update in case of a fire. I don’t see how any one can champion “affordable housing for the missing middle” when they are also forcing homeowners to pay exorbitant fees to even have the right to protect their homes.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/montserrat-palacios.html'>Montserrat Palacios</a> <span class='stance mixed'>mixed</span> </p>
+<details class='quote'><summary>We should have minimum standards that make sense and can be implemented. For example, the five-foot buffer of noncombustible material is simple and quite impactful. At the same time, we should not be…</summary><blockquote class='answer'>We should have minimum standards that make sense and can be implemented. For example, the five-foot buffer of noncombustible material is simple and quite impactful. At the same time, we should not be banning wood fences and gates as that can create a hard financial burden for residents and these structures are already part of the functionality of their home (i.e. protect pets and provide privacy). There is no single silver bullet to prevent wild fires from spreading, we need to have a vast tool-kit and work together with Boulder’s fire-department, experts and State Officials.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/jennifer-robins.html'>Jennifer Robins</a> <span class='stance yes'>yes</span> </p>
+<details class='quote'><summary>Yes. Wildfire is an equitable disaster and it will take everything in its path without discrimination. If we don’t fire-harden now, the people who will suffer the most are our most vulnerable…</summary><blockquote class='answer'>Yes. Wildfire is an equitable disaster and it will take everything in its path without discrimination. If we don’t fire-harden now, the people who will suffer the most are our most vulnerable residents. I believe the city needs to expand wildfire mitigation beyond just new construction and additions, but we have to do it in a way that doesn’t put a crushing financial burden on homeowners or rental property owners. That means focusing first on strong incentive-based programs like rebates, grants, neighborhood cost-sharing, and partnerships with insurers and the county so people have real support to retrofit. We should also phase requirements in over time and provide extra resources for low- and middle-income households. The goal is to build resilience across the entire community, not just for those who can afford it.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/rob-smoke.html'>Rob Smoke</a> <span class='stance yes'>yes</span> </p>
+<details class='quote'><summary>Yes, I think the City needs a pragmatic approach to what it demands and where. Homes with an adjacent position to open space probably need more treatment than homes in central Boulder — although we…</summary><blockquote class='answer'>Yes, I think the City needs a pragmatic approach to what it demands and where. Homes with an adjacent position to open space probably need more treatment than homes in central Boulder — although we have had some extraordinary fires in central Boulder. On the other hand, if we’re talking about something like de-juniperizing the entire city, I think that might be problematic.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/nicole-speer.html'>Nicole Speer</a> <span class='stance mixed'>mixed</span> </p>
+<details class='quote'><summary>I have consistently supported wildfire mitigation and home hardening, without retroactive mandates on existing homes. Requiring upgrades like noncombustible buffers or banning wood fences without a…</summary><blockquote class='answer'>I have consistently supported wildfire mitigation and home hardening, without retroactive mandates on existing homes. Requiring upgrades like noncombustible buffers or banning wood fences without a remodel or rebuild places a significant financial burden on homeowners and small landlords, especially working families and people on fixed incomes. My own family went through a wildfire assessment, and it took us over a year to save enough money to begin making changes. That experience deepened my understanding of the emotional and financial weight these upgrades carry.
+
+When I talk with Boulder’s fire chief and planning department leaders, they consistently say that if they had $100 to spend on wildfire prevention, they’d put $95 toward education. Mandates without financial support and technical assistance risk pushing people to build without permits, which undermines safety and leads to punitive measures. Wildfire prevention requires education and buy-in, especially as so many in our community are struggling economically.
+
+I support incentive-based programs, public outreach, and neighborhood coordination. I’ve backed funding for wildfire mitigation, curbside assessment, and financial assistance to help property owners adopt best practices voluntarily. Wildfire resilience is essential and urgent and we have limited resources to address it. That’s why we must pursue evidence-based policies.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/aaron-stone.html'>Aaron Stone</a> <span class='stance mixed'>mixed</span> </p>
+<details class='quote'><summary>I don’t think we should be pushing these costs on to current homeowners. We can subsidize or offer incentives to those who wish to do it voluntarily while creating natural barriers to fires where…</summary><blockquote class='answer'>I don’t think we should be pushing these costs on to current homeowners. We can subsidize or offer incentives to those who wish to do it voluntarily while creating natural barriers to fires where homes are currently located. In addition we need to ensure that infrastructure exists so that firefighters can rapidly reach areas they need to if a wildfire occurs.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/mark-wallach.html'>Mark Wallach</a> <span class='stance mixed'>mixed</span> </p>
+<details class='quote'><summary>The current ordinance will apply to approximately 200 homes per year. With more than 47,000 residential units in Boulder, the time required to fully harden the City is more than 200 years. Obviously,…</summary><blockquote class='answer'>The current ordinance will apply to approximately 200 homes per year. With more than 47,000 residential units in Boulder, the time required to fully harden the City is more than 200 years. Obviously, this will not do.
+
+As a Council, we determined that we would not impose the expense upon homeowners of requiring that they rip out their existing junipers (although I believe everyone should). However, requiring a defensible space around homes is, I believe, a less onerous and still effective fire mitigation measure. In addition, all junipers should be limbed up 5-6 feet, and trimmed so that they do not touch the house. Certainly, wood fences should be prohibited going forward, or at the very least prohibited where the fence touches the house. Boulder is in the 97th percentile for fire danger in Colorado. We need to recognize that and respond to it.
+
+In some ways, this is a more significant danger than the flood danger that affects our community. Flooding will occur on exceptional occasions; one careless lit cigarette can cause a conflagration on any given day, and the time for evacuation may be very brief indeed. In light of climate change, and the prospect of a drier environment, we ignore this danger at our peril. Just ask the residents of Superior.</blockquote></details>
+</div>
+</main>
+<footer>
+  Prototype. Every number is cited. We do not endorse candidates.
+  City of Boulder only. Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
+  <a href="../sources.html">Source catalog</a>.
+</footer>
+</body>
+</html>

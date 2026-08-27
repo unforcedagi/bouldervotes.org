@@ -4,6 +4,8 @@ A sourced map of City of Boulder municipal elections — who is running, what th
 
 **Audience, first:** older voters who want to read, not decode a dashboard. Large type, one column, citations on every number.
 
+**Shape:** a year is a race (field, results, forums, measures). An issue is the comparison. A person is the dossier across years. Sources are citations, not navigation — a new article attaches to a person and an issue; it does not lengthen the year page.
+
 **Store, first:** SQLite. Cloudflare D1 is a later lift of the same schema, not a rewrite.
 
 This is a prototype. It does not endorse anyone.

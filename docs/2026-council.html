@@ -25,7 +25,7 @@ body {
   line-height: 1.55;
 }
 header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
-header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; max-width: 46rem; }
+header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
 .brand { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; color: var(--ink); }
 .tagline { color: var(--muted); font-size: 0.95rem; margin: 0.25rem 0 0.75rem; }
 nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; font-size: 0.95rem; }
@@ -33,6 +33,7 @@ nav a { color: var(--link); }
 h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.75rem; }
 h2 { font-size: 1.25rem; margin: 1.75rem 0 0.5rem; }
 h3 { font-size: 1.05rem; margin: 1.2rem 0 0.35rem; }
+h4 { font-size: 1rem; margin: 1rem 0 0.3rem; }
 p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
@@ -54,48 +55,63 @@ th { font-weight: 600; }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
-blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.toc { font-size: 0.95rem; margin: 0 0 1.5rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
+.toc a { margin-right: 0.9rem; }
+.record { margin: 0.6rem 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
+.record-head { margin: 0 0 0.25rem; }
+details.quote { margin: 0.35rem 0 0.4rem; }
+details.quote > summary {
+  cursor: pointer;
+  color: var(--ink);
+  list-style: none;
+}
+details.quote > summary::-webkit-details-marker { display: none; }
+details.quote > summary::after { content: " — read full answer"; color: var(--link); font-size: 0.9rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
 .year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
 }
 @media print {
-  nav { display: none; }
+  nav, .toc { display: none; }
   a { color: inherit; text-decoration: none; }
+  details.quote { display: block; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
 }
 </style>
 </head>
 <body>
 <header>
   <a class="brand" href="index.html">Boulder Votes</a>
-  <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
+  <p class="tagline">Who is running, what they have said, cited. One issue at a time.</p>
   <nav>
     <a href="index.html">Home</a>
     <a href="2026.html">2026</a>
-    <a href="2025.html">2025</a>
-    <a href="2023.html">2023</a>
+    <a href="issues.html">Issues</a>
+    <a href="people.html">People</a>
     <a href="forums.html">Forums</a>
     <a href="measures.html">Measures</a>
-    <a href="sources.html">Sources</a>
+    <a href="2025.html">2025</a>
+    <a href="2023.html">2023</a>
     <a href="about.html">About</a>
   </nav>
 </header>
 <main>
 
     <h1>2026 city council</h1>
-    <p>Five at-large seats. Simple plurality: the five candidates with the most votes win. Ranked-choice voting does <em>not</em> apply to council. See also the <a href="2026.html">2026 year page</a>.</p>
+    <p>Five at-large seats, plurality. RCV does not apply. <a href="2026.html">Year page</a> · <a href="issues.html">Issues</a>.</p>
     <table><tr><th>Candidate</th><th></th><th>Certified</th></tr><tr><td><a href="people/benita-duran.html">Benita Duran</a></td><td></td><td>2026-08-07</td></tr><tr><td><a href="people/sam-fuqua.html">Sam Fuqua</a></td><td></td><td>2026-08-18</td></tr><tr><td><a href="people/lee-gilbert.html">Lee Gilbert</a></td><td></td><td>2026-08-17</td></tr><tr><td><a href="people/jill-grano.html">Jill Grano</a> · <a href="https://www.jillforcouncil.com/">campaign site</a></td><td></td><td>2026-08-06</td></tr><tr><td><a href="people/rachel-rose-isaacson.html">Rachel Rose Isaacson</a> · <a href="https://www.rachelrose4boulder.com/">campaign site</a></td><td><span class="badge match">matching funds</span></td><td>2026-08-04</td></tr><tr><td><a href="people/ryan-jamieson.html">Ryan Jamieson</a></td><td></td><td>2026-08-10</td></tr><tr><td><a href="people/tina-marquis.html">Tina Marquis</a></td><td><span class="badge inc">incumbent</span><span class="badge match">matching funds</span></td><td>2026-08-17</td></tr><tr><td><a href="people/david-martus.html">David Martus</a></td><td></td><td>2026-08-24</td></tr><tr><td><a href="people/scott-rendleman.html">Scott Rendleman</a></td><td></td><td>2026-08-24</td></tr><tr><td><a href="people/jamillah-richmond.html">Jamillah Richmond</a></td><td></td><td>2026-08-17</td></tr><tr><td><a href="people/ryan-schuchard.html">Ryan Schuchard</a></td><td><span class="badge inc">incumbent</span></td><td>2026-08-06</td></tr><tr><td><a href="people/lynn-segal.html">Lynn Segal</a></td><td></td><td>2026-08-20</td></tr><tr><td><a href="people/tara-winer.html">Tara Winer</a> · <a href="https://www.taraforboulder.com/">campaign site</a></td><td><span class="badge inc">incumbent</span><span class="badge match">matching funds</span></td><td>2026-08-05</td></tr></table>
-    <p class="cite">Official list: <a href="https://bouldercolorado.gov/2026-city-boulder-mayoral-and-city-council-candidates">City of Boulder clerk</a>.</p>
-    <h2>Incumbents on this ballot</h2>
-    <p>Tara Winer (mayor pro tem), Tina Marquis, and Ryan Schuchard. The other two seats are open: Taishya Adams’s (she is running for mayor) and Mark Wallach’s (resigned July 23, 2026).</p>
-    <p>Councilmembers not on this ballot, terms through 2028: Matt Benjamin, Nicole Speer, Rob Kaplan.</p>
+    <p class="cite"><a href="https://bouldercolorado.gov/2026-city-boulder-mayoral-and-city-council-candidates">City clerk</a>.</p>
+    <p>Incumbents on this ballot: Tara Winer (mayor pro tem), Tina Marquis, Ryan Schuchard. Open: Adams’s (running for mayor) and Wallach’s (resigned). Terms through 2028, not on this ballot: Benjamin, Speer, Kaplan.</p>
     
 </main>
 <footer>
-  Prototype. Every number on this site is cited. We do not endorse candidates.
-  City of Boulder only — not county, school board, or state races.
-  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
+  Prototype. Every number is cited. We do not endorse candidates.
+  City of Boulder only. Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
+  <a href="sources.html">Source catalog</a>.
 </footer>
 </body>
 </html>

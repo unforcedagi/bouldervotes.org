@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Housing — Boulder Votes</title>
+<style>
+:root {
+  --paper: #f6f0e4;
+  --ink: #1c1916;
+  --muted: #5c5348;
+  --rule: #d4c7b0;
+  --link: #1f4b73;
+  --link-visited: #5a3d6e;
+  --mark: #8b2e1a;
+  --won: #215c3a;
+}
+* { box-sizing: border-box; }
+html { font-size: 20px; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+}
+header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
+header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
+.brand { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; color: var(--ink); }
+.tagline { color: var(--muted); font-size: 0.95rem; margin: 0.25rem 0 0.75rem; }
+nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; font-size: 0.95rem; }
+nav a { color: var(--link); }
+h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.75rem; }
+h2 { font-size: 1.25rem; margin: 1.75rem 0 0.5rem; }
+h3 { font-size: 1.05rem; margin: 1.2rem 0 0.35rem; }
+h4 { font-size: 1rem; margin: 1rem 0 0.3rem; }
+p, li { max-width: 42rem; }
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+.lede { font-size: 1.1rem; }
+.note, .empty { color: var(--muted); font-size: 0.95rem; }
+.empty { font-style: italic; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
+th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
+.badge.match { border-color: var(--mark); color: var(--mark); }
+.badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
+ul.plain { padding-left: 1.1rem; }
+footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
+.cite { font-size: 0.9rem; }
+.toc { font-size: 0.95rem; margin: 0 0 1.5rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
+.toc a { margin-right: 0.9rem; }
+.record { margin: 0.6rem 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
+.record-head { margin: 0 0 0.25rem; }
+details.quote { margin: 0.35rem 0 0.4rem; }
+details.quote > summary {
+  cursor: pointer;
+  color: var(--ink);
+  list-style: none;
+}
+details.quote > summary::-webkit-details-marker { display: none; }
+details.quote > summary::after { content: " — read full answer"; color: var(--link); font-size: 0.9rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
+@media (max-width: 640px) {
+  html { font-size: 18px; }
+  table { font-size: 0.9rem; }
+}
+@media print {
+  nav, .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  details.quote { display: block; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="../index.html">Boulder Votes</a>
+  <p class="tagline">Who is running, what they have said, cited. One issue at a time.</p>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../2026.html">2026</a>
+    <a href="../issues.html">Issues</a>
+    <a href="../people.html">People</a>
+    <a href="../forums.html">Forums</a>
+    <a href="../measures.html">Measures</a>
+    <a href="../2025.html">2025</a>
+    <a href="../2023.html">2023</a>
+    <a href="../about.html">About</a>
+  </nav>
+</header>
+<main>
+<h1>Housing</h1>
+<p class='lede'>Supply, middle-income housing, Area III, ADUs, duplex/triplex, vacancy tax.</p>
+<p>Each block is one question, in one year, from one kind of source. A person may appear twice if they answered two different sources. That is the point.</p>
+<h2>2023</h2>
+<h3>What is your plan for increasing Boulder’s affordable housing supply?</h3>
+<p class='note'>written questionnaire</p>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/09/2023-boulder-city-council-election-where-the-candidates-stand-on-affordable-housing/'>2023 Boulder City Council election: Where the candidates stand on affordable housing</a></p>
+<div class='record'>
+<p class='record-head'><a href='../people/taishya-adams.html'>Taishya Adams</a> </p>
+<details class='quote'><summary>We need to better define what “affordable” means across the socioeconomic spectrum in our city. Building on the recent success of the rise in occupancy limit, we must invest in climate resilient…</summary><blockquote class='answer'>We need to better define what “affordable” means across the socioeconomic spectrum in our city. Building on the recent success of the rise in occupancy limit, we must invest in climate resilient neighborhoods with multi-unit duplex, triplexes, commercial, transportation and community/communal spaces. Houses are a part of a neighborhood, which also must include access to food, jobs, childcare, schools, etc.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/silas-atkins.html'>Silas Atkins</a> </p>
+<details class='quote'><summary>In the short term, we need to build more housing and a variety of housing in transit rich corridors that have city services already available, which keeps costs down, meets climate goals with reduced…</summary><blockquote class='answer'>In the short term, we need to build more housing and a variety of housing in transit rich corridors that have city services already available, which keeps costs down, meets climate goals with reduced emissions from sprawl, as well as maximizing existing resources, and let’s people spend more time in the community. Long term, we need to designate more housing as permanently affordable and use strategies like a public financial institution to fund them.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/terri-brncic.html'>Terri Brncic</a> </p>
+<details class='quote'><summary>Density alone will not create affordability unless it is coupled with explicit affordability commitments and targeted development. To that end, I would support light and thoughtful upzoning of…</summary><blockquote class='answer'>Density alone will not create affordability unless it is coupled with explicit affordability commitments and targeted development. To that end, I would support light and thoughtful upzoning of single-family neighborhoods if it includes permanent affordability provisions. For example, if we are proposing a triplex project, one of the three units should be designated permanently affordable.
+
+I take the same position around increasing population density in Boulder neighborhoods. Given the significant financial benefit that increased occupancy offers to investors and landlords, the recent occupancy limit change should have included an affordability provision, similar to the city’s approach toward ADU variances. In exchange for a fourth or fifth tenant, the landlord would agree to reduced rent on the incremental tenant additions. This would ensure that the majority of the benefit of increased occupancy would flow directly to the renters instead of the landlord.
+
+Ultimately, we need to get more data-driven about who we are building for and what types of housing is needed. We need a better understanding of what our in-commuting workforce looks like — their housing needs, preferences, and challenges. This data will serve as a foundation for designing targeted housing solutions that cater to the evolving needs of our community.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/aaron-brockett.html'>Aaron Brockett</a> </p>
+<details class='quote'><summary>This is a critically important issue given the depth of Boulder’s housing crisis. One of our biggest opportunities is converting older business parks and strip malls into vibrant, mixed-use,…</summary><blockquote class='answer'>This is a critically important issue given the depth of Boulder’s housing crisis. One of our biggest opportunities is converting older business parks and strip malls into vibrant, mixed-use, 15-minute neighborhoods with a diversity of housing types and prices. We’re working on this in East Boulder and the Boulder Junction area and we need to continue those efforts. I am a proponent of revising our zoning codes to permit smaller, more affordable housing units. By allowing for diverse housing types like duplexes, triplexes and accessory dwelling units (ADUs), we can boost the supply of “missing middle” housing while preserving the unique character of our neighborhoods. Reducing parking requirements in new developments would lower costs as well. Reducing some of the complications and delays in our permitting process would help with housing costs and availability as well.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/jacques-decalo.html'>Jacques Decalo</a> </p>
+<details class='quote'><summary>To meet our permanently affordable low- and middle-income housing goals, we must raise and allocate more funds for this work. Inclusionary housing and linkage fees should be increased in order for…</summary><blockquote class='answer'>To meet our permanently affordable low- and middle-income housing goals, we must raise and allocate more funds for this work. Inclusionary housing and linkage fees should be increased in order for Boulder to reach the goal of 15% permanently affordable housing. We must meet this goal in a sustainable way and evaluate externalities such as air quality, increased traffic congestion, water retention, flooding and fires. This means we must develop new housing in a sensible way, prioritizing redevelopment of unused or vacant properties within “15-minute” communities with access to safe multimodal transportation. Encouraging alternative forms of transportation helps reduce cost burdens as well as reducing carbon emissions.
+
+City staff could look into exceptions to minimum parking requirements, eliminating on-site parking in exchange for higher density affordable housing units in 15-minute neighborhoods. I also believe that CU should take more responsibility for providing affordable housing for their faculty, staff and students. There needs to be a continuous review of appropriate infill on CU’s property to see what is necessary and what could evolve to better support their community. CU’s increases in student population has created pressure on the Boulder housing market and exacerbates our rental affordability problems.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/waylon-lewis.html'>Waylon Lewis</a> </p>
+<details class='quote'><summary>Boulder is becoming a white-washed homogeneous and, dare I say, more boring town that it should be or inherently is. Home prices more than doubled 15 years ago, and we have yet to recover. We are…</summary><blockquote class='answer'>Boulder is becoming a white-washed homogeneous and, dare I say, more boring town that it should be or inherently is. Home prices more than doubled 15 years ago, and we have yet to recover.
+
+We are losing good, “weird” and wonderful people every day who move away to buy a home, start a family and business. I’ve been to three housewarmings in Boulder in the last 10 years. I’d love for more folks who work in Boulder to be able to live here. Double our funding for [Boulder Housing Partners, a nonprofit serving as the city’s housing authority], which is doing amazing work, and they can double the speed of our affordable housing. Affordability is a must for the “missing middle,” too — for those with a healthy but not wealthy income. ADUs are a good start, and will help locals afford their mortgage. Density is a scary word in the mouths of developers, but in the hands of eco, caring citizens, it can result in more communities like Holiday where children’s bikes are strewn across front yards, where communities feel safe, unpretentious and fun for all.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/tina-marquis.html'>Tina Marquis</a> </p>
+<details class='quote'><summary>I appreciate Boulder’s commitment to increasing the affordable housing supply, with over 8% of our supply being affordable, outpacing our county, and more on the horizon. Like many, I am looking to…</summary><blockquote class='answer'>I appreciate Boulder’s commitment to increasing the affordable housing supply, with over 8% of our supply being affordable, outpacing our county, and more on the horizon.
+
+Like many, I am looking to increase “missing middle” housing. I would like to explore multiple pathways, including the existing downpayment assistance program, a rent-to-own program like that proposed by Mayor Johnston in Denver if successful, and opportunities in the planning reserve as part of the comp plan [Boulder Valley Comprehensive Plan] review. I am particularly interested in creating incentives for affordable ownership opportunities for people with children to ensure Boulder can offer a continuum of housing options at every income level while enabling lower- and middle-income residents to build wealth in Boulder. Finally, I would like to discuss a vacant home tax to recoup lost sales and tax revenue.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/aaron-gabriel-neyer.html'>Aaron Gabriel Neyer</a> </p>
+<details class='quote'><summary>Zoning reform. We need to gradually allow for greater density and we need to increase the amount of permanent affordable housing. I would also like to see us having a greater variability in…</summary><blockquote class='answer'>Zoning reform. We need to gradually allow for greater density and we need to increase the amount of permanent affordable housing. I would also like to see us having a greater variability in affordable housing by having permanently affordable middle-income housing, that would enable a greater and more diverse supply of affordable housing, enabling us to be a home for a wider swath of humans. A healthy community is a diverse community. This has become obvious in ecology, as we’ve seen the detrimental impacts of monoculturing, and it is true for ecologies of humans as well. We need to create structures that support a more diverse population in Boulder.
+
+This needs to be coupled with transformations of our transportation system to allow more people to live a car-lite or car-free lifestyle here, and it needs to be coupled with ecological restoration efforts to ensure that Boulder stays naturally beautiful and that there is plentiful space for all people even as we welcome more people in.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/jennifer-robins.html'>Jennifer Robins</a> </p>
+<details class='quote'><summary>We need to continue our inclusionary housing policy and commercial linkage fees to give the city the money it needs to continue working with the county and state to leverage additional funds for…</summary><blockquote class='answer'>We need to continue our inclusionary housing policy and commercial linkage fees to give the city the money it needs to continue working with the county and state to leverage additional funds for additional affordable housing opportunities. Programs like downpayment assistance are great for ownership opportunities.
+
+I believe in growth, but I also believe in maintaining the existing major charter and zoning ordinances, such as the blue line, green belt and the height restriction. We need thoughtful growth.
+
+I support strategic zoning reform to allow for slightly higher densities and gentle infill in certain areas. These areas can include our vacant or aging business and industrial districts where we can rezone to create multi-unit housing as mixed use near transit corridors. We need to reevaluate parking requirements where we have mass transit. We need more affordable housing for middle-income earners, families, seniors and students. Any zoning reform should be partnered with an affordable housing component. We have to work with the existing neighborhoods to accomplish this. We should protect the existing residents and maintain single-family neighborhoods where people are most passionate about character and development. Reform cannot be successful without the active engagement of our community.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/ryan-schuchard.html'>Ryan Schuchard</a> </p>
+<details class='quote'><summary>Align Boulder’s housing policy with our values by pursuing measures to expand Boulder’s overall stock of housing; increase the range of options in the “middle housing” category (e.g., townhomes,…</summary><blockquote class='answer'>Align Boulder’s housing policy with our values by pursuing measures to expand Boulder’s overall stock of housing; increase the range of options in the “middle housing” category (e.g., townhomes, condos, small apartments, cottage courts, co-ops, small houses on small lots, multiple small houses on large lots); and increase the number of options of affordability price points.
+
+These categories of measures are especially important:
+
+Reform zoning to make it easier to build more middle housing options. Allow more forms of development by-right, reduce minimum lot sizes, replace requirements with disallowances, and prescribe corridor plans. Cut parking subsidies. Eliminate parking mandates and reduce public spending on parking in general. Get the most out of strategic annexations. As we consider the future of the Airport, the Area 3 planning reserve, and CU South, be visionary with the possibilities for land use and make sure annexations pay their way for affordability. Reduce administrative friction. Simplify planning and permitting by lowering requirements involved in the entitlements process, streamline the planning board’s scope of veto power, and pursue opportunities to remove bottlenecks identified by staff.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/nicole-speer.html'>Nicole Speer</a> </p>
+<details class='quote'><summary>The time to increase Boulder’s affordable housing supply was 20-30 years ago. A healthy housing ecosystem has a range of housing types and prices for different stages of life and different types of…</summary><blockquote class='answer'>The time to increase Boulder’s affordable housing supply was 20-30 years ago. A healthy housing ecosystem has a range of housing types and prices for different stages of life and different types of households. It evolves over decades. The crisis we are in now is a result of past policies.
+
+Raising wages for workers and providing more basic needs assistance to families now will help more people afford housing in Boulder in the short-term, while we do the longer-term work of increasing our supply of affordable housing for the future over the next 15-30 years. We can relax zoning and land-use restrictions to allow duplexes and triplexes in single-family zones, change current code to disincentivize large homes and incentivize smaller homes, and work to ensure additions and large-scale renovations to existing single-family homes are subject to inclusionary housing fees so we have more funds to build more affordable housing in the coming decades.
+
+Incidentally, addressing this issue will also help us address homelessness. The Pew Research Center recently published a study showing that cities that made these types of land-use and zoning changes have not seen the increases in homelessness of cities that had not made these changes.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/paul-tweedlie.html'>Paul Tweedlie</a> </p>
+<blockquote class='answer'>The city should follow the Boulder Valley Comprehensive Plan and annex the 600 acres of land in the Planning Reserve and encourage the development of low-income housing.</blockquote>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/tara-winer.html'>Tara Winer</a> </p>
+<details class='quote'><summary>For those eligible, we have a fair amount of permanently affordable housing options available, and even more in the pipeline. We should continue to add to our permanently affordable housing inventory…</summary><blockquote class='answer'>For those eligible, we have a fair amount of permanently affordable housing options available, and even more in the pipeline. We should continue to add to our permanently affordable housing inventory to reach our city goals. Income diversity is important; it makes for a happier city. However, it is those in our middle-income category that have few options, if any. We have not had much success due to a variety of reasons, one of which is the cost of land. It is for this reason I would like to prioritize the Area III Planning Reserve as a council priority, as we own this land. I believe this is the location we would be able to build neighborhoods similar to the very popular Holiday Neighborhood in North Boulder. It has a variety of house types — both rentals and ownership options, both permanently affordable housing and market rate housing. It is well designed with plenty of trees and parks.
+
+Another option is redesigning some of our empty parking lots as middle-income neighborhoods with plenty of neighborhood-serving retail. Adding middle-income housing will be a council priority for me if I am reelected to city council.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/bob-yates.html'>Bob Yates</a> </p>
+<details class='quote'><summary>As a member of city council, I was proud to increase Boulder’s inclusionary housing requirement for low-income families from 20% of new housing to 25%. In parallel, I have approved dozens of new…</summary><blockquote class='answer'>As a member of city council, I was proud to increase Boulder’s inclusionary housing requirement for low-income families from 20% of new housing to 25%. In parallel, I have approved dozens of new housing projects, providing more than 1,000 new units of low-income housing during my eight years on council. I am also proud of two initiatives that I initiated during my time on council that help middle-income families live here: (1) permanently-affordable accessory dwelling units (ADUs), which we launched in 2018; and (2) a middle income down payment assistance program, which we launched this year. As mayor, I will advocate for and expand these programs. I will also accelerate the development of the Area III Planning Reserve, which can be a source for a significant number of new units of housing, northeast of town.</blockquote></details>
+</div>
+<h2>2025</h2>
+<h3>Boulder needs thousands of new homes by 2032. What specific actions would you take to overcome barriers and increase housing supply?</h3>
+<p class='note'>written questionnaire</p>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-housing-shortage/'>2025 Boulder City Council election: Where candidates stand on the housing shortage</a></p>
+<div class='record'>
+<p class='record-head'><a href='../people/matt-benjamin.html'>Matt Benjamin</a> </p>
+<details class='quote'><summary>Boulder must take bold but practical steps to address our housing shortage if we want to remain an inclusive and vibrant community. First, I will continue the work of this council to streamline and…</summary><blockquote class='answer'>Boulder must take bold but practical steps to address our housing shortage if we want to remain an inclusive and vibrant community.
+
+First, I will continue the work of this council to streamline and modernize our planning and permitting process. Every month of delay adds costs that get passed on to renters and buyers. Simplifying reviews, reducing redundancies, and setting clear timelines will make housing more attainable without compromising community values.
+
+Second, we must reform our land use code to allow more diverse housing types, ADUs, duplexes, townhomes, and cottage courts, especially near transit corridors. These “missing middle” homes provide attainable options for families and workers currently priced out of Boulder. I am proud to help lead Council in this direction with the update to the Boulder Valley Comprehensive Plan.
+
+Finally, I support revising our Inclusionary Housing ordinance so it better incentivizes middle-income housing. Paired with state tools like the Middle-Income Housing Tax Credit, this can finally produce housing for working families, teachers, nurses, and first responders.
+
+We need to act with urgency, cutting red tape and aligning incentives so Boulder can build the homes we need, while protecting affordability, equity, and resilience.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/lauren-folkerts.html'>Lauren Folkerts</a> </p>
+<details class='quote'><summary>Boulder needs to take bold but practical steps to address our housing shortage. I would focus on three priorities: 1. Update our comprehensive plan. We must allow more flexibility in land use,…</summary><blockquote class='answer'>Boulder needs to take bold but practical steps to address our housing shortage. I would focus on three priorities:
+
+1. Update our comprehensive plan. We must allow more flexibility in land use, particularly around housing density. That means making it easier to build duplexes, triplexes, townhomes, and cottage courts in more places so we create a wider variety of housing choices.
+
+2. Streamline process and reduce fees. We’ve already made progress reducing red tape, but we need to go further. A clearer, more predictable process lowers costs, speeds up construction, and helps small-scale and affordable housing projects succeed, especially when we reduce fees for projects that deliver on our affordability goals.
+
+3. Ensure homes are used as homes. A vacancy tax would discourage leaving units empty or using them only as investments, while generating revenue for affordable housing.
+
+By combining more flexible planning, streamlined rules, and stronger accountability, we can add the thousands of homes Boulder needs while ensuring that Boulder remains not just beautiful, but vibrant and welcoming.
+
+Update: Some of these responses have been edited for brevity.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a> </p>
+<details class='quote'><summary>Boulder’s housing shortage is one of the most urgent issues we face, and meeting the thousands of new homes needed by 2032 requires both decisive action and thoughtful collaboration. First, we must…</summary><blockquote class='answer'>Boulder’s housing shortage is one of the most urgent issues we face, and meeting the thousands of new homes needed by 2032 requires both decisive action and thoughtful collaboration. First, we must streamline approval processes for projects that meet our community’s affordability and sustainability goals. Delays and cost overruns not only discourage builders but also make housing more expensive. By improving efficiency while maintaining accountability, we can lower costs and get homes built faster.
+
+Second, Boulder’s zoning needs to evolve. Allowing more diverse housing types, such as townhouses, triplexes, and accessory dwelling units, particularly along transit corridors and in walkable neighborhoods, can help us expand housing options while reducing sprawl and advancing our climate commitments.
+
+Third, we need stronger affordability strategies. This includes expanding land banking, investing in community land trusts, and creating public-private-philanthropic partnerships to ensure new homes remain accessible for generations. Pairing these strategies with incentives for nonprofit and mission-driven developers can keep affordability at the center of our efforts.
+
+Finally, community-oriented strategies are key. In my neighborhood near North Boulder Park, residents, housing activists, and developers worked together to integrate mixed housing types. The result is a vibrant, intergenerational community that shows how gentle, community-driven density can strengthen neighborhoods and support our local economy.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/rob-kaplan.html'>Rob Kaplan</a> </p>
+<details class='quote'><summary>Yes, I support the goal of 1,000 permanently affordable middle-income units by 2030, but with only 150 expected to be completed, we must be realistic where we stand. The target was well-intentioned,…</summary><blockquote class='answer'>Yes, I support the goal of 1,000 permanently affordable middle-income units by 2030, but with only 150 expected to be completed, we must be realistic where we stand. The target was well-intentioned, but it didn’t fully account for today’s escalating costs of land, construction materials, and labor that we’re facing today. To make meaningful progress, we need to reassess and focus on policies that will actually result in more housing built rather than setting goals that sound good but aren’t grounded in reality. That said, we can’t afford to give up, we need innovative, practical strategies to close the gap.
+
+First, increase supply through smart zoning by allowing targeted density along transit corridors and near employment centers.
+
+Second, leverage innovative financing tools like land-lease models, down payment assistance, and Private Public Partnerships.
+
+Third, cut red tape by streamlining our permitting process to reduce costs and timelines. At the same time, we must build flexibility into our policies so when innovation or a unique opportunity presents itself, the city can move quickly.
+
+Finally, we must acknowledge reality: even with aggressive housing efforts, many workers will continue commuting into Boulder by expanding Park-and-Ride facilities, partnering with local businesses to operate van shuttles, and improving regional bus services.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/maxwell-lord.html'>Maxwell Lord</a> </p>
+<details class='quote'><summary>I think we are going to need to accept the fact that Boulder is changing. The whole world is getting a little more crowded, and we can’t simply pull the ladder up behind us if we have lived here…</summary><blockquote class='answer'>I think we are going to need to accept the fact that Boulder is changing. The whole world is getting a little more crowded, and we can’t simply pull the ladder up behind us if we have lived here longer. That means changing land-use policy to allow more housing at the peripheries of the city, apartment complexes within, and duplexes and triplexes in some of our tough-to-build-in neighborhoods. We need to keep a tight eye on contractors who are hired by the city (once again, this is a good insight I think I would bring to the council) so we aren’t wasting money on city projects, and also confirm that they follow the guidelines we require for equitable housing. This only begins to address housing supply though, and we need to help renters with the existing housing by creating greater protections.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/montserrat-palacios.html'>Montserrat Palacios</a> </p>
+<details class='quote'><summary>First, we have to be realistic that there is always going to be a shortage of housing in a city like Boulder as it has national and international demand. We must have clear priorities and then…</summary><blockquote class='answer'>First, we have to be realistic that there is always going to be a shortage of housing in a city like Boulder as it has national and international demand. We must have clear priorities and then legislate around them. As an example, we should avoid sprawl, we must protect our green-belt and maintain strict regulations on height restrictions because we all want to enjoy and be energized by the foothills. We can and should increase density (smartly) by allowing projects that provide much needed homes for families and middle-income service personnel (teachers, health care, city workers, professors, etc.). We have a fair amount of homes in large lots, if the city does not allow duplexes, triplexes or more-than-one single-family-home per lot, investors will continue to build ultra-luxury extra-large-homes to be able to recoup their investment. A community of smaller homes, like ‘Holiday’ in North Boulder, can host more families in the same area, which leads to higher school enrollment and a significant boost to the local economy (restaurants, stores, after-school classes, churches, charities, retail, etc).</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/jennifer-robins.html'>Jennifer Robins</a> </p>
+<details class='quote'><summary>Boulder has done a good job supporting affordable housing, and we have no shortage of high-end, market-rate homes, but what’s missing is the middle. Our middle income earners often can’t find housing…</summary><blockquote class='answer'>Boulder has done a good job supporting affordable housing, and we have no shortage of high-end, market-rate homes, but what’s missing is the middle. Our middle income earners often can’t find housing here, even though they’re the backbone of our community. We need to make it easier and more attractive for developers and builders to create homes that middle earners actually want to live in. That means streamlining the process and providing the right incentives so that “missing middle” housing duplexes, townhomes, smaller condos can actually get built in Boulder. I would explore the option of reducing impact fees for developers that want to build for this population. Part of the solution also means looking ahead and exploring the Area III Planning Reserve in a thoughtful, deliberate way. If we plan carefully, we could use that land to create truly livable, mixed-income neighborhoods that include middle-income housing and the services that support it. We need to approach it with balance and intention, so we’re building for the community.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/rob-smoke.html'>Rob Smoke</a> </p>
+<details class='quote'><summary>I grew up in one of tens of thousands of apartments built by legislation supporting co-operative low- to middle-income housing. The legislation, passed in 1955, created a very clear formula for…</summary><blockquote class='answer'>I grew up in one of tens of thousands of apartments built by legislation supporting co-operative low- to middle-income housing. The legislation, passed in 1955, created a very clear formula for collaboration between governmental agencies and NGOs interested in creating affordable housing. I would like to see the city generate at least one pilot project to gain an understanding of the “equity framework” and whether or not the program can be expanded.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/nicole-speer.html'>Nicole Speer</a> </p>
+<details class='quote'><summary>Boulder’s housing challenges don’t exist in isolation and neither do the solutions. Through my work with the Denver Regional Council of Governments (DRCOG), I helped advance the Regional Housing…</summary><blockquote class='answer'>Boulder’s housing challenges don’t exist in isolation and neither do the solutions. Through my work with the Denver Regional Council of Governments (DRCOG), I helped advance the Regional Housing Needs Assessment, which found that most homes needed by 2032 will be for low- and middle-income households. New construction alone will not meet that demand. DRCOG is now working to develop the Denver Metro region’s first Regional Housing Strategy to identify solutions to these shortages.
+
+Locally, we’ve made progress expanding occupancy limits, eliminating parking minimums, and reforming zoning to allow more diverse housing types. Additional efforts have focused on simplifying permitting, reducing unpredictability, and supporting small-scale infill near transit and services to expand options. These strategies slow the increase in housing costs.
+
+Affordability is about more than housing. That’s why I’ve worked to support and expand childcare access, fare-free transit, and climate-adapted infrastructure, especially for middle-income families who often do not qualify for assistance. Scaling up subsidies and shared equity tools, such as rental assistance, down payment support, and community land trusts, is also essential.
+
+Our housing shortage is a regional challenge requiring comprehensive policies that reflect the complexity of affordability and ensure Boulder remains accessible to residents across income levels.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/aaron-stone.html'>Aaron Stone</a> </p>
+<details class='quote'><summary>I disagree with the premise of the question. If Boulder constructs thousands of new homes it will no longer be Boulder. We might as well change our name to San Jose. In the discussion of affordable…</summary><blockquote class='answer'>I disagree with the premise of the question. If Boulder constructs thousands of new homes it will no longer be Boulder. We might as well change our name to San Jose. In the discussion of affordable housing the question I haven’t seen anyone on city council ask is, “How many people do we want to live in Boulder?” Currently we have a little over 100,000. Do we want 150,000, 200,000, more? I think we need to face that question head on before we continue what we’re currently doing: building housing willy nilly, wherever a developer can find a building or two to demolish. In all my time in Boulder I’ve never seen such intense development. And let’s face it, the demand for housing will never abate until Boulder is so built out, dense, heavily trafficked, and ugly that no new people want to move here. I’d like to cap development to a fixed number of housing units before we allow the revolution of newcomers to determine what that number is, because then it’s too late. We need to be smart about how we develop. What I propose is a radical reprioritization. Let’s increase the percentage of affordable units developers have to build.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/mark-wallach.html'>Mark Wallach</a> </p>
+<details class='quote'><summary>I believe the premise of the question is not entirely correct. More than 90% of the housing Boulder currently produces is market rate stacked flat rental apartments. There is no shortage at the high…</summary><blockquote class='answer'>I believe the premise of the question is not entirely correct. More than 90% of the housing Boulder currently produces is market rate stacked flat rental apartments. There is no shortage at the high end; the shortage exists for middle-income housing (a mere 800 units, or less than 2% of our entire housing stock) and affordable housing (Boulder Housing Partners has 2,070 units in its portfolio and growing, but the need is greater).
+
+Affordable housing takes advantage of federal tax subsidies; middle-income housing has no such subsidies, which is why we have produced only 45 for-sale, deed-restricted middle-income units in the past 10 years. These shortages will not be cured by zoning changes, streamlining regulations, or eliminating community participation in the approval process.
+
+With 60,000 in-commuters, and a unique and beautiful community, it is highly unlikely that we can build our way out of these problems; demand is virtually limitless. Littering our community with a vast number of expensive, market-rate rental buildings will not serve any of our community goals, or address the problem of too many people chasing too few units. It has gotten so bad that our 2016 goal of creating 15% affordable and middle-income units is now referred to by staff as relating only to the creation of affordable housing. And the term “missing middle” has been defined to relate only to housing typology, with no reference to the price of those housing units. Middle-income housing is nowhere to be found in the concept of the “missing middle.”
+
+However, we are not without recourse. As anyone who has followed my prior campaigns would know, I have been a consistent advocate for repurposing the municipal airport to create the middle-income and family housing that the market cannot create due to the high cost of land.</blockquote></details>
+</div>
+</main>
+<footer>
+  Prototype. Every number is cited. We do not endorse candidates.
+  City of Boulder only. Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
+  <a href="../sources.html">Source catalog</a>.
+</footer>
+</body>
+</html>
