@@ -314,8 +314,8 @@ def ingest_forums(cur, *, pid: dict, add_source, orgs: dict) -> None:
         "Nomad Playhouse, 1410 Quince Ave., Boulder",
         orgs["plan"],
         "forum",
-        None,
-        "Hosted by Open Boulder, Better Boulder, and PLAN-Boulder County. 5–7:30pm. Questions not taken from the audience. Daily Camera (Sept 6) said a recording would be posted; not independently located in this pass.",
+        "https://www.youtube.com/watch?v=EVPJyt2dMvc",
+        "Hosted by Open Boulder, Better Boulder, and PLAN-Boulder County. 5–7:30pm at Nomad Playhouse. Questions not taken from the audience. Recording: PLAN-Boulder YouTube embed on the Sept 12 2025 forum post.",
         "https://www.dailycamera.com/2025/09/06/boulder-groups-host-city-council-candidate-forum-next-week/",
         "Boulder groups host City Council candidate forum next week (Daily Camera)",
         2025,
@@ -629,8 +629,280 @@ def ingest_forums(cur, *, pid: dict, add_source, orgs: dict) -> None:
         2021,
     )
 
+    # 2017 LWV — recording exists; do not invent a complete attendance list from snippets.
+    add_event(
+        "2017-lwv-council-forum",
+        "League of Women Voters city council candidate forum",
+        "2017-10-14",
+        None,
+        orgs["lwv"] if "lwv" in orgs else None,
+        "forum",
+        "https://www.youtube.com/watch?v=x18o4Ke4gvc",
+        "YouTube title: Boulder City Council Candidate Forum Presented by The League of Women Voters. Published Oct 14 2017. Name-by-name attendance not copied from the tape in this pass — the video is the source.",
+        "https://www.youtube.com/watch?v=x18o4Ke4gvc",
+        "Boulder City Council Candidate Forum Presented by The League of Women Voters (2017)",
+        2017,
+    )
 
-def ingest_measures(cur, *, add_source, org_city: int, org_brl: int, org_camera: int, e2021: int, e2023: int, e2025: int, e2026: int) -> None:
+    add_event(
+        "2025-arts-forum",
+        "Boulder City Council Candidates Forum on the Arts",
+        "2025-09-30",
+        "Boulder Chamber, 2440 Pearl St., Boulder",
+        orgs["chamber"],
+        "forum",
+        "https://www.youtube.com/watch?v=VHJFiM-Skh8",
+        "Presented by Boulder County Arts Alliance, Create Boulder, and the Boulder Chamber. 5–7pm. Full recording split into three videos (YouTube playlist). Attendance not copied name-by-name in this pass.",
+        "https://www.youtube.com/watch?v=VHJFiM-Skh8",
+        "(Part 1/3) 2025 Boulder City Council Candidates Forum on the Arts",
+        2025,
+    )
+    add_source(
+        "https://www.youtube.com/playlist?list=PL28uLDYXI7hJ8dJGKAObgFccqnPVni6Pp",
+        "2025 Boulder City Council Candidates Forum on the Arts (playlist)",
+        "video",
+        2025,
+        orgs["chamber"],
+        "2025-09-30",
+        "Three-part recording. Parts: VHJFiM-Skh8, i6fIxjQFTLU, rVI1skKxKII.",
+    )
+
+    add_source(
+        "https://www.planboulder.org/2025-city-council-candidates-forum",
+        "2025 City Council Candidates Forum — PLAN-Boulder County",
+        "article",
+        2025,
+        orgs["plan"],
+        "2025-09-12",
+        "PLAN post with the YouTube embed of the Sept 8 VOTES! collaborative forum.",
+    )
+    add_source(
+        "https://www.planboulder.org/2025-mayor-and-city-council-candidate-endorsements",
+        "2025 City Council Candidate Endorsements — PLAN-Boulder County",
+        "article",
+        2025,
+        orgs["plan"],
+        "2025-09-23",
+        "Says the board evaluated candidates’ responses to the PLAN-Boulder questionnaire after the collaborative forum. Full questionnaire dump not independently published on this page.",
+    )
+    add_source(
+        "https://www.boulderchamber.com/assets/pdf/2025-BCC_BallotScorecard-ExtendedResponses-FNL",
+        "2025 Boulder Chamber ballot scorecard — extended candidate responses",
+        "questionnaire",
+        2025,
+        orgs["chamber"],
+        None,
+        "Chamber sent written questions to 2025 council candidates and published extended responses as a PDF. Not ingested as scored stances here — the PDF is the source.",
+    )
+    add_source(
+        "https://www.youtube.com/watch?v=XwVdRqEJkgE",
+        "2025 City Council Candidate Scorecard (Boulder Chamber)",
+        "video",
+        2025,
+        orgs["chamber"],
+        "2025-10-03",
+        "Chamber video announcing the 2025 candidate scorecard. Extended written answers are in the PDF, not this clip.",
+    )
+    add_source(
+        "https://www.openboulder.org/Resources",
+        "2025 Voting Resources — Open Boulder",
+        "questionnaire",
+        2025,
+        orgs.get("open"),
+        None,
+        "Heading: 2025 City Council Candidate Questionnaire Responses. Individual PDFs are linked from this page /s/ paths.",
+    )
+    for person, fname in [
+        ("Mark Wallach", "Wallach.pdf"),
+        ("Matt Benjamin", "Benjamin.pdf"),
+        ("Jennifer Robins", "Robins.pdf"),
+        ("Rob Kaplan", "Kaplan.pdf"),
+        ("Lauren Folkerts", "Folkerts.pdf"),
+        ("Nicole Speer", "Speer.pdf"),
+        ("Rachel Rose Isaacson", "Isaacson.pdf"),
+        ("Maxwell Lord", "Lord.pdf"),
+    ]:
+        add_source(
+            f"https://www.openboulder.org/s/{fname}",
+            f"Open Boulder 2025 candidate questionnaire — {person}",
+            "questionnaire",
+            2025,
+            orgs.get("open"),
+            None,
+            "Written answers hosted on Open Boulder. Smoke, Stone, and Palacios PDFs were not at the same /s/ path in this pass.",
+        )
+    add_source(
+        "https://archives.boulderweekly.com/content-archives/voters-guide/2023-boulder-city-council-candidate-questionnaires/",
+        "2023 Boulder City Council Candidate Questionnaires — Boulder Weekly",
+        "questionnaire",
+        2023,
+        orgs.get("weekly"),
+        "2023-10-04",
+        "Per-candidate questionnaire pages. Index only catalogued this pass; verbatim not copied into answers.",
+    )
+    add_source(
+        "https://bouldercolorado.gov/2025-city-council-candidate-videos",
+        "2025 City Council Candidate Videos | City of Boulder",
+        "video",
+        2025,
+        orgs.get("city"),
+        None,
+        "City-hosted three-minute videos, ballot order. This box received 403 fetching the page; the URL is the city’s published path.",
+    )
+
+
+def ingest_measures(cur, *, add_source, org_city: int, org_brl: int, org_camera: int, e2017: int, e2019: int, e2021: int, e2023: int, e2025: int, e2026: int) -> None:
+    s_2017_enr = _ensure_source(
+        cur,
+        add_source,
+        "https://electionresults.bouldercounty.gov/ElectionResults2017C/",
+        "Boulder County 2017 Coordinated Election official results (ENR)",
+        "results",
+        2017,
+        None,
+        "2017-11-21",
+        "Official results last updated 11/21/2017 4:23 PM.",
+    )
+    for slug, letter, title, kind, status, summary, yes, no, notes in [
+        (
+            "2017-2l-uot",
+            "2L",
+            "Utility occupation tax increase and extension",
+            "tax",
+            "passed",
+            "Continued funding for the city’s municipal-electric-utility effort (separation from Xcel). City-level certified yes 51.70%.",
+            15852,
+            14807,
+            "Certified ENR. 51.70% yes.",
+        ),
+        (
+            "2017-2m-cip-tax",
+            "2M",
+            "0.3 cents capital improvement tax extension",
+            "tax",
+            "passed",
+            "Extends the 0.3-cent capital improvement sales tax for city and nonprofit capital projects.",
+            25438,
+            5417,
+            "Certified ENR. 82.44% yes.",
+        ),
+        (
+            "2017-2n-cip-debt",
+            "2N",
+            "Debt authority for capital improvement tax",
+            "bond",
+            "passed",
+            "Authorizes city debt paid from the 2M capital-improvement tax.",
+            21433,
+            8280,
+            "Certified ENR. 72.13% yes.",
+        ),
+        (
+            "2017-2o-muni-go-nogo",
+            "2O",
+            "Charter requirement for a vote before electric-construction debt",
+            "charter",
+            "passed",
+            "Requires another citizen vote before Boulder issues debt to build a municipal electric utility.",
+            24423,
+            5084,
+            "Certified ENR. 82.77% yes.",
+        ),
+        (
+            "2017-2p-muni-executive-session",
+            "2P",
+            "Charter provision allowing executive sessions for municipalization",
+            "charter",
+            "failed",
+            "Would have allowed executive sessions on municipalization negotiations. Voters rejected it.",
+            12534,
+            16286,
+            "Certified ENR. Failed. 43.49% yes.",
+        ),
+        (
+            "2017-2q-charter-cleanup",
+            "2Q",
+            "Charter clean-up",
+            "charter",
+            "passed",
+            "Administrative charter clean-up on the 2017 city ballot.",
+            19400,
+            9014,
+            "Certified ENR. 68.28% yes.",
+        ),
+    ]:
+        cur.execute(
+            """INSERT INTO measures
+               (slug, election_id, letter, title, kind, status, summary, ballot_language, source_id, notes)
+               VALUES (?,?,?,?,?,?,?,?,?,?)""",
+            (slug, e2017, letter, title, kind, status, summary, None, s_2017_enr, notes),
+        )
+        mid = cur.lastrowid
+        cur.execute(
+            """INSERT INTO measure_results (measure_id, yes_votes, no_votes, passed, source_id, notes)
+               VALUES (?,?,?,?,?,?)""",
+            (mid, yes, no, 1 if status == "passed" else 0, s_2017_enr, "Official ENR 11/21/2017."),
+        )
+
+    s_2019_enr = _ensure_source(
+        cur,
+        add_source,
+        "https://electionresults.bouldercounty.gov/ElectionResults2019C/",
+        "Boulder County 2019 Coordinated Election official results (ENR)",
+        "results",
+        2019,
+        None,
+        "2019-11-14",
+        "Official results last updated 11/14/2019 4:35 PM.",
+    )
+    for slug, letter, title, kind, status, summary, yes, no, notes in [
+        (
+            "2019-2g-vape-tax",
+            "2G",
+            "Tax on tobacco vaping products",
+            "tax",
+            "passed",
+            "Sales and use tax of up to 40% of the retail price of electronic smoking devices, first-year increase $2.5 million, for licensing, health promotion, and general city services.",
+            27159,
+            6930,
+            "Certified ENR. 79.67% yes.",
+        ),
+        (
+            "2019-2h-open-space-longs",
+            "2H",
+            "Sales and use tax extension for open space and Long’s Gardens",
+            "tax",
+            "passed",
+            "Extends the existing 0.15-cent transportation sales tax to Dec 31 2039 and redirects it to open-space maintenance, restoration, acquisition, and preservation, including a first-year conservation easement at Long’s Gardens, 3240 Broadway.",
+            29450,
+            4867,
+            "Certified ENR. 85.82% yes.",
+        ),
+        (
+            "2019-2i-middle-income-housing",
+            "2I",
+            "Middle-income housing program",
+            "bond",
+            "passed",
+            "Authorizes up to $10 million of city debt (maximum repayment $15 million), without raising taxes, for permanently affordable deed restrictions and loans to middle-income households buying homes in Boulder.",
+            23358,
+            10386,
+            "Certified ENR. 69.22% yes.",
+        ),
+    ]:
+        cur.execute(
+            """INSERT INTO measures
+               (slug, election_id, letter, title, kind, status, summary, ballot_language, source_id, notes)
+               VALUES (?,?,?,?,?,?,?,?,?,?)""",
+            (slug, e2019, letter, title, kind, status, summary, None, s_2019_enr, notes),
+        )
+        mid = cur.lastrowid
+        cur.execute(
+            """INSERT INTO measure_results (measure_id, yes_votes, no_votes, passed, source_id, notes)
+               VALUES (?,?,?,?,?,?)""",
+            (mid, yes, no, 1, s_2019_enr, "Official ENR 11/14/2019."),
+        )
+
     s_2021_sov = _ensure_source(
         cur,
         add_source,
