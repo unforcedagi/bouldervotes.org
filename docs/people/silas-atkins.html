@@ -37,7 +37,8 @@ p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
 .lede { font-size: 1.1rem; }
-.note { color: var(--muted); font-size: 0.95rem; }
+.note, .empty { color: var(--muted); font-size: 0.95rem; }
+.empty { font-style: italic; }
 table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
 th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
 th { font-weight: 600; }
@@ -46,9 +47,15 @@ th { font-weight: 600; }
 .badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
+blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
@@ -65,11 +72,11 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
   <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
   <nav>
     <a href="../index.html">Home</a>
-    <a href="../2026-mayor.html">2026 mayor</a>
-    <a href="../2026-council.html">2026 council</a>
+    <a href="../2026.html">2026</a>
     <a href="../2025.html">2025</a>
     <a href="../2023.html">2023</a>
     <a href="../forums.html">Forums</a>
+    <a href="../measures.html">Measures</a>
     <a href="../sources.html">Sources</a>
     <a href="../about.html">About</a>
   </nav>
@@ -82,10 +89,34 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
 <h2>Results</h2><ul class='plain'>
 <li>2023 Boulder City Council, round 1: 6,829 votes</li>
 </ul>
+<h2>Forums</h2><ul class='plain'>
+<li>2023-08-29 Boulder Chamber City Council and Mayoral Candidate Forum — attended · <a href="https://www.youtube.com/watch?v=AEkK1eSLmNk">recording</a></li>
+</ul>
+<h2>On the record</h2>
+<h3>2023 questionnaire</h3>
+<h3>What do you think are the most promising initiatives for reducing homelessness?</h3>
+<blockquote class='answer'>Housing is at the core of my campaign, which is centered around meeting people’s basic needs. We do that by using safe outdoor spaces (tents and parking areas with bathrooms, trash service, counseling, etc.), day shelters, overnight shelters, hotels, vacant office/commercial space, sober supportive housing, transitional housing, building more housing of all types in areas with services, and expanding long term affordability through permanently affordable housing and more market rate and luxury housing stock.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/'>2023 Boulder City Council election: Where the candidates stand on homelessness solutions</a></p>
+<h3>What approach would you take to address camping in our parks, on our bike paths and along our waterways?</h3>
+<blockquote class='answer'>Give people a place to go, which needs to be housing first with supportive services. Moving people around is harmful, costly, and does not solve anything. Everyone is welcome to and deserving of housing and everything comes back to people. We need our basic needs met, and when they are, we are more productive and engaged members of our community. When those of us that are struggling succeed, it benefits everyone long term and we all win. As was shown during the King Soopers shooting, the people that we see in the grocery store every day impact our lives as we impact theirs. Don’t you want the person who serves you lunch, teaches your children, responds to medical emergencies, and provides city services to live in your neighborhood so we all get more from our time together?</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/'>2023 Boulder City Council election: Where the candidates stand on homeless encampments</a></p>
+<h3>What is your plan for increasing Boulder’s affordable housing supply?</h3>
+<blockquote class='answer'>In the short term, we need to build more housing and a variety of housing in transit rich corridors that have city services already available, which keeps costs down, meets climate goals with reduced emissions from sprawl, as well as maximizing existing resources, and let’s people spend more time in the community. Long term, we need to designate more housing as permanently affordable and use strategies like a public financial institution to fund them.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/09/2023-boulder-city-council-election-where-the-candidates-stand-on-affordable-housing/'>2023 Boulder City Council election: Where the candidates stand on affordable housing</a></p>
+<h3>We are in a climate emergency. With your leadership, how would Boulder change commensurately?</h3>
+<blockquote class='answer'>I have touched on this in my previous answers [in the BRL questionnaire] around dense housing near services, and additionally we need to invest in multi-modal transportation. When bikes, pedestrians and buses have dedicated space, it allows more people to get out of their cars and reduce emissions. We also need to reduce asphalt and concrete surfaces that create heat islands and we need to turn parking lots into housing.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-climate-change-action/'>2023 Boulder City Council election: Where the candidates stand on climate change action</a></p>
+<h3>How can we better provide alternatives to cars when existing infrastructure prioritizes cars?</h3>
+<blockquote class='answer'>We need to stop prioritizing cars. All modes of transportation should be treated equally providing safe routes to where we need to go. Safer infrastructure can reduce car crashes by up to 66% in one study, and non-car transportation reduces emissions as well as the need for costly car only infrastructure construction and maintenance.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/06/2023-boulder-city-council-election-where-the-candidates-stand-on-making-streets-safer-for-cyclists-walkers-and-others/'>2023 Boulder City Council election: Where the candidates stand on making streets safer for cyclists, walkers and others</a></p>
+<h3>Assume you are elected this November. What one specific thing will you have accomplished that you’re proud of after one year?</h3>
+<blockquote class='answer'>Success is defined for all of us by making people’s lives better. An example of this was the approval of Ordinance 8585, increasing occupancy of unrelated people to five. That will reduce anxiety, provide housing stability and tenant rights, and help us be an inclusive place. The more we lift us all up, the more successful we are as a community, and the more we all benefit.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-their-one-year-visions/'>2023 Boulder City Council election: Where the candidates stand on their one-year visions</a></p>
 </main>
 <footer>
   Prototype. Every number on this site is cited. We do not endorse candidates.
   City of Boulder only — not county, school board, or state races.
+  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
 </footer>
 </body>
 </html>

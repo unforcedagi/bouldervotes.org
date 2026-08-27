@@ -37,7 +37,8 @@ p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
 .lede { font-size: 1.1rem; }
-.note { color: var(--muted); font-size: 0.95rem; }
+.note, .empty { color: var(--muted); font-size: 0.95rem; }
+.empty { font-style: italic; }
 table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
 th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
 th { font-weight: 600; }
@@ -46,9 +47,15 @@ th { font-weight: 600; }
 .badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
+blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
@@ -65,11 +72,11 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
   <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
   <nav>
     <a href="index.html">Home</a>
-    <a href="2026-mayor.html">2026 mayor</a>
-    <a href="2026-council.html">2026 council</a>
+    <a href="2026.html">2026</a>
     <a href="2025.html">2025</a>
     <a href="2023.html">2023</a>
     <a href="forums.html">Forums</a>
+    <a href="measures.html">Measures</a>
     <a href="sources.html">Sources</a>
     <a href="about.html">About</a>
   </nav>
@@ -77,29 +84,31 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
 <main>
 
     <h1>About this prototype</h1>
-    <p>Boulder Votes is being built as a public-interest map of City of Boulder elections, starting with 2023, 2025, and the 2026 cycle now underway. The first store is a SQLite database. The first website is generated from that database. Nothing here is an endorsement.</p>
+    <p>Boulder Votes is a public-interest map of City of Boulder elections, starting with 2023, 2025, and the 2026 cycle now underway. The store is a SQLite database. The website is generated from that database. Nothing here is an endorsement.</p>
     <h2>Rules of the data</h2>
     <ul class="plain">
       <li>A number without a source is not published.</li>
       <li>A “position” is a quote or a journalist’s reported grouping, hanging off a source — not our summary of a person’s soul.</li>
+      <li>Comparison grids stack sourced answers. They do not score candidates.</li>
       <li>Incumbency, matching funds, and certified-on dates come from the city clerk list unless noted.</li>
       <li>Older voters are the first audience: large type, one column, print-friendly, no motion.</li>
     </ul>
     <h2>What is not here yet</h2>
     <ul class="plain">
-      <li>Full BRL 2025 questionnaire answers (catalogued, not ingested).</li>
-      <li>Campaign finance line items (the city has a filings page; TRACER is state-level and does not cover this race).</li>
-      <li>The rest of the 2026 forum season.</li>
-      <li>Most campaign websites.</li>
-      <li>Ballot measures, BVSD, county races.</li>
-      <li>Any social layer — ratings, comments, AT Proto. That is later, on purpose.</li>
+      <li>The August 26, 2026 Chamber forum recording — parked until the Chamber publishes it.</li>
+      <li>Line-by-line transcripts of 2023/2025 forum video (the videos themselves are linked).</li>
+      <li>Campaign finance line items (city filings page; TRACER does not cover this race).</li>
+      <li>Most 2026 campaign websites.</li>
+      <li>Vote411 / LWV 2026 questionnaire, when it opens.</li>
+      <li>BVSD, county, state. Any social layer — ratings, comments, AT Proto. Later, on purpose.</li>
     </ul>
-    <p>Live: <a href="https://unforcedagi.github.io/bouldervotes.org/">unforcedagi.github.io/bouldervotes.org</a>. Local path: <code>~/REPOS/bouldervotes.org</code>. Rebuild with <code>python3 seed.py && python3 build.py</code>.</p>
+    <p>Live: <a href="https://bouldervotes.org/">bouldervotes.org</a>. Rebuild with <code>python3 harvest_brl.py && python3 seed.py && python3 build.py</code>.</p>
     
 </main>
 <footer>
   Prototype. Every number on this site is cited. We do not endorse candidates.
   City of Boulder only — not county, school board, or state races.
+  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
 </footer>
 </body>
 </html>

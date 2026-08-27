@@ -1,0 +1,924 @@
+{
+  "harvested_at": "2026-08-27",
+  "source": "Boulder Reporting Lab WP JSON",
+  "posts": [
+    {
+      "year": 2023,
+      "slug": "2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions",
+      "url": "https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/",
+      "title": "2023 Boulder City Council election: Where the candidates stand on homelessness solutions",
+      "published_on": "2023-10-04",
+      "prompt": "What do you think are the most promising initiatives for reducing homelessness?",
+      "issue": "homelessness",
+      "binary": false,
+      "skipped_headings": [],
+      "answers": [
+        {
+          "person": "Tina Marquis",
+          "verbatim": "Homelessness is complex, and people are homeless for different reasons. I believe we’ll need several tools to address this humanitarian crisis. I would advocate for more supportive housing, increased behavioral health treatment, and ready-to-work programs. I also believe Boulder cannot solve this issue alone, and nor can Denver.\n\nI will advocate for partnerships across the metro region and hope we work together to create solutions for homelessness. I am optimistic about new grant funding received by multiple groups county-wide serving the homeless to expand support for the homeless, including housing.\n\n[Editor’s note: Earlier this year, the city was awarded $2.5 million from the state to create a respite center for homeless people and help launch a non-police behavioral health crisis response program. And last month, the city was awarded additional money to pay for 40 housing vouchers, which subsidize rent, and other homelessness services.]",
+          "stance": null
+        },
+        {
+          "person": "Jennifer Robins",
+          "verbatim": "There are many factors that contribute to homelessness. These include lack of housing, income inequity, substance abuse and mental health issues. I am committed to working to increase affordable housing and streamlining city processes to allow for more affordable housing opportunities. I am open to exploring the possibility for tiny homes or micro-communities, where we could move groups of people into tier 1 housing.\n\nThe unhoused have communities just like you and I. If we can work with the encampments in that light, I think that the level of success would be much greater than trying to move people into individual housing and removing them from their existing personal support structure. These options should be funded by the county using the extension of the Alternative Sentencing Facility tax that will be on the ballot next year.\n\nIn addition to our existing services, I think the most promising initiatives for ending homelessness include our existing night shelter and the coming day shelter. The existing council has also approved the day shelter, which will be an important addition to our current services. It will provide another path for people to get connected to services.",
+          "stance": null
+        },
+        {
+          "person": "Nicole Speer",
+          "verbatim": "Homelessness encompasses the encampments in our public spaces to families doubling up in single-family homes. Regardless of the type of homelessness we talk about, no one finds our current situation acceptable. Thankfully, there are evidence-based, data-driven strategies that prevent, reduce and even eliminate homelessness.\n\nFocusing on prevention will avoid continued increases in homelessness. Meanwhile, let’s support evidence-based, data-driven approaches to reducing and even ending homelessness. Read more about how we can reduce homelessness in Boulder.",
+          "stance": null
+        },
+        {
+          "person": "Jacques Decalo",
+          "verbatim": "We must address the issues at the heart of the problem, establishing facilities that can rehabilitate, house and address the mental health issue that those experiencing homelessness are facing. Pushing people around from one town to another does nothing but perpetuate relapses. Over my lifetime of living in Boulder I have seen the camping and crime associated with the homeless population rise to levels never experienced. Those experiencing homelessness can feel cast out of society. We must increase touch points to build trust and have them be accepting and ready to receive help.\n\nWe need to invest in regional facilities that give people an opportunity to sober up with mental health resources that allow them to understand the reason for their substance abuse. Once sober, programs that house and provide continued mental health assessments can be allocated. It is important to give people a space that they can feel is their own in order to get their feet back underneath them. We must find ways to house those ready to work and give them opportunities for income. This is not just a Boulder issue. It is regional and national. We must increase funding from the state and federal level.",
+          "stance": null
+        },
+        {
+          "person": "Bob Yates",
+          "verbatim": "In the September issue of my monthly newsletter, the Boulder Bulletin, I set forth eight solutions to eight homelessness problems. Briefly, those solutions are (1) providing permanent supportive housing; (2) treating mental illness and substance abuse; (3) using the night shelter more effectively; (4) opening a day shelter; (5) enforcing our camping ban; (6) cleaning up encampments rapidly; (7) establishing consequences for repeat criminal offenses; and (8) addressing transience. I invite community members to read my proposals and to provide their input.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Gabriel Neyer",
+          "verbatim": "We need to work with greater urgency to spin up better services, most specifically a night shelter and a day shelter. Then we need to put more resources into mental health outreach teams who can go and build relationships with the unhoused, to help understand their needs and to more effectively direct them to resources. We need to use enforcement carefully, to help nudge the unhoused people into conversations with outreach teams who will get them help and to address those who are unhoused who seem less interested in getting help and more interested in creating trouble — especially those stealing or selling drugs.",
+          "stance": null
+        },
+        {
+          "person": "Ryan Schuchard",
+          "verbatim": "Our homelessness crisis is driven by poverty and a lack of housing. These circumstances are worsening, nationally and in Boulder, with homelessness at much higher levels in communities with limited housing affordability like ours. Furthermore, we need to be realistic about the fact that the way out of homelessness is frequently complicated by mental illness and substance abuse.\n\nThe most promising initiatives for reducing homelessness are the following:\n\nImmediate stability and support. Safe places for people to go, both during the day and at night, with a more robust system of caseworkers and resources to help people effectively manage individual challenges. We also need to invest in comprehensive engagement to meet the needs of “superusers,” the top 50 or so people who cycle from crisis to crisis. Finally, we must create more local treatment services for mental health and addiction for everyone, regardless of housing status.\n\nTransitional housing. More comprehensive options for tiny homes and other transitional housing, with varying levels of supervision and support, aiming to put people on paths to permanent homes. Prop 123 funding should be useful. [Editor’s note: Proposition 123 is a voter-approved 2022 ballot measure that dedicates a portion of income tax revenue to affordable housing programs.]\n\nHomelessness prevention. Renter protections and assistance, with more abundant affordable housing options overall to prevent people from slipping into homelessness.",
+          "stance": null
+        },
+        {
+          "person": "Terri Brncic",
+          "verbatim": "With an estimated 75% of the unsheltered population suffering from substance abuse disorders, untreated mental illness, or both, we can’t continue to insist that housing alone will solve the problem. We need a continuum of treatment options that will provide these individuals with the immediate care that they need while putting them on a path to stable housing.\n\nThis means expanding and enhancing our detox facility so that we have an “emergency room” to intake individuals in crisis. It means building out sober-supported transitional housing where they can go after detox or post jail release to continue to focus on their recovery. And it means creating a streamlined network of treatment facilities so that we have options for individuals that are struggling and need extra support.\n\nWe also need to get more data-driven about the effectiveness of permanent supportive housing. We need much more transparency around the very real issues that are occurring in this housing — overdoses, meth contamination, evictions, etc. If the city is going to insist that “housing first” is the answer, it needs to be supported with facts so that we can optimize what’s working and course correct on what’s not.",
+          "stance": null
+        },
+        {
+          "person": "Tara Winer",
+          "verbatim": "I believe housing with supportive services is the most effective way to help reduce homelessness. Because many people experiencing homelessness suffer from mental health issues and or drug addiction, having 24/7 wrap-around services would give people the highest probability of success in housing. We need options for people to access this kind of help, especially options that accept Medicaid. Our state is sorely lacking in these areas. I have been working with county and state representatives to provide options.\n\nReady-to- work programs like Bridge House offers, are unique in that they provide employment, housing and support.\n\nA few months ago, I visited The Other Side Academy. It’s a live-in program where students learn vocational and life skills. It’s dedicated to those in the criminal justice system that struggle with substance abuse. Boulder’s Community Court program made its first successful referral to The Other Side Academy for an unhoused, criminal justice-involved individual!\n\nUltimately, we need more housing for the unhoused. The City of Aurora’s pallet homes are 10 x 10, equipped with power, air conditioning and heat. A non-profit staffs the community 24 hours a day. This, in my opinion, is the most promising initiative.",
+          "stance": null
+        },
+        {
+          "person": "Taishya Adams",
+          "verbatim": "Homelessness is a response to failed policy, not failed people. I believe the most promising initiatives in reducing homelessness are those that are sufficiently funded, staffed and supported over multiple years. Our affected community members and community support organizations have been clear on the need for sustained support of existing evidence-based approaches (e.g. day community center) while expanding mental health, detox, recovery, transitional living, etc. This is not charity. These extreme inequities are a result of a system that encourages myopic economic growth on the backs of discriminatory policies.",
+          "stance": null
+        },
+        {
+          "person": "Waylon Lewis",
+          "verbatim": "First of all, stop the infighting. We can’t make meaningful progress and actually help people, increase safety and return our town to a baseline of functionality, access and safety for all.\n\nSpecifically, I’m supportive of the camping ban. Our parks are for all of us. Right now they’re getting trashed, and we’re paying millions of dollars to move folks repeatedly a block or two and see the next area trashed. It’s also not safe for our homeless friends — drug use, untreated, is heartbreaking. Same with mental well-being. Same with assault, which is sadly prevalent — homeless women and youth are assaulted at alarming rates — up to 79% according to some studies. The status quo is good for no one.\n\nSo not only am I supportive of the camping ban, I’m supportive of enforcing it. Then, moving folks to a safe, warm, cool, dog-friendly longer-term space where nonprofits (which cost taxpayers nothing) and our police can go to one space. That’s a two-step process that has actually worked in many cities. Saved money. And increased safety — for all.",
+          "stance": null
+        },
+        {
+          "person": "Silas Atkins",
+          "verbatim": "Housing is at the core of my campaign, which is centered around meeting people’s basic needs. We do that by using safe outdoor spaces (tents and parking areas with bathrooms, trash service, counseling, etc.), day shelters, overnight shelters, hotels, vacant office/commercial space, sober supportive housing, transitional housing, building more housing of all types in areas with services, and expanding long term affordability through permanently affordable housing and more market rate and luxury housing stock.",
+          "stance": null
+        },
+        {
+          "person": "Paul Tweedlie",
+          "verbatim": "City Council’s passing of the Police Master Plan was a great step forward.\n\n[Editor’s note: The Boulder City Council has endorsed the city’s “Reimagine Policing Plan,” which seeks to focus more on crime prevention and less on reacting to crime.]",
+          "stance": null
+        },
+        {
+          "person": "Aaron Brockett",
+          "verbatim": "The need for additional solutions for unhoused community members is great. I firmly support the creation of more permanent supportive housing using the “housing first” model as well as interim solutions like tiny home villages and safe outdoor spaces like those implemented in Denver.\n\nWe also need to ensure better access to mental health and substance use treatment options, including with transitional housing. Another important piece of the puzzle is opening the day services centers to connect people experiencing homelessness with services and housing. We can make many of these initiatives possible by leveraging state Proposition 123 funding.",
+          "stance": null
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "slug": "2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments",
+      "url": "https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/",
+      "title": "2023 Boulder City Council election: Where the candidates stand on homeless encampments",
+      "published_on": "2023-10-11",
+      "prompt": "What approach would you take to address camping in our parks, on our bike paths and along our waterways?",
+      "issue": "homelessness",
+      "binary": false,
+      "skipped_headings": [],
+      "answers": [
+        {
+          "person": "Tina Marquis",
+          "verbatim": "I would continue to enforce the camping ban, with priority enforcement around schools, medical centers, day cares and recreation centers, as well as multi-use paths, waterways and areas more vulnerable to wildfires.\n\nEnforcement around schools would continue to be the top priority for me so that our students can rely on a safe and welcoming experience every day they go to school. I am supportive of the Reimagine Policing plan that focuses on prevention, equity and compassion, which I believe balances our community’s interest in both helping those experiencing homelessness and maintaining safe and welcoming public spaces. I also support the Crisis Intervention Response Team to respond to the needs of our community as well as the homeless day center to provide a place for the unhoused to rest, receive support, and connect to services during the day. Finally, the end goal is of course to eliminate the need for camping by providing affordable and supportive housing.",
+          "stance": null
+        },
+        {
+          "person": "Jacques Decalo",
+          "verbatim": "The unsanctioned public camping is infringing on residents, tourists, businesses,and other’s freedom, safety and peaceful access to our public spaces. As a lifelong Boulder biker, I want everyone to have equally safe experiences on our paths without threat from others. I support enforcing the camping ban as well as Safe Zones for Kids.\n\nThe reason these people are camping where they are is because of a multitude of reasons but primarily seeking a space for shelter. I support a combined approach of public safety guardrails and compassionate, effective programs that address homelessness and the needs of those people via better mental health resources and opportunities. Providing housing needs to be combined with coordinated entry and access to mental health and substance use rehabilitation programs. I fully support the Bridge House and other ready-to-work programs that help transition people out of homelessness with housing, job training and needed health resources. We must work to increase access to programs that rehabilitate people experiencing homelessness and encourage them to become functioning members of society. I would like to see the shelter expanded to a 24-hour shelter with increased provisions to mental health resources and drug addiction therapy.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Brockett",
+          "verbatim": "A key part of the approach needs to be giving people more sheltering, service and housing options so they have alternatives to camping in town. But we also need to continue the enforcement of the city’s camping ban so that we don’t have permanent encampments in town with the trash, sanitation and safety issues that accompany them. That is why I supported adding a second clean up team earlier this year. We also have increased enforcement around Boulder High and now confiscate propane tanks on sight. We also now require people to move immediately if they are obstructing bike paths or other rights of way.",
+          "stance": null
+        },
+        {
+          "person": "Ryan Schuchard",
+          "verbatim": "We need to bring multiple forces under control. These solutions seem promising:\n\nEnsure the police chief has what’s needed to keep sidewalks and multi-use paths clear to minimize user conflicts. The police need to continue to be able to prioritize enforcement resources to keep pedestrian and cycling paths open and accessible for all.\n\nImplement non-police responses to assist people in mental health distress. Use civilian personnel to respond to people in crisis, which Boulder will soon do through its CARE program, which is more cost effective and a lower-confrontation way to address disruptive behaviors in public spaces.\n\nProvide resources to keep people healthy and parks clean. Boulder needs more accessible public toilets/port-a-pots, trash and needle disposal locations, access to drinking water, and other amenities to foster hygienic care and to prevent human waste from polluting public spaces.\n\nEstablish a wider and more accessible network of places for people to go who have been asked to decamp. The day shelter coming online will help. We also need more options for immediate overnight camping and parking.\n\nGive people experiencing homelessness while going through a range of challenging life circumstances an accessible pipeline to crucial services.\n\n[Editor’s note: Schuchard referred to his response to a question about homelessness to expand upon his answer.]",
+          "stance": null
+        },
+        {
+          "person": "Silas Atkins",
+          "verbatim": "Give people a place to go, which needs to be housing first with supportive services. Moving people around is harmful, costly, and does not solve anything. Everyone is welcome to and deserving of housing and everything comes back to people. We need our basic needs met, and when they are, we are more productive and engaged members of our community. When those of us that are struggling succeed, it benefits everyone long term and we all win. As was shown during the King Soopers shooting, the people that we see in the grocery store every day impact our lives as we impact theirs. Don’t you want the person who serves you lunch, teaches your children, responds to medical emergencies, and provides city services to live in your neighborhood so we all get more from our time together?",
+          "stance": null
+        },
+        {
+          "person": "Nicole Speer",
+          "verbatim": "It is unacceptable that we have people living in our public spaces. To address this situation, we need to invest in evidence-based solutions such as those mentioned above, and divest in failed policies. The climate crisis was exacerbated by people’s inability to believe in science and accept facts. Our encampment situation is also exacerbated by our unwillingness to believe in science, listen to people with lived experience, and accept the facts about who is homeless and why.\n\nHousing ends homelessness, but we do not have the financial or staffing resources to rapidly build permanent, supportive housing for everyone who is camping in our parks and along our waterways and multi-use paths. We can, however, divert the funding we spend on encampment removals and follow Denver’s lead by creating micro-communities that can more quickly provide sheltered communities with wraparound services for people whose needs cannot be met by existing shelters.\n\nThese micro-communities should be small (6-8 individuals per micro-community), they should be equitably distributed across the city, and we should incentivize their use rather than punishing use of public spaces. Read more about how we can fund evidence-based policies at no additional cost with the 2024 budget, and finally reduce encampments.",
+          "stance": null
+        },
+        {
+          "person": "Jennifer Robins",
+          "verbatim": "Encampments are not a compassionate solution. There is no sobriety on the creek. No one should be living on the street. The unhoused are a very vulnerable part of our community. Unfortunately, we have situations where the current encampments are the cause for micro crime hot spots, which show 30% of crime is occurring in 10% of the city. A good portion of the more serious misdemeanors are happening to the unhoused from the unhoused. [Editor’s note: The Boulder Police Department has not published publicly available data on which reports of crime involve homeless people.]\n\nWe have an obligation to help those in need. We also have an obligation to provide our community the ability to enjoy the city and feel safe, and too often that is not the reality they are experiencing. A small portion of the homeless population makes a negative impact on our community by way of overrunning public spaces and transportation, theft, trash, creek pollution, property destruction and ongoing safety issues for city workers. We need to continue outreach to the people in the encampments to get them involved with coordinated entry and the services that are offered in our city. We have to enforce the camping ban laws and continue to utilize law enforcement to help with this on-going issue.",
+          "stance": null
+        },
+        {
+          "person": "Terri Brncic",
+          "verbatim": "We need to change the dialogue in our community and acknowledge that allowing individuals to suffer severe crises in our public spaces without any meaningful response is not compassionate or humane. It’s also not safe — for anyone. Boulder’s unsheltered population is 3.5 times more likely to be victimized than the housed population and incidents of assault and overdoses are widespread. At the same time, these conditions are creating a dangerous environment for our community members who no longer feel safe using our public spaces.\n\nWhile the city’s long-term focus is on treatment and stable housing, these solutions will take time. In the interim, we must ensure that the unsheltered population resides in a safe indoor space. The city needs to enforce the existing camping ban and enact a mandatory sheltering protocol that will take a triaged approach toward providing appropriate indoor shelter based on individual circumstances. Whether it is by utilizing the available space in our existing shelters — an average of 35 unutilized beds per night — or expanding our detox facility that can scale up to 40 beds, we must agree that we have a responsibility to protect our vulnerable residents and make public spaces available to all.\n\n[Editor’s note: While the shelter does often have empty beds in the summer, it turns people away due to a lack of capacity on some nights during the winter months, according to publicly available city data. The shelter, located in North Boulder, also prohibits people from entering for other reasons, such as not completing a screening process, known as coordinated entry, or having a pet.]",
+          "stance": null
+        },
+        {
+          "person": "Taishya Adams",
+          "verbatim": "I advocate for investments in evidence-based, knowledge-aligned proactive approaches like basic income support, increasing the minimum wage to a living wage to stop new people from becoming unhoused, and expand affordable housing programs to include transitional and sober living options. I bring an ecosystem approach to policymaking that addresses more than the tip of the iceberg.",
+          "stance": null
+        },
+        {
+          "person": "Waylon Lewis",
+          "verbatim": "This isn’t easy, making progress — but the status quo is far harder on all of us. It’s not safe for joggers, for tourists, for seniors, for cyclists or for our homeless. It’s also a moral issue: We can not allow ourselves as a society to look the other way on freezing cold nights or 100 degree days. We can work in concert with our police force, our non-profits and our homeless friends to help folks get the care they need to get back to permanent housing and active roles in society and employment. As for those concerned about making Boulder attractive to homeless elsewhere, that’s where the “stick” of carrot-fame comes in: enforcement.",
+          "stance": null
+        },
+        {
+          "person": "Tara Winer",
+          "verbatim": "I support Boulder’s encampment ban. Our public spaces need to be shared. The encampment ban is certainly not a solution for homelessness, but it is a tool to help maintain our shared spaces. Our SAMPS team (Safe and Managed Public Spaces), is a multi-departmental clean up team. I had the opportunity to walk around town with this team; they were compassionate and professional. They attempt to engage people in resources. Their process involves advanced notices. Cleanup day is the last step of a long process.\n\nWe have a shelter for people to have somewhere to sleep at night. But they do need somewhere to go during the day. That is why I support a day shelter with toilets, showers, locker, and connections to other support services. About a year ago council allocated an additional $1 million for this initiative.\n\nOur bike paths need to be clear from obstructions. When biking through a dark underpass, it is crucial for safety for all that the underpass is clear. We need real solutions, not bandaids. One solution I will champion is pallet homes. Neighboring cities are having success with this inexpensive, efficient type of housing which can be constructed quickly.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Gabriel Neyer",
+          "verbatim": "I would support police reform that amplifies more mental health outreach to better understand the problems facing those on the streets and help to more effectively connect them with services; and then have a light but strong touch by police which enforces people moving in the direction of getting support while ensuring that our spaces are able to stay safe and clean. This has to happen through greater collaboration between departments, which is already beginning to happen in increasing ways within city government. Mental health responders, police officers, service workers and more; need to be moving together as a team with a unified intention that both includes having safe and clean public spaces, and helping our most vulnerable populations.",
+          "stance": null
+        },
+        {
+          "person": "Bob Yates",
+          "verbatim": "Camping in Boulder’s public spaces, including in parks, on bike paths, and along waterways is — and should remain — illegal. It is neither safe for the campers, nor for housed residents. When someone takes public space for their exclusive use, the rest of the community is excluded. To address this inappropriate and illegal taking, I helped launch the city’s internal encampment clean-up crew, and I successfully advocated for the clean-up crew’s doubling in 2023. We should continue to expand the clean-up crew’s capacity until it becomes clear to would-be campers that camping in Boulder’s public spaces is illegal and unsafe, and that there are safer and more appropriate places where they can live as they connect to long-term solutions to end their homelessness.",
+          "stance": null
+        },
+        {
+          "person": "Paul Tweedlie",
+          "verbatim": "We need to enforce our laws. A first misdemeanor gets you a ticket and a fine. If you don’t pay your fine, you go to jail.",
+          "stance": null
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "slug": "2023-boulder-city-council-election-where-the-candidates-stand-on-affordable-housing",
+      "url": "https://boulderreportinglab.org/2023/10/09/2023-boulder-city-council-election-where-the-candidates-stand-on-affordable-housing/",
+      "title": "2023 Boulder City Council election: Where the candidates stand on affordable housing",
+      "published_on": "2023-10-09",
+      "prompt": "What is your plan for increasing Boulder’s affordable housing supply?",
+      "issue": "housing",
+      "binary": false,
+      "skipped_headings": [],
+      "answers": [
+        {
+          "person": "Waylon Lewis",
+          "verbatim": "Boulder is becoming a white-washed homogeneous and, dare I say, more boring town that it should be or inherently is. Home prices more than doubled 15 years ago, and we have yet to recover.\n\nWe are losing good, “weird” and wonderful people every day who move away to buy a home, start a family and business. I’ve been to three housewarmings in Boulder in the last 10 years. I’d love for more folks who work in Boulder to be able to live here. Double our funding for [Boulder Housing Partners, a nonprofit serving as the city’s housing authority], which is doing amazing work, and they can double the speed of our affordable housing. Affordability is a must for the “missing middle,” too — for those with a healthy but not wealthy income. ADUs are a good start, and will help locals afford their mortgage. Density is a scary word in the mouths of developers, but in the hands of eco, caring citizens, it can result in more communities like Holiday where children’s bikes are strewn across front yards, where communities feel safe, unpretentious and fun for all.",
+          "stance": null
+        },
+        {
+          "person": "Jennifer Robins",
+          "verbatim": "We need to continue our inclusionary housing policy and commercial linkage fees to give the city the money it needs to continue working with the county and state to leverage additional funds for additional affordable housing opportunities. Programs like downpayment assistance are great for ownership opportunities.\n\nI believe in growth, but I also believe in maintaining the existing major charter and zoning ordinances, such as the blue line, green belt and the height restriction. We need thoughtful growth.\n\nI support strategic zoning reform to allow for slightly higher densities and gentle infill in certain areas. These areas can include our vacant or aging business and industrial districts where we can rezone to create multi-unit housing as mixed use near transit corridors. We need to reevaluate parking requirements where we have mass transit. We need more affordable housing for middle-income earners, families, seniors and students. Any zoning reform should be partnered with an affordable housing component. We have to work with the existing neighborhoods to accomplish this. We should protect the existing residents and maintain single-family neighborhoods where people are most passionate about character and development. Reform cannot be successful without the active engagement of our community.",
+          "stance": null
+        },
+        {
+          "person": "Taishya Adams",
+          "verbatim": "We need to better define what “affordable” means across the socioeconomic spectrum in our city. Building on the recent success of the rise in occupancy limit, we must invest in climate resilient neighborhoods with multi-unit duplex, triplexes, commercial, transportation and community/communal spaces. Houses are a part of a neighborhood, which also must include access to food, jobs, childcare, schools, etc.",
+          "stance": null
+        },
+        {
+          "person": "Silas Atkins",
+          "verbatim": "In the short term, we need to build more housing and a variety of housing in transit rich corridors that have city services already available, which keeps costs down, meets climate goals with reduced emissions from sprawl, as well as maximizing existing resources, and let’s people spend more time in the community. Long term, we need to designate more housing as permanently affordable and use strategies like a public financial institution to fund them.",
+          "stance": null
+        },
+        {
+          "person": "Jacques Decalo",
+          "verbatim": "To meet our permanently affordable low- and middle-income housing goals, we must raise and allocate more funds for this work. Inclusionary housing and linkage fees should be increased in order for Boulder to reach the goal of 15% permanently affordable housing. We must meet this goal in a sustainable way and evaluate externalities such as air quality, increased traffic congestion, water retention, flooding and fires. This means we must develop new housing in a sensible way, prioritizing redevelopment of unused or vacant properties within “15-minute” communities with access to safe multimodal transportation. Encouraging alternative forms of transportation helps reduce cost burdens as well as reducing carbon emissions.\n\nCity staff could look into exceptions to minimum parking requirements, eliminating on-site parking in exchange for higher density affordable housing units in 15-minute neighborhoods. I also believe that CU should take more responsibility for providing affordable housing for their faculty, staff and students. There needs to be a continuous review of appropriate infill on CU’s property to see what is necessary and what could evolve to better support their community. CU’s increases in student population has created pressure on the Boulder housing market and exacerbates our rental affordability problems.",
+          "stance": null
+        },
+        {
+          "person": "Tina Marquis",
+          "verbatim": "I appreciate Boulder’s commitment to increasing the affordable housing supply, with over 8% of our supply being affordable, outpacing our county, and more on the horizon.\n\nLike many, I am looking to increase “missing middle” housing. I would like to explore multiple pathways, including the existing downpayment assistance program, a rent-to-own program like that proposed by Mayor Johnston in Denver if successful, and opportunities in the planning reserve as part of the comp plan [Boulder Valley Comprehensive Plan] review. I am particularly interested in creating incentives for affordable ownership opportunities for people with children to ensure Boulder can offer a continuum of housing options at every income level while enabling lower- and middle-income residents to build wealth in Boulder. Finally, I would like to discuss a vacant home tax to recoup lost sales and tax revenue.",
+          "stance": null
+        },
+        {
+          "person": "Bob Yates",
+          "verbatim": "As a member of city council, I was proud to increase Boulder’s inclusionary housing requirement for low-income families from 20% of new housing to 25%. In parallel, I have approved dozens of new housing projects, providing more than 1,000 new units of low-income housing during my eight years on council. I am also proud of two initiatives that I initiated during my time on council that help middle-income families live here: (1) permanently-affordable accessory dwelling units (ADUs), which we launched in 2018; and (2) a middle income down payment assistance program, which we launched this year. As mayor, I will advocate for and expand these programs. I will also accelerate the development of the Area III Planning Reserve, which can be a source for a significant number of new units of housing, northeast of town.",
+          "stance": null
+        },
+        {
+          "person": "Ryan Schuchard",
+          "verbatim": "Align Boulder’s housing policy with our values by pursuing measures to expand Boulder’s overall stock of housing; increase the range of options in the “middle housing” category (e.g., townhomes, condos, small apartments, cottage courts, co-ops, small houses on small lots, multiple small houses on large lots); and increase the number of options of affordability price points.\n\nThese categories of measures are especially important:\n\nReform zoning to make it easier to build more middle housing options. Allow more forms of development by-right, reduce minimum lot sizes, replace requirements with disallowances, and prescribe corridor plans. Cut parking subsidies. Eliminate parking mandates and reduce public spending on parking in general. Get the most out of strategic annexations. As we consider the future of the Airport, the Area 3 planning reserve, and CU South, be visionary with the possibilities for land use and make sure annexations pay their way for affordability. Reduce administrative friction. Simplify planning and permitting by lowering requirements involved in the entitlements process, streamline the planning board’s scope of veto power, and pursue opportunities to remove bottlenecks identified by staff.",
+          "stance": null
+        },
+        {
+          "person": "Nicole Speer",
+          "verbatim": "The time to increase Boulder’s affordable housing supply was 20-30 years ago. A healthy housing ecosystem has a range of housing types and prices for different stages of life and different types of households. It evolves over decades. The crisis we are in now is a result of past policies.\n\nRaising wages for workers and providing more basic needs assistance to families now will help more people afford housing in Boulder in the short-term, while we do the longer-term work of increasing our supply of affordable housing for the future over the next 15-30 years. We can relax zoning and land-use restrictions to allow duplexes and triplexes in single-family zones, change current code to disincentivize large homes and incentivize smaller homes, and work to ensure additions and large-scale renovations to existing single-family homes are subject to inclusionary housing fees so we have more funds to build more affordable housing in the coming decades.\n\nIncidentally, addressing this issue will also help us address homelessness. The Pew Research Center recently published a study showing that cities that made these types of land-use and zoning changes have not seen the increases in homelessness of cities that had not made these changes.",
+          "stance": null
+        },
+        {
+          "person": "Terri Brncic",
+          "verbatim": "Density alone will not create affordability unless it is coupled with explicit affordability commitments and targeted development. To that end, I would support light and thoughtful upzoning of single-family neighborhoods if it includes permanent affordability provisions. For example, if we are proposing a triplex project, one of the three units should be designated permanently affordable.\n\nI take the same position around increasing population density in Boulder neighborhoods. Given the significant financial benefit that increased occupancy offers to investors and landlords, the recent occupancy limit change should have included an affordability provision, similar to the city’s approach toward ADU variances. In exchange for a fourth or fifth tenant, the landlord would agree to reduced rent on the incremental tenant additions. This would ensure that the majority of the benefit of increased occupancy would flow directly to the renters instead of the landlord.\n\nUltimately, we need to get more data-driven about who we are building for and what types of housing is needed. We need a better understanding of what our in-commuting workforce looks like — their housing needs, preferences, and challenges. This data will serve as a foundation for designing targeted housing solutions that cater to the evolving needs of our community.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Gabriel Neyer",
+          "verbatim": "Zoning reform. We need to gradually allow for greater density and we need to increase the amount of permanent affordable housing. I would also like to see us having a greater variability in affordable housing by having permanently affordable middle-income housing, that would enable a greater and more diverse supply of affordable housing, enabling us to be a home for a wider swath of humans. A healthy community is a diverse community. This has become obvious in ecology, as we’ve seen the detrimental impacts of monoculturing, and it is true for ecologies of humans as well. We need to create structures that support a more diverse population in Boulder.\n\nThis needs to be coupled with transformations of our transportation system to allow more people to live a car-lite or car-free lifestyle here, and it needs to be coupled with ecological restoration efforts to ensure that Boulder stays naturally beautiful and that there is plentiful space for all people even as we welcome more people in.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Brockett",
+          "verbatim": "This is a critically important issue given the depth of Boulder’s housing crisis. One of our biggest opportunities is converting older business parks and strip malls into vibrant, mixed-use, 15-minute neighborhoods with a diversity of housing types and prices. We’re working on this in East Boulder and the Boulder Junction area and we need to continue those efforts. I am a proponent of revising our zoning codes to permit smaller, more affordable housing units. By allowing for diverse housing types like duplexes, triplexes and accessory dwelling units (ADUs), we can boost the supply of “missing middle” housing while preserving the unique character of our neighborhoods. Reducing parking requirements in new developments would lower costs as well. Reducing some of the complications and delays in our permitting process would help with housing costs and availability as well.",
+          "stance": null
+        },
+        {
+          "person": "Paul Tweedlie",
+          "verbatim": "The city should follow the Boulder Valley Comprehensive Plan and annex the 600 acres of land in the Planning Reserve and encourage the development of low-income housing.",
+          "stance": null
+        },
+        {
+          "person": "Tara Winer",
+          "verbatim": "For those eligible, we have a fair amount of permanently affordable housing options available, and even more in the pipeline. We should continue to add to our permanently affordable housing inventory to reach our city goals. Income diversity is important; it makes for a happier city. However, it is those in our middle-income category that have few options, if any. We have not had much success due to a variety of reasons, one of which is the cost of land. It is for this reason I would like to prioritize the Area III Planning Reserve as a council priority, as we own this land. I believe this is the location we would be able to build neighborhoods similar to the very popular Holiday Neighborhood in North Boulder. It has a variety of house types — both rentals and ownership options, both permanently affordable housing and market rate housing. It is well designed with plenty of trees and parks.\n\nAnother option is redesigning some of our empty parking lots as middle-income neighborhoods with plenty of neighborhood-serving retail. Adding middle-income housing will be a council priority for me if I am reelected to city council.",
+          "stance": null
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "slug": "2023-boulder-city-council-election-where-the-candidates-stand-on-climate-change-action",
+      "url": "https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-climate-change-action/",
+      "title": "2023 Boulder City Council election: Where the candidates stand on climate change action",
+      "published_on": "2023-10-04",
+      "prompt": "We are in a climate emergency. With your leadership, how would Boulder change commensurately?",
+      "issue": "climate",
+      "binary": false,
+      "skipped_headings": [],
+      "answers": [
+        {
+          "person": "Ryan Schuchard",
+          "verbatim": "A good starting point is to consider: (1) areas of greatest potential for mitigation, illustrated by Boulder’s GHG inventory; (2) how to build adaptive capacity, which, coupled with mitigation, can be thought of as climate-resilient development; and (3) the imperative of equity and a just transition.\n\nThis evaluation has been done. In 2021, staff issued an ambitious plan to eliminate all Boulder GHG emissions by 2035 on the way to becoming a net carbon sink by 2040. So the question is, “What stands in the way of that?”\n\nThe answer: The ability and willingness of Boulder’s elected officials to contend with carbon lock-in, the phenomenon by which business-as-usual decisions continue to entrench us deeper into the climate crisis.\n\nTwo opportunities to do that and unlock climate action are as follows. First, establish a process requiring city council to identify the aspects of climate risk and opportunity in day-to-day agenda items, then rigorously evaluate issues heard on their potential for supporting the most beneficial climate action.\n\nSecond, survey our expert staff on what holds Boulder back from our most ambitious possibilities, then get to work applying the leadership and political processes of city council to create the conditions and resources necessary.",
+          "stance": null
+        },
+        {
+          "person": "Tara Winer",
+          "verbatim": "We need to decrease greenhouse gas emissions. Period.\n\nTransportation accounts for about one-third of our GHG’s. E-bikes are transformative in mode-shifting people out of cars. Increasing the amount of protected bike lanes, making sure people have secure places to park their bikes, providing free bike valet service downtown (where bikes are guarded), and continuing our e-bike rebate program are some ways we can help encourage community members to get on their bikes more often.\n\nWe must also make sure our community is fire-ready. Since the Marshall Fire, we have cut down many trees in the wildland-urban interface (so fire cannot easily jump from tree to tree and then into our neighborhoods). We have improved our emergency alert system, and we have a Wildfire Home Assessment Program that is free of charge. But we need to go farther to make sure that highly flammable building materials, fencing and shrubbery are discouraged.\n\nFurther, we need to increase our urban tree canopy, and reduce heat islands stemming from things like parking lots with black asphalt. We have incredibly smart and dedicated staff in our Climate Initiatives Department, and the best thing I can do is get out of their way and support the work.",
+          "stance": null
+        },
+        {
+          "person": "Nicole Speer",
+          "verbatim": "As the climate crisis worsens, changes that endanger entire sections of our ecosystem will happen over months rather than years. We need a climate resilience and risk assessment for each parcel of land in the city and an equity analysis of our open space charter. OSMP [Open Space and Mountain Parks] funds should start to shift to land regeneration and maintenance, such as having planting teams on our open space lands that create resilience against desertification. We must focus more on regenerating soils, planting more trees to cool our city, and talking more about how we use, catch and cycle water.\n\nThe next Boulder Valley Comprehensive Plan must have a strong climate and equity focus and move our city into the next generation of climate work by:",
+          "stance": null
+        },
+        {
+          "person": "Waylon Lewis",
+          "verbatim": "This is my first issue among equals. It’s an existential question — with a fun answer. Fun? Biking around a mature-treed town to community gatherings where folks feel safe? Fun. Homes that aren’t polluted by fracking/gas fumes? A lot more fun than having asthma and health issues.\n\nFire mitigation is an urgent priority. We need to go door-to-door with subsidies helping folks who are interested to replace wood siding and wooden fences with alternatives, to electrify and solar up their homes. The fires we saw here will return. The impact is economically devastating. This should be the top concern for the restaurant and business community. We don’t want home insurers to pull out of Boulder, as they have elsewhere. We want folks dining out on the West End patio, not hiding in their homes because it’s yet another toxic smoke day. I live on a bike. My publication, Elephant, was voted #1 for green coverage a few times. I am zero waste, vegan, and annoying in many other ways. All that’s to say: I walk my talk, I care, and we’ll do everything we can to make sure Boulder is safe and economically safe for our next generations.",
+          "stance": null
+        },
+        {
+          "person": "Jennifer Robins",
+          "verbatim": "To reach the goal of net zero emissions, I think we have to focus on using more renewable energy and reducing demand through better urban planning. From a land-use perspective, we need to allow multifamily housing to be built along certain corridors, particularly those served by transit lines and featuring commercial and mixed-use development. We need smarter urban planning to help significantly cut down on the need for vehicles. We can require new construction to use renewable energy such as solar.\n\nWe can increase incentives for electrification of personal vehicles, work with RTD to electrify their fleet, and consider electric vehicles in the city fleet.\n\nFrom a commercial perspective, we can start simple by taking measures such as painting roofs white to reflect sunlight and installing rooftop gardens or greener buildings with vertical gardens. In regard to lifestyle, animal products are very carbon intensive. Agriculturally, we need to work on additional community gardens, vertical farms and sourcing more local farms and producers.\n\nBoulder should focus on making sure that Xcel is doing its part on meeting state mandates on both CO2 and methane emissions, particularly in regards to its local policies (reducing the leakage rate from its in-town facilities) and state policies.",
+          "stance": null
+        },
+        {
+          "person": "Taishya Adams",
+          "verbatim": "We must access and leverage every single penny of the historic climate investments at the federal, state and city government to expand our city’s climate staff, budget, partnerships and resources. We must ensure climate impacts from the built environment are adequately assessed, measured, aligned to city goals, reported and used to inform every decision in our city. Without habitat for all living beings in our ecosystem, humans cannot survive.",
+          "stance": null
+        },
+        {
+          "person": "Silas Atkins",
+          "verbatim": "I have touched on this in my previous answers [in the BRL questionnaire] around dense housing near services, and additionally we need to invest in multi-modal transportation. When bikes, pedestrians and buses have dedicated space, it allows more people to get out of their cars and reduce emissions. We also need to reduce asphalt and concrete surfaces that create heat islands and we need to turn parking lots into housing.",
+          "stance": null
+        },
+        {
+          "person": "Paul Tweedlie",
+          "verbatim": "Climate change issues are of the utmost importance to so many in our town and so often Boulder has led the nation in finding innovative solutions to energy production. There are many directions in which we may decide to go but we have to be careful — it’s easy to break eggs without making an omelet. To help guide our efforts, we need to listen to experts: climate scientists, engineers, city planners and professionals at local power companies.",
+          "stance": null
+        },
+        {
+          "person": "Tina Marquis",
+          "verbatim": "I would continue and/or accelerate many of the initiatives already in place, including shifting from fossil fuels to renewables, electrification, carbon sequestration, reducing single use plastics, green building, including incentives for construction that is climate resilient, and expanding biodiversity. I also will continue to support alternative transportation to cars, including creating safer routes for bikers and walkers as well as advocating for more bus service. Finally, Boulder cannot alone solve the climate crisis. Instead, we need to collaborate with other municipalities and counties, with humility, and create a collective commitment to create a climate resilient future.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Gabriel Neyer",
+          "verbatim": "I will move beyond just being sustainable and move towards supporting resilient and regenerative systems. With a master’s degree in ecopsychology and extensive study of permaculture and living systems, I would help move Boulder towards a place that is innovating on climate solutions and solidifying us as a leader in true climate solutions. I would help us level up existing natural solutions, creatively increasing biodiversity in our open spaces, and building structures that incentivize Boulder residents to plant more trees and pollinator gardens and take other actions that support the health of our local ecosystem.\n\nI would play an active role in communicating with climate experts to discover what tried and tested solutions we can implement here, as well as what we can experiment with to help the science move forward. I would also be in active relationship with our neighbor cities, both to learn what solutions they are implementing and to help them understand what we are doing that is working to foster holistic solutions to the climate crisis at the regional level and beyond.\n\nIt is vital that we move beyond an insular perspective here and work to actively participate in addressing the climate crisis both locally and globally.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Brockett",
+          "verbatim": "A critical piece is achieving our goal of 100% renewable electricity by 2030. This can be accomplished by either adopting Community Choice Energy if approved by the state legislature or participating in the new Xcel program, Zero Emissions Communities. Additionally, by updating and strengthening energy codes, Boulder can drive sustainability in new construction projects. Implementing an electric-only requirement for new construction — an initiative I have championed — will accelerate the shift away from fossil fuels. [Editor’s note: Community Choice Energy allows cities to pay an exit fee to opt out of their long-term franchise agreements, like Boulder’s with Xcel, to buy power on their own.]\n\nThe residential and business sectors need to prioritize the electrification of buildings, encouraging the use of electric heating, cooling systems and appliances. Furthermore, a concerted effort to electrify vehicles is essential. Establishing an extensive network of EV charging stations will facilitate the transition to electric vehicles, reducing emissions from traditional combustion engines. We should actively promote e-bike use, making e-bikes more accessible through incentives and infrastructure improvements including by continuing and expanding our recent e-bike voucher program. We also should improve transit options for commuters.",
+          "stance": null
+        },
+        {
+          "person": "Bob Yates",
+          "verbatim": "One of my proudest accomplishments during my eight years on council was the negotiated resolution of our dispute with Xcel Energy. The settlement, which I helped craft and which the voters overwhelmingly approved in 2020, requires Xcel: (a) to reduce carbon emissions statewide by 80% from 2005 levels by 2030, with interim milestones throughout this decade; (b) to spend a minimum of $33 million to underground power lines in Boulder, increasing resiliency, improving safety, and reducing fire risks; and (c) to convey to Boulder all of the streetlights in town so the city can make energy-saving LED conversions.\n\nNext year, as mayor, I will help pass laws that will phase out and eliminate gas-powered landscaping equipment, and which will require that new building construction be all-electric. I will find ways to provide economic incentives for the purchase of e-bikes and electric vehicles. And I will direct the city to invest the $6.5 million that it receives annually from the climate tax on meaningful and replicable climate initiatives, including cash assistance to residents and businesses for energy efficiency upgrades, development of microgrid and energy storage systems, and electrification of buildings and vehicles.",
+          "stance": null
+        },
+        {
+          "person": "Jacques Decalo",
+          "verbatim": "Boulder must work on all fronts to build climate resiliency and be the gold standard for other cities to do the same. Currently, Boulder has a goal of being carbon neutral by 2035. This has already been pushed back. I worry that Boulder will continue down the path of prolonged climate action. My decisions in my career have led me to sustainable automotive and energy jobs in companies that are reducing the carbon footprints of my clients. If elected to council, every decision I will make, will take into consideration our carbon footprint and impact.\n\nUnder my leadership I would create opportunities for increased access to renewable energy through solar gardens on open rooftops, increased access to battery storage for solar energy, and incentives for homeowners to purchase electric heat pumps instead of relying on fossil fuels for heat. I would also be interested in introducing a single-use plastic tax on all materials that use plastic or have plastic wrapping.\n\nThis would encourage consumers to move away from petroleum-based products and move to reusable or compostable materials. The money raised from this tax would allow for increases in allocated funds for sustainable alternative transportation or grants for solar and battery storage for lower income households.",
+          "stance": null
+        },
+        {
+          "person": "Terri Brncic",
+          "verbatim": "One of the biggest levers we have in Boulder to reduce carbon emissions is by holding Xcel accountable for promoting and delivering green energy. We should maximize the use of the off- ramps contained in our settlement agreement with Xcel as leverage to ensure that they are hitting their agreed-upon targets and maintaining prices that are representative of a competitive marketplace. This ensures that lower-income residents are not disproportionately impacted by price increases. [Editor’s note: As Boulder gave up on becoming its own electric utility in 2020, it entered into a franchise agreement with Xcel that gave the utility the right to provide energy in Boulder, but maintained several off-ramps where the city could once again try to go it alone.]\n\nAt a local level, Boulder should also be providing more heat pump, battery storage and solar panel grants to encourage residents to move toward greener technologies.\n\nI also want to put more focus on Boulder Creek water quality. Boulder Creek is designated as an impaired waterway due to E.coli contamination. The last public update on water quality status in 2019 showed continuing elevated levels. Since Boulder Creek is used by many of our local families and visitors as a summer recreation spot, it is imperative that we ensure the safety and condition of this vital waterway through transparent and frequent monitoring and more in-depth analyses to determine the sources of contamination and appropriate remediation measures.",
+          "stance": null
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "slug": "2023-boulder-city-council-election-where-the-candidates-stand-on-making-streets-safer-for-cyclists-walkers-and-others",
+      "url": "https://boulderreportinglab.org/2023/10/06/2023-boulder-city-council-election-where-the-candidates-stand-on-making-streets-safer-for-cyclists-walkers-and-others/",
+      "title": "2023 Boulder City Council election: Where the candidates stand on making streets safer for cyclists, walkers and others",
+      "published_on": "2023-10-06",
+      "prompt": "How can we better provide alternatives to cars when existing infrastructure prioritizes cars?",
+      "issue": "transportation",
+      "binary": false,
+      "skipped_headings": [],
+      "answers": [
+        {
+          "person": "Jennifer Robins",
+          "verbatim": "We have to be sure any decisions made on this front are equitable. Steps to provide alternatives to cars include zoning to create housing in areas where we have mass transit and walkable mixed-use neighborhoods, such as our business districts. The Vision Zero program that is currently in place is a great starting point to improve the safety of our pedestrians and cyclists.\n\nWe can also continue to incentivize e-bike purchases with rebates or tax credits. RTD needs to be more reliable. I think that there should be an additional tax to help fund RTD. But I think that the City and County of Broomfield and Boulder County, which never received the [promised] commuter rail, should be exempt from these proposed sales tax increases. RTD should also be working with the state for additional funding. They should also be providing additional subsidies and incentives for low-income earners to ride the RTD. Boulder should work on many fronts: collaboration with, and additional performance expectations, of RTD; collaboration with the Boulder County consortium of cities and Northwest Corridor efforts to add regional connection options that maximize transit and micro-mobility options; and full support for transportation electrification initiatives and transit.",
+          "stance": null
+        },
+        {
+          "person": "Tara Winer",
+          "verbatim": "Let’s change the infrastructure! We can do this by creating more protected bike lanes, and by ensuring that bike paths and bike storage spots are safe so that everyone feels comfortable biking around town. I particularly liked Boulder’s free bike valets, available at some of our events this summer. Let’s come up with innovative and secure ways to store our bikes. Clean and well-lit underpasses will add to our community’s comfort in switching from cars to biking and walking.\n\nObviously, the structure and governance of RTD is not within our purview, but rapid transit is a big piece of this puzzle. If people are going to rely on buses to get them to their jobs, buses need to be fast, reliable and inexpensive. A regional approach is needed. A good example of that is the CO-7 (Arapahoe) multi-city joint project.\n\nI support programs like RTD’s Zero Fare for Better Air and new Zero Fare for Youth. Combined with lower fare structures, these programs will incentivize people to ride buses more frequently. My son-in-law and grandchildren rode the bus this summer — just for fun!\n\nI will also keep advocating for Boulder to get our long-awaited rail!",
+          "stance": null
+        },
+        {
+          "person": "Waylon Lewis",
+          "verbatim": "Bike lanes — protected. More buses — electrified. Every person we get out of a car — because they want to, because we make it quicker and easier to do so — is less traffic, less pollution for all of us, including drivers. This is a win-win. Heat islands and traffic jams? No one’s a fan. We can do for our citizens what Paris has done for theirs, and we’re already far along. My next door neighbors would love to bike around with their three children more, but don’t feel safe doing so, so their SUV and truck see more use than their fleet of bikes. I may be the only candidate who only bikes, haven’t had a car for 15 years — and this will be a priority if elected. Not to make car drivers feel second class, but to make cyclists and our children and seniors feel safer walking, biking, busing, (and…inner-tubing) and driving.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Gabriel Neyer",
+          "verbatim": "With patience and persistence, one step at a time. I propose we start by evolving our public transit, allowing for greater flexibility so that public transit can work for a wider number of people. What could this look like? Perhaps having shuttles that can bring people directly from where they are to where they’re going, that can pick up many people along the way and be intelligently routed with the help of technology. It could also look like subsidizing car sharing systems for people with lower incomes and making it more possible for more people to not own a car in Boulder.\n\nWith solutions in place I think we need to start shifting systems such that it becomes more of a conscious choice to own a car in Boulder. This could involve residential permitting systems, implemented in such a way that it does not disproportionately affect those who are of lesser means. But also such that it can be used to fund better transportation systems for everyone in Boulder, to help Boulder be a more inclusive and welcoming and climate-friendly place for all.",
+          "stance": null
+        },
+        {
+          "person": "Bob Yates",
+          "verbatim": "For the foreseeable future, cars will continue to be used to transport seniors, children, tools and purchases. What we need to plan for in the near term is not a car-free world, but for a car-shared world, where cars coexist safely with cyclists and pedestrians.\n\nCars are hard and people are squishy. We need to design our streets and pathways to minimize collisions and to slow down cars so that, when a rare collision does occur, people have a better chance of survival. I was a proud advocate for 20 is Plenty in Boulder’s neighborhoods, increasing the odds of a pedestrian’s survival in a collision five-fold.\n\nOn busier streets, more protected bike lanes are needed to separate hard cars from those squishy people. We need to enforce our traffic laws, particularly speeding and red-light running. And, we need to fix the damn potholes, faster. Because, regardless of whether you are in a car or on a bike, deep potholes are dangerous for us all.\n\nWith better design, better maintenance, and better behavior, cars, bikes, and pedestrians can co-exist, with fewer people getting hurt.\n\n[Editor’s note: The city has since paused its street safety efforts in neighborhoods to focus on high-traffic thoroughfares. The neighborhood-focused program included installing speed bumps and signage as part of the city’s “20 is Plenty” campaign. According to city officials, the speed-reduction effort did not end up reducing speeds on neighborhood streets.]",
+          "stance": null
+        },
+        {
+          "person": "Taishya Adams",
+          "verbatim": "We need alternatives that meet real people and families where they are. A $500 rebate on a $1,200 bike will not meet the needs of our multi-generational/large families, families with children at different schools and multiple jobs, or people with disabilities. We need to significantly invest in expanded bus lines and service hours, car share programs, as well as related issues like a living wage which allows for many more to access rebates and other incentive programs. It is worth noting that rebates are funded by the very taxpayers who cannot afford to access the rebate.",
+          "stance": null
+        },
+        {
+          "person": "Jacques Decalo",
+          "verbatim": "We need to find ways to make public transit options fast, efficient and attractive to reduce this large source of emissions. To understand what measures will move the needle, we need to do a detailed needs assessment/marketing survey to learn what programs, routes and investments (e.g., in rapid regional transportation with last-mile options such as B cycle and e scooters) can succeed — and then invest in/subsidize the options to which the data points.\n\nWe may want to look at increasing the grants for e-bikes and installing solar-powered e-bike chargers around the city. The city-run Hop bus is a great alternative transportation program that I would be interested in expanding to give more neighborhoods local public transportation access to business areas. As RTD showed this summer, free buses increased rider usage. I would also like to work with business to find solutions to the 60,000 commuters that are driving into Boulder, 80% in single occupancy vehicles. Everything we can do to reduce greenhouse gases is a priority.",
+          "stance": null
+        },
+        {
+          "person": "Nicole Speer",
+          "verbatim": "This certainly is a challenge! Public transit would be a good option but without additional funding from the state, RTD will only get back to 80% of pre-pandemic service levels in the next four years. Funding from the Denver Regional Council of Governments will create a Bus Rapid Transit (BRT) line along Arapahoe from downtown Boulder to I-25, and a multi-use path, bikeway and BRT along the Diagonal Highway between Boulder and Longmont.\n\nThe Core Arterial Network will make biking, walking and rolling safer. We have started to receive funding to support this important work. As we have safer routes for bicycles, we can continue to offer e-bike rebates and expand micro-mobility options like BCycle.\n\nMoving forward, we need to be designing streets to universal design standards, where we aren’t just designing for abled people but are incorporating the needs of those living with disabilities, too. This means sidewalks that accommodate people using mobility assistive devices, and people with vision or hearing impairments, neurological disorders and mental illnesses. Universal design standards that line walkways with trees and water-absorbent natural landscapes will also support the goals of our Cool Boulder initiative and our equity and inclusion goals.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Brockett",
+          "verbatim": "We need to make sure that our transportation infrastructure improvements improve the safety and accessibility of non-automobile transportation options. I’m a big supporter of our CAN (Core Arterial Network) project to improve bike safety and transit times on the streets in town where the most serious crashes occur, and we need to continue that work.\n\nCollaborating with RTD and the state to continue and expand the free fare months for public transit can help get people out of their cars. We need to work with RTD to restore cuts in our bus service. Additionally, I, as mayor, have collaborated with the Northwest Mayors and Commissioners Coalition to secure a $25 million Federal grant for the construction of a bus rapid transit (BRT) system and a regional bikeway connecting Boulder and Longmont. This completes the funding for the project and construction starts next year!\n\nWe are also in the earlier stages of getting funding for a BRT line along SH 7 (Arapahoe) from Boulder to points east. Finally, I have been helping to establish the Front Range Passenger Rail project, which would link Ft. Collins to Pueblo by rail, with stops in Boulder, Denver and Colorado Springs.",
+          "stance": null
+        },
+        {
+          "person": "Ryan Schuchard",
+          "verbatim": "The transportation future Boulder needs is people-centered, transit-rich, and car-optional. Levers:\n\nLand use: Let people live near where they want to go, primarily by reforming housing and parking policy.\n\nMobility systems: Build an ecosystem of multiple interoperable modes working together. Components: (1) A high-frequency, granular transit system, both intra- and inter-city (requiring us to rebuild transit to pre-COVID levels, then dramatically expanding), (2) A plush bicycle system, meaning a comprehensive grid of protected bikeways (requiring us to defend, then expand the Core Arterial Network), widespread enabling infrastructure and culture at destinations, and e-bikes accessible to all, and (3) Deepening of Transportation Demand Management, by expanding programs of carrots/sticks while improving our use of behavioral science.\n\nPlans and processes: Create an intention of and accountability for using the city’s full suite of resources to allocate rights, privileges, investments and space to create a transportation system that makes non-car options competitive. Reflect this in major plans and codes, department and staff roles and coordination, and the deployment of Boulder’s advocacy resources to regional, statewide and federal jurisdictions. Also, daylight subsidies and opportunities costs in our car-centric system. Finally, establish more robust and secure funding.",
+          "stance": null
+        },
+        {
+          "person": "Terri Brncic",
+          "verbatim": "Prioritizing bike safety and security is one way to keep people out of their cars. We need to continue to invest in expanded and protected bike lanes, particularly in our key commute corridors. We also need to evaluate our current policies around e-bikes to ensure that riders are educated on safe-use strategies and that our existing path infrastructure and rules are optimized to handle this type of transit. Finally, we need to do more to deter bike theft. Building well-lit, security cages around schools and key commuter centers will help prevent this criminal activity.\n\nWe also need to focus on transportation. Many of our small-business workforce live outside of Boulder and commute here regularly. To encourage eco-friendly commuting, we need to provide reliable and convenient regional transit options that specifically consider the geographic footprint of our non-resident workforce. The city should also consider providing more incentives for participation in the Business EcoPass program — as well as subsidized transit for low-income commuters — as a means of encouraging eco-friendly commuting in a more equitable manner. And we should incentivize the creation of car-share and e-bike share programs in connection with multi-family housing and commercial developments.",
+          "stance": null
+        },
+        {
+          "person": "Paul Tweedlie",
+          "verbatim": "I’m encouraged by the city’s e-bike and e-scooter programs and by our increased investment in public transport.",
+          "stance": null
+        },
+        {
+          "person": "Tina Marquis",
+          "verbatim": "In the over 20 years I have lived in Boulder, we have been trying to reduce our dependence on cars. During that time, I have observed the elimination of some routes from RTD, and recognize that we are still dependent on the state to help with some of our transportation challenges. That being noted, I am very excited about RTD’s free fares for people 19 years of age and under and possible legislation to increase funding for RTD next legislative session. I also support the work of the city to create safe routes for bikes across the city. However, our city relies on thousands of in-commuters to provide medical services, teach and care for our children, work in our restaurants, and maintain (and manage) our city. While we encourage eco-friendly modes of transportation for those living in the city, we will need to increase public transportation for those commuting into the city as well as encourage electric vehicles, including convenient charging.",
+          "stance": null
+        },
+        {
+          "person": "Silas Atkins",
+          "verbatim": "We need to stop prioritizing cars. All modes of transportation should be treated equally providing safe routes to where we need to go. Safer infrastructure can reduce car crashes by up to 66% in one study, and non-car transportation reduces emissions as well as the need for costly car only infrastructure construction and maintenance.",
+          "stance": null
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "slug": "2023-boulder-city-council-election-where-the-candidates-stand-on-their-one-year-visions",
+      "url": "https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-their-one-year-visions/",
+      "title": "2023 Boulder City Council election: Where the candidates stand on their one-year visions",
+      "published_on": "2023-10-11",
+      "prompt": "Assume you are elected this November. What one specific thing will you have accomplished that you’re proud of after one year?",
+      "issue": null,
+      "binary": false,
+      "skipped_headings": [],
+      "answers": [
+        {
+          "person": "Ryan Schuchard",
+          "verbatim": "City Council will have established, and be implementing, a process for unlocking significant new climate action. As a consequence, Boulder will also have a greater handle on our wildfire and wider growing environmental risks, as well as be making meaningful new progress towards expanding our transportation and housing options — which will include new strides towards bringing back and then positioning to expand public transit.",
+          "stance": null
+        },
+        {
+          "person": "Jennifer Robins",
+          "verbatim": "Recently, the Broncos gave $2 million to Boulder. The money comes from a provision of an existing agreement that required 2% of the net proceeds of the sale of the Broncos to be paid to the [school] district to be used for youth programming. I am hoping that if I am elected to council I will be able to help properly appropriate these funds to support our kids and families. I would like to establish safe spaces where kids and teens can socialize, while also incorporating wrap-around services.\n\nAdvocating for themselves can be challenging for young individuals, which is why it becomes crucial for us to reduce the stigmas associated with mental health and embrace gender and sexual diversity. By offering these safe spaces, we can extend a helping hand to many kids who feel scared, isolated and marginalized.\n\nThe Covid-19 pandemic has added an additional layer of stress and hardship to children’s lives, the full effects of which we have yet to fully comprehend. The isolation they have experienced is real, and they have had to confront issues like cyberbullying, unrealistic beauty standards, overwhelming academic pressure, increased exposure to violence and trauma, lack of physical activity and the unsettling reality of climate change.",
+          "stance": null
+        },
+        {
+          "person": "Tina Marquis",
+          "verbatim": "Within a year of having joined the council, my hope is that every city council in Boulder County, including Boulder, and the county commissioners, will make a joint declaration that homelessness in Boulder County is a humanitarian crisis and will embark on a collective, unified effort to eradicate homelessness. We will adopt within the year common, outcome-based metrics to measure our work. Colorado will be recognized as being the first Blue state in the nation to be on track to compassionately address homelessness while ensuring public safety.",
+          "stance": null
+        },
+        {
+          "person": "Taishya Adams",
+          "verbatim": "Success after year one on council will be improved processes and community activation. We will be closer to the collaboration rating on the Boulder Engagement Framework while also reducing bottlenecks and blindspots in our city’s policies, procedures, programs and initiatives. It is critical that we move beyond informing and consulting towards collective policymaking that shares the power, knowledge, wisdom, and courage to heal across communities and co-creating policies and investments that makes seven Boulder generations from now possible.",
+          "stance": null
+        },
+        {
+          "person": "Tara Winer",
+          "verbatim": "Improved biking connectivity and safety will define success for me. As the Hill hotel nears completion, we must prioritize connectivity between the Hill Commercial District, the Hill Hotel and Conference Center and our downtown. The connections should be safe, clean, well-lit and well-designed.\n\nRight now, the path from the Hill through the arboretum to 13th St is dangerous for bikers due to the sharp curves, too much debris and lack of path lighting at night. I rarely see a pedestrian on that path.\n\nLikewise, our underpasses need improved lighting for both pedestrians and bikers. Much of the lighting is either fully broken or partially broken, making it somewhat dangerous to ride or walk through, even in the daylight. Winter biking and walking present a challenge during snowy and icy conditions. I slipped on a patch of ice and fell off my bike while riding on the bike path just last winter. Our multi-use paths need to be free of ice and snow. Our bike paths are one of the greatest gems of our city. To get people out of cars and onto bikes and other forms of non-GHG producing vehicles, we need to make sure everyone is safe.",
+          "stance": null
+        },
+        {
+          "person": "Jacques Decalo",
+          "verbatim": "I would love to be able to have worked with our energy sector to have increased our reliance on green energy and moved further away from fossil fuels. Boulder can be the green standard that the rest of our state can follow. I would like to see our city provide more grants and opportunities for everyone to be able to use solar energy. We are an optimal area for solar. As our air quality gets worse there is not one second to spare in the accelerated transition to sustainability.",
+          "stance": null
+        },
+        {
+          "person": "Terri Brncic",
+          "verbatim": "My number one priority is to create the processes and infrastructure needed to support a Safe Indoor Shelter policy for individuals experiencing unsheltered homelessness. Solutions to chronic homelessness are going to take time, but in the meantime, we can’t ignore the real crisis that is occurring in our public spaces. I feel that we have a moral obligation as a community to ensure the safety of our most vulnerable population and to advocate for their basic needs when they are not able to do so themselves. Continuing to allow overdoses, assaults and escalating drug use to occur with no meaningful intervention is not compassion, it’s complacency.",
+          "stance": null
+        },
+        {
+          "person": "Waylon Lewis",
+          "verbatim": "Thank you for assuming I’ll get elected. For me, my first priority will be process. City council should not pretend to be experts in everything, but to prioritize urgent, needed solutions to painful problems of affordability, homelessness/public safety, transportation, climate. We can be a city that we’re inspired by, every day, and grateful to live in. We can be a city that the world looks to for inspiration, again. After process, I will focus on homelessness/public safety first, in a way that will save lives, and save money, and return our city to safety and sanity. That said, climate solutions big and small, and affordability, go hat in hand with every other issue. Those three are my priorities.\n\nP.S.: You asked for one accomplishment. I regard fire mitigation, along with flood mitigation, as urgent. Disasters are coming for us — we must be ready.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Gabriel Neyer",
+          "verbatim": "Hello Boulderites! One year ago, you all elected me and a slate of candidates with a deep care for our planet and for our community. I’m so proud of what we’ve accomplished over the last year and I’m so excited about where we’re going.\n\nWe are telling a climate story in Boulder that is inspiring people far beyond our local community. Over the last year we’ve been able to surface so many innovative solutions already coming through our government and our local community; supporting reforestation efforts, regenerative agriculture and so much more. And as we’ve amplified the cultural dialogue around it, we’ve been able to invite far more participation from a much wider swath of our community. I’ve loved seeing all the gardens growing this last year and all the community support to help those who were new to it.\n\nI’ve loved getting to relate to our neighbor cities and initiate more engaged and collaborative relationships, and I’ve loved sharing about what’s happening with all of you through this newsletter. I’m so excited to see these changes ripple wider and wider. Thank you for trusting me, thank you for caring, and let’s keep going.",
+          "stance": null
+        },
+        {
+          "person": "Paul Tweedlie",
+          "verbatim": "I want to see families thrive in Boulder. I propose significant property tax rebates for seniors and families with children.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Brockett",
+          "verbatim": "After eight years on city council, I know that policy changes take time to implement. But if in a year, we’ve moved the needle on housing affordability and availability, if we add solutions for people experiencing homelessness, and I’ve been engaging with the community to find a path forward that helps people in need while bringing the community together, I will call it a successful year!",
+          "stance": null
+        },
+        {
+          "person": "Silas Atkins",
+          "verbatim": "Success is defined for all of us by making people’s lives better. An example of this was the approval of Ordinance 8585, increasing occupancy of unrelated people to five. That will reduce anxiety, provide housing stability and tenant rights, and help us be an inclusive place. The more we lift us all up, the more successful we are as a community, and the more we all benefit.",
+          "stance": null
+        },
+        {
+          "person": "Nicole Speer",
+          "verbatim": "I would consider next year a policy success if we passed a minimum wage increase that rises with inflation; placed a similar measure on the 2024 ballot to appropriately pay councilmembers for their time to increase representation from workers, parents, younger people and renters (and we had agreed to pay board and commission members, too); agreed to shift our spending on homelessness to prioritize prevention and evidence-based alternatives to camping; and initiated a city-wide climate resilience and risk assessment.\n\nI would consider my first year as mayor a success if 90% of council meetings had ended on time, we had spent the most meeting time on the issues that are of biggest concern to the community (climate impacts, affordable housing, homelessness), and we had completed more than one of the next council’s priority items in our first 12 months.\n\nI would consider the next council a success if the new council had fostered an environment where robust debate on critical issues was encouraged; where all councilmembers had the chance to show their leadership at community events; and where our new councilmembers had developed the confidence, relationships and skills to bring their most collaborative and innovative thinking to our city’s challenges.",
+          "stance": null
+        },
+        {
+          "person": "Bob Yates",
+          "verbatim": "My greatest effort during my first year as mayor will be reducing the number of homeless people in Boulder and mitigating the impacts of homelessness on our community.\n\nI have published an eight-point plan to do this. At my request, the city recently completed the first-ever summertime count of sheltered and unsheltered homeless people. We can use that summer 2023 count as a baseline to test the success of my plan when we conduct a second summer count next year. Other metrics we will use to measure success in reducing homelessness during my first year as mayor will include: (1) increased use of Boulder’s night shelter (which currently operates at 80% capacity); (2) usage of Boulder’s new day shelter, which we will launch this winter; (3) increase in the number of encampment clearings and decrease in the number of encampments observed; and (4) tracking the number of exits from homelessness in 2024, compared to 2023 exits. If those numbers are heading in the right direction by November 2024, we will know that the plan is working. We can then begin a community conversation on how to enhance and expand the plan for 2025 and beyond.",
+          "stance": null
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "slug": "2025-boulder-city-council-election-how-candidates-say-their-life-experiences-would-shape-their-work-on-council",
+      "url": "https://boulderreportinglab.org/2025/10/05/2025-boulder-city-council-election-how-candidates-say-their-life-experiences-would-shape-their-work-on-council/",
+      "title": "2025 Boulder City Council election: How candidates say their life experiences would shape their work on council",
+      "published_on": "2025-10-05",
+      "prompt": "What perspective or lived experience would you bring to city council, and how would it shape your approach to policy?",
+      "issue": null,
+      "binary": false,
+      "skipped_headings": [
+        "Question: What perspective or lived experience would you bring to city council, and how would it shape your approach to policy?"
+      ],
+      "answers": [
+        {
+          "person": "Rachel Rose Isaacson",
+          "verbatim": "My civic journey began early, organizing and volunteering at 14, and by 17, drafting state legislation to protect LGBTQ+ youth in Ohio. That formative experience taught me the power of young people stepping into leadership, and it continues to shape how I approach public service. Since then, I have earned a bachelor’s in Political Economics and a master’s in Public Administration and Leadership, with specialized training in public budgeting, fiscal and policy analysis, and strategic resource management. These skills are essential for making responsible, transparent, and equitable decisions on City Council.\n\nBefore making Boulder my home, I worked in regenerative education, organizing internationally attended conferences that empowered communities to cultivate resilience in the face of economic, social, and environmental turbulence. Here in Boulder, I stay grounded in daily life advancing ecological stewardship as a Pollinator Ambassador with Cool Boulder, and connecting with neighbors every day as a barista at South Side Walnut Café.\n\nI am running to be Boulder’s first Gen Z councilmember not only to ensure my generation has a voice at the table, but to bring informed, systems-level thinking and collaborative leadership to address the challenges we face today and those ahead.",
+          "stance": null
+        },
+        {
+          "person": "Maxwell Lord",
+          "verbatim": "I’ve lived in Boulder for a long time, and believe my diverse experience across the city is what qualifies me to be an active participant in city council. It isn’t always obvious where experience comes from. A good example is that I learned all the roads when I was a delivery driver late nights after college. Since then though, I’ve worked in the physics labs on campus, at NCAR, and now I am a builder around town. I am familiar with the land use regulations, as well as the homes that are currently built on them, and how they were built. Beyond that, it’s really working with the homeowners on the day to day, as well as the small businesses who rely on me, like the Trident and the Dark Horse. I’ve also volunteered with TGTHR, and Bridge House. I am familiar with our most vulnerable. I’ve worked on massive infrastructure projects, all the way down to small restaurants on the hill. It’s always about working on a team. Listening to others, understanding what you do and don’t know.",
+          "stance": null
+        },
+        {
+          "person": "Matt Benjamin",
+          "verbatim": "I bring both professional and personal perspectives that shape how I serve on City Council. As a former astronomer and educator at CU’s Fiske Planetarium, I learned to approach challenges with a science-based, data-driven mindset while also communicating clearly and accessibly with diverse audiences. That background influences how I evaluate policy, grounding decisions in facts, but always making them understandable and relatable for the community.\n\nAs a longtime Boulder resident raising a family here, I also bring the lived experience of a parent navigating the challenges and opportunities many families face. The past four years on city council have made me a stronger, more effective leader. I’ve advanced housing reform, launched Boulder’s first economic development strategy, reimagined how we protect cars and cyclists, and strengthened wildfire protections, all while pushing for accountable, outcome-driven government. Most importantly, I’ve learned how to find common ground on tough issues, ensuring that our progressive values translate into real, lasting solutions.\n\nThis experience has prepared me to keep leading with pragmatism, urgency, and a clear focus on building a more inclusive and resilient Boulder. My approach to policy is always guided by the question: Does this decision make Boulder a more inclusive, resilient, and thriving community for the next generation?",
+          "stance": null
+        },
+        {
+          "person": "Nicole Speer",
+          "verbatim": "I’ve lived in Boulder for over 20 years, raising two children (now teens), working in higher education and publicly-funded research, and serving local nonprofits and advocacy groups, including my union, United Campus Workers – CWA 7799. As someone whose job ended due to federal attacks on science, I’m keenly aware of how political and economic upheaval are and will be affecting more and more members of our community.\n\nMy approach to policy and governance is the same approach I’ve used to build teams and advocate for community in all of my work. I build coalitions, support evidence-based programs and outcome-based budgeting, and show up with compassion, humility, and respect. I lead with evidence, empathy, and a belief that we are stronger when we embrace differences and honor our shared humanity.\n\nOn City Council, I’ve advocated for workers, renters, parents, people with disabilities, immigrants, communities of color, queer and trans people, older adults, and those who rely on our safety nets. My goal as an elected leader is to make local government more effective, transparent, and inclusive, and to safeguard the systems and values that hold us together.",
+          "stance": null
+        },
+        {
+          "person": "Rob Smoke",
+          "verbatim": "I’ve lived here since 1986 — twenty years at the same address in central Boulder. In spite of some personal challenges, I feel pretty good about living here and have no particular desire to move. The trend of the current city council has been to be arrogantly dismissive of people who only want what most of the world obviously wants — an end to the genocide occurring in Gaza. There might be other big issues for Boulder, but this happens to be the moral issue of the day — and council’s stance runs counter to the way most people feel. I’d like to help change the obviously unfortunate outcome regarding our public conversation.",
+          "stance": null
+        },
+        {
+          "person": "Mark Wallach",
+          "verbatim": "A formative experience for me was living in New York City during the period of its decline and bankruptcy in the mid-‘70s. There were two things that I experienced back then that have stayed with me: first, the decline and then absence of a sense of public safety. There were simply places you could not/would not go, because they were not safe for residents. That even included parts of Central Park.\n\nThe second was the failure to maintain the city’s infrastructure. As a result, there were periodic derailments on the subway system, the bridges were in terrible shape, and the roads were a disaster. And, to combine the two themes, public safety on the subway system was entirely absent. As a result, property prices sunk, and people were leaving the City in droves for neighboring states and Florida.\n\nThis experience demonstrated to me the absolute necessity of public safety for a city to thrive, and the implications of the failure to maintain your assets. Both of these themes are prominent in my campaign.",
+          "stance": null
+        },
+        {
+          "person": "Jennifer Robins",
+          "verbatim": "I would bring the perspective of a working mom, a small business owner, and someone who has spent years serving Boulder through civic leadership. I know firsthand how challenging it is to juggle family, work, and rising costs in this city. As a small business owner, I’ve also seen how red tape and delays can make it harder to thrive here. On top of that, my service as Chair of the Parks and Recreation Advisory Board, on the board of the Play Boulder Foundation, and as Co-Chair of the Boulder Chamber’s Community Affairs Council has given me a front-row seat to how city policy impacts residents, local businesses, and the broader community. These experiences shape my approach: I want policies that are practical, equitable, and focused on results. Always asking how decisions will affect families, workers, and businesses on the ground, because I’ve been in their shoes.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Stone",
+          "verbatim": "I grew up in a family that sometimes relied on assistance to make ends meet.\n\nMy parents applied for a lottery program called “Dollar Home,” which allowed selected families to purchase dilapidated homes for $1, provided they restored them to livable condition. My parents took out a loan and did most of the reconstruction themselves, with some help from friends. One year, we relied on a local association that provided children with clothes for school.\n\nExperiences like these taught me how important such programs are. They give people the opportunity to improve their own situations and, through that growth, strengthen the community as a whole. I will do my best to ensure that these types of groups continue to thrive in Boulder.",
+          "stance": null
+        },
+        {
+          "person": "Montserrat Palacios",
+          "verbatim": "While I haven’t lived in Boulder for 30 years, I want to be here for the next 70. I have lived in D.C./Northern Virginia, Palo Alto, New York City, and Madrid but I have chosen Boulder as my home. Having seen how other cities approach growth, culture, sustainability, and community, I bring both perspective and fresh ideas about what works, and what doesn’t. As a young professional committed to Boulder’s future, I see value in being independent and finding the middle ground where real solutions are possible. My goal is not to push an agenda but to advocate for the community, listen to a wide range of voices, and help shape policies that ensure Boulder remains a thriving and welcoming city for generations to come.",
+          "stance": null
+        },
+        {
+          "person": "Lauren Folkerts",
+          "verbatim": "As both an architect and Boulder’s Mayor Pro Tem, I bring the perspective of someone who has spent a career solving complex problems in ways that center people and long-term resilience. My work has taught me that every choice, whether in design or in policy, shapes how people live, connect, and thrive.\n\nI also bring lived experience as someone who made my home in multifamily housing. Living in denser neighborhoods has shown me how thoughtful planning can strengthen community, increase affordability, and reduce our climate impact. That perspective drives my commitment to housing solutions that make it possible for families, workers, and students to stay in Boulder. On council, I’ve paired that experience with a practical, coalition-building approach to deliver real progress, raising wages, reforming land use, and passing first-in-the-nation climate codes.\n\nI believe local government works best when leaders listen deeply, respect different perspectives, and translate community values into action. My commitment is to keep balancing urgency with collaboration, taking bold steps on affordability, climate, and equity, while ensuring our solutions are practical and inclusive.",
+          "stance": null
+        },
+        {
+          "person": "Rob Kaplan",
+          "verbatim": "I would bring a combination of hands-on public safety experience, small business ownership, and real estate and finance expertise to city council.\n\nMy 18 years in fire and EMS give me an in-depth understanding of the operational and human challenges in public safety, from complex multi-jurisdictional coordination to training, staffing, and specialized rescue operations. My experience founding, operating, and growing a small business in the city (Pro Peloton Bike Shop) and managing commercial real estate has taught me strategic planning, fiscal responsibility, and how to balance multiple priorities effectively.\n\nTogether, these perspectives shape my approach to policy: I focus on practical, solutions-oriented decisions that protect public safety, support city employees, and ensure responsible stewardship of community resources.",
+          "stance": null
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "slug": "2025-boulder-city-council-election-where-candidates-stand-on-the-camping-ban",
+      "url": "https://boulderreportinglab.org/2025/10/06/2025-boulder-city-council-election-where-candidates-stand-on-the-camping-ban/",
+      "title": "2025 Boulder City Council election: Where candidates stand on the camping ban",
+      "published_on": "2025-10-06",
+      "prompt": "Should Boulder enforce its camping ban when the All Roads shelter is full?",
+      "issue": "homelessness",
+      "binary": true,
+      "skipped_headings": [
+        "Question: Should Boulder enforce its camping ban when the All Roads shelter is full? Please answer yes or no, and then explain."
+      ],
+      "answers": [
+        {
+          "person": "Lauren Folkerts",
+          "verbatim": "No, I do not believe Boulder should enforce its camping ban when the All Roads shelter is full. Enforcement without alternatives doesn’t solve homelessness, it just moves people around and makes their lives less safe and less stable.\n\nWhat I support instead is a strategy that truly works: expanding shelter and transitional housing, improving access to mental health and addiction services, and following through on the recommendations in our homelessness strategy. When safe, accessible alternatives exist, enforcement has a role. But when they don’t, we should not rely on enforcement alone.\n\nThis is not about being “for” or “against” a ban, it’s about solving homelessness in ways that are compassionate, cost-effective, and proven to work. Our community is best served when we connect people with housing and services, reduce strain on emergency response, and focus on lasting solutions.",
+          "stance": "no"
+        },
+        {
+          "person": "Nicole Speer",
+          "verbatim": "I understand why people ask this question. I used to ask it myself. No one thinks people sleeping in public spaces is the solution to homelessness. As we struggle with a complex problem that goes way beyond our borders, the real question is: how do we invest in solutions that reduce unsheltered homelessness and protect public health and safety for everyone?\n\nBoulder’s recent Clutch Report emphasizes that enforcement doesn’t reduce homelessness. It displaces people, puts them at higher risk of death, deepens trauma, and diverts millions of dollars from housing and services into short-term removals.\n\nI support the recommended updates to our homelessness strategy. They shift our focus to upstream solutions: housing stabilization, diversion services, family support, and coordinated systems response. This approach prevents encampments by navigating people to appropriate services. With our recent investments in a day services center, peer-led behavioral health programs, and permanent supportive housing, we are implementing interventions that work.\n\nIf enforcement means issuing tickets, then no. When the shelter is full, ticketing becomes punishment for having nowhere to go. We need to stay focused on evidence-based policymaking, especially in the context of federal chaos that’s leaving more people one crisis away from losing their homes.",
+          "stance": "mixed"
+        },
+        {
+          "person": "Rob Kaplan",
+          "verbatim": "Yes. Boulder should enforce the camping ban to keep public spaces safe, healthy, and accessible. The only exception should be during extreme weather events, such as dangerous cold or severe storms, when conditions could be life-threatening. In those situations, outreach teams should have discretion to temporarily pause enforcement and focus on immediate safety. Alongside enforcement, the city must offer real solutions like diversion programs to connect people with services and reunification options to help individuals return to family or support networks. This approach holds everyone accountable while providing a compassionate safety net in true emergencies.",
+          "stance": "yes"
+        },
+        {
+          "person": "Rob Smoke",
+          "verbatim": "I believe that the camping ban has had poor results in terms of making Boulder better or safer. Boulder has, for at least the past two decades, been running in place on a treadmill in terms of solving anything. We need to stop having to make the police the go-to resource. Doesn’t mean they don’t do their best, but we have ample evidence to suggest that current policies are inadequate in terms of addressing the issues related to “urban camping,” which is something people do not for amusement, generally, but because they can’t obtain housing. I believe there’s a better way and this issue would be second only to the need for divestment from corporations profiting from the extreme suffering in Gaza.",
+          "stance": "mixed"
+        },
+        {
+          "person": "Maxwell Lord",
+          "verbatim": "I think that some candidates use the camping ban as a buzzword to generate appeal. This is a good example of where we could use some more honesty. It doesn’t matter how much you want to “enforce it.” You can’t enforce a camping ban if the shelters and the jail are full. At some point, “enforcing it” is just police driving people back and forth from the jail. Neglecting the fact that it’s impractical, it’s also immoral, and misses the core of the issue. We have All Roads, and Blue Bird, but we don’t have any sober living facilities, or hostels as a secondary option. We also don’t have an emergency plan for bad weather. I think we, as a people, and a city, can and should do better, rather than acting as if a camping ban has any meaning on policy.",
+          "stance": "mixed"
+        },
+        {
+          "person": "Mark Wallach",
+          "verbatim": "Other than on days of frigid weather, yes. One of the purposes of the camping ban is to reclaim public lands for public use. The fact that the Boulder Creek Path has become so compromised as a community asset should be unacceptable, and the camping ban should certainly be enforced there and on other sensitive public lands.\n\nIn addition, with our new-found sensitivity to the dangers of wildfire in this community, the presence of campers on our Open Space should be frightening to all of us. I am hopeful that if we implement the Clutch Report’s emphasis on diversion with respect to the homeless community, the number of unhoused individuals in Boulder might be sufficiently reduced to minimize overflows at the All Roads shelter. However, my view on this is independent of whether on a given night the shelter is full, although, as I stated initially, in dangerously cold weather, enforcement should be suspended.",
+          "stance": "mixed"
+        },
+        {
+          "person": "Jennifer Robins",
+          "verbatim": "Yes, we should always enforce the camping ban. Because living in our floodways, ditches, and on the creek is not a compassionate solution. There are several strategies we should begin focusing on starting with enforcing our camping ban while also making sure we have real pathways off the street. Prioritization, diversion, and reunification are all key pieces, and the good news is that Boulder is already doing a lot of this work, so I don’t believe the cost needs to be as high as the Clutch report suggests. We should keep building on what works while coordinating closely with the county. As the new mental health tax plan takes shape, I want to make sure those dollars are directed toward inpatient and outpatient services, additional treatment beds, and real solutions that address the root causes of homelessness. This is how we can both protect public spaces and ensure people in crisis get the support they need.",
+          "stance": "yes"
+        },
+        {
+          "person": "Rachel Rose Isaacson",
+          "verbatim": "No. No one should be legally punished simply because our city lacks adequate services or safe alternatives. In those moments, the responsibility is on us as a community to ensure people have legal and humane alternative places to be. At the same time, when shelter or services are available, I believe individuals should be accountable to the city’s current laws. Balancing compassion with accountability is essential, and the real solution lies in expanding services and creating pathways so no one is left without options.",
+          "stance": "no"
+        },
+        {
+          "person": "Matt Benjamin",
+          "verbatim": "Boulder has and will continue to enforce its camping ban. I do not believe Boulder should enforce its camping ban during extreme weather events when the All Roads shelter is full. Enforcing the ban in those circumstances criminalizes people for having nowhere else to go, which is neither just nor effective.\n\nThat said, the new Homelessness Strategy (Clutch Report) reframes how Boulder approaches this issue. It recognizes that unsheltered homelessness is both a public health and a public safety challenge. Under the strategy, enforcement is tied more directly to services and outcomes —ensuring that outreach, rapid rehousing, diversion, and day services are part of the equation.\n\nEnforcement remains a tool, but it is no longer the first or only response. The strategy also calls for greater accountability: tracking by-name lists, expanding prevention and housing exits, and clarifying when and how enforcement should occur. This makes our approach more transparent and focused on reducing homelessness, not just moving it. Enforcement must be paired with shelter and services. With the new strategy, Boulder is shifting from a housing only model toward one centered on housing, accountability, and community safety.",
+          "stance": "mixed"
+        },
+        {
+          "person": "Aaron Stone",
+          "verbatim": "To me, the answer is more nuanced than just a simple yes or no. First, let’s agree that having homeless people sprawled all over downtown causes some Boulderites to fear for their safety.\n\nSecond, let’s agree that the homeless have a 1st Amendment right to be there, but not to sleep there. And third, let’s point out that their presence is negatively affecting the economic and social vitality of downtown.\n\nOn freezing nights when the All Roads shelter is full it would be cruel and heartless to prevent people from camping. Do you want to cost someone their life? And yet, the mere presence of the homeless impacts the ability of some people to enjoy downtown. So what to do?\n\nI propose the establishment of a sanctioned encampment in North Boulder with insulated tents provided by the city where homeless folks can sleep in relative comfort, with security guards for public safety, social workers for assistance, showers and laundry facilities for cleanliness, and food trucks with free food for those who sleep there. I like to motivate people with carrots, not sticks, so let’s make this encampment comfortable and inviting so that people will be glad to go there, and camping ban enforcement will become a relative breeze.",
+          "stance": "mixed"
+        },
+        {
+          "person": "Montserrat Palacios",
+          "verbatim": "Yes. We should continue to enforce our laws at all times. The City does not have enough resources to house everyone that decides to stop here. We cannot run the shelters at full capacity; There needs to be space ready and available for members of our community who require it because of immediate and unforeseen circumstances (i.e. domestic violence, evictions, etc.). Boulder is a very small city and we need to work with surrounding counties and the City of Denver to redirect transient people to locations that have resources and available beds.",
+          "stance": "yes"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "slug": "2025-boulder-city-council-election-where-candidates-stand-on-making-the-city-more-wildfire-resilient",
+      "url": "https://boulderreportinglab.org/2025/10/07/2025-boulder-city-council-election-where-candidates-stand-on-making-the-city-more-wildfire-resilient/",
+      "title": "2025 Boulder City Council election: Where candidates stand on wildfire mitigation",
+      "published_on": "2025-10-07",
+      "prompt": "Should Boulder require existing homes (not just new construction) to meet wildfire mitigation standards — such as clearing five feet around structures and banning wood fences near homes?",
+      "issue": "wildfire",
+      "binary": true,
+      "skipped_headings": [
+        "Question: Should the city require wildfire mitigation and home hardening — such as a five-foot buffer of noncombustible material around the home, or banning wood fences and gates within eight feet of a home — for existing homes? Please answer yes or no, and then explain."
+      ],
+      "answers": [
+        {
+          "person": "Nicole Speer",
+          "verbatim": "I have consistently supported wildfire mitigation and home hardening, without retroactive mandates on existing homes. Requiring upgrades like noncombustible buffers or banning wood fences without a remodel or rebuild places a significant financial burden on homeowners and small landlords, especially working families and people on fixed incomes. My own family went through a wildfire assessment, and it took us over a year to save enough money to begin making changes. That experience deepened my understanding of the emotional and financial weight these upgrades carry.\n\nWhen I talk with Boulder’s fire chief and planning department leaders, they consistently say that if they had $100 to spend on wildfire prevention, they’d put $95 toward education. Mandates without financial support and technical assistance risk pushing people to build without permits, which undermines safety and leads to punitive measures. Wildfire prevention requires education and buy-in, especially as so many in our community are struggling economically.\n\nI support incentive-based programs, public outreach, and neighborhood coordination. I’ve backed funding for wildfire mitigation, curbside assessment, and financial assistance to help property owners adopt best practices voluntarily. Wildfire resilience is essential and urgent and we have limited resources to address it. That’s why we must pursue evidence-based policies.",
+          "stance": "mixed"
+        },
+        {
+          "person": "Montserrat Palacios",
+          "verbatim": "We should have minimum standards that make sense and can be implemented. For example, the five-foot buffer of noncombustible material is simple and quite impactful. At the same time, we should not be banning wood fences and gates as that can create a hard financial burden for residents and these structures are already part of the functionality of their home (i.e. protect pets and provide privacy). There is no single silver bullet to prevent wild fires from spreading, we need to have a vast tool-kit and work together with Boulder’s fire-department, experts and State Officials.",
+          "stance": "mixed"
+        },
+        {
+          "person": "Rob Kaplan",
+          "verbatim": "Yes. With my working experience in the wildland urban interface (WUI) for over 18 years, it is clear that without retroactive requirements, the International WUI code is just a piece of paper with words, not a tool for real change. To truly protect our community, I would recommend phasing in the code with three basic and effective measures for existing homes, all of which can be substantially subsidized through the city’s $2,000 WRAP program and the county’s $500 rebate. These measures are: limbing tree branches up to six feet from the ground, installing 1/8-inch mesh on all passive venting to keep embers out, and creating a five-foot noncombustible perimeter around the home. These steps are practical and cost-effective, and they give firefighters a better chance to protect homes and save lives during a wildfire.",
+          "stance": "yes"
+        },
+        {
+          "person": "Jennifer Robins",
+          "verbatim": "Yes. Wildfire is an equitable disaster and it will take everything in its path without discrimination. If we don’t fire-harden now, the people who will suffer the most are our most vulnerable residents. I believe the city needs to expand wildfire mitigation beyond just new construction and additions, but we have to do it in a way that doesn’t put a crushing financial burden on homeowners or rental property owners. That means focusing first on strong incentive-based programs like rebates, grants, neighborhood cost-sharing, and partnerships with insurers and the county so people have real support to retrofit. We should also phase requirements in over time and provide extra resources for low- and middle-income households. The goal is to build resilience across the entire community, not just for those who can afford it.",
+          "stance": "yes"
+        },
+        {
+          "person": "Rachel Rose Isaacson",
+          "verbatim": "Yes. Wildfire risk is one of the greatest threats facing Boulder, and the areas at the highest risk could require mitigation and home hardening as a critical step in protecting lives, homes, and our community as a whole. That said, I believe these requirements must be paired with strong support systems so that the burden doesn’t fall unfairly on homeowners, especially those with limited resources. This means exploring subsidies, grants, and technical assistance to make compliance realistic and equitable.\n\nAs someone who has worked on resilience and ecological stewardship, I see this as both a safety measure and an opportunity to build smarter, more sustainable systems. Clear standards such as defensible space around structures and fire-resistant materials can drastically reduce community-wide risk. But enforcement must go hand in hand with education, collaboration, and financial support.\n\nUltimately, my approach is to treat wildfire mitigation not as an individual responsibility alone, but as a shared commitment to community safety.",
+          "stance": "yes"
+        },
+        {
+          "person": "Mark Wallach",
+          "verbatim": "The current ordinance will apply to approximately 200 homes per year. With more than 47,000 residential units in Boulder, the time required to fully harden the City is more than 200 years. Obviously, this will not do.\n\nAs a Council, we determined that we would not impose the expense upon homeowners of requiring that they rip out their existing junipers (although I believe everyone should). However, requiring a defensible space around homes is, I believe, a less onerous and still effective fire mitigation measure. In addition, all junipers should be limbed up 5-6 feet, and trimmed so that they do not touch the house. Certainly, wood fences should be prohibited going forward, or at the very least prohibited where the fence touches the house. Boulder is in the 97th percentile for fire danger in Colorado. We need to recognize that and respond to it.\n\nIn some ways, this is a more significant danger than the flood danger that affects our community. Flooding will occur on exceptional occasions; one careless lit cigarette can cause a conflagration on any given day, and the time for evacuation may be very brief indeed. In light of climate change, and the prospect of a drier environment, we ignore this danger at our peril. Just ask the residents of Superior.",
+          "stance": "mixed"
+        },
+        {
+          "person": "Matt Benjamin",
+          "verbatim": "Yes. I support requiring wildfire mitigation and home hardening measures for existing homes because the risk of wildfire in Boulder is too urgent to ignore. The Marshall Fire showed us that fire doesn’t stop at the wildland–urban interface; it can sweep through neighborhoods and destroy lives and property in minutes.\n\nScience shows that steps like creating a five-foot buffer of noncombustible material around homes or limiting combustible fencing near structures dramatically improve survivability. These are practical, proven measures that reduce the likelihood of homes igniting from embers or spreading fire between properties. I also recognize these requirements may create financial and logistical challenges for homeowners, particularly in denser neighborhoods. That’s why I believe mandates must be paired with education, phased timelines, and financial assistance programs such as grants, rebates, or low-interest loans.\n\nThis ensures residents aren’t left on their own to shoulder the costs of resilience. Protecting our community requires both individual responsibility and city leadership. By adopting common-sense wildfire mitigation standards, while supporting homeowners with resources, we can reduce risks for families, safeguard first responders, and make Boulder a more resilient community in the face of climate-driven wildfire.",
+          "stance": "yes"
+        },
+        {
+          "person": "Lauren Folkerts",
+          "verbatim": "Yes, I support requiring wildfire mitigation and home hardening for existing homes, but only if those requirements come with strong financial support and technical assistance so families aren’t priced out of safety.\n\nAs an architect, I know that small changes, like replacing combustible materials near homes or maintaining a five-foot defensible space, can dramatically reduce the chance of ignition. But I also know from personal experience that these improvements can be costly. That’s why new standards must be paired with incentives, subsidies, and practical guidance so they’re fair and achievable for everyone.\n\nWildfire resilience isn’t just about individual properties; it’s also about community. Neighbors helping each other with mitigation projects, supporting one another during evacuations, and coming together in recovery, those connections save lives. Boulder can set a model by combining strong standards with real support and strong community networks.",
+          "stance": "yes"
+        },
+        {
+          "person": "Aaron Stone",
+          "verbatim": "I don’t think we should be pushing these costs on to current homeowners. We can subsidize or offer incentives to those who wish to do it voluntarily while creating natural barriers to fires where homes are currently located. In addition we need to ensure that infrastructure exists so that firefighters can rapidly reach areas they need to if a wildfire occurs.",
+          "stance": "mixed"
+        },
+        {
+          "person": "Rob Smoke",
+          "verbatim": "Yes, I think the City needs a pragmatic approach to what it demands and where. Homes with an adjacent position to open space probably need more treatment than homes in central Boulder — although we have had some extraordinary fires in central Boulder. On the other hand, if we’re talking about something like de-juniperizing the entire city, I think that might be problematic.",
+          "stance": "yes"
+        },
+        {
+          "person": "Maxwell Lord",
+          "verbatim": "I think that the updated WUI districts and code are an important step to fire hardening the city. I also believe that forcing homeowners to make changes to their homes is not the role of the city government, particularly when we make it so hard to do so. I think that people want to protect their homes, they want to protect our city, but the city makes it too difficult to acquire permits, or really even information. The new WUI map is confusing, the codes, while important, are difficult for people to understand. I think rather than forcing anything, we need to focus on outreach, and streamline permits for homeowners who are trying to update in case of a fire. I don’t see how any one can champion “affordable housing for the missing middle” when they are also forcing homeowners to pay exorbitant fees to even have the right to protect their homes.",
+          "stance": "mixed"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "slug": "2025-boulder-city-council-election-where-candidates-stand-on-the-councils-role-in-foreign-affairs",
+      "url": "https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-councils-role-in-foreign-affairs/",
+      "title": "2025 Boulder City Council election: Where candidates stand on the council’s role in foreign affairs",
+      "published_on": "2025-10-09",
+      "prompt": "Should Boulder City Council weigh in on foreign affairs? If not, how should it handle protests and tensions in council chambers over the war in Gaza?",
+      "issue": "foreign-affairs",
+      "binary": false,
+      "skipped_headings": [
+        "Question: Should the Boulder City Council take positions on foreign affairs? Regardless of your answer, what actions, if any, should the city council take in response to Israel’s war in Gaza and the related disruptions and demonstrations in council chambers (e.g., open comment rules, safety, hate speech, First Amendment considerations)?"
+      ],
+      "answers": [
+        {
+          "person": "Rob Kaplan",
+          "verbatim": "No. Boulder City Council should stay focused on local governance, not foreign affairs. Our responsibility is to ensure safety, uphold free speech, and keep meetings productive and accessible to all.\n\nRecently, we’ve seen troubling escalations of threats and violence against Jewish members of council and the public. Allowing hate speech and threats to go unchecked are the embers that can ignite tragedies like the June 1 attack on Pearl Street, which claimed the life of a peaceful demonstrator. The city must enforce open comment rules consistently, protect First Amendment rights, and draw a clear line: peaceful protest must be protected, but hate speech and threats of violence will not be tolerated. Given these escalating risks, I would suggest stronger security measures, including installing metal detectors at council chambers to ensure the safety of everyone who participates in our local government.",
+          "stance": null
+        },
+        {
+          "person": "Lauren Folkerts",
+          "verbatim": "Yes, I believe City Council should acknowledge global events when they deeply impact our residents, while staying focused on local challenges. In this case, I believe we should condemn all violence against civilians, and stand firmly against hate. We don’t have to solve international conflicts, but we should respond publicly and swiftly so that our community feels heard and we can better focus on the substantial local, regional, and federal issues before us.\n\nI strongly believe in the importance of the First Amendment. Protecting free speech not only reflects our values but also helps us avoid costly lawsuits if we overreach. At the same time, I support reasonable, content-neutral restrictions so that city business can move forward. That means maintaining order during meetings, ensuring everyone has an opportunity to speak, and applying our rules consistently.\n\nThrough this balanced approach of condemning violence, upholding free speech, and keeping our primary focus on Boulder’s local needs, we can honor our community’s values and move forward on the critical work of housing, climate, and safety.",
+          "stance": null
+        },
+        {
+          "person": "Rachel Rose Isaacson",
+          "verbatim": "While City Council’s primary responsibility is to serve the needs of our local community, I believe there are circumstances where discussing international affairs can be appropriate. Global events often intersect with local issues such as climate change, trade policies affecting local businesses, human rights concerns, or immigration, and City Council can play a role in expressing our community’s values and advocating for responsible, ethical policy.\n\nBoulder is part of a global community, and international conflicts can and have reverberated deeply here. We cannot ignore the pain, fear, or anger felt by residents, and, we need to ensure that Council chambers remain safe and accessible for all.\n\nIn practice, this means upholding robust First Amendment protections during public comment while also maintaining that everyone has a chance to speak without intimidation or disruption.\n\nBeyond managing open comment, our role is to foster dialogue, ensure community members are heard, and focus our policymaking on keeping Boulder inclusive and safe, especially in moments when global conflict magnifies local tensions.",
+          "stance": null
+        },
+        {
+          "person": "Jennifer Robins",
+          "verbatim": "No, I don’t believe City Council should take positions on foreign affairs. Our responsibility is to focus on Boulder’s local needs and challenges. That said, it’s important to acknowledge that innocent people are suffering in conflicts around the world, and that is always a tragedy. Here at home, I think we need to maintain council chambers as a safe and respectful space for everyone. That means enforcing the rules of decorum that already exist and allowing people to express their views within the bounds of open comment, but stepping in when rules are broken or behavior becomes disruptive. Everyone deserves the chance to be heard, but we also need to ensure that meetings remain safe, respectful, and focused on the work of the city.",
+          "stance": null
+        },
+        {
+          "person": "Montserrat Palacios",
+          "verbatim": "No. Boulder City Council should not take positions on foreign affairs. We have very capable legislators that represent 100% of Colorado’s constituents with the Federal Government. The Congress, Senate and State Government are the right mechanisms to voice opinions and concerns about foreign affairs. City Council is frequently disrupted by out-of-topic issues, one idea that we could investigate is to have a special session once a quarter for the community to voice opinions about any topics (ie, International wars, attacks on free speech, the stock market), this measure would allow us to streamline regular sessions that are scheduled with a specific agenda in mind, and still allow the public to have a voice be heard.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Stone",
+          "verbatim": "Yes, we are witnessing a genocide being aided by our federal government through weapons and funding. In a recent forum, both current council members and candidates said foreign policy is out of the city’s scope. Yet, those same people pledged to protect undocumented residents during ICE raids — also a federal issue. The hypocrisy is striking.\n\nWhile we cannot control federal foreign policy, we do control our investments. We have the power to divest from entities complicit in genocide and should exercise it. Council meetings must remain safe and inclusive, while I do not choose to personally disrupt council meetings, I have witnessed a council that is ignoring the people and taking active steps to silence speech. Including threatening to remove public comment and not showing video of people who are speaking. I certainly understand the passion behind why some are choosing to disrupt.",
+          "stance": null
+        },
+        {
+          "person": "Maxwell Lord",
+          "verbatim": "While I do believe as a local government we need to tend to the garden we can touch, and focus on policies that directly impact the citizens of our city, I also think part of that means listening to what our citizens want. I worked building water treatment for refugees in Burma, and I can say first hand that both sides of the conflict use technology like Toyota, and Microsoft. These are massive corporations, and while they have admittedly scrupulous ethics, overhauling our civil infrastructure to prove a point is going to cause more damage to our people than any good in the grand scheme. Still though, we can provide guidance, and moral standings. We condemn violence. We condemn harassing our public officials, we condemn attacks on our citizens, just as we condemn bombing children, or violence against people we politically disagree with. None of these acts solve problems, they add fuel to a fire.",
+          "stance": null
+        },
+        {
+          "person": "Matt Benjamin",
+          "verbatim": "I do not believe the Boulder City Council should take formal positions on foreign affairs. Our responsibility is to focus on the urgent challenges facing Boulder, housing, climate resilience, public safety, and good governance. When we wade into international conflicts, we risk dividing our community, distracting from local priorities, and making symbolic statements that do not materially affect foreign policy.\n\nThat said, the terrorist attack in Israel and the subsequent war in Gaza has deeply impacted members of our community, and the emotions expressed in Council chambers are real and raw. Council has a duty to create a space where people can share their perspectives while also protecting safety, order, and respect in the public process.\n\nWe must uphold the First Amendment while also speaking out against the gangrenous rise of antisemitism. We must enforce the rules that prevent disruptions, hate speech, or intimidation. City staff, Council, and the public deserve to feel safe in civic spaces. While foreign affairs should not drive Council’s policy agenda, we must remain a forum for civil discourse, protect constitutional rights, and model respect, even in moments of deep disagreement.",
+          "stance": null
+        },
+        {
+          "person": "Rob Smoke",
+          "verbatim": "The world, generally speaking, understands that genocide is occurring in Gaza. How then does a super-majority of council manage to simply look away and allow itself to invalidate the legitimate feelings of psychological pain, moral injury and general distress that people are experiencing? The evidence is overwhelming — we know it’s not about Israel defending itself when tens of thousands and quite likely hundreds of thousands of Palestinians, most of them women and children, are being murdered at an industrial scale. If elected, I will immediately demand a fresh look at divestment from companies that profit from the suffering in Gaza.",
+          "stance": null
+        },
+        {
+          "person": "Nicole Speer",
+          "verbatim": "Many in our community have ties to Israel or Gaza. The antisemitic attack and murder of a Jewish community member on June 1 added to the fear and pain so many are experiencing. The ongoing suffering of civilians in Gaza and the continued plight of the hostages reverberates.\n\nA prior Council determined we could take positions on international issues if the matter significantly impacts Boulder and Council has had sufficient time and information to study. That’s a high bar, and for good reason.\n\nI’ve advocated building a principled framework for engaging in international issues, or ending the practice altogether. Any engagement must be based on clear criteria and a predictable, transparent process that avoids bias.\n\nU.S. arms transfers, foreign policy, and corporate supply chains have catastrophic impacts beyond the war in Gaza (e.g., Sudan, Xinjiang, the Democratic Republic of Congo). We cannot have a double standard where Israel is the only country singled out.\n\nRegarding disruptions, it’s important everyone has access to their local government. I’ve advocated clearer open comment rules, unbiased implementation of those rules, protections for speech and safety, and open comment time limits. It has taken time to arrive at a workable solution but we’re seeing results.",
+          "stance": null
+        },
+        {
+          "person": "Mark Wallach",
+          "verbatim": "It is already enshrined in Council’s rules that we do not opine on foreign affairs, and I agree with that. It is simply not our job to become embroiled in contentious foreign affairs issues, and if we begin to do so, there is no limit to where that practice would end (the imprisonment of 1,000,000 Uyghers in labor camps in China; the death of hundreds of thousands in Syria, the destruction and mass killing in Sudan, Russia’s war against Ukraine, etc.). The thought that the rest of the world is just waiting for guidance of the Boulder City Council on these matters is hubristic and foolish.\n\nEveryone is entitled to their beliefs on the war in Gaza and Israel’s policies, and I have no problem with individuals speaking to that subject at Open Comment, as is their constitutional right. But disruptions of the meeting, chanting, shouting and cursing have no place there. And I believe it is appropriate not to accommodate hate speech, cursing and shouting. Everyone is entitled to express their opinion, even strongly; they are not entitled to disrupt our meetings and prevent the business of Boulder from being conducted, which is our job and our obligation.",
+          "stance": null
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "slug": "2025-boulder-city-council-election-where-candidates-stand-on-the-housing-shortage",
+      "url": "https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-housing-shortage/",
+      "title": "2025 Boulder City Council election: Where candidates stand on the housing shortage",
+      "published_on": "2025-10-09",
+      "prompt": "Boulder needs thousands of new homes by 2032. What specific actions would you take to overcome barriers and increase housing supply?",
+      "issue": "housing",
+      "binary": false,
+      "skipped_headings": [
+        "Question: Boulder needs thousands of new homes by 2032 to meet demand and keep rents and home prices from rising further out of reach. Yet projects often face cost overruns, community pushback or zoning hurdles. What specific steps would you take to address the city’s housing shortage?"
+      ],
+      "answers": [
+        {
+          "person": "Matt Benjamin",
+          "verbatim": "Boulder must take bold but practical steps to address our housing shortage if we want to remain an inclusive and vibrant community.\n\nFirst, I will continue the work of this council to streamline and modernize our planning and permitting process. Every month of delay adds costs that get passed on to renters and buyers. Simplifying reviews, reducing redundancies, and setting clear timelines will make housing more attainable without compromising community values.\n\nSecond, we must reform our land use code to allow more diverse housing types, ADUs, duplexes, townhomes, and cottage courts, especially near transit corridors. These “missing middle” homes provide attainable options for families and workers currently priced out of Boulder. I am proud to help lead Council in this direction with the update to the Boulder Valley Comprehensive Plan.\n\nFinally, I support revising our Inclusionary Housing ordinance so it better incentivizes middle-income housing. Paired with state tools like the Middle-Income Housing Tax Credit, this can finally produce housing for working families, teachers, nurses, and first responders.\n\nWe need to act with urgency, cutting red tape and aligning incentives so Boulder can build the homes we need, while protecting affordability, equity, and resilience.",
+          "stance": null
+        },
+        {
+          "person": "Maxwell Lord",
+          "verbatim": "I think we are going to need to accept the fact that Boulder is changing. The whole world is getting a little more crowded, and we can’t simply pull the ladder up behind us if we have lived here longer. That means changing land-use policy to allow more housing at the peripheries of the city, apartment complexes within, and duplexes and triplexes in some of our tough-to-build-in neighborhoods. We need to keep a tight eye on contractors who are hired by the city (once again, this is a good insight I think I would bring to the council) so we aren’t wasting money on city projects, and also confirm that they follow the guidelines we require for equitable housing. This only begins to address housing supply though, and we need to help renters with the existing housing by creating greater protections.",
+          "stance": null
+        },
+        {
+          "person": "Rachel Rose Isaacson",
+          "verbatim": "Boulder’s housing shortage is one of the most urgent issues we face, and meeting the thousands of new homes needed by 2032 requires both decisive action and thoughtful collaboration. First, we must streamline approval processes for projects that meet our community’s affordability and sustainability goals. Delays and cost overruns not only discourage builders but also make housing more expensive. By improving efficiency while maintaining accountability, we can lower costs and get homes built faster.\n\nSecond, Boulder’s zoning needs to evolve. Allowing more diverse housing types, such as townhouses, triplexes, and accessory dwelling units, particularly along transit corridors and in walkable neighborhoods, can help us expand housing options while reducing sprawl and advancing our climate commitments.\n\nThird, we need stronger affordability strategies. This includes expanding land banking, investing in community land trusts, and creating public-private-philanthropic partnerships to ensure new homes remain accessible for generations. Pairing these strategies with incentives for nonprofit and mission-driven developers can keep affordability at the center of our efforts.\n\nFinally, community-oriented strategies are key. In my neighborhood near North Boulder Park, residents, housing activists, and developers worked together to integrate mixed housing types. The result is a vibrant, intergenerational community that shows how gentle, community-driven density can strengthen neighborhoods and support our local economy.",
+          "stance": null
+        },
+        {
+          "person": "Montserrat Palacios",
+          "verbatim": "First, we have to be realistic that there is always going to be a shortage of housing in a city like Boulder as it has national and international demand. We must have clear priorities and then legislate around them. As an example, we should avoid sprawl, we must protect our green-belt and maintain strict regulations on height restrictions because we all want to enjoy and be energized by the foothills. We can and should increase density (smartly) by allowing projects that provide much needed homes for families and middle-income service personnel (teachers, health care, city workers, professors, etc.). We have a fair amount of homes in large lots, if the city does not allow duplexes, triplexes or more-than-one single-family-home per lot, investors will continue to build ultra-luxury extra-large-homes to be able to recoup their investment. A community of smaller homes, like ‘Holiday’ in North Boulder, can host more families in the same area, which leads to higher school enrollment and a significant boost to the local economy (restaurants, stores, after-school classes, churches, charities, retail, etc).",
+          "stance": null
+        },
+        {
+          "person": "Rob Kaplan",
+          "verbatim": "Yes, I support the goal of 1,000 permanently affordable middle-income units by 2030, but with only 150 expected to be completed, we must be realistic where we stand. The target was well-intentioned, but it didn’t fully account for today’s escalating costs of land, construction materials, and labor that we’re facing today. To make meaningful progress, we need to reassess and focus on policies that will actually result in more housing built rather than setting goals that sound good but aren’t grounded in reality. That said, we can’t afford to give up, we need innovative, practical strategies to close the gap.\n\nFirst, increase supply through smart zoning by allowing targeted density along transit corridors and near employment centers.\n\nSecond, leverage innovative financing tools like land-lease models, down payment assistance, and Private Public Partnerships.\n\nThird, cut red tape by streamlining our permitting process to reduce costs and timelines. At the same time, we must build flexibility into our policies so when innovation or a unique opportunity presents itself, the city can move quickly.\n\nFinally, we must acknowledge reality: even with aggressive housing efforts, many workers will continue commuting into Boulder by expanding Park-and-Ride facilities, partnering with local businesses to operate van shuttles, and improving regional bus services.",
+          "stance": null
+        },
+        {
+          "person": "Mark Wallach",
+          "verbatim": "I believe the premise of the question is not entirely correct. More than 90% of the housing Boulder currently produces is market rate stacked flat rental apartments. There is no shortage at the high end; the shortage exists for middle-income housing (a mere 800 units, or less than 2% of our entire housing stock) and affordable housing (Boulder Housing Partners has 2,070 units in its portfolio and growing, but the need is greater).\n\nAffordable housing takes advantage of federal tax subsidies; middle-income housing has no such subsidies, which is why we have produced only 45 for-sale, deed-restricted middle-income units in the past 10 years. These shortages will not be cured by zoning changes, streamlining regulations, or eliminating community participation in the approval process.\n\nWith 60,000 in-commuters, and a unique and beautiful community, it is highly unlikely that we can build our way out of these problems; demand is virtually limitless. Littering our community with a vast number of expensive, market-rate rental buildings will not serve any of our community goals, or address the problem of too many people chasing too few units. It has gotten so bad that our 2016 goal of creating 15% affordable and middle-income units is now referred to by staff as relating only to the creation of affordable housing. And the term “missing middle” has been defined to relate only to housing typology, with no reference to the price of those housing units. Middle-income housing is nowhere to be found in the concept of the “missing middle.”\n\nHowever, we are not without recourse. As anyone who has followed my prior campaigns would know, I have been a consistent advocate for repurposing the municipal airport to create the middle-income and family housing that the market cannot create due to the high cost of land.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Stone",
+          "verbatim": "I disagree with the premise of the question. If Boulder constructs thousands of new homes it will no longer be Boulder. We might as well change our name to San Jose. In the discussion of affordable housing the question I haven’t seen anyone on city council ask is, “How many people do we want to live in Boulder?” Currently we have a little over 100,000. Do we want 150,000, 200,000, more? I think we need to face that question head on before we continue what we’re currently doing: building housing willy nilly, wherever a developer can find a building or two to demolish. In all my time in Boulder I’ve never seen such intense development. And let’s face it, the demand for housing will never abate until Boulder is so built out, dense, heavily trafficked, and ugly that no new people want to move here. I’d like to cap development to a fixed number of housing units before we allow the revolution of newcomers to determine what that number is, because then it’s too late. We need to be smart about how we develop. What I propose is a radical reprioritization. Let’s increase the percentage of affordable units developers have to build.",
+          "stance": null
+        },
+        {
+          "person": "Jennifer Robins",
+          "verbatim": "Boulder has done a good job supporting affordable housing, and we have no shortage of high-end, market-rate homes, but what’s missing is the middle. Our middle income earners often can’t find housing here, even though they’re the backbone of our community. We need to make it easier and more attractive for developers and builders to create homes that middle earners actually want to live in. That means streamlining the process and providing the right incentives so that “missing middle” housing duplexes, townhomes, smaller condos can actually get built in Boulder. I would explore the option of reducing impact fees for developers that want to build for this population. Part of the solution also means looking ahead and exploring the Area III Planning Reserve in a thoughtful, deliberate way. If we plan carefully, we could use that land to create truly livable, mixed-income neighborhoods that include middle-income housing and the services that support it. We need to approach it with balance and intention, so we’re building for the community.",
+          "stance": null
+        },
+        {
+          "person": "Nicole Speer",
+          "verbatim": "Boulder’s housing challenges don’t exist in isolation and neither do the solutions. Through my work with the Denver Regional Council of Governments (DRCOG), I helped advance the Regional Housing Needs Assessment, which found that most homes needed by 2032 will be for low- and middle-income households. New construction alone will not meet that demand. DRCOG is now working to develop the Denver Metro region’s first Regional Housing Strategy to identify solutions to these shortages.\n\nLocally, we’ve made progress expanding occupancy limits, eliminating parking minimums, and reforming zoning to allow more diverse housing types. Additional efforts have focused on simplifying permitting, reducing unpredictability, and supporting small-scale infill near transit and services to expand options. These strategies slow the increase in housing costs.\n\nAffordability is about more than housing. That’s why I’ve worked to support and expand childcare access, fare-free transit, and climate-adapted infrastructure, especially for middle-income families who often do not qualify for assistance. Scaling up subsidies and shared equity tools, such as rental assistance, down payment support, and community land trusts, is also essential.\n\nOur housing shortage is a regional challenge requiring comprehensive policies that reflect the complexity of affordability and ensure Boulder remains accessible to residents across income levels.",
+          "stance": null
+        },
+        {
+          "person": "Rob Smoke",
+          "verbatim": "I grew up in one of tens of thousands of apartments built by legislation supporting co-operative low- to middle-income housing. The legislation, passed in 1955, created a very clear formula for collaboration between governmental agencies and NGOs interested in creating affordable housing. I would like to see the city generate at least one pilot project to gain an understanding of the “equity framework” and whether or not the program can be expanded.",
+          "stance": null
+        },
+        {
+          "person": "Lauren Folkerts",
+          "verbatim": "Boulder needs to take bold but practical steps to address our housing shortage. I would focus on three priorities:\n\n1. Update our comprehensive plan. We must allow more flexibility in land use, particularly around housing density. That means making it easier to build duplexes, triplexes, townhomes, and cottage courts in more places so we create a wider variety of housing choices.\n\n2. Streamline process and reduce fees. We’ve already made progress reducing red tape, but we need to go further. A clearer, more predictable process lowers costs, speeds up construction, and helps small-scale and affordable housing projects succeed, especially when we reduce fees for projects that deliver on our affordability goals.\n\n3. Ensure homes are used as homes. A vacancy tax would discourage leaving units empty or using them only as investments, while generating revenue for affordable housing.\n\nBy combining more flexible planning, streamlined rules, and stronger accountability, we can add the thousands of homes Boulder needs while ensuring that Boulder remains not just beautiful, but vibrant and welcoming.\n\nUpdate: Some of these responses have been edited for brevity.",
+          "stance": null
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "slug": "2025-boulder-city-council-election-where-candidates-stand-on-priorities-for-the-city-budget",
+      "url": "https://boulderreportinglab.org/2025/10/12/2025-boulder-city-council-election-where-candidates-stand-on-priorities-for-the-city-budget/",
+      "title": "2025 Boulder City Council election: Where candidates stand on city budget priorities",
+      "published_on": "2025-10-12",
+      "prompt": "With sales tax revenue slowing, a hiring freeze, and a $380 million maintenance backlog, what would be your top spending priorities — and what would you cut or delay?",
+      "issue": "budget",
+      "binary": false,
+      "skipped_headings": [
+        "Question: With sales tax growth slowing, the city manager imposed a hiring freeze this year and the city council faces tough trade-offs. The city also has an estimated $380 million capital maintenance backlog and uncertain federal funding. With limited dollars, what are your top priorities, and what would you cut or delay?"
+      ],
+      "answers": [
+        {
+          "person": "Mark Wallach",
+          "verbatim": "On the subject of infrastructure, my main priority is the passage of the extension of the Community Culture Resilience and Safety Act, which will fund a substantial portion (but not all) of our infrastructure needs. I regret the substantial cuts we have made to our Capital Improvements Program across virtually all departments, but hopefully many of the postponed projects can be put back in the queue for 2027.\n\nAs I have expressed, infrastructure maintenance is a top priority for me. One priority of the proposed budget is to attempt to retain staff, and reallocate staff, to avoid layoffs. I agree with this strategy. It is simply too hard to replace experienced, talented staff members after they have been laid off, and so the emphasis on retention is warranted.\n\nI do have some quibbles with the proposed 2026 budget (who can get excited about cutting funds for the Circle of Care program?) but overall I think it is a serious effort to manage Boulder through this period of economic certainty. I am more concerned with the potential impact on Boulder of policy decisions made in Washington, but the damage from those decisions is essentially unknowable at this time.",
+          "stance": null
+        },
+        {
+          "person": "Nicole Speer",
+          "verbatim": "Council is already addressing these budget gaps through hiring freezes, departmental realignments, and operational efficiencies. For 2026, we’ve made difficult decisions to preserve high-impact and essential services and programs while preparing for slower sales tax growth and uncertain federal support.\n\nWe’ve known for decades that our heavy reliance on sales tax makes us vulnerable to economic shifts. Many city funds are legally restricted, which limits flexibility. Our capital maintenance backlog can’t be solved through cuts alone.\n\nThat’s why I supported the Climate, Community, and Resilience Sales Tax (CCRS) in 2021 and support its extension in 2025. It provides dedicated funding for infrastructure, climate adaptation, and public facilities. I’ve also championed outcome-based budgeting, where investments are tied to measurable results aligned with Boulder’s sustainability, equity, and resilience framework.\n\nAs we continue to make these decisions, my priority is that we listen to the community about what our top priorities should be. This fall, the community will help shape priorities for 2027 and beyond through the Fund Our Future conversation. I’ve advocated for this conversation because this is how we ensure our budget reflects what our whole community values most. The next Council must use this information to shape future spending decisions.",
+          "stance": null
+        },
+        {
+          "person": "Aaron Stone",
+          "verbatim": "The city council has already closed the 7.4 million dollar shortfall. However, I think we should:\n\n1. Target the homeless issue. This issue affects public perception of safety and directly ties into the vitality of downtown.\n\n2. Helping the middle class afford housing in our community. There are several options available including reducing regulations on creating Tiny Homes, ADUs, and removing red tape on building in certain areas already slated for development.\n\n3. Commercial Rent is too high. The cost of doing business is driving restaurants and local shopping out of Boulder. I think we can find creative ways to help.",
+          "stance": null
+        },
+        {
+          "person": "Rob Smoke",
+          "verbatim": "Firstly, I would realign middle and upper level employees’ salaried compensation via adjustments taken from data collection from similarly sized municipalities. Separately, I would give a closer review of the technical aspects of integrated benefit management. I believe in certain types of pragmatic “best practices” implementation; I have a background that applies to this type of situation.",
+          "stance": null
+        },
+        {
+          "person": "Lauren Folkerts",
+          "verbatim": "With limited resources, Boulder must protect the core services residents rely on most: housing and human services, public safety, and maintaining our roads, buildings, and infrastructure. These are essential for equity, safety, and resilience.\n\nI don’t believe we should solve our budget challenges by shifting costs onto those who can least afford it. Instead, we should focus on efficiency and effectiveness. That’s why I supported our shift to outcomes-based budgeting, which directs dollars to the programs that deliver the greatest impact. In this year’s realignment, that approach meant we didn’t cut a number of major programs. Instead, we were able to combine programs and reduced duplication with outside agencies, while preserving what only the city can provide.\n\nIt’s also important to note that many big capital projects are funded separately, through voter-dedicated revenues or state and federal grants. The real trade-offs are in the general fund, where our choices must align with community values. By prioritizing essentials, streamlining programs, and keeping equity at the center, we can manage fiscal challenges responsibly while building a stronger Boulder for the future.",
+          "stance": null
+        },
+        {
+          "person": "Rachel Rose Isaacson",
+          "verbatim": "With slowing sales tax growth and a $380 million capital maintenance backlog, Boulder must make careful, transparent, and equitable budget decisions. My top priorities are maintaining (and improving!) essential city services, protecting our most vulnerable residents, and investing in long-term resilience. This includes ensuring public safety, housing stability, climate adaptation, and core infrastructure remain funded and functional.\n\nAt the same time, we need to take a hard look at how resources are allocated. I would prioritize projects that prevent higher long-term costs such as proactive infrastructure maintenance, wildfire mitigation, and flood resiliency over discretionary or deferrable capital projects. Strategic resource management, which I am trained in, requires not only balancing the budget but also considering the downstream impacts of cuts or delays.\n\nI also believe the city should explore innovative cross-department partnerships and leverage nonprofit and philanthropic investment to meet community needs more cost-effectively. Increasing financial transparency is essential so residents can understand trade-offs and have confidence in Council decisions.\n\nTough choices are ahead, but with disciplined, accountable, and equity-minded budgeting, we can safeguard Boulder’s core services, protect residents, and invest in a resilient future without sacrificing our community’s quality of life.",
+          "stance": null
+        },
+        {
+          "person": "Rob Kaplan",
+          "verbatim": "My top priority is to protect core services that keep Boulder safe and functional: Fire, Police, EMS, and maintaining our basic infrastructure like roads, utilities, and snow removal. We must also invest in wildfire mitigation and home hardening, which save lives and prevent catastrophic future costs.\n\nWith limited resources, every city department must take responsibility for identifying opportunities to increase revenue and pinpoint where expenditures can be reduced. This shared accountability ensures we are making the most of every dollar. Projects critical to safety, basic services, or regulatory compliance should move forward, while non-essential expansions or new amenities may need to be delayed. Each city department knows its budget best and is in the strongest position to identify line items or projects where costs can be reduced or eliminated.\n\nThis process shouldn’t just be about getting through this year or next, it must be a long-term commitment to smarter spending. By holding departments accountable for proactive and transparent budget management and focusing on safety, reliability, maintenance, and fiscal discipline, we can make sustainable, data-driven decisions that steadily reduce the $380 million maintenance backlog and keep Boulder strong for years to come.",
+          "stance": null
+        },
+        {
+          "person": "Maxwell Lord",
+          "verbatim": "I could take the easy way out, and say “performance-based metrics” and “higher revenue, and lower spending,” but it’s simply an easy way to dodge the question. I do, of course, believe we need to have good metrics for measuring how our policies affect our cities, from the efficacy of higher policing, to the impact of more buses. I also think Council needs to be honest with its citizens, and itself about what it can no longer afford, and start looking for cheaper alternatives. This means tabling some civic projects, and looking for simpler ways to get people around safely. We spent 16 million dollars on the demolition of the old hospital, so that we could recycle the steel and say we did it sustainably. I, like everyone, want to recycle, but we can’t be spending many times over market average for commercial demolition for a warm fuzzy feeling, when the money could have gone to helping get addicts off of the streets, and people back into our shopping centers for more economic vitality.",
+          "stance": null
+        },
+        {
+          "person": "Montserrat Palacios",
+          "verbatim": "The budget should not be a checklist, it needs to be revisited constantly and focus our attention on outcomes and impact more than on initial investments. The best way to have healthy accounts is with increased revenue through commercial activities. I am not proposing more taxes, I am proposing the activation of all the vacant commercial properties like store-fronts and office-space as those locales would bring much needed revenue. The city needs to work with the major landlords and investors and find ways to incentivize them to adopt more reasonable rent structures, acting as an important catalyst that benefits small businesses, entrepreneurs and the community at large.",
+          "stance": null
+        },
+        {
+          "person": "Matt Benjamin",
+          "verbatim": "Boulder is facing real fiscal challenges: slowing sales tax growth, a hiring freeze, a $380 million capital backlog, and uncertainty around federal funding. In this environment, we need to be disciplined and clear about our priorities. My top budgetary priorities are core services that directly impact safety, equity, and resilience:\n\n● Maintaining and repairing our streets, bridges, and water infrastructure, which are essential for safety and economic vitality.\n\n● Accelerating wildfire and flood mitigation, because delaying resilience investments will cost us far more later.\n\n● Work urgently to reinvigorate our local economy by streamlining permitting and offering economic incentives.\n\nTo balance the budget, I believe we should review ongoing programs with clear outcome-based metrics, funding what delivers measurable results, and rethinking what does not. We also need to boost city revenues by going all in on our new economic development plan. Lifting up our small businesses and driving local tourism to our downtown cores is essential to strengthening our budget. Finally, we must explore new, sustainable revenue sources beyond sales tax to reduce volatility. My approach is pragmatic: protect the essentials, invest in resilience, delay what can wait, and hold ourselves accountable for outcomes.",
+          "stance": null
+        },
+        {
+          "person": "Jennifer Robins",
+          "verbatim": "Boulder has a nearly $600 million budget, but most people don’t feel like they’re seeing $600 million worth of results. To me, that means it’s not just about how much money we’re spending, but how we’re spending it. We need to overhaul the budget so it’s focused on outcomes, transparency, and accountability. That starts with prioritizing the basics like fixing our streets and sidewalks, keeping bike paths clear, improving snow removal, investing in wildfire mitigation, maintaining our rec centers, and supporting public safety. These are the services every resident counts on, and they need to come first.\n\nFrom there, we should hold programs and contracts accountable with clear performance measures, and if something isn’t delivering results, it shouldn’t automatically get renewed. I also think the city relies far too much on outside consultants, and we’d be better off shifting those dollars into staff capacity and resident-facing services. It should be alarming to the entire community that sales tax growth is slowing. We need to look hard at that problem before jumping immediately to additional taxes.\n\nFinally, I want to bring residents directly into the process by creating a Community Accountability Committee that focuses on and reviews the budget, wildfire mitigation, and our homeless solutions.",
+          "stance": null
+        }
+      ]
+    }
+  ]
+}
