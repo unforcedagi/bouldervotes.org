@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DB = ROOT / "data" / "bouldervotes.db"
 OUT = ROOT / "docs"
-YEARS = (2026, 2025, 2023)
+YEARS = (2026, 2025, 2023, 2021)
 
 CSS = """
 :root {
@@ -433,6 +433,7 @@ def main() -> None:
             2026: "Mayor is ranked-choice (one seat). Council is plurality — five highest vote-getters win. Four city measures are also on the ballot.",
             2025: "Four council seats, no mayor. Last odd-year municipal election.",
             2023: "First direct ranked-choice mayor, four council seats. 34,249 city ballots counted.",
+            2021: "Five council seats, no directly elected mayor. Top four: four-year terms; fifth: two-year. 33,772 city ballots; 68,885 active city voters.",
         }[year]
         jump = '<p class="jump"><a href="#mayor">Mayor</a>' if mayor else '<p class="jump">'
         if council:
@@ -450,7 +451,7 @@ def main() -> None:
             for r in mayor:
                 bits.append(candidate_card(r, year, "mayor"))
         if council:
-            seats = {2026: 5, 2025: 4, 2023: 4}[year]
+            seats = {2026: 5, 2025: 4, 2023: 4, 2021: 5}[year]
             bits.append(f"<h2 id='council'>City council · {seats} seats · {len(council)} candidates</h2>")
             if year == 2026:
                 bits.append(
@@ -494,6 +495,7 @@ def main() -> None:
     write_year_page(2026, as_home=True)
     write_year_page(2025)
     write_year_page(2023)
+    write_year_page(2021)
 
     # ----- issues hub -----
     hub = [
