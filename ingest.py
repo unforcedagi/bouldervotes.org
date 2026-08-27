@@ -72,6 +72,155 @@ def ingest_questionnaires(cur, *, pid: dict, add_source, org_brl: int) -> None:
             )
 
 
+def ingest_beat_2023(cur, *, pid: dict, add_source, org_beat: int) -> None:
+    """Boulder Beat 2023 emailed yes/no questionnaire (PDF).
+
+    Only questions where the yes/no lists were readable without guessing.
+    Mixed/conflicting answers stay mixed. Names not in pid are skipped.
+    """
+    src = _ensure_source(
+        cur,
+        add_source,
+        "http://boulderbeat.news/wp-content/uploads/2023/10/Quiz-_-Candidates-match.pdf",
+        "Boulder Beat 2023 candidate questionnaire (emailed yes/no)",
+        "questionnaire",
+        2023,
+        org_beat,
+        "2023-10-06",
+        "Questions curated from public events and council votes. Responses emailed. PDF harvested 2026-08-27.",
+    )
+
+    def add_q(prompt: str, issue: str, yes: list[str], no: list[str], mixed: dict[str, str] | None = None) -> None:
+        cur.execute(
+            """INSERT INTO questions (prompt, issue_slug, year, kind, is_canonical)
+               VALUES (?,?,?,?,1)""",
+            (prompt, issue, 2023, "questionnaire"),
+        )
+        qid = cur.lastrowid
+        mixed = mixed or {}
+        rows = [(n, "yes", None) for n in yes] + [(n, "no", None) for n in no]
+        rows += [(n, "mixed", note) for n, note in mixed.items()]
+        for person, stance, note in rows:
+            if person not in pid:
+                continue
+            extra = f" Beat note: {note}" if note else ""
+            cur.execute(
+                """INSERT INTO answers
+                   (candidacy_id, person_id, question_id, source_id, event_id, kind,
+                    stance, verbatim, answered_on, notes)
+                   VALUES (?,?,?,?,?,?,?,?,?,?)""",
+                (
+                    _cid(cur, person, 2023),
+                    pid[person],
+                    qid,
+                    src,
+                    None,
+                    "questionnaire",
+                    stance,
+                    f"Answered {stance} on Boulder Beat’s 2023 emailed candidate questionnaire.{extra}",
+                    "2023-10-06",
+                    "Binary grouping as published by Boulder Beat. Not a long-form quote.",
+                ),
+            )
+
+    add_q(
+        "Would you support rent stabilization?",
+        "housing",
+        ["Silas Atkins", "Jennifer Robins", "Aaron Gabriel Neyer", "Nicole Speer",
+         "Ryan Schuchard", "Taishya Adams", "Aaron Brockett", "Tara Winer", "Jacques Decalo"],
+        ["Terri Brncic", "Waylon Lewis"],
+        {
+            "Tina Marquis": "Yes, in some cases. How it is implemented is important.",
+            "Bob Yates": "Twice indicated support (public event + emailed) and twice opposed (Chamber and landlord events).",
+        },
+    )
+    add_q(
+        "Do you support Boulder’s recent expansion of occupancy limits (3 to 5 unrelated adults)?",
+        "housing",
+        ["Silas Atkins", "Aaron Gabriel Neyer", "Nicole Speer", "Ryan Schuchard",
+         "Taishya Adams", "Aaron Brockett", "Waylon Lewis"],
+        ["Paul Tweedlie", "Terri Brncic", "Jennifer Robins", "Bob Yates",
+         "Tara Winer", "Tina Marquis", "Jacques Decalo"],
+    )
+    add_q(
+        "Would you continue the city’s current encampment removal strategy?",
+        "homelessness",
+        ["Paul Tweedlie", "Terri Brncic", "Jennifer Robins", "Bob Yates",
+         "Ryan Schuchard", "Aaron Brockett", "Tara Winer", "Tina Marquis", "Waylon Lewis"],
+        ["Silas Atkins", "Aaron Gabriel Neyer", "Nicole Speer", "Taishya Adams"],
+    )
+    add_q(
+        "Should the Police Oversight Panel have more authority over discipline when officers are found guilty of misconduct?",
+        "policing",
+        ["Silas Atkins", "Aaron Gabriel Neyer", "Nicole Speer", "Ryan Schuchard",
+         "Taishya Adams", "Aaron Brockett", "Jacques Decalo"],
+        ["Paul Tweedlie", "Terri Brncic", "Jennifer Robins", "Bob Yates"],
+        {
+            "Waylon Lewis": "They should have a say; not sure how much they have at present. Previously yes at the Raucous Caucus.",
+            "Tara Winer": "Possibly on the email questionnaire. At the Raucous Caucus: yes, later ‘a little, but not much more.’",
+            "Tina Marquis": "More say is too ambiguous. Feedback yes; replacing the department process no.",
+        },
+    )
+    add_q(
+        "Do you support the sales-tax extension and arts-funding ballot measure (2023 2A)?",
+        "budget",
+        ["Jennifer Robins", "Terri Brncic", "Aaron Gabriel Neyer", "Bob Yates",
+         "Aaron Brockett", "Tara Winer", "Tina Marquis", "Waylon Lewis", "Ryan Schuchard"],
+        ["Silas Atkins", "Paul Tweedlie", "Nicole Speer", "Taishya Adams", "Jacques Decalo"],
+    )
+    add_q(
+        "Do you support the Safe Zones 4 Kids ballot measure?",
+        "homelessness",
+        ["Paul Tweedlie", "Terri Brncic", "Jennifer Robins", "Bob Yates",
+         "Tara Winer", "Tina Marquis", "Jacques Decalo", "Waylon Lewis"],
+        ["Silas Atkins", "Aaron Gabriel Neyer", "Nicole Speer", "Ryan Schuchard",
+         "Taishya Adams", "Aaron Brockett"],
+    )
+
+    # 2021: only sourced endorsements of Question 300, not invented nos.
+    s300 = _ensure_source(
+        cur,
+        add_source,
+        "https://coloradonewsline.com/2021/11/02/initial-election-results-boulder-voters-reject-raising-occupancy-limits/",
+        "Boulder voters reject raising residential occupancy limits (Colorado Newsline)",
+        "article",
+        2021,
+        None,
+        "2021-11-02",
+        "Names Folkerts, Williams, Speer, and Benjamin as having endorsed Question 300.",
+    )
+    cur.execute(
+        """INSERT INTO questions (prompt, issue_slug, year, kind, is_canonical)
+           VALUES (?,?,?,?,1)""",
+        (
+            "Did you endorse Ballot Question 300 (Bedrooms Are For People — occupancy limits tied to bedrooms + 1)?",
+            "housing",
+            2021,
+            "other",
+        ),
+    )
+    q300 = cur.lastrowid
+    for person in ["Lauren Folkerts", "Dan Williams", "Nicole Speer", "Matt Benjamin"]:
+        cur.execute(
+            """INSERT INTO answers
+               (candidacy_id, person_id, question_id, source_id, event_id, kind,
+                stance, verbatim, answered_on, notes)
+               VALUES (?,?,?,?,?,?,?,?,?,?)""",
+            (
+                _cid(cur, person, 2021),
+                pid[person],
+                q300,
+                s300,
+                None,
+                "other",
+                "yes",
+                "Named by Colorado Newsline as having endorsed Question 300.",
+                "2021-11-02",
+                "Only the four named endorsers are stored. Absence is not a no.",
+            ),
+        )
+
+
 def ingest_forums(cur, *, pid: dict, add_source, orgs: dict) -> None:
     """Forum calendar. Appearances only when a published source names who showed."""
 
@@ -422,7 +571,159 @@ def ingest_forums(cur, *, pid: dict, add_source, orgs: dict) -> None:
         2025,
     )
 
-def ingest_measures(cur, *, add_source, org_city: int, org_brl: int, org_camera: int, e2023: int, e2025: int, e2026: int) -> None:
+    # 2021 forums
+    add_event(
+        "2021-chamber-forum",
+        "Boulder Chamber City Council Candidate Forum",
+        "2021-08-26",
+        None,
+        orgs["chamber"],
+        "forum",
+        "https://www.youtube.com/watch?v=HfwfRrALpTk",
+        "Chamber YouTube title: 2021 Boulder City Council Candidate Forum. 1h55. CU South annexation was among the questions. Full attendance not copied name-by-name from the tape in this pass.",
+        "https://www.youtube.com/watch?v=HfwfRrALpTk",
+        "2021 Boulder City Council Candidate Forum (Boulder Chamber)",
+        2021,
+    )
+    ev, _ = add_event(
+        "2021-cycling-forum",
+        "Cycling-themed City Council candidate forum",
+        "2021-10-26",
+        "virtual",
+        None,
+        "forum",
+        None,
+        "Hosted by Boulder Mountainbike Alliance, Community Cycles, and Cyclists 4 Community. Daily Camera: 150+ registered. Right-turn-on-red and bike theft were asked.",
+        "https://www.dailycamera.com/2021/10/26/area-bicycle-organizations-host-inaugural-cycling-themed-city-council-candidate-forum/",
+        "Area bicycle organizations host inaugural cycling-themed City Council candidate forum (Daily Camera)",
+        2021,
+    )
+    appear(
+        ev,
+        2021,
+        [
+            "Tara Winer",
+            "Matt Benjamin",
+            "Nicole Speer",
+            "Jacques Decalo",
+            "Michael Christy",
+            "Lauren Folkerts",
+            "David Takahashi",
+            "Dan Williams",
+            "Steve Rosenblum",
+        ],
+        ["Mark Wallach"],
+        "Daily Camera Oct 26 2021. Wallach had a conflicting council meeting.",
+    )
+    add_event(
+        "2021-raucous-caucus",
+        "Boulder Progressives Raucous Caucus (2021)",
+        "2021-06-24",
+        None,
+        orgs["progressives"],
+        "caucus",
+        None,
+        "Boulder Beat: at least 12 people vying for five seats. Early-cycle look; full roster not copied here.",
+        "https://boulderbeat.news/2021/06/24/slightly-less-raucous-caucus-offers-look-at-potential-council-candidates/",
+        "Slightly less Raucous Caucus offers look at potential council candidates (Boulder Beat)",
+        2021,
+    )
+
+
+def ingest_measures(cur, *, add_source, org_city: int, org_brl: int, org_camera: int, e2021: int, e2023: int, e2025: int, e2026: int) -> None:
+    s_2021_sov = _ensure_source(
+        cur,
+        add_source,
+        "https://assets.bouldercounty.gov/wp-content/uploads/2021/11/2021-Boulder-County-Coordinated-Election-Official-Summary-of-Votes.pdf",
+        "2021 Coordinated Election — Official Summary of Votes",
+        "results",
+        2021,
+        None,
+        "2021-11-22",
+        "Certified city measure totals.",
+    )
+    s_2021_city = _ensure_source(
+        cur,
+        add_source,
+        "https://bouldercolorado.gov/news/city-boulder-november-2021-election-results",
+        "City of Boulder November 2021 Election Results",
+        "official",
+        2021,
+        org_city,
+        None,
+        "Unofficial night-of numbers that match the certified SOV for the contests we store.",
+    )
+    for slug, letter, title, kind, status, summary, yes, no, notes in [
+        (
+            "2021-2i-ccrs-extension",
+            "2I",
+            "Community, Culture, Resilience and Safety tax extension",
+            "tax",
+            "passed",
+            "Extends the 0.3% CCRS sales and use tax from Dec 31 2021 to Dec 31 2036 without raising the rate, for capital projects.",
+            27904,
+            4421,
+            "Certified. 86.32% yes.",
+        ),
+        (
+            "2021-2j-ccrs-bonds",
+            "2J",
+            "CCRS bond issuance",
+            "bond",
+            "passed",
+            "Bonds paid from the 2I tax extension.",
+            25406,
+            6159,
+            "Certified. 80.49% yes.",
+        ),
+        (
+            "2021-300-bedrooms",
+            "300",
+            "Bedrooms Are For People (occupancy limits)",
+            "other",
+            "failed",
+            "Would have allowed occupancy of unrelated adults equal to legal bedrooms plus one, if health and safety codes were met. Replaced the citywide cap of 3 (or 4 in some areas).",
+            15756,
+            17296,
+            "Citizen initiative. Failed. Certified 47.67% yes.",
+        ),
+        (
+            "2021-301-fur-ban",
+            "301",
+            "Humane Clothing Act (fur sale ban)",
+            "other",
+            "passed",
+            "Prohibits sale and manufacture for sale of certain fur products, with exemptions.",
+            16163,
+            15523,
+            "Certified. 51.01% yes.",
+        ),
+        (
+            "2021-302-cu-south",
+            "302",
+            "Let the Voters Decide on Annexation of CU South",
+            "other",
+            "failed",
+            "Would have required voter approval of any CU South annexation agreement before city utilities (other than flood control) could be provided.",
+            13871,
+            18224,
+            "Citizen initiative. Failed. Certified 43.22% yes.",
+        ),
+    ]:
+        cur.execute(
+            """INSERT INTO measures
+               (slug, election_id, letter, title, kind, status, summary, ballot_language, source_id, notes)
+               VALUES (?,?,?,?,?,?,?,?,?,?)""",
+            (slug, e2021, letter, title, kind, status, summary, None, s_2021_sov, notes),
+        )
+        mid = cur.lastrowid
+        passed = 1 if status == "passed" else 0
+        cur.execute(
+            """INSERT INTO measure_results (measure_id, yes_votes, no_votes, passed, source_id, notes)
+               VALUES (?,?,?,?,?,?)""",
+            (mid, yes, no, passed, s_2021_sov, "Official Summary of Votes."),
+        )
+
     s_city_2026 = _ensure_source(
         cur,
         add_source,

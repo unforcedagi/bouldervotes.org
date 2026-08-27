@@ -9,7 +9,7 @@ from __future__ import annotations
 import sqlite3
 from pathlib import Path
 
-from ingest import ingest_forums, ingest_measures, ingest_questionnaires
+from ingest import ingest_beat_2023, ingest_forums, ingest_measures, ingest_questionnaires
 
 ROOT = Path(__file__).resolve().parent
 DB = ROOT / "data" / "bouldervotes.db"
@@ -79,6 +79,7 @@ def main() -> None:
     org_open = add_org("Open Boulder", "advocacy", None)
     org_elevated = add_org("Boulder Elevated", "advocacy", None)
     org_axios = add_org("Axios Boulder", "newspaper", "https://www.axios.com/local/boulder")
+    org_beat = add_org("Boulder Beat", "newspaper", "https://boulderbeat.news")
     add_org("Boulder Weekly archives", "newspaper", "https://archives.boulderweekly.com")
 
     # --- offices ---
@@ -115,6 +116,10 @@ def main() -> None:
         )
         return cur.lastrowid  # type: ignore[return-value]
 
+    e2021 = add_election(
+        2021, "2021-11-02",
+        "Five council seats, no directly elected mayor (council still appointed the mayor). Top four winners: four-year terms; fifth: two-year term. Last cycle before the 2023 RCV mayoral election.",
+    )
     e2023 = add_election(
         2023, "2023-11-07",
         "First direct mayoral election under ranked-choice voting. Four council seats. Odd-year cycle.",
@@ -135,6 +140,10 @@ def main() -> None:
         )
         return cur.lastrowid  # type: ignore[return-value]
 
+    r2021_council = add_race(
+        e2021, council_office, 5, "plurality",
+        "Ten candidates. Fifth-place winner served a two-year term (Tara Winer).",
+    )
     r2023_mayor = add_race(e2023, mayor_office, 1, "ranked_choice", "Instant runoff. Four candidates.")
     r2023_council = add_race(e2023, council_office, 4, "plurality", "Ten candidates. Automatic recount for 4th/5th.")
     r2025_council = add_race(e2025, council_office, 4, "plurality", "Eleven candidates.")
@@ -179,6 +188,10 @@ def main() -> None:
         "Maxwell Lord",
         "Aaron Stone",
         "Rob Smoke",
+        "Michael Christy",
+        "Dan Williams",
+        "Steve Rosenblum",
+        "David Takahashi",
     ]
     pid: dict[str, int] = {}
     notes_by_name = {
@@ -190,6 +203,8 @@ def main() -> None:
         "Aaron Brockett": "Appointed mayor by council 2021; won the first direct RCV mayoral election 2023.",
         "Taishya Adams": "Elected to council 2023; entered the 2026 mayoral race (cannot also run for her council seat).",
         "Sam Fuqua": "Name as certified by the city clerk Aug 2026. Not yet independently biographed in this seed.",
+        "Michael Christy": "2021 council candidate. Some coverage spells the first name Michel; certified results list Michael Christy.",
+        "Tara Winer": "Elected 2021 in fifth place (two-year term), then 2023 (four-year). Named mayor pro tem Dec 4 2025.",
     }
     for n in names:
         pid[n] = add_person(n, notes_by_name.get(n))
@@ -204,6 +219,18 @@ def main() -> None:
             (pid[person], race, status, incumbent, certified_on, matching, campaign_url, notes),
         )
         return cur.lastrowid  # type: ignore[return-value]
+
+    # 2021 council — fifth-place winner served two years
+    c2021_wallach = cand("Mark Wallach", r2021_council, "elected", 1)
+    c2021_benjamin = cand("Matt Benjamin", r2021_council, "elected")
+    c2021_speer = cand("Nicole Speer", r2021_council, "elected")
+    c2021_folkerts = cand("Lauren Folkerts", r2021_council, "elected")
+    c2021_winer = cand("Tara Winer", r2021_council, "elected", notes="Fifth place; two-year term.")
+    cand("Michael Christy", r2021_council, "lost")
+    cand("Dan Williams", r2021_council, "lost")
+    cand("Steve Rosenblum", r2021_council, "lost")
+    cand("David Takahashi", r2021_council, "lost")
+    cand("Jacques Decalo", r2021_council, "lost")
 
     # 2023 mayor
     c2023_brockett = cand("Aaron Brockett", r2023_mayor, "elected", 1)
@@ -307,12 +334,12 @@ def main() -> None:
     holders = [
         ("Aaron Brockett", "mayor", "2023-12-07", None, None, "Directly elected 2023. Previously appointed mayor 2021."),
         ("Taishya Adams", "councilmember", "2023-12-07", "2026-12", None, "Seat on 2026 ballot because she is running for mayor."),
-        ("Tara Winer", "councilmember", "2023-12-07", None, None, "Named mayor pro tem Dec 4 2025."),
+        ("Tara Winer", "councilmember", "2021-12", None, None, "Fifth in 2021 (two-year term), reelected 2023. Named mayor pro tem Dec 4 2025."),
         ("Tina Marquis", "councilmember", "2023-12-07", None, None, None),
         ("Ryan Schuchard", "councilmember", "2023-12-07", None, None, "Won 4th seat after automatic recount."),
         ("Matt Benjamin", "councilmember", "2021-12", None, None, "Reelected 2025; term runs through 2028. Not on 2026 ballot."),
         ("Nicole Speer", "councilmember", "2021-12", None, None, "Reelected 2025; term runs through 2028. Ran for mayor 2023 (3rd). Not on 2026 ballot."),
-        ("Lauren Folkerts", "mayor_pro_tem", "2023-12-07", "2025-12-04", "term_ended", "Lost reelection 2025 (6th). Had been mayor pro tem."),
+        ("Lauren Folkerts", "councilmember", "2021-12", "2025-12-04", "term_ended", "Elected 2021. Mayor pro tem until losing reelection 2025 (6th)."),
         ("Mark Wallach", "councilmember", "2019-12", "2026-07-23", "resigned", "Reelected 2025. Resigned July 23 2026 after 8-1 airport vote."),
         ("Rob Kaplan", "councilmember", "2025-12-04", None, None, "Elected 2025. Term through 2028. Not on 2026 ballot."),
     ]
@@ -554,6 +581,8 @@ def main() -> None:
         ("homelessness", "Homelessness", "Camping ban when shelter is full; services vs. enforcement."),
         ("transportation", "Transportation", "Iris Ave, 30th St, bike infrastructure."),
         ("foreign-affairs", "Foreign affairs at council", "Gaza comment, divestment, whether council weighs in."),
+        ("policing", "Policing and oversight", "Police budget, discipline, Police Oversight Panel."),
+        ("cu-south", "CU South", "Annexation agreement, flood mitigation, student/faculty housing on CU-owned south Boulder land."),
     ]:
         cur.execute("INSERT INTO issues (slug, name, description) VALUES (?,?,?)", (slug_, name, desc))
 
@@ -593,6 +622,7 @@ def main() -> None:
         )
 
     ingest_questionnaires(cur, pid=pid, add_source=add_source, org_brl=org_brl)
+    ingest_beat_2023(cur, pid=pid, add_source=add_source, org_beat=org_beat)
     ingest_forums(
         cur,
         pid=pid,
@@ -604,6 +634,7 @@ def main() -> None:
             "brl": org_brl,
             "camera": org_camera,
             "lwv": org_lwv,
+            "beat": org_beat,
         },
     )
     ingest_measures(
@@ -612,6 +643,7 @@ def main() -> None:
         org_city=org_city,
         org_brl=org_brl,
         org_camera=org_camera,
+        e2021=e2021,
         e2023=e2023,
         e2025=e2025,
         e2026=e2026,
@@ -677,15 +709,37 @@ def main() -> None:
         c_id = cur.fetchone()[0]
         add_result(c_id, 1, votes, share, place, elected, s_2025_clarity, "Clarity ENR; top four match Daily Camera seating story.")
 
+    cur.execute(
+        "SELECT id FROM sources WHERE url=?",
+        ("https://assets.bouldercounty.gov/wp-content/uploads/2021/11/2021-Boulder-County-Coordinated-Election-Official-Summary-of-Votes.pdf",),
+    )
+    s_2021_sov = cur.fetchone()[0]
+    council_2021 = [
+        ("Mark Wallach", 17683, 13.07, 1, 1),
+        ("Matt Benjamin", 16501, 12.20, 2, 1),
+        ("Nicole Speer", 16287, 12.04, 3, 1),
+        ("Lauren Folkerts", 15763, 11.65, 4, 1),
+        ("Tara Winer", 15205, 11.24, 5, 1),
+        ("Michael Christy", 14558, 10.76, 6, 0),
+        ("Dan Williams", 13614, 10.07, 7, 0),
+        ("Steve Rosenblum", 13309, 9.84, 8, 0),
+        ("David Takahashi", 8429, 6.23, 9, 0),
+        ("Jacques Decalo", 3908, 2.89, 10, 0),
+    ]
+    for person, votes, share, place, elected in council_2021:
+        cur.execute("SELECT id FROM candidacies WHERE person_id=? AND race_id=?", (pid[person], r2021_council))
+        c_id = cur.fetchone()[0]
+        add_result(c_id, 1, votes, share, place, elected, s_2021_sov, "Official summary of votes. Fifth place was a two-year term.")
+
     # --- meta ---
     cur.executemany(
         "INSERT INTO meta (key, value) VALUES (?,?)",
         [
             ("built_at", "2026-08-27"),
             ("builder", "GrokJi"),
-            ("scope", "City of Boulder mayor + city council + city ballot measures, 2023–2026. Not county, not BVSD, not state."),
+            ("scope", "City of Boulder mayor + city council + city ballot measures, 2021–2026. Not county, not BVSD, not state."),
             ("editorial", "No endorsements. Quotes and vote totals are sourced. Comparison pages stack sourced answers; they do not score candidates."),
-            ("next_harvest", "2026 Chamber forum when the Chamber releases it; city campaign-finance filings; remaining 2026 campaign sites; Vote411 when it opens; 2023/2025 forum transcripts."),
+            ("next_harvest", "2026 Chamber forum when the Chamber releases it; Vote411; campaign finance; forum transcripts; 2019 cycle."),
         ],
     )
 

@@ -70,6 +70,31 @@ Municipal **candidates file with the city**; **ballots and results are the count
 
 Verified this pass: [taraforboulder.com](https://www.taraforboulder.com/) (Tara Winer). Others not found in a short search; they exist, they just were not in the first result set. Do not invent URLs.
 
+## What 2021, 2023 and 2025 actually were (certified)
+
+**2021-11-02** — 33,772 city ballots, 68,885 active city voters. Official summary of votes.
+
+Council (five seats; fifth was a two-year term):
+
+1. Mark Wallach 17,683 (incumbent)
+2. Matt Benjamin 16,501
+3. Nicole Speer 16,287
+4. Lauren Folkerts 15,763
+5. Tara Winer 15,205 **(two-year term)**
+6. Michael Christy 14,558
+7. Dan Williams 13,614
+8. Steve Rosenblum 13,309
+9. David Takahashi 8,429
+10. Jacques Decalo 3,908
+
+City measures: 2I CCRS tax yes 27,904–4,421; 2J CCRS bonds 25,406–6,159; 300 Bedrooms Are For People **failed** 15,756–17,296; 301 fur ban passed 16,163–15,523; 302 CU South voter-approval **failed** 13,871–18,224.
+
+Folkerts, Williams, Speer, Benjamin endorsed 300 (Colorado Newsline). Only those four are stored as endorsers.
+
+**2021 forums:** Chamber (YouTube `HfwfRrALpTk`); cycling forum Oct 26 (Camera named nine present, Wallach absent); Progressives caucus June (Beat).
+
+**2023 extra survey:** Boulder Beat emailed yes/no PDF (rent stabilization, occupancy, encampments, oversight, 2A, Safe Zones). Stored as binary stances, not long quotes.
+
 ## What 2023 and 2025 actually were (certified)
 
 **2023-11-07** — 34,249 city ballots, 68,812 active city voters.
