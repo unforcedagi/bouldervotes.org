@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homelessness 2026 — Boulder Votes</title>
+<style>
+:root {
+  --paper: #f4efe6;
+  --ink: #1c1916;
+  --muted: #5c5348;
+  --rule: #d4c7b0;
+  --link: #1f4b73;
+  --link-visited: #5a3d6e;
+  --mark: #8b2e1a;
+  --won: #215c3a;
+  --chip: #efe6d6;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.45;
+}
+header {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+.header-inner, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.1rem; }
+.header-inner { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.brand { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: var(--ink); }
+.rail { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; margin-top: 0.45rem; align-items: center; }
+.rail a, .pill {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.rail a.on, .pill.on { background: var(--ink); color: var(--paper); }
+.rail .sep { color: var(--muted); margin: 0 0.25rem; }
+nav.util { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.6rem 0.9rem; font-size: 0.9rem; }
+nav.util a { color: var(--link); }
+h1 { font-size: 1.7rem; line-height: 1.15; margin: 1.1rem 0 0.5rem; }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.45rem; }
+h3 { font-size: 1.02rem; margin: 1rem 0 0.3rem; }
+p, li { max-width: 42rem; }
+.lede { font-size: 1.05rem; margin-top: 0; }
+.note, .empty { color: var(--muted); font-size: 0.92rem; }
+.empty { font-style: italic; }
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+.jump { font-size: 0.92rem; margin: 0.4rem 0 1rem; }
+.jump a { margin-right: 0.8rem; }
+.card {
+  border: 1px solid var(--rule);
+  padding: 0.65rem 0.8rem;
+  margin: 0 0 0.55rem;
+  background: #f8f3ea;
+}
+.card h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+.card .meta { color: var(--muted); font-size: 0.88rem; }
+.chips { margin-top: 0.35rem; }
+.chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  border: 1px solid var(--rule);
+  background: var(--chip);
+  padding: 0.05rem 0.4rem;
+  margin: 0 0.25rem 0.25rem 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
+.badge.match { border-color: var(--mark); color: var(--mark); }
+.badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+th, td { text-align: left; padding: 0.35rem 0.4rem 0.35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.matrix td, .matrix th { text-align: center; }
+.matrix th:first-child, .matrix td:first-child { text-align: left; }
+.matrix a { text-decoration: none; }
+details.quote { margin: 0.25rem 0; }
+details.quote > summary { cursor: pointer; }
+details.quote > summary::after { content: " — full"; color: var(--link); font-size: 0.88rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.35rem 0; padding-left: 0.7rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.crumb { font-size: 0.9rem; color: var(--muted); margin: 0.8rem 0 0; }
+footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; }
+@media (max-width: 640px) {
+  html { font-size: 18px; }
+}
+@media print {
+  header { position: static; }
+  nav.util, .jump { display: none; }
+  a { color: inherit; text-decoration: none; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="brand" href="../index.html">Boulder Votes</a>
+    <div class="rail"><a class="on" href="../2026.html">2026</a><a class="" href="../2025.html">2025</a><a class="" href="../2023.html">2023</a></div>
+    <nav class="util"><a href="../issues.html">Issues</a><a href="../people.html">People</a><a href="../about.html">About</a></nav>
+  </div>
+</header>
+<main>
+<p class='crumb'><a href='../issues.html'>Issues</a> · <a href='homelessness.html'>Homelessness</a></p>
+<h1>Homelessness · 2026</h1>
+<p class='note'>This issue in: <a class='pill' href='homelessness-2025.html'>2025</a> <a class='pill' href='homelessness-2023.html'>2023</a> </p>
+<p>People on the 2026 ballot. Answers from this cycle first. If a returning candidate only answered in an earlier race, that quote is labelled as earlier — not as a 2026 answer.</p>
+<h2>Returning candidates — said this before 2026</h2>
+<p class='note'>They are on this ballot. The quote is from an earlier cycle. We do not treat it as a 2026 answer.</p>
+<div class='card'><h3><a href='../people/taishya-adams.html'>Taishya Adams</a> </h3><div class='meta'>2023 questionnaire · What do you think are the most promising initiatives for reducing homelessness?</div><details class='quote'><summary>Homelessness is a response to failed policy, not failed people. I believe the most promising initiatives in reducing homelessness are those that are…</summary><blockquote class='answer'>Homelessness is a response to failed policy, not failed people. I believe the most promising initiatives in reducing homelessness are those that are sufficiently funded, staffed and supported over multiple years. Our affected community members and community support organizations have been clear on the need for sustained support of existing evidence-based approaches (e.g. day community center) while expanding mental health, detox, recovery, transitional living, etc. This is not charity. These extreme inequities are a result of a system that encourages myopic economic growth on the backs of discriminatory policies.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/'>2023 Boulder City Council election: Where the candidates stand on homelessness solutions</a></p></div>
+<div class='card'><h3><a href='../people/taishya-adams.html'>Taishya Adams</a> </h3><div class='meta'>2023 questionnaire · What approach would you take to address camping in our parks, on our bike paths and along our waterways?</div><details class='quote'><summary>I advocate for investments in evidence-based, knowledge-aligned proactive approaches like basic income support, increasing the minimum wage to a…</summary><blockquote class='answer'>I advocate for investments in evidence-based, knowledge-aligned proactive approaches like basic income support, increasing the minimum wage to a living wage to stop new people from becoming unhoused, and expand affordable housing programs to include transitional and sober living options. I bring an ecosystem approach to policymaking that addresses more than the tip of the iceberg.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/'>2023 Boulder City Council election: Where the candidates stand on homeless encampments</a></p></div>
+<div class='card'><h3><a href='../people/aaron-brockett.html'>Aaron Brockett</a> </h3><div class='meta'>2023 questionnaire · What do you think are the most promising initiatives for reducing homelessness?</div><details class='quote'><summary>The need for additional solutions for unhoused community members is great. I firmly support the creation of more permanent supportive housing using…</summary><blockquote class='answer'>The need for additional solutions for unhoused community members is great. I firmly support the creation of more permanent supportive housing using the “housing first” model as well as interim solutions like tiny home villages and safe outdoor spaces like those implemented in Denver.
+
+We also need to ensure better access to mental health and substance use treatment options, including with transitional housing. Another important piece of the puzzle is opening the day services centers to connect people experiencing homelessness with services and housing. We can make many of these initiatives possible by leveraging state Proposition 123 funding.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/'>2023 Boulder City Council election: Where the candidates stand on homelessness solutions</a></p></div>
+<div class='card'><h3><a href='../people/aaron-brockett.html'>Aaron Brockett</a> </h3><div class='meta'>2023 questionnaire · What approach would you take to address camping in our parks, on our bike paths and along our waterways?</div><details class='quote'><summary>A key part of the approach needs to be giving people more sheltering, service and housing options so they have alternatives to camping in town. But…</summary><blockquote class='answer'>A key part of the approach needs to be giving people more sheltering, service and housing options so they have alternatives to camping in town. But we also need to continue the enforcement of the city’s camping ban so that we don’t have permanent encampments in town with the trash, sanitation and safety issues that accompany them. That is why I supported adding a second clean up team earlier this year. We also have increased enforcement around Boulder High and now confiscate propane tanks on sight. We also now require people to move immediately if they are obstructing bike paths or other rights of way.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/'>2023 Boulder City Council election: Where the candidates stand on homeless encampments</a></p></div>
+<div class='card'><h3><a href='../people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a> <span class='stance no'>no</span></h3><div class='meta'>2025 questionnaire · Should Boulder enforce its camping ban when the All Roads shelter is full?</div><details class='quote'><summary>No. No one should be legally punished simply because our city lacks adequate services or safe alternatives. In those moments, the responsibility is…</summary><blockquote class='answer'>No. No one should be legally punished simply because our city lacks adequate services or safe alternatives. In those moments, the responsibility is on us as a community to ensure people have legal and humane alternative places to be. At the same time, when shelter or services are available, I believe individuals should be accountable to the city’s current laws. Balancing compassion with accountability is essential, and the real solution lies in expanding services and creating pathways so no one is left without options.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2025/10/06/2025-boulder-city-council-election-where-candidates-stand-on-the-camping-ban/'>2025 Boulder City Council election: Where candidates stand on the camping ban</a></p></div>
+<div class='card'><h3><a href='../people/tina-marquis.html'>Tina Marquis</a> </h3><div class='meta'>2023 questionnaire · What do you think are the most promising initiatives for reducing homelessness?</div><details class='quote'><summary>Homelessness is complex, and people are homeless for different reasons. I believe we’ll need several tools to address this humanitarian crisis. I…</summary><blockquote class='answer'>Homelessness is complex, and people are homeless for different reasons. I believe we’ll need several tools to address this humanitarian crisis. I would advocate for more supportive housing, increased behavioral health treatment, and ready-to-work programs. I also believe Boulder cannot solve this issue alone, and nor can Denver.
+
+I will advocate for partnerships across the metro region and hope we work together to create solutions for homelessness. I am optimistic about new grant funding received by multiple groups county-wide serving the homeless to expand support for the homeless, including housing.
+
+[Editor’s note: Earlier this year, the city was awarded $2.5 million from the state to create a respite center for homeless people and help launch a non-police behavioral health crisis response program. And last month, the city was awarded additional money to pay for 40 housing vouchers, which subsidize rent, and other homelessness services.]</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/'>2023 Boulder City Council election: Where the candidates stand on homelessness solutions</a></p></div>
+<div class='card'><h3><a href='../people/tina-marquis.html'>Tina Marquis</a> </h3><div class='meta'>2023 questionnaire · What approach would you take to address camping in our parks, on our bike paths and along our waterways?</div><details class='quote'><summary>I would continue to enforce the camping ban, with priority enforcement around schools, medical centers, day cares and recreation centers, as well as…</summary><blockquote class='answer'>I would continue to enforce the camping ban, with priority enforcement around schools, medical centers, day cares and recreation centers, as well as multi-use paths, waterways and areas more vulnerable to wildfires.
+
+Enforcement around schools would continue to be the top priority for me so that our students can rely on a safe and welcoming experience every day they go to school. I am supportive of the Reimagine Policing plan that focuses on prevention, equity and compassion, which I believe balances our community’s interest in both helping those experiencing homelessness and maintaining safe and welcoming public spaces. I also support the Crisis Intervention Response Team to respond to the needs of our community as well as the homeless day center to provide a place for the unhoused to rest, receive support, and connect to services during the day. Finally, the end goal is of course to eliminate the need for camping by providing affordable and supportive housing.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/'>2023 Boulder City Council election: Where the candidates stand on homeless encampments</a></p></div>
+<div class='card'><h3><a href='../people/ryan-schuchard.html'>Ryan Schuchard</a> </h3><div class='meta'>2023 questionnaire · What do you think are the most promising initiatives for reducing homelessness?</div><details class='quote'><summary>Our homelessness crisis is driven by poverty and a lack of housing. These circumstances are worsening, nationally and in Boulder, with homelessness…</summary><blockquote class='answer'>Our homelessness crisis is driven by poverty and a lack of housing. These circumstances are worsening, nationally and in Boulder, with homelessness at much higher levels in communities with limited housing affordability like ours. Furthermore, we need to be realistic about the fact that the way out of homelessness is frequently complicated by mental illness and substance abuse.
+
+The most promising initiatives for reducing homelessness are the following:
+
+Immediate stability and support. Safe places for people to go, both during the day and at night, with a more robust system of caseworkers and resources to help people effectively manage individual challenges. We also need to invest in comprehensive engagement to meet the needs of “superusers,” the top 50 or so people who cycle from crisis to crisis. Finally, we must create more local treatment services for mental health and addiction for everyone, regardless of housing status.
+
+Transitional housing. More comprehensive options for tiny homes and other transitional housing, with varying levels of supervision and support, aiming to put people on paths to permanent homes. Prop 123 funding should be useful. [Editor’s note: Proposition 123 is a voter-approved 2022 ballot measure that dedicates a portion of income tax revenue to affordable housing programs.]
+
+Homelessness prevention. Renter protections and assistance, with more abundant affordable housing options overall to prevent people from slipping into homelessness.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/'>2023 Boulder City Council election: Where the candidates stand on homelessness solutions</a></p></div>
+<div class='card'><h3><a href='../people/ryan-schuchard.html'>Ryan Schuchard</a> </h3><div class='meta'>2023 questionnaire · What approach would you take to address camping in our parks, on our bike paths and along our waterways?</div><details class='quote'><summary>We need to bring multiple forces under control. These solutions seem promising: Ensure the police chief has what’s needed to keep sidewalks and…</summary><blockquote class='answer'>We need to bring multiple forces under control. These solutions seem promising:
+
+Ensure the police chief has what’s needed to keep sidewalks and multi-use paths clear to minimize user conflicts. The police need to continue to be able to prioritize enforcement resources to keep pedestrian and cycling paths open and accessible for all.
+
+Implement non-police responses to assist people in mental health distress. Use civilian personnel to respond to people in crisis, which Boulder will soon do through its CARE program, which is more cost effective and a lower-confrontation way to address disruptive behaviors in public spaces.
+
+Provide resources to keep people healthy and parks clean. Boulder needs more accessible public toilets/port-a-pots, trash and needle disposal locations, access to drinking water, and other amenities to foster hygienic care and to prevent human waste from polluting public spaces.
+
+Establish a wider and more accessible network of places for people to go who have been asked to decamp. The day shelter coming online will help. We also need more options for immediate overnight camping and parking.
+
+Give people experiencing homelessness while going through a range of challenging life circumstances an accessible pipeline to crucial services.
+
+[Editor’s note: Schuchard referred to his response to a question about homelessness to expand upon his answer.]</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/'>2023 Boulder City Council election: Where the candidates stand on homeless encampments</a></p></div>
+<div class='card'><h3><a href='../people/tara-winer.html'>Tara Winer</a> </h3><div class='meta'>2023 questionnaire · What do you think are the most promising initiatives for reducing homelessness?</div><details class='quote'><summary>I believe housing with supportive services is the most effective way to help reduce homelessness. Because many people experiencing homelessness…</summary><blockquote class='answer'>I believe housing with supportive services is the most effective way to help reduce homelessness. Because many people experiencing homelessness suffer from mental health issues and or drug addiction, having 24/7 wrap-around services would give people the highest probability of success in housing. We need options for people to access this kind of help, especially options that accept Medicaid. Our state is sorely lacking in these areas. I have been working with county and state representatives to provide options.
+
+Ready-to- work programs like Bridge House offers, are unique in that they provide employment, housing and support.
+
+A few months ago, I visited The Other Side Academy. It’s a live-in program where students learn vocational and life skills. It’s dedicated to those in the criminal justice system that struggle with substance abuse. Boulder’s Community Court program made its first successful referral to The Other Side Academy for an unhoused, criminal justice-involved individual!
+
+Ultimately, we need more housing for the unhoused. The City of Aurora’s pallet homes are 10 x 10, equipped with power, air conditioning and heat. A non-profit staffs the community 24 hours a day. This, in my opinion, is the most promising initiative.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/'>2023 Boulder City Council election: Where the candidates stand on homelessness solutions</a></p></div>
+<div class='card'><h3><a href='../people/tara-winer.html'>Tara Winer</a> </h3><div class='meta'>2023 questionnaire · What approach would you take to address camping in our parks, on our bike paths and along our waterways?</div><details class='quote'><summary>I support Boulder’s encampment ban. Our public spaces need to be shared. The encampment ban is certainly not a solution for homelessness, but it is a…</summary><blockquote class='answer'>I support Boulder’s encampment ban. Our public spaces need to be shared. The encampment ban is certainly not a solution for homelessness, but it is a tool to help maintain our shared spaces. Our SAMPS team (Safe and Managed Public Spaces), is a multi-departmental clean up team. I had the opportunity to walk around town with this team; they were compassionate and professional. They attempt to engage people in resources. Their process involves advanced notices. Cleanup day is the last step of a long process.
+
+We have a shelter for people to have somewhere to sleep at night. But they do need somewhere to go during the day. That is why I support a day shelter with toilets, showers, locker, and connections to other support services. About a year ago council allocated an additional $1 million for this initiative.
+
+Our bike paths need to be clear from obstructions. When biking through a dark underpass, it is crucial for safety for all that the underpass is clear. We need real solutions, not bandaids. One solution I will champion is pallet homes. Neighboring cities are having success with this inexpensive, efficient type of housing which can be constructed quickly.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/'>2023 Boulder City Council election: Where the candidates stand on homeless encampments</a></p></div>
+</main>
+<footer>
+  City of Boulder only. Cited, not scored, not an endorsement.
+  <a href="../sources.html">Sources</a> ·
+  <a href="../forums.html">Forums</a> ·
+  <a href="../measures.html">All measures</a> ·
+  <a href="https://bouldervotes.org/">bouldervotes.org</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>This race / other 2026 — Boulder Votes</title>
+<style>
+:root {
+  --paper: #f4efe6;
+  --ink: #1c1916;
+  --muted: #5c5348;
+  --rule: #d4c7b0;
+  --link: #1f4b73;
+  --link-visited: #5a3d6e;
+  --mark: #8b2e1a;
+  --won: #215c3a;
+  --chip: #efe6d6;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.45;
+}
+header {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+.header-inner, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.1rem; }
+.header-inner { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.brand { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: var(--ink); }
+.rail { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; margin-top: 0.45rem; align-items: center; }
+.rail a, .pill {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.rail a.on, .pill.on { background: var(--ink); color: var(--paper); }
+.rail .sep { color: var(--muted); margin: 0 0.25rem; }
+nav.util { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.6rem 0.9rem; font-size: 0.9rem; }
+nav.util a { color: var(--link); }
+h1 { font-size: 1.7rem; line-height: 1.15; margin: 1.1rem 0 0.5rem; }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.45rem; }
+h3 { font-size: 1.02rem; margin: 1rem 0 0.3rem; }
+p, li { max-width: 42rem; }
+.lede { font-size: 1.05rem; margin-top: 0; }
+.note, .empty { color: var(--muted); font-size: 0.92rem; }
+.empty { font-style: italic; }
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+.jump { font-size: 0.92rem; margin: 0.4rem 0 1rem; }
+.jump a { margin-right: 0.8rem; }
+.card {
+  border: 1px solid var(--rule);
+  padding: 0.65rem 0.8rem;
+  margin: 0 0 0.55rem;
+  background: #f8f3ea;
+}
+.card h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+.card .meta { color: var(--muted); font-size: 0.88rem; }
+.chips { margin-top: 0.35rem; }
+.chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  border: 1px solid var(--rule);
+  background: var(--chip);
+  padding: 0.05rem 0.4rem;
+  margin: 0 0.25rem 0.25rem 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
+.badge.match { border-color: var(--mark); color: var(--mark); }
+.badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+th, td { text-align: left; padding: 0.35rem 0.4rem 0.35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.matrix td, .matrix th { text-align: center; }
+.matrix th:first-child, .matrix td:first-child { text-align: left; }
+.matrix a { text-decoration: none; }
+details.quote { margin: 0.25rem 0; }
+details.quote > summary { cursor: pointer; }
+details.quote > summary::after { content: " — full"; color: var(--link); font-size: 0.88rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.35rem 0; padding-left: 0.7rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.crumb { font-size: 0.9rem; color: var(--muted); margin: 0.8rem 0 0; }
+footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; }
+@media (max-width: 640px) {
+  html { font-size: 18px; }
+}
+@media print {
+  header { position: static; }
+  nav.util, .jump { display: none; }
+  a { color: inherit; text-decoration: none; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="brand" href="../index.html">Boulder Votes</a>
+    <div class="rail"><a class="on" href="../2026.html">2026</a><a class="" href="../2025.html">2025</a><a class="" href="../2023.html">2023</a></div>
+    <nav class="util"><a href="../issues.html">Issues</a><a href="../people.html">People</a><a href="../about.html">About</a></nav>
+  </div>
+</header>
+<main>
+<p class='crumb'><a href='../issues.html'>Issues</a> · <a href='other.html'>This race / other</a></p>
+<h1>This race / other · 2026</h1>
+<p class='note'>This issue in: <a class='pill' href='other-2025.html'>2025</a> <a class='pill' href='other-2023.html'>2023</a> </p>
+<p>People on the 2026 ballot. Answers from this cycle first. If a returning candidate only answered in an earlier race, that quote is labelled as earlier — not as a 2026 answer.</p>
+<h2>Returning candidates — said this before 2026</h2>
+<p class='note'>They are on this ballot. The quote is from an earlier cycle. We do not treat it as a 2026 answer.</p>
+<div class='card'><h3><a href='../people/taishya-adams.html'>Taishya Adams</a> </h3><div class='meta'>2023 questionnaire · Assume you are elected this November. What one specific thing will you have accomplished that you’re proud of after one…</div><details class='quote'><summary>Success after year one on council will be improved processes and community activation. We will be closer to the collaboration rating on the Boulder…</summary><blockquote class='answer'>Success after year one on council will be improved processes and community activation. We will be closer to the collaboration rating on the Boulder Engagement Framework while also reducing bottlenecks and blindspots in our city’s policies, procedures, programs and initiatives. It is critical that we move beyond informing and consulting towards collective policymaking that shares the power, knowledge, wisdom, and courage to heal across communities and co-creating policies and investments that makes seven Boulder generations from now possible.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-their-one-year-visions/'>2023 Boulder City Council election: Where the candidates stand on their one-year visions</a></p></div>
+<div class='card'><h3><a href='../people/aaron-brockett.html'>Aaron Brockett</a> </h3><div class='meta'>2023 questionnaire · Assume you are elected this November. What one specific thing will you have accomplished that you’re proud of after one…</div><details class='quote'><summary>After eight years on city council, I know that policy changes take time to implement. But if in a year, we’ve moved the needle on housing…</summary><blockquote class='answer'>After eight years on city council, I know that policy changes take time to implement. But if in a year, we’ve moved the needle on housing affordability and availability, if we add solutions for people experiencing homelessness, and I’ve been engaging with the community to find a path forward that helps people in need while bringing the community together, I will call it a successful year!</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-their-one-year-visions/'>2023 Boulder City Council election: Where the candidates stand on their one-year visions</a></p></div>
+<div class='card'><h3><a href='../people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a> </h3><div class='meta'>2025 questionnaire · What perspective or lived experience would you bring to city council, and how would it shape your approach to policy?</div><details class='quote'><summary>My civic journey began early, organizing and volunteering at 14, and by 17, drafting state legislation to protect LGBTQ+ youth in Ohio. That…</summary><blockquote class='answer'>My civic journey began early, organizing and volunteering at 14, and by 17, drafting state legislation to protect LGBTQ+ youth in Ohio. That formative experience taught me the power of young people stepping into leadership, and it continues to shape how I approach public service. Since then, I have earned a bachelor’s in Political Economics and a master’s in Public Administration and Leadership, with specialized training in public budgeting, fiscal and policy analysis, and strategic resource management. These skills are essential for making responsible, transparent, and equitable decisions on City Council.
+
+Before making Boulder my home, I worked in regenerative education, organizing internationally attended conferences that empowered communities to cultivate resilience in the face of economic, social, and environmental turbulence. Here in Boulder, I stay grounded in daily life advancing ecological stewardship as a Pollinator Ambassador with Cool Boulder, and connecting with neighbors every day as a barista at South Side Walnut Café.
+
+I am running to be Boulder’s first Gen Z councilmember not only to ensure my generation has a voice at the table, but to bring informed, systems-level thinking and collaborative leadership to address the challenges we face today and those ahead.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2025/10/05/2025-boulder-city-council-election-how-candidates-say-their-life-experiences-would-shape-their-work-on-council/'>2025 Boulder City Council election: How candidates say their life experiences would shape their work on council</a></p></div>
+<div class='card'><h3><a href='../people/tina-marquis.html'>Tina Marquis</a> </h3><div class='meta'>2023 questionnaire · Assume you are elected this November. What one specific thing will you have accomplished that you’re proud of after one…</div><details class='quote'><summary>Within a year of having joined the council, my hope is that every city council in Boulder County, including Boulder, and the county commissioners,…</summary><blockquote class='answer'>Within a year of having joined the council, my hope is that every city council in Boulder County, including Boulder, and the county commissioners, will make a joint declaration that homelessness in Boulder County is a humanitarian crisis and will embark on a collective, unified effort to eradicate homelessness. We will adopt within the year common, outcome-based metrics to measure our work. Colorado will be recognized as being the first Blue state in the nation to be on track to compassionately address homelessness while ensuring public safety.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-their-one-year-visions/'>2023 Boulder City Council election: Where the candidates stand on their one-year visions</a></p></div>
+<div class='card'><h3><a href='../people/ryan-schuchard.html'>Ryan Schuchard</a> </h3><div class='meta'>2023 questionnaire · Assume you are elected this November. What one specific thing will you have accomplished that you’re proud of after one…</div><details class='quote'><summary>City Council will have established, and be implementing, a process for unlocking significant new climate action. As a consequence, Boulder will also…</summary><blockquote class='answer'>City Council will have established, and be implementing, a process for unlocking significant new climate action. As a consequence, Boulder will also have a greater handle on our wildfire and wider growing environmental risks, as well as be making meaningful new progress towards expanding our transportation and housing options — which will include new strides towards bringing back and then positioning to expand public transit.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-their-one-year-visions/'>2023 Boulder City Council election: Where the candidates stand on their one-year visions</a></p></div>
+<div class='card'><h3><a href='../people/tara-winer.html'>Tara Winer</a> </h3><div class='meta'>2023 questionnaire · Assume you are elected this November. What one specific thing will you have accomplished that you’re proud of after one…</div><details class='quote'><summary>Improved biking connectivity and safety will define success for me. As the Hill hotel nears completion, we must prioritize connectivity between the…</summary><blockquote class='answer'>Improved biking connectivity and safety will define success for me. As the Hill hotel nears completion, we must prioritize connectivity between the Hill Commercial District, the Hill Hotel and Conference Center and our downtown. The connections should be safe, clean, well-lit and well-designed.
+
+Right now, the path from the Hill through the arboretum to 13th St is dangerous for bikers due to the sharp curves, too much debris and lack of path lighting at night. I rarely see a pedestrian on that path.
+
+Likewise, our underpasses need improved lighting for both pedestrians and bikers. Much of the lighting is either fully broken or partially broken, making it somewhat dangerous to ride or walk through, even in the daylight. Winter biking and walking present a challenge during snowy and icy conditions. I slipped on a patch of ice and fell off my bike while riding on the bike path just last winter. Our multi-use paths need to be free of ice and snow. Our bike paths are one of the greatest gems of our city. To get people out of cars and onto bikes and other forms of non-GHG producing vehicles, we need to make sure everyone is safe.</blockquote></details><p class='note'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-their-one-year-visions/'>2023 Boulder City Council election: Where the candidates stand on their one-year visions</a></p></div>
+</main>
+<footer>
+  City of Boulder only. Cited, not scored, not an endorsement.
+  <a href="../sources.html">Sources</a> ·
+  <a href="../forums.html">Forums</a> ·
+  <a href="../measures.html">All measures</a> ·
+  <a href="https://bouldervotes.org/">bouldervotes.org</a>
+</footer>
+</body>
+</html>

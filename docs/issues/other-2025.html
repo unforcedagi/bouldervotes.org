@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>This race / other 2025 — Boulder Votes</title>
+<style>
+:root {
+  --paper: #f4efe6;
+  --ink: #1c1916;
+  --muted: #5c5348;
+  --rule: #d4c7b0;
+  --link: #1f4b73;
+  --link-visited: #5a3d6e;
+  --mark: #8b2e1a;
+  --won: #215c3a;
+  --chip: #efe6d6;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.45;
+}
+header {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+.header-inner, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.1rem; }
+.header-inner { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.brand { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: var(--ink); }
+.rail { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; margin-top: 0.45rem; align-items: center; }
+.rail a, .pill {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.rail a.on, .pill.on { background: var(--ink); color: var(--paper); }
+.rail .sep { color: var(--muted); margin: 0 0.25rem; }
+nav.util { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.6rem 0.9rem; font-size: 0.9rem; }
+nav.util a { color: var(--link); }
+h1 { font-size: 1.7rem; line-height: 1.15; margin: 1.1rem 0 0.5rem; }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.45rem; }
+h3 { font-size: 1.02rem; margin: 1rem 0 0.3rem; }
+p, li { max-width: 42rem; }
+.lede { font-size: 1.05rem; margin-top: 0; }
+.note, .empty { color: var(--muted); font-size: 0.92rem; }
+.empty { font-style: italic; }
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+.jump { font-size: 0.92rem; margin: 0.4rem 0 1rem; }
+.jump a { margin-right: 0.8rem; }
+.card {
+  border: 1px solid var(--rule);
+  padding: 0.65rem 0.8rem;
+  margin: 0 0 0.55rem;
+  background: #f8f3ea;
+}
+.card h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+.card .meta { color: var(--muted); font-size: 0.88rem; }
+.chips { margin-top: 0.35rem; }
+.chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  border: 1px solid var(--rule);
+  background: var(--chip);
+  padding: 0.05rem 0.4rem;
+  margin: 0 0.25rem 0.25rem 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
+.badge.match { border-color: var(--mark); color: var(--mark); }
+.badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+th, td { text-align: left; padding: 0.35rem 0.4rem 0.35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.matrix td, .matrix th { text-align: center; }
+.matrix th:first-child, .matrix td:first-child { text-align: left; }
+.matrix a { text-decoration: none; }
+details.quote { margin: 0.25rem 0; }
+details.quote > summary { cursor: pointer; }
+details.quote > summary::after { content: " — full"; color: var(--link); font-size: 0.88rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.35rem 0; padding-left: 0.7rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.crumb { font-size: 0.9rem; color: var(--muted); margin: 0.8rem 0 0; }
+footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; }
+@media (max-width: 640px) {
+  html { font-size: 18px; }
+}
+@media print {
+  header { position: static; }
+  nav.util, .jump { display: none; }
+  a { color: inherit; text-decoration: none; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="brand" href="../index.html">Boulder Votes</a>
+    <div class="rail"><a class="" href="../2026.html">2026</a><a class="on" href="../2025.html">2025</a><a class="" href="../2023.html">2023</a></div>
+    <nav class="util"><a href="../issues.html">Issues</a><a href="../people.html">People</a><a href="../about.html">About</a></nav>
+  </div>
+</header>
+<main>
+<p class='crumb'><a href='../issues.html'>Issues</a> · <a href='other.html'>This race / other</a></p>
+<h1>This race / other · 2025</h1>
+<p class='note'>This issue in: <a class='pill on' href='other-2025.html'>2025</a> <a class='pill' href='other-2023.html'>2023</a> </p>
+<p>People on the 2025 ballot. Answers from this cycle first. If a returning candidate only answered in an earlier race, that quote is labelled as earlier — not as a 2025 answer.</p>
+<h2>What perspective or lived experience would you bring to city council, and how would it shape your approach to policy?</h2>
+<p class='note'>questionnaire</p>
+<p class='note'><a href='https://boulderreportinglab.org/2025/10/05/2025-boulder-city-council-election-how-candidates-say-their-life-experiences-would-shape-their-work-on-council/'>2025 Boulder City Council election: How candidates say their life experiences would shape their work on council</a></p>
+<table><tr><th>Candidate</th><th>What they said</th></tr><tr><td><a href='../people/matt-benjamin.html'>Matt Benjamin</a></td><td><details class='quote'><summary>I bring both professional and personal perspectives that shape how I serve on City Council. As a former astronomer and educator at CU’s Fiske…</summary><blockquote class='answer'>I bring both professional and personal perspectives that shape how I serve on City Council. As a former astronomer and educator at CU’s Fiske Planetarium, I learned to approach challenges with a science-based, data-driven mindset while also communicating clearly and accessibly with diverse audiences. That background influences how I evaluate policy, grounding decisions in facts, but always making them understandable and relatable for the community.
+
+As a longtime Boulder resident raising a family here, I also bring the lived experience of a parent navigating the challenges and opportunities many families face. The past four years on city council have made me a stronger, more effective leader. I’ve advanced housing reform, launched Boulder’s first economic development strategy, reimagined how we protect cars and cyclists, and strengthened wildfire protections, all while pushing for accountable, outcome-driven government. Most importantly, I’ve learned how to find common ground on tough issues, ensuring that our progressive values translate into real, lasting solutions.
+
+This experience has prepared me to keep leading with pragmatism, urgency, and a clear focus on building a more inclusive and resilient Boulder. My approach to policy is always guided by the question: Does this decision make Boulder a more inclusive, resilient, and thriving community for the next generation?</blockquote></details></td></tr><tr><td><a href='../people/lauren-folkerts.html'>Lauren Folkerts</a></td><td><details class='quote'><summary>As both an architect and Boulder’s Mayor Pro Tem, I bring the perspective of someone who has spent a career solving complex problems in ways that…</summary><blockquote class='answer'>As both an architect and Boulder’s Mayor Pro Tem, I bring the perspective of someone who has spent a career solving complex problems in ways that center people and long-term resilience. My work has taught me that every choice, whether in design or in policy, shapes how people live, connect, and thrive.
+
+I also bring lived experience as someone who made my home in multifamily housing. Living in denser neighborhoods has shown me how thoughtful planning can strengthen community, increase affordability, and reduce our climate impact. That perspective drives my commitment to housing solutions that make it possible for families, workers, and students to stay in Boulder. On council, I’ve paired that experience with a practical, coalition-building approach to deliver real progress, raising wages, reforming land use, and passing first-in-the-nation climate codes.
+
+I believe local government works best when leaders listen deeply, respect different perspectives, and translate community values into action. My commitment is to keep balancing urgency with collaboration, taking bold steps on affordability, climate, and equity, while ensuring our solutions are practical and inclusive.</blockquote></details></td></tr><tr><td><a href='../people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a></td><td><details class='quote'><summary>My civic journey began early, organizing and volunteering at 14, and by 17, drafting state legislation to protect LGBTQ+ youth in Ohio. That…</summary><blockquote class='answer'>My civic journey began early, organizing and volunteering at 14, and by 17, drafting state legislation to protect LGBTQ+ youth in Ohio. That formative experience taught me the power of young people stepping into leadership, and it continues to shape how I approach public service. Since then, I have earned a bachelor’s in Political Economics and a master’s in Public Administration and Leadership, with specialized training in public budgeting, fiscal and policy analysis, and strategic resource management. These skills are essential for making responsible, transparent, and equitable decisions on City Council.
+
+Before making Boulder my home, I worked in regenerative education, organizing internationally attended conferences that empowered communities to cultivate resilience in the face of economic, social, and environmental turbulence. Here in Boulder, I stay grounded in daily life advancing ecological stewardship as a Pollinator Ambassador with Cool Boulder, and connecting with neighbors every day as a barista at South Side Walnut Café.
+
+I am running to be Boulder’s first Gen Z councilmember not only to ensure my generation has a voice at the table, but to bring informed, systems-level thinking and collaborative leadership to address the challenges we face today and those ahead.</blockquote></details></td></tr><tr><td><a href='../people/rob-kaplan.html'>Rob Kaplan</a></td><td><details class='quote'><summary>I would bring a combination of hands-on public safety experience, small business ownership, and real estate and finance expertise to city council. My…</summary><blockquote class='answer'>I would bring a combination of hands-on public safety experience, small business ownership, and real estate and finance expertise to city council.
+
+My 18 years in fire and EMS give me an in-depth understanding of the operational and human challenges in public safety, from complex multi-jurisdictional coordination to training, staffing, and specialized rescue operations. My experience founding, operating, and growing a small business in the city (Pro Peloton Bike Shop) and managing commercial real estate has taught me strategic planning, fiscal responsibility, and how to balance multiple priorities effectively.
+
+Together, these perspectives shape my approach to policy: I focus on practical, solutions-oriented decisions that protect public safety, support city employees, and ensure responsible stewardship of community resources.</blockquote></details></td></tr><tr><td><a href='../people/maxwell-lord.html'>Maxwell Lord</a></td><td><details class='quote'><summary>I’ve lived in Boulder for a long time, and believe my diverse experience across the city is what qualifies me to be an active participant in city…</summary><blockquote class='answer'>I’ve lived in Boulder for a long time, and believe my diverse experience across the city is what qualifies me to be an active participant in city council. It isn’t always obvious where experience comes from. A good example is that I learned all the roads when I was a delivery driver late nights after college. Since then though, I’ve worked in the physics labs on campus, at NCAR, and now I am a builder around town. I am familiar with the land use regulations, as well as the homes that are currently built on them, and how they were built. Beyond that, it’s really working with the homeowners on the day to day, as well as the small businesses who rely on me, like the Trident and the Dark Horse. I’ve also volunteered with TGTHR, and Bridge House. I am familiar with our most vulnerable. I’ve worked on massive infrastructure projects, all the way down to small restaurants on the hill. It’s always about working on a team. Listening to others, understanding what you do and don’t know.</blockquote></details></td></tr><tr><td><a href='../people/montserrat-palacios.html'>Montserrat Palacios</a></td><td><details class='quote'><summary>While I haven’t lived in Boulder for 30 years, I want to be here for the next 70. I have lived in D.C./Northern Virginia, Palo Alto, New York City,…</summary><blockquote class='answer'>While I haven’t lived in Boulder for 30 years, I want to be here for the next 70. I have lived in D.C./Northern Virginia, Palo Alto, New York City, and Madrid but I have chosen Boulder as my home. Having seen how other cities approach growth, culture, sustainability, and community, I bring both perspective and fresh ideas about what works, and what doesn’t. As a young professional committed to Boulder’s future, I see value in being independent and finding the middle ground where real solutions are possible. My goal is not to push an agenda but to advocate for the community, listen to a wide range of voices, and help shape policies that ensure Boulder remains a thriving and welcoming city for generations to come.</blockquote></details></td></tr><tr><td><a href='../people/jennifer-robins.html'>Jennifer Robins</a></td><td><details class='quote'><summary>I would bring the perspective of a working mom, a small business owner, and someone who has spent years serving Boulder through civic leadership. I…</summary><blockquote class='answer'>I would bring the perspective of a working mom, a small business owner, and someone who has spent years serving Boulder through civic leadership. I know firsthand how challenging it is to juggle family, work, and rising costs in this city. As a small business owner, I’ve also seen how red tape and delays can make it harder to thrive here. On top of that, my service as Chair of the Parks and Recreation Advisory Board, on the board of the Play Boulder Foundation, and as Co-Chair of the Boulder Chamber’s Community Affairs Council has given me a front-row seat to how city policy impacts residents, local businesses, and the broader community. These experiences shape my approach: I want policies that are practical, equitable, and focused on results. Always asking how decisions will affect families, workers, and businesses on the ground, because I’ve been in their shoes.</blockquote></details></td></tr><tr><td><a href='../people/rob-smoke.html'>Rob Smoke</a></td><td><details class='quote'><summary>I’ve lived here since 1986 — twenty years at the same address in central Boulder. In spite of some personal challenges, I feel pretty good about…</summary><blockquote class='answer'>I’ve lived here since 1986 — twenty years at the same address in central Boulder. In spite of some personal challenges, I feel pretty good about living here and have no particular desire to move. The trend of the current city council has been to be arrogantly dismissive of people who only want what most of the world obviously wants — an end to the genocide occurring in Gaza. There might be other big issues for Boulder, but this happens to be the moral issue of the day — and council’s stance runs counter to the way most people feel. I’d like to help change the obviously unfortunate outcome regarding our public conversation.</blockquote></details></td></tr><tr><td><a href='../people/nicole-speer.html'>Nicole Speer</a></td><td><details class='quote'><summary>I’ve lived in Boulder for over 20 years, raising two children (now teens), working in higher education and publicly-funded research, and serving…</summary><blockquote class='answer'>I’ve lived in Boulder for over 20 years, raising two children (now teens), working in higher education and publicly-funded research, and serving local nonprofits and advocacy groups, including my union, United Campus Workers – CWA 7799. As someone whose job ended due to federal attacks on science, I’m keenly aware of how political and economic upheaval are and will be affecting more and more members of our community.
+
+My approach to policy and governance is the same approach I’ve used to build teams and advocate for community in all of my work. I build coalitions, support evidence-based programs and outcome-based budgeting, and show up with compassion, humility, and respect. I lead with evidence, empathy, and a belief that we are stronger when we embrace differences and honor our shared humanity.
+
+On City Council, I’ve advocated for workers, renters, parents, people with disabilities, immigrants, communities of color, queer and trans people, older adults, and those who rely on our safety nets. My goal as an elected leader is to make local government more effective, transparent, and inclusive, and to safeguard the systems and values that hold us together.</blockquote></details></td></tr><tr><td><a href='../people/aaron-stone.html'>Aaron Stone</a></td><td><details class='quote'><summary>I grew up in a family that sometimes relied on assistance to make ends meet. My parents applied for a lottery program called “Dollar Home,” which…</summary><blockquote class='answer'>I grew up in a family that sometimes relied on assistance to make ends meet.
+
+My parents applied for a lottery program called “Dollar Home,” which allowed selected families to purchase dilapidated homes for $1, provided they restored them to livable condition. My parents took out a loan and did most of the reconstruction themselves, with some help from friends. One year, we relied on a local association that provided children with clothes for school.
+
+Experiences like these taught me how important such programs are. They give people the opportunity to improve their own situations and, through that growth, strengthen the community as a whole. I will do my best to ensure that these types of groups continue to thrive in Boulder.</blockquote></details></td></tr><tr><td><a href='../people/mark-wallach.html'>Mark Wallach</a></td><td><details class='quote'><summary>A formative experience for me was living in New York City during the period of its decline and bankruptcy in the mid-‘70s. There were two things that…</summary><blockquote class='answer'>A formative experience for me was living in New York City during the period of its decline and bankruptcy in the mid-‘70s. There were two things that I experienced back then that have stayed with me: first, the decline and then absence of a sense of public safety. There were simply places you could not/would not go, because they were not safe for residents. That even included parts of Central Park.
+
+The second was the failure to maintain the city’s infrastructure. As a result, there were periodic derailments on the subway system, the bridges were in terrible shape, and the roads were a disaster. And, to combine the two themes, public safety on the subway system was entirely absent. As a result, property prices sunk, and people were leaving the City in droves for neighboring states and Florida.
+
+This experience demonstrated to me the absolute necessity of public safety for a city to thrive, and the implications of the failure to maintain your assets. Both of these themes are prominent in my campaign.</blockquote></details></td></tr></table>
+</main>
+<footer>
+  City of Boulder only. Cited, not scored, not an endorsement.
+  <a href="../sources.html">Sources</a> ·
+  <a href="../forums.html">Forums</a> ·
+  <a href="../measures.html">All measures</a> ·
+  <a href="https://bouldervotes.org/">bouldervotes.org</a>
+</footer>
+</body>
+</html>
