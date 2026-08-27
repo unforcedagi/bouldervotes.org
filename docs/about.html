@@ -25,7 +25,7 @@ body {
   line-height: 1.55;
 }
 header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
-header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; max-width: 46rem; }
+header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
 .brand { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; color: var(--ink); }
 .tagline { color: var(--muted); font-size: 0.95rem; margin: 0.25rem 0 0.75rem; }
 nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; font-size: 0.95rem; }
@@ -33,6 +33,7 @@ nav a { color: var(--link); }
 h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.75rem; }
 h2 { font-size: 1.25rem; margin: 1.75rem 0 0.5rem; }
 h3 { font-size: 1.05rem; margin: 1.2rem 0 0.35rem; }
+h4 { font-size: 1rem; margin: 1rem 0 0.3rem; }
 p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
@@ -54,61 +55,82 @@ th { font-weight: 600; }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
-blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.toc { font-size: 0.95rem; margin: 0 0 1.5rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
+.toc a { margin-right: 0.9rem; }
+.record { margin: 0.6rem 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
+.record-head { margin: 0 0 0.25rem; }
+details.quote { margin: 0.35rem 0 0.4rem; }
+details.quote > summary {
+  cursor: pointer;
+  color: var(--ink);
+  list-style: none;
+}
+details.quote > summary::-webkit-details-marker { display: none; }
+details.quote > summary::after { content: " — read full answer"; color: var(--link); font-size: 0.9rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
 .year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
 }
 @media print {
-  nav { display: none; }
+  nav, .toc { display: none; }
   a { color: inherit; text-decoration: none; }
+  details.quote { display: block; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
 }
 </style>
 </head>
 <body>
 <header>
   <a class="brand" href="index.html">Boulder Votes</a>
-  <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
+  <p class="tagline">Who is running, what they have said, cited. One issue at a time.</p>
   <nav>
     <a href="index.html">Home</a>
     <a href="2026.html">2026</a>
-    <a href="2025.html">2025</a>
-    <a href="2023.html">2023</a>
+    <a href="issues.html">Issues</a>
+    <a href="people.html">People</a>
     <a href="forums.html">Forums</a>
     <a href="measures.html">Measures</a>
-    <a href="sources.html">Sources</a>
+    <a href="2025.html">2025</a>
+    <a href="2023.html">2023</a>
     <a href="about.html">About</a>
   </nav>
 </header>
 <main>
 
-    <h1>About this prototype</h1>
-    <p>Boulder Votes is a public-interest map of City of Boulder elections, starting with 2023, 2025, and the 2026 cycle now underway. The store is a SQLite database. The website is generated from that database. Nothing here is an endorsement.</p>
-    <h2>Rules of the data</h2>
+    <h1>About</h1>
+    <p>Boulder Votes is a public-interest map of City of Boulder elections. SQLite in, static HTML out. No endorsements.</p>
+    <h2>How the information is structured</h2>
+    <ul class="plain">
+      <li><strong>People</strong> persist. Tara Winer is one dossier across 2023 and 2026, not two brochure pages.</li>
+      <li><strong>A year is a race</strong> — who ran, how they voted, which measures, which forums. It is not the quote archive.</li>
+      <li><strong>Issues are the comparison.</strong> Housing, airport, camping, wildfire. Add a Daily Camera interview and it files here, next to the BRL questionnaire, as a second source — not a longer year page.</li>
+      <li><strong>Sources are citations.</strong> Every number and every quote points at one. The catalog is for us, not the front door.</li>
+    </ul>
+    <h2>Rules</h2>
     <ul class="plain">
       <li>A number without a source is not published.</li>
-      <li>A “position” is a quote or a journalist’s reported grouping, hanging off a source — not our summary of a person’s soul.</li>
-      <li>Comparison grids stack sourced answers. They do not score candidates.</li>
-      <li>Incumbency, matching funds, and certified-on dates come from the city clerk list unless noted.</li>
-      <li>Older voters are the first audience: large type, one column, print-friendly, no motion.</li>
+      <li>Two quotes are not averaged. Absence is a blank.</li>
+      <li>Older voters first: large type, one column, print-friendly, no motion, no JavaScript required. Long answers fold; print unfolds them.</li>
     </ul>
-    <h2>What is not here yet</h2>
+    <h2>Not here yet</h2>
     <ul class="plain">
-      <li>The August 26, 2026 Chamber forum recording — parked until the Chamber publishes it.</li>
-      <li>Line-by-line transcripts of 2023/2025 forum video (the videos themselves are linked).</li>
-      <li>Campaign finance line items (city filings page; TRACER does not cover this race).</li>
-      <li>Most 2026 campaign websites.</li>
-      <li>Vote411 / LWV 2026 questionnaire, when it opens.</li>
-      <li>BVSD, county, state. Any social layer — ratings, comments, AT Proto. Later, on purpose.</li>
+      <li>2026 Chamber recording (parked until they publish).</li>
+      <li>Line-by-line forum transcripts (videos are linked).</li>
+      <li>Campaign finance line items.</li>
+      <li>Most 2026 campaign sites, Vote411 when it opens.</li>
+      <li>County, BVSD, state. Ratings, comments, AT Proto.</li>
     </ul>
-    <p>Live: <a href="https://bouldervotes.org/">bouldervotes.org</a>. Rebuild with <code>python3 harvest_brl.py && python3 seed.py && python3 build.py</code>.</p>
+    <p>Live: <a href="https://bouldervotes.org/">bouldervotes.org</a>. Rebuild: <code>python3 harvest_brl.py && python3 seed.py && python3 build.py</code>.</p>
     
 </main>
 <footer>
-  Prototype. Every number on this site is cited. We do not endorse candidates.
-  City of Boulder only — not county, school board, or state races.
-  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
+  Prototype. Every number is cited. We do not endorse candidates.
+  City of Boulder only. Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
+  <a href="sources.html">Source catalog</a>.
 </footer>
 </body>
 </html>

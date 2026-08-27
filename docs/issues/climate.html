@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Climate — Boulder Votes</title>
+<style>
+:root {
+  --paper: #f6f0e4;
+  --ink: #1c1916;
+  --muted: #5c5348;
+  --rule: #d4c7b0;
+  --link: #1f4b73;
+  --link-visited: #5a3d6e;
+  --mark: #8b2e1a;
+  --won: #215c3a;
+}
+* { box-sizing: border-box; }
+html { font-size: 20px; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.55;
+}
+header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
+header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
+.brand { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; color: var(--ink); }
+.tagline { color: var(--muted); font-size: 0.95rem; margin: 0.25rem 0 0.75rem; }
+nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; font-size: 0.95rem; }
+nav a { color: var(--link); }
+h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.75rem; }
+h2 { font-size: 1.25rem; margin: 1.75rem 0 0.5rem; }
+h3 { font-size: 1.05rem; margin: 1.2rem 0 0.35rem; }
+h4 { font-size: 1rem; margin: 1rem 0 0.3rem; }
+p, li { max-width: 42rem; }
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+.lede { font-size: 1.1rem; }
+.note, .empty { color: var(--muted); font-size: 0.95rem; }
+.empty { font-style: italic; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
+th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
+.badge.match { border-color: var(--mark); color: var(--mark); }
+.badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
+ul.plain { padding-left: 1.1rem; }
+footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
+.cite { font-size: 0.9rem; }
+.toc { font-size: 0.95rem; margin: 0 0 1.5rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
+.toc a { margin-right: 0.9rem; }
+.record { margin: 0.6rem 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
+.record-head { margin: 0 0 0.25rem; }
+details.quote { margin: 0.35rem 0 0.4rem; }
+details.quote > summary {
+  cursor: pointer;
+  color: var(--ink);
+  list-style: none;
+}
+details.quote > summary::-webkit-details-marker { display: none; }
+details.quote > summary::after { content: " — read full answer"; color: var(--link); font-size: 0.9rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
+@media (max-width: 640px) {
+  html { font-size: 18px; }
+  table { font-size: 0.9rem; }
+}
+@media print {
+  nav, .toc { display: none; }
+  a { color: inherit; text-decoration: none; }
+  details.quote { display: block; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="../index.html">Boulder Votes</a>
+  <p class="tagline">Who is running, what they have said, cited. One issue at a time.</p>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../2026.html">2026</a>
+    <a href="../issues.html">Issues</a>
+    <a href="../people.html">People</a>
+    <a href="../forums.html">Forums</a>
+    <a href="../measures.html">Measures</a>
+    <a href="../2025.html">2025</a>
+    <a href="../2023.html">2023</a>
+    <a href="../about.html">About</a>
+  </nav>
+</header>
+<main>
+<h1>Climate</h1>
+<p class='lede'>GHG inventory, Xcel, adaptation — the 2023 BRL climate question, distinct from 2025 home-hardening.</p>
+<p>Each block is one question, in one year, from one kind of source. A person may appear twice if they answered two different sources. That is the point.</p>
+<h2>2023</h2>
+<h3>We are in a climate emergency. With your leadership, how would Boulder change commensurately?</h3>
+<p class='note'>written questionnaire</p>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-climate-change-action/'>2023 Boulder City Council election: Where the candidates stand on climate change action</a></p>
+<div class='record'>
+<p class='record-head'><a href='../people/taishya-adams.html'>Taishya Adams</a> </p>
+<details class='quote'><summary>We must access and leverage every single penny of the historic climate investments at the federal, state and city government to expand our city’s climate staff, budget, partnerships and resources. We…</summary><blockquote class='answer'>We must access and leverage every single penny of the historic climate investments at the federal, state and city government to expand our city’s climate staff, budget, partnerships and resources. We must ensure climate impacts from the built environment are adequately assessed, measured, aligned to city goals, reported and used to inform every decision in our city. Without habitat for all living beings in our ecosystem, humans cannot survive.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/silas-atkins.html'>Silas Atkins</a> </p>
+<details class='quote'><summary>I have touched on this in my previous answers [in the BRL questionnaire] around dense housing near services, and additionally we need to invest in multi-modal transportation. When bikes, pedestrians…</summary><blockquote class='answer'>I have touched on this in my previous answers [in the BRL questionnaire] around dense housing near services, and additionally we need to invest in multi-modal transportation. When bikes, pedestrians and buses have dedicated space, it allows more people to get out of their cars and reduce emissions. We also need to reduce asphalt and concrete surfaces that create heat islands and we need to turn parking lots into housing.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/terri-brncic.html'>Terri Brncic</a> </p>
+<details class='quote'><summary>One of the biggest levers we have in Boulder to reduce carbon emissions is by holding Xcel accountable for promoting and delivering green energy. We should maximize the use of the off- ramps…</summary><blockquote class='answer'>One of the biggest levers we have in Boulder to reduce carbon emissions is by holding Xcel accountable for promoting and delivering green energy. We should maximize the use of the off- ramps contained in our settlement agreement with Xcel as leverage to ensure that they are hitting their agreed-upon targets and maintaining prices that are representative of a competitive marketplace. This ensures that lower-income residents are not disproportionately impacted by price increases. [Editor’s note: As Boulder gave up on becoming its own electric utility in 2020, it entered into a franchise agreement with Xcel that gave the utility the right to provide energy in Boulder, but maintained several off-ramps where the city could once again try to go it alone.]
+
+At a local level, Boulder should also be providing more heat pump, battery storage and solar panel grants to encourage residents to move toward greener technologies.
+
+I also want to put more focus on Boulder Creek water quality. Boulder Creek is designated as an impaired waterway due to E.coli contamination. The last public update on water quality status in 2019 showed continuing elevated levels. Since Boulder Creek is used by many of our local families and visitors as a summer recreation spot, it is imperative that we ensure the safety and condition of this vital waterway through transparent and frequent monitoring and more in-depth analyses to determine the sources of contamination and appropriate remediation measures.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/aaron-brockett.html'>Aaron Brockett</a> </p>
+<details class='quote'><summary>A critical piece is achieving our goal of 100% renewable electricity by 2030. This can be accomplished by either adopting Community Choice Energy if approved by the state legislature or participating…</summary><blockquote class='answer'>A critical piece is achieving our goal of 100% renewable electricity by 2030. This can be accomplished by either adopting Community Choice Energy if approved by the state legislature or participating in the new Xcel program, Zero Emissions Communities. Additionally, by updating and strengthening energy codes, Boulder can drive sustainability in new construction projects. Implementing an electric-only requirement for new construction — an initiative I have championed — will accelerate the shift away from fossil fuels. [Editor’s note: Community Choice Energy allows cities to pay an exit fee to opt out of their long-term franchise agreements, like Boulder’s with Xcel, to buy power on their own.]
+
+The residential and business sectors need to prioritize the electrification of buildings, encouraging the use of electric heating, cooling systems and appliances. Furthermore, a concerted effort to electrify vehicles is essential. Establishing an extensive network of EV charging stations will facilitate the transition to electric vehicles, reducing emissions from traditional combustion engines. We should actively promote e-bike use, making e-bikes more accessible through incentives and infrastructure improvements including by continuing and expanding our recent e-bike voucher program. We also should improve transit options for commuters.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/jacques-decalo.html'>Jacques Decalo</a> </p>
+<details class='quote'><summary>Boulder must work on all fronts to build climate resiliency and be the gold standard for other cities to do the same. Currently, Boulder has a goal of being carbon neutral by 2035. This has already…</summary><blockquote class='answer'>Boulder must work on all fronts to build climate resiliency and be the gold standard for other cities to do the same. Currently, Boulder has a goal of being carbon neutral by 2035. This has already been pushed back. I worry that Boulder will continue down the path of prolonged climate action. My decisions in my career have led me to sustainable automotive and energy jobs in companies that are reducing the carbon footprints of my clients. If elected to council, every decision I will make, will take into consideration our carbon footprint and impact.
+
+Under my leadership I would create opportunities for increased access to renewable energy through solar gardens on open rooftops, increased access to battery storage for solar energy, and incentives for homeowners to purchase electric heat pumps instead of relying on fossil fuels for heat. I would also be interested in introducing a single-use plastic tax on all materials that use plastic or have plastic wrapping.
+
+This would encourage consumers to move away from petroleum-based products and move to reusable or compostable materials. The money raised from this tax would allow for increases in allocated funds for sustainable alternative transportation or grants for solar and battery storage for lower income households.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/waylon-lewis.html'>Waylon Lewis</a> </p>
+<details class='quote'><summary>This is my first issue among equals. It’s an existential question — with a fun answer. Fun? Biking around a mature-treed town to community gatherings where folks feel safe? Fun. Homes that aren’t…</summary><blockquote class='answer'>This is my first issue among equals. It’s an existential question — with a fun answer. Fun? Biking around a mature-treed town to community gatherings where folks feel safe? Fun. Homes that aren’t polluted by fracking/gas fumes? A lot more fun than having asthma and health issues.
+
+Fire mitigation is an urgent priority. We need to go door-to-door with subsidies helping folks who are interested to replace wood siding and wooden fences with alternatives, to electrify and solar up their homes. The fires we saw here will return. The impact is economically devastating. This should be the top concern for the restaurant and business community. We don’t want home insurers to pull out of Boulder, as they have elsewhere. We want folks dining out on the West End patio, not hiding in their homes because it’s yet another toxic smoke day. I live on a bike. My publication, Elephant, was voted #1 for green coverage a few times. I am zero waste, vegan, and annoying in many other ways. All that’s to say: I walk my talk, I care, and we’ll do everything we can to make sure Boulder is safe and economically safe for our next generations.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/tina-marquis.html'>Tina Marquis</a> </p>
+<details class='quote'><summary>I would continue and/or accelerate many of the initiatives already in place, including shifting from fossil fuels to renewables, electrification, carbon sequestration, reducing single use plastics,…</summary><blockquote class='answer'>I would continue and/or accelerate many of the initiatives already in place, including shifting from fossil fuels to renewables, electrification, carbon sequestration, reducing single use plastics, green building, including incentives for construction that is climate resilient, and expanding biodiversity. I also will continue to support alternative transportation to cars, including creating safer routes for bikers and walkers as well as advocating for more bus service. Finally, Boulder cannot alone solve the climate crisis. Instead, we need to collaborate with other municipalities and counties, with humility, and create a collective commitment to create a climate resilient future.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/aaron-gabriel-neyer.html'>Aaron Gabriel Neyer</a> </p>
+<details class='quote'><summary>I will move beyond just being sustainable and move towards supporting resilient and regenerative systems. With a master’s degree in ecopsychology and extensive study of permaculture and living…</summary><blockquote class='answer'>I will move beyond just being sustainable and move towards supporting resilient and regenerative systems. With a master’s degree in ecopsychology and extensive study of permaculture and living systems, I would help move Boulder towards a place that is innovating on climate solutions and solidifying us as a leader in true climate solutions. I would help us level up existing natural solutions, creatively increasing biodiversity in our open spaces, and building structures that incentivize Boulder residents to plant more trees and pollinator gardens and take other actions that support the health of our local ecosystem.
+
+I would play an active role in communicating with climate experts to discover what tried and tested solutions we can implement here, as well as what we can experiment with to help the science move forward. I would also be in active relationship with our neighbor cities, both to learn what solutions they are implementing and to help them understand what we are doing that is working to foster holistic solutions to the climate crisis at the regional level and beyond.
+
+It is vital that we move beyond an insular perspective here and work to actively participate in addressing the climate crisis both locally and globally.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/jennifer-robins.html'>Jennifer Robins</a> </p>
+<details class='quote'><summary>To reach the goal of net zero emissions, I think we have to focus on using more renewable energy and reducing demand through better urban planning. From a land-use perspective, we need to allow…</summary><blockquote class='answer'>To reach the goal of net zero emissions, I think we have to focus on using more renewable energy and reducing demand through better urban planning. From a land-use perspective, we need to allow multifamily housing to be built along certain corridors, particularly those served by transit lines and featuring commercial and mixed-use development. We need smarter urban planning to help significantly cut down on the need for vehicles. We can require new construction to use renewable energy such as solar.
+
+We can increase incentives for electrification of personal vehicles, work with RTD to electrify their fleet, and consider electric vehicles in the city fleet.
+
+From a commercial perspective, we can start simple by taking measures such as painting roofs white to reflect sunlight and installing rooftop gardens or greener buildings with vertical gardens. In regard to lifestyle, animal products are very carbon intensive. Agriculturally, we need to work on additional community gardens, vertical farms and sourcing more local farms and producers.
+
+Boulder should focus on making sure that Xcel is doing its part on meeting state mandates on both CO2 and methane emissions, particularly in regards to its local policies (reducing the leakage rate from its in-town facilities) and state policies.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/ryan-schuchard.html'>Ryan Schuchard</a> </p>
+<details class='quote'><summary>A good starting point is to consider: (1) areas of greatest potential for mitigation, illustrated by Boulder’s GHG inventory; (2) how to build adaptive capacity, which, coupled with mitigation, can…</summary><blockquote class='answer'>A good starting point is to consider: (1) areas of greatest potential for mitigation, illustrated by Boulder’s GHG inventory; (2) how to build adaptive capacity, which, coupled with mitigation, can be thought of as climate-resilient development; and (3) the imperative of equity and a just transition.
+
+This evaluation has been done. In 2021, staff issued an ambitious plan to eliminate all Boulder GHG emissions by 2035 on the way to becoming a net carbon sink by 2040. So the question is, “What stands in the way of that?”
+
+The answer: The ability and willingness of Boulder’s elected officials to contend with carbon lock-in, the phenomenon by which business-as-usual decisions continue to entrench us deeper into the climate crisis.
+
+Two opportunities to do that and unlock climate action are as follows. First, establish a process requiring city council to identify the aspects of climate risk and opportunity in day-to-day agenda items, then rigorously evaluate issues heard on their potential for supporting the most beneficial climate action.
+
+Second, survey our expert staff on what holds Boulder back from our most ambitious possibilities, then get to work applying the leadership and political processes of city council to create the conditions and resources necessary.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/nicole-speer.html'>Nicole Speer</a> </p>
+<details class='quote'><summary>As the climate crisis worsens, changes that endanger entire sections of our ecosystem will happen over months rather than years. We need a climate resilience and risk assessment for each parcel of…</summary><blockquote class='answer'>As the climate crisis worsens, changes that endanger entire sections of our ecosystem will happen over months rather than years. We need a climate resilience and risk assessment for each parcel of land in the city and an equity analysis of our open space charter. OSMP [Open Space and Mountain Parks] funds should start to shift to land regeneration and maintenance, such as having planting teams on our open space lands that create resilience against desertification. We must focus more on regenerating soils, planting more trees to cool our city, and talking more about how we use, catch and cycle water.
+
+The next Boulder Valley Comprehensive Plan must have a strong climate and equity focus and move our city into the next generation of climate work by:</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/paul-tweedlie.html'>Paul Tweedlie</a> </p>
+<details class='quote'><summary>Climate change issues are of the utmost importance to so many in our town and so often Boulder has led the nation in finding innovative solutions to energy production. There are many directions in…</summary><blockquote class='answer'>Climate change issues are of the utmost importance to so many in our town and so often Boulder has led the nation in finding innovative solutions to energy production. There are many directions in which we may decide to go but we have to be careful — it’s easy to break eggs without making an omelet. To help guide our efforts, we need to listen to experts: climate scientists, engineers, city planners and professionals at local power companies.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/tara-winer.html'>Tara Winer</a> </p>
+<details class='quote'><summary>We need to decrease greenhouse gas emissions. Period. Transportation accounts for about one-third of our GHG’s. E-bikes are transformative in mode-shifting people out of cars. Increasing the amount…</summary><blockquote class='answer'>We need to decrease greenhouse gas emissions. Period.
+
+Transportation accounts for about one-third of our GHG’s. E-bikes are transformative in mode-shifting people out of cars. Increasing the amount of protected bike lanes, making sure people have secure places to park their bikes, providing free bike valet service downtown (where bikes are guarded), and continuing our e-bike rebate program are some ways we can help encourage community members to get on their bikes more often.
+
+We must also make sure our community is fire-ready. Since the Marshall Fire, we have cut down many trees in the wildland-urban interface (so fire cannot easily jump from tree to tree and then into our neighborhoods). We have improved our emergency alert system, and we have a Wildfire Home Assessment Program that is free of charge. But we need to go farther to make sure that highly flammable building materials, fencing and shrubbery are discouraged.
+
+Further, we need to increase our urban tree canopy, and reduce heat islands stemming from things like parking lots with black asphalt. We have incredibly smart and dedicated staff in our Climate Initiatives Department, and the best thing I can do is get out of their way and support the work.</blockquote></details>
+</div>
+<div class='record'>
+<p class='record-head'><a href='../people/bob-yates.html'>Bob Yates</a> </p>
+<details class='quote'><summary>One of my proudest accomplishments during my eight years on council was the negotiated resolution of our dispute with Xcel Energy. The settlement, which I helped craft and which the voters…</summary><blockquote class='answer'>One of my proudest accomplishments during my eight years on council was the negotiated resolution of our dispute with Xcel Energy. The settlement, which I helped craft and which the voters overwhelmingly approved in 2020, requires Xcel: (a) to reduce carbon emissions statewide by 80% from 2005 levels by 2030, with interim milestones throughout this decade; (b) to spend a minimum of $33 million to underground power lines in Boulder, increasing resiliency, improving safety, and reducing fire risks; and (c) to convey to Boulder all of the streetlights in town so the city can make energy-saving LED conversions.
+
+Next year, as mayor, I will help pass laws that will phase out and eliminate gas-powered landscaping equipment, and which will require that new building construction be all-electric. I will find ways to provide economic incentives for the purchase of e-bikes and electric vehicles. And I will direct the city to invest the $6.5 million that it receives annually from the climate tax on meaningful and replicable climate initiatives, including cash assistance to residents and businesses for energy efficiency upgrades, development of microgrid and energy storage systems, and electrification of buildings and vehicles.</blockquote></details>
+</div>
+</main>
+<footer>
+  Prototype. Every number is cited. We do not endorse candidates.
+  City of Boulder only. Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
+  <a href="../sources.html">Source catalog</a>.
+</footer>
+</body>
+</html>

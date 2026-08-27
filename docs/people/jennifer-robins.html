@@ -25,7 +25,7 @@ body {
   line-height: 1.55;
 }
 header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
-header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; max-width: 46rem; }
+header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
 .brand { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; color: var(--ink); }
 .tagline { color: var(--muted); font-size: 0.95rem; margin: 0.25rem 0 0.75rem; }
 nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; font-size: 0.95rem; }
@@ -33,6 +33,7 @@ nav a { color: var(--link); }
 h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.75rem; }
 h2 { font-size: 1.25rem; margin: 1.75rem 0 0.5rem; }
 h3 { font-size: 1.05rem; margin: 1.2rem 0 0.35rem; }
+h4 { font-size: 1rem; margin: 1rem 0 0.3rem; }
 p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
@@ -54,122 +55,181 @@ th { font-weight: 600; }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
-blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.toc { font-size: 0.95rem; margin: 0 0 1.5rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
+.toc a { margin-right: 0.9rem; }
+.record { margin: 0.6rem 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
+.record-head { margin: 0 0 0.25rem; }
+details.quote { margin: 0.35rem 0 0.4rem; }
+details.quote > summary {
+  cursor: pointer;
+  color: var(--ink);
+  list-style: none;
+}
+details.quote > summary::-webkit-details-marker { display: none; }
+details.quote > summary::after { content: " — read full answer"; color: var(--link); font-size: 0.9rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
 .year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
 }
 @media print {
-  nav { display: none; }
+  nav, .toc { display: none; }
   a { color: inherit; text-decoration: none; }
+  details.quote { display: block; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
 }
 </style>
 </head>
 <body>
 <header>
   <a class="brand" href="../index.html">Boulder Votes</a>
-  <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
+  <p class="tagline">Who is running, what they have said, cited. One issue at a time.</p>
   <nav>
     <a href="../index.html">Home</a>
     <a href="../2026.html">2026</a>
-    <a href="../2025.html">2025</a>
-    <a href="../2023.html">2023</a>
+    <a href="../issues.html">Issues</a>
+    <a href="../people.html">People</a>
     <a href="../forums.html">Forums</a>
     <a href="../measures.html">Measures</a>
-    <a href="../sources.html">Sources</a>
+    <a href="../2025.html">2025</a>
+    <a href="../2023.html">2023</a>
     <a href="../about.html">About</a>
   </nav>
 </header>
 <main>
 <h1>Jennifer Robins</h1>
+<nav class='toc'><a href='#campaigns'>Campaigns</a><a href='#results'>Results</a><a href='#forums'>Forums</a><a href='#record'>On the record</a></nav>
 <p>Appears as Jenny Robins in some 2023/2025 coverage; Jennifer Robins on the 2025 certified results.</p>
-<h2>Campaigns</h2><ul class='plain'>
+<h2 id='campaigns'>Campaigns</h2><ul class='plain'>
 <li>2025 Boulder City Council — lost</li>
 <li>2023 Boulder City Council — lost</li>
 </ul>
-<h2>Results</h2><ul class='plain'>
+<h2 id='results'>Results</h2><ul class='plain'>
 <li>2023 Boulder City Council, round 1: 11,249 votes</li>
 <li>2025 Boulder City Council, round 1: 14,781 votes</li>
 </ul>
-<h2>Forums</h2><ul class='plain'>
+<h2 id='forums'>Forums</h2><ul class='plain'>
 <li>2025-09-08 Boulder VOTES! Collaborative Candidate Forum — attended</li>
 <li>2025-08-26 Boulder Chamber candidate forum (2025 cycle) — attended · <a href="https://www.youtube.com/watch?v=a-6Mso1bNhA">recording</a></li>
 <li>2023-08-29 Boulder Chamber City Council and Mayoral Candidate Forum — attended · <a href="https://www.youtube.com/watch?v=AEkK1eSLmNk">recording</a></li>
 <li>2023-08-29 PLAN-Boulder County city council forum — attended</li>
 </ul>
-<h2>On the record</h2>
-<h3>2025 questionnaire</h3>
-<h3>What perspective or lived experience would you bring to city council, and how would it shape your approach to policy?</h3>
-<blockquote class='answer'>I would bring the perspective of a working mom, a small business owner, and someone who has spent years serving Boulder through civic leadership. I know firsthand how challenging it is to juggle family, work, and rising costs in this city. As a small business owner, I’ve also seen how red tape and delays can make it harder to thrive here. On top of that, my service as Chair of the Parks and Recreation Advisory Board, on the board of the Play Boulder Foundation, and as Co-Chair of the Boulder Chamber’s Community Affairs Council has given me a front-row seat to how city policy impacts residents, local businesses, and the broader community. These experiences shape my approach: I want policies that are practical, equitable, and focused on results. Always asking how decisions will affect families, workers, and businesses on the ground, because I’ve been in their shoes.</blockquote>
-<p class='cite'><a href='https://boulderreportinglab.org/2025/10/05/2025-boulder-city-council-election-how-candidates-say-their-life-experiences-would-shape-their-work-on-council/'>2025 Boulder City Council election: How candidates say their life experiences would shape their work on council</a></p>
-<h3>Should Boulder enforce its camping ban when the All Roads shelter is full?</h3>
-<p><span class='stance yes'>yes</span></p>
-<blockquote class='answer'>Yes, we should always enforce the camping ban. Because living in our floodways, ditches, and on the creek is not a compassionate solution. There are several strategies we should begin focusing on starting with enforcing our camping ban while also making sure we have real pathways off the street. Prioritization, diversion, and reunification are all key pieces, and the good news is that Boulder is already doing a lot of this work, so I don’t believe the cost needs to be as high as the Clutch report suggests. We should keep building on what works while coordinating closely with the county. As the new mental health tax plan takes shape, I want to make sure those dollars are directed toward inpatient and outpatient services, additional treatment beds, and real solutions that address the root causes of homelessness. This is how we can both protect public spaces and ensure people in crisis get the support they need.</blockquote>
-<p class='cite'><a href='https://boulderreportinglab.org/2025/10/06/2025-boulder-city-council-election-where-candidates-stand-on-the-camping-ban/'>2025 Boulder City Council election: Where candidates stand on the camping ban</a></p>
-<h3>Should Boulder require existing homes (not just new construction) to meet wildfire mitigation standards — such as clearing five feet around structures and banning wood fences near homes?</h3>
-<p><span class='stance yes'>yes</span></p>
-<blockquote class='answer'>Yes. Wildfire is an equitable disaster and it will take everything in its path without discrimination. If we don’t fire-harden now, the people who will suffer the most are our most vulnerable residents. I believe the city needs to expand wildfire mitigation beyond just new construction and additions, but we have to do it in a way that doesn’t put a crushing financial burden on homeowners or rental property owners. That means focusing first on strong incentive-based programs like rebates, grants, neighborhood cost-sharing, and partnerships with insurers and the county so people have real support to retrofit. We should also phase requirements in over time and provide extra resources for low- and middle-income households. The goal is to build resilience across the entire community, not just for those who can afford it.</blockquote>
-<p class='cite'><a href='https://boulderreportinglab.org/2025/10/07/2025-boulder-city-council-election-where-candidates-stand-on-making-the-city-more-wildfire-resilient/'>2025 Boulder City Council election: Where candidates stand on wildfire mitigation</a></p>
-<h3>Should Boulder City Council weigh in on foreign affairs? If not, how should it handle protests and tensions in council chambers over the war in Gaza?</h3>
-<blockquote class='answer'>No, I don’t believe City Council should take positions on foreign affairs. Our responsibility is to focus on Boulder’s local needs and challenges. That said, it’s important to acknowledge that innocent people are suffering in conflicts around the world, and that is always a tragedy. Here at home, I think we need to maintain council chambers as a safe and respectful space for everyone. That means enforcing the rules of decorum that already exist and allowing people to express their views within the bounds of open comment, but stepping in when rules are broken or behavior becomes disruptive. Everyone deserves the chance to be heard, but we also need to ensure that meetings remain safe, respectful, and focused on the work of the city.</blockquote>
-<p class='cite'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-councils-role-in-foreign-affairs/'>2025 Boulder City Council election: Where candidates stand on the council’s role in foreign affairs</a></p>
-<h3>Boulder needs thousands of new homes by 2032. What specific actions would you take to overcome barriers and increase housing supply?</h3>
-<blockquote class='answer'>Boulder has done a good job supporting affordable housing, and we have no shortage of high-end, market-rate homes, but what’s missing is the middle. Our middle income earners often can’t find housing here, even though they’re the backbone of our community. We need to make it easier and more attractive for developers and builders to create homes that middle earners actually want to live in. That means streamlining the process and providing the right incentives so that “missing middle” housing duplexes, townhomes, smaller condos can actually get built in Boulder. I would explore the option of reducing impact fees for developers that want to build for this population. Part of the solution also means looking ahead and exploring the Area III Planning Reserve in a thoughtful, deliberate way. If we plan carefully, we could use that land to create truly livable, mixed-income neighborhoods that include middle-income housing and the services that support it. We need to approach it with balance and intention, so we’re building for the community.</blockquote>
-<p class='cite'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-housing-shortage/'>2025 Boulder City Council election: Where candidates stand on the housing shortage</a></p>
-<h3>With sales tax revenue slowing, a hiring freeze, and a $380 million maintenance backlog, what would be your top spending priorities — and what would you cut or delay?</h3>
-<blockquote class='answer'>Boulder has a nearly $600 million budget, but most people don’t feel like they’re seeing $600 million worth of results. To me, that means it’s not just about how much money we’re spending, but how we’re spending it. We need to overhaul the budget so it’s focused on outcomes, transparency, and accountability. That starts with prioritizing the basics like fixing our streets and sidewalks, keeping bike paths clear, improving snow removal, investing in wildfire mitigation, maintaining our rec centers, and supporting public safety. These are the services every resident counts on, and they need to come first.
+<h2 id='record'>On the record</h2>
+<p class='note'>Grouped by issue, then by year. Each quote keeps its own source.</p>
+<h3><a href='../issues/budget.html'>City budget</a></h3>
+<div class='record'>
+<p class='record-head'>2025 · written questionnaire </p>
+<h4>With sales tax revenue slowing, a hiring freeze, and a $380 million maintenance backlog, what would be your top spending priorities — and what would you cut or delay?</h4>
+<details class='quote'><summary>Boulder has a nearly $600 million budget, but most people don’t feel like they’re seeing $600 million worth of results. To me, that means it’s not just about how much money we’re spending, but how…</summary><blockquote class='answer'>Boulder has a nearly $600 million budget, but most people don’t feel like they’re seeing $600 million worth of results. To me, that means it’s not just about how much money we’re spending, but how we’re spending it. We need to overhaul the budget so it’s focused on outcomes, transparency, and accountability. That starts with prioritizing the basics like fixing our streets and sidewalks, keeping bike paths clear, improving snow removal, investing in wildfire mitigation, maintaining our rec centers, and supporting public safety. These are the services every resident counts on, and they need to come first.
 
 From there, we should hold programs and contracts accountable with clear performance measures, and if something isn’t delivering results, it shouldn’t automatically get renewed. I also think the city relies far too much on outside consultants, and we’d be better off shifting those dollars into staff capacity and resident-facing services. It should be alarming to the entire community that sales tax growth is slowing. We need to look hard at that problem before jumping immediately to additional taxes.
 
-Finally, I want to bring residents directly into the process by creating a Community Accountability Committee that focuses on and reviews the budget, wildfire mitigation, and our homeless solutions.</blockquote>
+Finally, I want to bring residents directly into the process by creating a Community Accountability Committee that focuses on and reviews the budget, wildfire mitigation, and our homeless solutions.</blockquote></details>
 <p class='cite'><a href='https://boulderreportinglab.org/2025/10/12/2025-boulder-city-council-election-where-candidates-stand-on-priorities-for-the-city-budget/'>2025 Boulder City Council election: Where candidates stand on city budget priorities</a></p>
-<h3>2023 questionnaire</h3>
-<h3>What do you think are the most promising initiatives for reducing homelessness?</h3>
-<blockquote class='answer'>There are many factors that contribute to homelessness. These include lack of housing, income inequity, substance abuse and mental health issues. I am committed to working to increase affordable housing and streamlining city processes to allow for more affordable housing opportunities. I am open to exploring the possibility for tiny homes or micro-communities, where we could move groups of people into tier 1 housing.
-
-The unhoused have communities just like you and I. If we can work with the encampments in that light, I think that the level of success would be much greater than trying to move people into individual housing and removing them from their existing personal support structure. These options should be funded by the county using the extension of the Alternative Sentencing Facility tax that will be on the ballot next year.
-
-In addition to our existing services, I think the most promising initiatives for ending homelessness include our existing night shelter and the coming day shelter. The existing council has also approved the day shelter, which will be an important addition to our current services. It will provide another path for people to get connected to services.</blockquote>
-<p class='cite'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/'>2023 Boulder City Council election: Where the candidates stand on homelessness solutions</a></p>
-<h3>What approach would you take to address camping in our parks, on our bike paths and along our waterways?</h3>
-<blockquote class='answer'>Encampments are not a compassionate solution. There is no sobriety on the creek. No one should be living on the street. The unhoused are a very vulnerable part of our community. Unfortunately, we have situations where the current encampments are the cause for micro crime hot spots, which show 30% of crime is occurring in 10% of the city. A good portion of the more serious misdemeanors are happening to the unhoused from the unhoused. [Editor’s note: The Boulder Police Department has not published publicly available data on which reports of crime involve homeless people.]
-
-We have an obligation to help those in need. We also have an obligation to provide our community the ability to enjoy the city and feel safe, and too often that is not the reality they are experiencing. A small portion of the homeless population makes a negative impact on our community by way of overrunning public spaces and transportation, theft, trash, creek pollution, property destruction and ongoing safety issues for city workers. We need to continue outreach to the people in the encampments to get them involved with coordinated entry and the services that are offered in our city. We have to enforce the camping ban laws and continue to utilize law enforcement to help with this on-going issue.</blockquote>
-<p class='cite'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/'>2023 Boulder City Council election: Where the candidates stand on homeless encampments</a></p>
-<h3>What is your plan for increasing Boulder’s affordable housing supply?</h3>
-<blockquote class='answer'>We need to continue our inclusionary housing policy and commercial linkage fees to give the city the money it needs to continue working with the county and state to leverage additional funds for additional affordable housing opportunities. Programs like downpayment assistance are great for ownership opportunities.
-
-I believe in growth, but I also believe in maintaining the existing major charter and zoning ordinances, such as the blue line, green belt and the height restriction. We need thoughtful growth.
-
-I support strategic zoning reform to allow for slightly higher densities and gentle infill in certain areas. These areas can include our vacant or aging business and industrial districts where we can rezone to create multi-unit housing as mixed use near transit corridors. We need to reevaluate parking requirements where we have mass transit. We need more affordable housing for middle-income earners, families, seniors and students. Any zoning reform should be partnered with an affordable housing component. We have to work with the existing neighborhoods to accomplish this. We should protect the existing residents and maintain single-family neighborhoods where people are most passionate about character and development. Reform cannot be successful without the active engagement of our community.</blockquote>
-<p class='cite'><a href='https://boulderreportinglab.org/2023/10/09/2023-boulder-city-council-election-where-the-candidates-stand-on-affordable-housing/'>2023 Boulder City Council election: Where the candidates stand on affordable housing</a></p>
-<h3>We are in a climate emergency. With your leadership, how would Boulder change commensurately?</h3>
-<blockquote class='answer'>To reach the goal of net zero emissions, I think we have to focus on using more renewable energy and reducing demand through better urban planning. From a land-use perspective, we need to allow multifamily housing to be built along certain corridors, particularly those served by transit lines and featuring commercial and mixed-use development. We need smarter urban planning to help significantly cut down on the need for vehicles. We can require new construction to use renewable energy such as solar.
+</div>
+<h3><a href='../issues/climate.html'>Climate</a></h3>
+<div class='record'>
+<p class='record-head'>2023 · written questionnaire </p>
+<h4>We are in a climate emergency. With your leadership, how would Boulder change commensurately?</h4>
+<details class='quote'><summary>To reach the goal of net zero emissions, I think we have to focus on using more renewable energy and reducing demand through better urban planning. From a land-use perspective, we need to allow…</summary><blockquote class='answer'>To reach the goal of net zero emissions, I think we have to focus on using more renewable energy and reducing demand through better urban planning. From a land-use perspective, we need to allow multifamily housing to be built along certain corridors, particularly those served by transit lines and featuring commercial and mixed-use development. We need smarter urban planning to help significantly cut down on the need for vehicles. We can require new construction to use renewable energy such as solar.
 
 We can increase incentives for electrification of personal vehicles, work with RTD to electrify their fleet, and consider electric vehicles in the city fleet.
 
 From a commercial perspective, we can start simple by taking measures such as painting roofs white to reflect sunlight and installing rooftop gardens or greener buildings with vertical gardens. In regard to lifestyle, animal products are very carbon intensive. Agriculturally, we need to work on additional community gardens, vertical farms and sourcing more local farms and producers.
 
-Boulder should focus on making sure that Xcel is doing its part on meeting state mandates on both CO2 and methane emissions, particularly in regards to its local policies (reducing the leakage rate from its in-town facilities) and state policies.</blockquote>
+Boulder should focus on making sure that Xcel is doing its part on meeting state mandates on both CO2 and methane emissions, particularly in regards to its local policies (reducing the leakage rate from its in-town facilities) and state policies.</blockquote></details>
 <p class='cite'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-climate-change-action/'>2023 Boulder City Council election: Where the candidates stand on climate change action</a></p>
-<h3>How can we better provide alternatives to cars when existing infrastructure prioritizes cars?</h3>
-<blockquote class='answer'>We have to be sure any decisions made on this front are equitable. Steps to provide alternatives to cars include zoning to create housing in areas where we have mass transit and walkable mixed-use neighborhoods, such as our business districts. The Vision Zero program that is currently in place is a great starting point to improve the safety of our pedestrians and cyclists.
+</div>
+<h3><a href='../issues/foreign-affairs.html'>Foreign affairs at council</a></h3>
+<div class='record'>
+<p class='record-head'>2025 · written questionnaire </p>
+<h4>Should Boulder City Council weigh in on foreign affairs? If not, how should it handle protests and tensions in council chambers over the war in Gaza?</h4>
+<details class='quote'><summary>No, I don’t believe City Council should take positions on foreign affairs. Our responsibility is to focus on Boulder’s local needs and challenges. That said, it’s important to acknowledge that…</summary><blockquote class='answer'>No, I don’t believe City Council should take positions on foreign affairs. Our responsibility is to focus on Boulder’s local needs and challenges. That said, it’s important to acknowledge that innocent people are suffering in conflicts around the world, and that is always a tragedy. Here at home, I think we need to maintain council chambers as a safe and respectful space for everyone. That means enforcing the rules of decorum that already exist and allowing people to express their views within the bounds of open comment, but stepping in when rules are broken or behavior becomes disruptive. Everyone deserves the chance to be heard, but we also need to ensure that meetings remain safe, respectful, and focused on the work of the city.</blockquote></details>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-councils-role-in-foreign-affairs/'>2025 Boulder City Council election: Where candidates stand on the council’s role in foreign affairs</a></p>
+</div>
+<h3><a href='../issues/homelessness.html'>Homelessness</a></h3>
+<div class='record'>
+<p class='record-head'>2025 · written questionnaire <span class='stance yes'>yes</span> </p>
+<h4>Should Boulder enforce its camping ban when the All Roads shelter is full?</h4>
+<details class='quote'><summary>Yes, we should always enforce the camping ban. Because living in our floodways, ditches, and on the creek is not a compassionate solution. There are several strategies we should begin focusing on…</summary><blockquote class='answer'>Yes, we should always enforce the camping ban. Because living in our floodways, ditches, and on the creek is not a compassionate solution. There are several strategies we should begin focusing on starting with enforcing our camping ban while also making sure we have real pathways off the street. Prioritization, diversion, and reunification are all key pieces, and the good news is that Boulder is already doing a lot of this work, so I don’t believe the cost needs to be as high as the Clutch report suggests. We should keep building on what works while coordinating closely with the county. As the new mental health tax plan takes shape, I want to make sure those dollars are directed toward inpatient and outpatient services, additional treatment beds, and real solutions that address the root causes of homelessness. This is how we can both protect public spaces and ensure people in crisis get the support they need.</blockquote></details>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/06/2025-boulder-city-council-election-where-candidates-stand-on-the-camping-ban/'>2025 Boulder City Council election: Where candidates stand on the camping ban</a></p>
+</div>
+<div class='record'>
+<p class='record-head'>2023 · written questionnaire </p>
+<h4>What do you think are the most promising initiatives for reducing homelessness?</h4>
+<details class='quote'><summary>There are many factors that contribute to homelessness. These include lack of housing, income inequity, substance abuse and mental health issues. I am committed to working to increase affordable…</summary><blockquote class='answer'>There are many factors that contribute to homelessness. These include lack of housing, income inequity, substance abuse and mental health issues. I am committed to working to increase affordable housing and streamlining city processes to allow for more affordable housing opportunities. I am open to exploring the possibility for tiny homes or micro-communities, where we could move groups of people into tier 1 housing.
 
-We can also continue to incentivize e-bike purchases with rebates or tax credits. RTD needs to be more reliable. I think that there should be an additional tax to help fund RTD. But I think that the City and County of Broomfield and Boulder County, which never received the [promised] commuter rail, should be exempt from these proposed sales tax increases. RTD should also be working with the state for additional funding. They should also be providing additional subsidies and incentives for low-income earners to ride the RTD. Boulder should work on many fronts: collaboration with, and additional performance expectations, of RTD; collaboration with the Boulder County consortium of cities and Northwest Corridor efforts to add regional connection options that maximize transit and micro-mobility options; and full support for transportation electrification initiatives and transit.</blockquote>
-<p class='cite'><a href='https://boulderreportinglab.org/2023/10/06/2023-boulder-city-council-election-where-the-candidates-stand-on-making-streets-safer-for-cyclists-walkers-and-others/'>2023 Boulder City Council election: Where the candidates stand on making streets safer for cyclists, walkers and others</a></p>
-<h3>Assume you are elected this November. What one specific thing will you have accomplished that you’re proud of after one year?</h3>
-<blockquote class='answer'>Recently, the Broncos gave $2 million to Boulder. The money comes from a provision of an existing agreement that required 2% of the net proceeds of the sale of the Broncos to be paid to the [school] district to be used for youth programming. I am hoping that if I am elected to council I will be able to help properly appropriate these funds to support our kids and families. I would like to establish safe spaces where kids and teens can socialize, while also incorporating wrap-around services.
+The unhoused have communities just like you and I. If we can work with the encampments in that light, I think that the level of success would be much greater than trying to move people into individual housing and removing them from their existing personal support structure. These options should be funded by the county using the extension of the Alternative Sentencing Facility tax that will be on the ballot next year.
+
+In addition to our existing services, I think the most promising initiatives for ending homelessness include our existing night shelter and the coming day shelter. The existing council has also approved the day shelter, which will be an important addition to our current services. It will provide another path for people to get connected to services.</blockquote></details>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/'>2023 Boulder City Council election: Where the candidates stand on homelessness solutions</a></p>
+</div>
+<div class='record'>
+<p class='record-head'>2023 · written questionnaire </p>
+<h4>What approach would you take to address camping in our parks, on our bike paths and along our waterways?</h4>
+<details class='quote'><summary>Encampments are not a compassionate solution. There is no sobriety on the creek. No one should be living on the street. The unhoused are a very vulnerable part of our community. Unfortunately, we…</summary><blockquote class='answer'>Encampments are not a compassionate solution. There is no sobriety on the creek. No one should be living on the street. The unhoused are a very vulnerable part of our community. Unfortunately, we have situations where the current encampments are the cause for micro crime hot spots, which show 30% of crime is occurring in 10% of the city. A good portion of the more serious misdemeanors are happening to the unhoused from the unhoused. [Editor’s note: The Boulder Police Department has not published publicly available data on which reports of crime involve homeless people.]
+
+We have an obligation to help those in need. We also have an obligation to provide our community the ability to enjoy the city and feel safe, and too often that is not the reality they are experiencing. A small portion of the homeless population makes a negative impact on our community by way of overrunning public spaces and transportation, theft, trash, creek pollution, property destruction and ongoing safety issues for city workers. We need to continue outreach to the people in the encampments to get them involved with coordinated entry and the services that are offered in our city. We have to enforce the camping ban laws and continue to utilize law enforcement to help with this on-going issue.</blockquote></details>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/'>2023 Boulder City Council election: Where the candidates stand on homeless encampments</a></p>
+</div>
+<h3><a href='../issues/housing.html'>Housing</a></h3>
+<div class='record'>
+<p class='record-head'>2025 · written questionnaire </p>
+<h4>Boulder needs thousands of new homes by 2032. What specific actions would you take to overcome barriers and increase housing supply?</h4>
+<details class='quote'><summary>Boulder has done a good job supporting affordable housing, and we have no shortage of high-end, market-rate homes, but what’s missing is the middle. Our middle income earners often can’t find housing…</summary><blockquote class='answer'>Boulder has done a good job supporting affordable housing, and we have no shortage of high-end, market-rate homes, but what’s missing is the middle. Our middle income earners often can’t find housing here, even though they’re the backbone of our community. We need to make it easier and more attractive for developers and builders to create homes that middle earners actually want to live in. That means streamlining the process and providing the right incentives so that “missing middle” housing duplexes, townhomes, smaller condos can actually get built in Boulder. I would explore the option of reducing impact fees for developers that want to build for this population. Part of the solution also means looking ahead and exploring the Area III Planning Reserve in a thoughtful, deliberate way. If we plan carefully, we could use that land to create truly livable, mixed-income neighborhoods that include middle-income housing and the services that support it. We need to approach it with balance and intention, so we’re building for the community.</blockquote></details>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-housing-shortage/'>2025 Boulder City Council election: Where candidates stand on the housing shortage</a></p>
+</div>
+<div class='record'>
+<p class='record-head'>2023 · written questionnaire </p>
+<h4>What is your plan for increasing Boulder’s affordable housing supply?</h4>
+<details class='quote'><summary>We need to continue our inclusionary housing policy and commercial linkage fees to give the city the money it needs to continue working with the county and state to leverage additional funds for…</summary><blockquote class='answer'>We need to continue our inclusionary housing policy and commercial linkage fees to give the city the money it needs to continue working with the county and state to leverage additional funds for additional affordable housing opportunities. Programs like downpayment assistance are great for ownership opportunities.
+
+I believe in growth, but I also believe in maintaining the existing major charter and zoning ordinances, such as the blue line, green belt and the height restriction. We need thoughtful growth.
+
+I support strategic zoning reform to allow for slightly higher densities and gentle infill in certain areas. These areas can include our vacant or aging business and industrial districts where we can rezone to create multi-unit housing as mixed use near transit corridors. We need to reevaluate parking requirements where we have mass transit. We need more affordable housing for middle-income earners, families, seniors and students. Any zoning reform should be partnered with an affordable housing component. We have to work with the existing neighborhoods to accomplish this. We should protect the existing residents and maintain single-family neighborhoods where people are most passionate about character and development. Reform cannot be successful without the active engagement of our community.</blockquote></details>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/09/2023-boulder-city-council-election-where-the-candidates-stand-on-affordable-housing/'>2023 Boulder City Council election: Where the candidates stand on affordable housing</a></p>
+</div>
+<h3><a href='../issues/other.html'>This race / other</a></h3>
+<div class='record'>
+<p class='record-head'>2025 · written questionnaire </p>
+<h4>What perspective or lived experience would you bring to city council, and how would it shape your approach to policy?</h4>
+<details class='quote'><summary>I would bring the perspective of a working mom, a small business owner, and someone who has spent years serving Boulder through civic leadership. I know firsthand how challenging it is to juggle…</summary><blockquote class='answer'>I would bring the perspective of a working mom, a small business owner, and someone who has spent years serving Boulder through civic leadership. I know firsthand how challenging it is to juggle family, work, and rising costs in this city. As a small business owner, I’ve also seen how red tape and delays can make it harder to thrive here. On top of that, my service as Chair of the Parks and Recreation Advisory Board, on the board of the Play Boulder Foundation, and as Co-Chair of the Boulder Chamber’s Community Affairs Council has given me a front-row seat to how city policy impacts residents, local businesses, and the broader community. These experiences shape my approach: I want policies that are practical, equitable, and focused on results. Always asking how decisions will affect families, workers, and businesses on the ground, because I’ve been in their shoes.</blockquote></details>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/05/2025-boulder-city-council-election-how-candidates-say-their-life-experiences-would-shape-their-work-on-council/'>2025 Boulder City Council election: How candidates say their life experiences would shape their work on council</a></p>
+</div>
+<div class='record'>
+<p class='record-head'>2023 · written questionnaire </p>
+<h4>Assume you are elected this November. What one specific thing will you have accomplished that you’re proud of after one year?</h4>
+<details class='quote'><summary>Recently, the Broncos gave $2 million to Boulder. The money comes from a provision of an existing agreement that required 2% of the net proceeds of the sale of the Broncos to be paid to the [school]…</summary><blockquote class='answer'>Recently, the Broncos gave $2 million to Boulder. The money comes from a provision of an existing agreement that required 2% of the net proceeds of the sale of the Broncos to be paid to the [school] district to be used for youth programming. I am hoping that if I am elected to council I will be able to help properly appropriate these funds to support our kids and families. I would like to establish safe spaces where kids and teens can socialize, while also incorporating wrap-around services.
 
 Advocating for themselves can be challenging for young individuals, which is why it becomes crucial for us to reduce the stigmas associated with mental health and embrace gender and sexual diversity. By offering these safe spaces, we can extend a helping hand to many kids who feel scared, isolated and marginalized.
 
-The Covid-19 pandemic has added an additional layer of stress and hardship to children’s lives, the full effects of which we have yet to fully comprehend. The isolation they have experienced is real, and they have had to confront issues like cyberbullying, unrealistic beauty standards, overwhelming academic pressure, increased exposure to violence and trauma, lack of physical activity and the unsettling reality of climate change.</blockquote>
+The Covid-19 pandemic has added an additional layer of stress and hardship to children’s lives, the full effects of which we have yet to fully comprehend. The isolation they have experienced is real, and they have had to confront issues like cyberbullying, unrealistic beauty standards, overwhelming academic pressure, increased exposure to violence and trauma, lack of physical activity and the unsettling reality of climate change.</blockquote></details>
 <p class='cite'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-their-one-year-visions/'>2023 Boulder City Council election: Where the candidates stand on their one-year visions</a></p>
+</div>
+<h3><a href='../issues/transportation.html'>Transportation</a></h3>
+<div class='record'>
+<p class='record-head'>2023 · written questionnaire </p>
+<h4>How can we better provide alternatives to cars when existing infrastructure prioritizes cars?</h4>
+<details class='quote'><summary>We have to be sure any decisions made on this front are equitable. Steps to provide alternatives to cars include zoning to create housing in areas where we have mass transit and walkable mixed-use…</summary><blockquote class='answer'>We have to be sure any decisions made on this front are equitable. Steps to provide alternatives to cars include zoning to create housing in areas where we have mass transit and walkable mixed-use neighborhoods, such as our business districts. The Vision Zero program that is currently in place is a great starting point to improve the safety of our pedestrians and cyclists.
+
+We can also continue to incentivize e-bike purchases with rebates or tax credits. RTD needs to be more reliable. I think that there should be an additional tax to help fund RTD. But I think that the City and County of Broomfield and Boulder County, which never received the [promised] commuter rail, should be exempt from these proposed sales tax increases. RTD should also be working with the state for additional funding. They should also be providing additional subsidies and incentives for low-income earners to ride the RTD. Boulder should work on many fronts: collaboration with, and additional performance expectations, of RTD; collaboration with the Boulder County consortium of cities and Northwest Corridor efforts to add regional connection options that maximize transit and micro-mobility options; and full support for transportation electrification initiatives and transit.</blockquote></details>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/06/2023-boulder-city-council-election-where-the-candidates-stand-on-making-streets-safer-for-cyclists-walkers-and-others/'>2023 Boulder City Council election: Where the candidates stand on making streets safer for cyclists, walkers and others</a></p>
+</div>
+<h3><a href='../issues/wildfire.html'>Wildfire resilience</a></h3>
+<div class='record'>
+<p class='record-head'>2025 · written questionnaire <span class='stance yes'>yes</span> </p>
+<h4>Should Boulder require existing homes (not just new construction) to meet wildfire mitigation standards — such as clearing five feet around structures and banning wood fences near homes?</h4>
+<details class='quote'><summary>Yes. Wildfire is an equitable disaster and it will take everything in its path without discrimination. If we don’t fire-harden now, the people who will suffer the most are our most vulnerable…</summary><blockquote class='answer'>Yes. Wildfire is an equitable disaster and it will take everything in its path without discrimination. If we don’t fire-harden now, the people who will suffer the most are our most vulnerable residents. I believe the city needs to expand wildfire mitigation beyond just new construction and additions, but we have to do it in a way that doesn’t put a crushing financial burden on homeowners or rental property owners. That means focusing first on strong incentive-based programs like rebates, grants, neighborhood cost-sharing, and partnerships with insurers and the county so people have real support to retrofit. We should also phase requirements in over time and provide extra resources for low- and middle-income households. The goal is to build resilience across the entire community, not just for those who can afford it.</blockquote></details>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/07/2025-boulder-city-council-election-where-candidates-stand-on-making-the-city-more-wildfire-resilient/'>2025 Boulder City Council election: Where candidates stand on wildfire mitigation</a></p>
+</div>
 </main>
 <footer>
-  Prototype. Every number on this site is cited. We do not endorse candidates.
-  City of Boulder only — not county, school board, or state races.
-  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
+  Prototype. Every number is cited. We do not endorse candidates.
+  City of Boulder only. Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
+  <a href="../sources.html">Source catalog</a>.
 </footer>
 </body>
 </html>

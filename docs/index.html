@@ -25,7 +25,7 @@ body {
   line-height: 1.55;
 }
 header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
-header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; max-width: 46rem; }
+header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
 .brand { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; color: var(--ink); }
 .tagline { color: var(--muted); font-size: 0.95rem; margin: 0.25rem 0 0.75rem; }
 nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; font-size: 0.95rem; }
@@ -33,6 +33,7 @@ nav a { color: var(--link); }
 h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.75rem; }
 h2 { font-size: 1.25rem; margin: 1.75rem 0 0.5rem; }
 h3 { font-size: 1.05rem; margin: 1.2rem 0 0.35rem; }
+h4 { font-size: 1rem; margin: 1rem 0 0.3rem; }
 p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
@@ -54,53 +55,71 @@ th { font-weight: 600; }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
-blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.toc { font-size: 0.95rem; margin: 0 0 1.5rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
+.toc a { margin-right: 0.9rem; }
+.record { margin: 0.6rem 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
+.record-head { margin: 0 0 0.25rem; }
+details.quote { margin: 0.35rem 0 0.4rem; }
+details.quote > summary {
+  cursor: pointer;
+  color: var(--ink);
+  list-style: none;
+}
+details.quote > summary::-webkit-details-marker { display: none; }
+details.quote > summary::after { content: " — read full answer"; color: var(--link); font-size: 0.9rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
 .year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
 }
 @media print {
-  nav { display: none; }
+  nav, .toc { display: none; }
   a { color: inherit; text-decoration: none; }
+  details.quote { display: block; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
 }
 </style>
 </head>
 <body>
 <header>
   <a class="brand" href="index.html">Boulder Votes</a>
-  <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
+  <p class="tagline">Who is running, what they have said, cited. One issue at a time.</p>
   <nav>
     <a href="index.html">Home</a>
     <a href="2026.html">2026</a>
-    <a href="2025.html">2025</a>
-    <a href="2023.html">2023</a>
+    <a href="issues.html">Issues</a>
+    <a href="people.html">People</a>
     <a href="forums.html">Forums</a>
     <a href="measures.html">Measures</a>
-    <a href="sources.html">Sources</a>
+    <a href="2025.html">2025</a>
+    <a href="2023.html">2023</a>
     <a href="about.html">About</a>
   </nav>
 </header>
 <main>
 
-    <h1>Boulder’s city elections, in one place</h1>
-    <p class="lede">On November 3, 2026, Boulder voters will elect a mayor (ranked-choice) and five city council members (plurality, at-large), and vote on city ballot measures. This site maps the candidates, what they have said, the forums they showed up for, and the last two cycles in the same shape — so 2026 is easier to read once you have seen 2023 and 2025.</p>
-    <p>Right now the database has <strong>6 mayoral candidates</strong> and <strong>13 council candidates</strong> certified for 2026, 157 sourced answers, 13 forums/events, 10 city measures, and 57 source records. Candidate beliefs are <em>not</em> invented here — they are attached to a source, or they are absent.</p>
-    <h2>Start here</h2>
+    <h1>November 3, 2026</h1>
+    <p class="lede">Boulder elects a mayor (ranked-choice) and five city council members, and votes on city measures. This site is a map of the candidates and of what they have actually said — quoted, cited, not scored.</p>
+    <p>The 2026 ballot has <strong>6 mayoral</strong> and <strong>13 council</strong> candidates certified. The database holds 157 sourced answers from 2023, 2025, and 2026. A new forum or newspaper piece should attach to a person and an issue. It should not make the year page longer.</p>
+    <h2>Compare them on</h2>
+    <ul class="plain"><li><a href='issues/homelessness.html'>Homelessness</a> — 39 answers</li><li><a href='issues/housing.html'>Housing</a> — 25 answers</li><li><a href='issues/other.html'>This race / other</a> — 25 answers</li><li><a href='issues/climate.html'>Climate</a> — 14 answers</li><li><a href='issues/transportation.html'>Transportation</a> — 14 answers</li><li><a href='issues/budget.html'>City budget</a> — 11 answers</li><li><a href='issues/foreign-affairs.html'>Foreign affairs at council</a> — 11 answers</li><li><a href='issues/wildfire.html'>Wildfire resilience</a> — 11 answers</li><li><a href='issues/airport.html'>Municipal airport</a> — 7 answers</li></ul>
+    <h2>This year’s race</h2>
     <ul class="plain">
-      <li><a href="2026.html">2026</a> — field, forums so far, four referred measures. Chamber recording parked until they publish.</li>
-      <li><a href="2025.html">2025</a> — eleven candidates, six BRL questions each, Chamber / VOTES! / LWV forums, CCRS 2A/2B.</li>
-      <li><a href="2023.html">2023</a> — first RCV mayor, council recount, six BRL questions × 14 candidates, Chamber / PLAN / LWV, Safe Zones 4 Kids.</li>
-      <li><a href="forums.html">Forums</a> — the calendar across years.</li>
-      <li><a href="measures.html">Measures</a> — city ballot items 2023–2026.</li>
+      <li><a href="2026.html">2026 overview</a> — field, measures, forums so far.</li>
+      <li><a href="2026-mayor.html">Mayor</a> · <a href="2026-council.html">Council</a></li>
+      <li><a href="people.html">Everyone in the database</a> — dossiers, not a feed.</li>
     </ul>
-    <p>Each year page uses the same blocks, in the same order: the field, results, answers question-by-question, forums, interviews/press, ballot measures.</p>
+    <h2>How 2023 and 2025 went</h2>
+    <p>Those cycles are here so 2026 is readable: same issues, many of the same people, certified results. Start at <a href="2025.html">2025</a> or <a href="2023.html">2023</a> only if you want the race record. For beliefs, use Issues.</p>
     
 </main>
 <footer>
-  Prototype. Every number on this site is cited. We do not endorse candidates.
-  City of Boulder only — not county, school board, or state races.
-  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
+  Prototype. Every number is cited. We do not endorse candidates.
+  City of Boulder only. Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
+  <a href="sources.html">Source catalog</a>.
 </footer>
 </body>
 </html>
