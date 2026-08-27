@@ -10,12 +10,13 @@ This is a prototype. It does not endorse anyone.
 
 ## Run it
 
-Live prototype: https://unforcedagi.github.io/bouldervotes.org/
+Live: https://bouldervotes.org/ (GitHub Pages; custom domain). Mirror: https://unforcedagi.github.io/bouldervotes.org/
 
 ```bash
 cd ~/REPOS/bouldervotes.org
-python3 seed.py      # rebuilds data/bouldervotes.db from schema + seed
-python3 build.py     # writes static HTML to docs/ (GitHub Pages)
+python3 harvest_brl.py   # optional; writes data/harvest/brl_questionnaires.json
+python3 seed.py          # rebuilds data/bouldervotes.db from schema + seed + harvest
+python3 build.py         # writes static HTML to docs/ (GitHub Pages)
 open docs/index.html
 ```
 
@@ -29,10 +30,12 @@ Python 3 stdlib only. No npm, no framework.
 - Certified 2025 council totals
 - Sitting/departed officeholders
 - A first source catalog (clerk, county, BRL, Daily Camera, Chamber, LWV)
-- Two 2026 events (Progressives’ Raucous Caucus; Chamber forum)
-- One harvested question (FAA airport grants at the June 6 caucus)
+- BRL written questionnaires: all 14 candidates × 6 questions (2023) and all 11 × 6 (2025)
+- Forum calendar for 2023 and 2025 (Chamber, PLAN, Progressives, LWV, VOTES!) with recordings where they exist
+- City ballot measures: 2023 (2A, 2B, 302), 2025 (2A/2B CCRS, passed), 2026 referred bond / vacancy tax / two charter changes; DDA not referred
+- One 2026 harvested spoken question (FAA airport grants at the June 6 caucus)
 
-What’s *not* in it: invented positions, campaign-finance line items, most campaign sites, the rest of the forum season, ballot measures, county/BVSD races.
+What’s *not* in it: invented positions, campaign-finance line items, most 2026 campaign sites, the 2026 Chamber recording (parked until they publish), county/BVSD races.
 
 ## Schema idea
 

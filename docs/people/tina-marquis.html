@@ -37,7 +37,8 @@ p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
 .lede { font-size: 1.1rem; }
-.note { color: var(--muted); font-size: 0.95rem; }
+.note, .empty { color: var(--muted); font-size: 0.95rem; }
+.empty { font-style: italic; }
 table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
 th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
 th { font-weight: 600; }
@@ -46,9 +47,15 @@ th { font-weight: 600; }
 .badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
+blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
@@ -65,11 +72,11 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
   <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
   <nav>
     <a href="../index.html">Home</a>
-    <a href="../2026-mayor.html">2026 mayor</a>
-    <a href="../2026-council.html">2026 council</a>
+    <a href="../2026.html">2026</a>
     <a href="../2025.html">2025</a>
     <a href="../2023.html">2023</a>
     <a href="../forums.html">Forums</a>
+    <a href="../measures.html">Measures</a>
     <a href="../sources.html">Sources</a>
     <a href="../about.html">About</a>
   </nav>
@@ -86,14 +93,49 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
 <h2>Results</h2><ul class='plain'>
 <li>2023 Boulder City Council, round 1: 14,958 votes — elected</li>
 </ul>
+<h2>Forums</h2><ul class='plain'>
+<li>2026-06-06 Boulder Progressives Raucous Caucus — attended</li>
+<li>2023-08-29 Boulder Chamber City Council and Mayoral Candidate Forum — attended · <a href="https://www.youtube.com/watch?v=AEkK1eSLmNk">recording</a></li>
+<li>2023-08-29 PLAN-Boulder County city council forum — attended</li>
+</ul>
 <h2>On the record</h2>
+<h3>2026 forum</h3>
 <h3>Would you support accepting federal FAA grants that could require Boulder to keep the municipal airport open in perpetuity?</h3>
-<p><strong>NO</strong> — Reported by Boulder Reporting Lab from the June 6 2026 Raucous Caucus. Not a written questionnaire; a journalist&#x27;s grouping of spoken answers.</p>
+<p><span class='stance no'>no</span></p>
+<blockquote class='answer'>Reported by Boulder Reporting Lab from the June 6 2026 Raucous Caucus. Not a written questionnaire; a journalist&#x27;s grouping of spoken answers.</blockquote>
 <p class='cite'><a href='https://boulderreportinglab.org/2026/06/07/boulder-city-council-candidates-preview-election-year-debates-over-housing-airport-and-wages/'>Boulder City Council candidates preview election-year battles over housing, airport and wages</a></p>
+<h3>2023 questionnaire</h3>
+<h3>What do you think are the most promising initiatives for reducing homelessness?</h3>
+<blockquote class='answer'>Homelessness is complex, and people are homeless for different reasons. I believe we’ll need several tools to address this humanitarian crisis. I would advocate for more supportive housing, increased behavioral health treatment, and ready-to-work programs. I also believe Boulder cannot solve this issue alone, and nor can Denver.
+
+I will advocate for partnerships across the metro region and hope we work together to create solutions for homelessness. I am optimistic about new grant funding received by multiple groups county-wide serving the homeless to expand support for the homeless, including housing.
+
+[Editor’s note: Earlier this year, the city was awarded $2.5 million from the state to create a respite center for homeless people and help launch a non-police behavioral health crisis response program. And last month, the city was awarded additional money to pay for 40 housing vouchers, which subsidize rent, and other homelessness services.]</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/'>2023 Boulder City Council election: Where the candidates stand on homelessness solutions</a></p>
+<h3>What approach would you take to address camping in our parks, on our bike paths and along our waterways?</h3>
+<blockquote class='answer'>I would continue to enforce the camping ban, with priority enforcement around schools, medical centers, day cares and recreation centers, as well as multi-use paths, waterways and areas more vulnerable to wildfires.
+
+Enforcement around schools would continue to be the top priority for me so that our students can rely on a safe and welcoming experience every day they go to school. I am supportive of the Reimagine Policing plan that focuses on prevention, equity and compassion, which I believe balances our community’s interest in both helping those experiencing homelessness and maintaining safe and welcoming public spaces. I also support the Crisis Intervention Response Team to respond to the needs of our community as well as the homeless day center to provide a place for the unhoused to rest, receive support, and connect to services during the day. Finally, the end goal is of course to eliminate the need for camping by providing affordable and supportive housing.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/'>2023 Boulder City Council election: Where the candidates stand on homeless encampments</a></p>
+<h3>What is your plan for increasing Boulder’s affordable housing supply?</h3>
+<blockquote class='answer'>I appreciate Boulder’s commitment to increasing the affordable housing supply, with over 8% of our supply being affordable, outpacing our county, and more on the horizon.
+
+Like many, I am looking to increase “missing middle” housing. I would like to explore multiple pathways, including the existing downpayment assistance program, a rent-to-own program like that proposed by Mayor Johnston in Denver if successful, and opportunities in the planning reserve as part of the comp plan [Boulder Valley Comprehensive Plan] review. I am particularly interested in creating incentives for affordable ownership opportunities for people with children to ensure Boulder can offer a continuum of housing options at every income level while enabling lower- and middle-income residents to build wealth in Boulder. Finally, I would like to discuss a vacant home tax to recoup lost sales and tax revenue.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/09/2023-boulder-city-council-election-where-the-candidates-stand-on-affordable-housing/'>2023 Boulder City Council election: Where the candidates stand on affordable housing</a></p>
+<h3>We are in a climate emergency. With your leadership, how would Boulder change commensurately?</h3>
+<blockquote class='answer'>I would continue and/or accelerate many of the initiatives already in place, including shifting from fossil fuels to renewables, electrification, carbon sequestration, reducing single use plastics, green building, including incentives for construction that is climate resilient, and expanding biodiversity. I also will continue to support alternative transportation to cars, including creating safer routes for bikers and walkers as well as advocating for more bus service. Finally, Boulder cannot alone solve the climate crisis. Instead, we need to collaborate with other municipalities and counties, with humility, and create a collective commitment to create a climate resilient future.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-climate-change-action/'>2023 Boulder City Council election: Where the candidates stand on climate change action</a></p>
+<h3>How can we better provide alternatives to cars when existing infrastructure prioritizes cars?</h3>
+<blockquote class='answer'>In the over 20 years I have lived in Boulder, we have been trying to reduce our dependence on cars. During that time, I have observed the elimination of some routes from RTD, and recognize that we are still dependent on the state to help with some of our transportation challenges. That being noted, I am very excited about RTD’s free fares for people 19 years of age and under and possible legislation to increase funding for RTD next legislative session. I also support the work of the city to create safe routes for bikes across the city. However, our city relies on thousands of in-commuters to provide medical services, teach and care for our children, work in our restaurants, and maintain (and manage) our city. While we encourage eco-friendly modes of transportation for those living in the city, we will need to increase public transportation for those commuting into the city as well as encourage electric vehicles, including convenient charging.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/06/2023-boulder-city-council-election-where-the-candidates-stand-on-making-streets-safer-for-cyclists-walkers-and-others/'>2023 Boulder City Council election: Where the candidates stand on making streets safer for cyclists, walkers and others</a></p>
+<h3>Assume you are elected this November. What one specific thing will you have accomplished that you’re proud of after one year?</h3>
+<blockquote class='answer'>Within a year of having joined the council, my hope is that every city council in Boulder County, including Boulder, and the county commissioners, will make a joint declaration that homelessness in Boulder County is a humanitarian crisis and will embark on a collective, unified effort to eradicate homelessness. We will adopt within the year common, outcome-based metrics to measure our work. Colorado will be recognized as being the first Blue state in the nation to be on track to compassionately address homelessness while ensuring public safety.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-their-one-year-visions/'>2023 Boulder City Council election: Where the candidates stand on their one-year visions</a></p>
 </main>
 <footer>
   Prototype. Every number on this site is cited. We do not endorse candidates.
   City of Boulder only — not county, school board, or state races.
+  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
 </footer>
 </body>
 </html>

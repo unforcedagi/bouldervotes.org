@@ -37,7 +37,8 @@ p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
 .lede { font-size: 1.1rem; }
-.note { color: var(--muted); font-size: 0.95rem; }
+.note, .empty { color: var(--muted); font-size: 0.95rem; }
+.empty { font-style: italic; }
 table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
 th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
 th { font-weight: 600; }
@@ -46,9 +47,15 @@ th { font-weight: 600; }
 .badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
+blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
@@ -65,11 +72,11 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
   <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
   <nav>
     <a href="../index.html">Home</a>
-    <a href="../2026-mayor.html">2026 mayor</a>
-    <a href="../2026-council.html">2026 council</a>
+    <a href="../2026.html">2026</a>
     <a href="../2025.html">2025</a>
     <a href="../2023.html">2023</a>
     <a href="../forums.html">Forums</a>
+    <a href="../measures.html">Measures</a>
     <a href="../sources.html">Sources</a>
     <a href="../about.html">About</a>
   </nav>
@@ -85,10 +92,69 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
 <h2>Results</h2><ul class='plain'>
 <li>2025 Boulder City Council, round 1: 20,276 votes — elected</li>
 </ul>
+<h2>Forums</h2><ul class='plain'>
+<li>2025-09-08 Boulder VOTES! Collaborative Candidate Forum — attended</li>
+<li>2025-08-26 Boulder Chamber candidate forum (2025 cycle) — attended · <a href="https://www.youtube.com/watch?v=a-6Mso1bNhA">recording</a></li>
+</ul>
+<h2>On the record</h2>
+<h3>2025 questionnaire</h3>
+<h3>What perspective or lived experience would you bring to city council, and how would it shape your approach to policy?</h3>
+<blockquote class='answer'>I bring both professional and personal perspectives that shape how I serve on City Council. As a former astronomer and educator at CU’s Fiske Planetarium, I learned to approach challenges with a science-based, data-driven mindset while also communicating clearly and accessibly with diverse audiences. That background influences how I evaluate policy, grounding decisions in facts, but always making them understandable and relatable for the community.
+
+As a longtime Boulder resident raising a family here, I also bring the lived experience of a parent navigating the challenges and opportunities many families face. The past four years on city council have made me a stronger, more effective leader. I’ve advanced housing reform, launched Boulder’s first economic development strategy, reimagined how we protect cars and cyclists, and strengthened wildfire protections, all while pushing for accountable, outcome-driven government. Most importantly, I’ve learned how to find common ground on tough issues, ensuring that our progressive values translate into real, lasting solutions.
+
+This experience has prepared me to keep leading with pragmatism, urgency, and a clear focus on building a more inclusive and resilient Boulder. My approach to policy is always guided by the question: Does this decision make Boulder a more inclusive, resilient, and thriving community for the next generation?</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/05/2025-boulder-city-council-election-how-candidates-say-their-life-experiences-would-shape-their-work-on-council/'>2025 Boulder City Council election: How candidates say their life experiences would shape their work on council</a></p>
+<h3>Should Boulder enforce its camping ban when the All Roads shelter is full?</h3>
+<p><span class='stance mixed'>mixed</span></p>
+<blockquote class='answer'>Boulder has and will continue to enforce its camping ban. I do not believe Boulder should enforce its camping ban during extreme weather events when the All Roads shelter is full. Enforcing the ban in those circumstances criminalizes people for having nowhere else to go, which is neither just nor effective.
+
+That said, the new Homelessness Strategy (Clutch Report) reframes how Boulder approaches this issue. It recognizes that unsheltered homelessness is both a public health and a public safety challenge. Under the strategy, enforcement is tied more directly to services and outcomes —ensuring that outreach, rapid rehousing, diversion, and day services are part of the equation.
+
+Enforcement remains a tool, but it is no longer the first or only response. The strategy also calls for greater accountability: tracking by-name lists, expanding prevention and housing exits, and clarifying when and how enforcement should occur. This makes our approach more transparent and focused on reducing homelessness, not just moving it. Enforcement must be paired with shelter and services. With the new strategy, Boulder is shifting from a housing only model toward one centered on housing, accountability, and community safety.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/06/2025-boulder-city-council-election-where-candidates-stand-on-the-camping-ban/'>2025 Boulder City Council election: Where candidates stand on the camping ban</a></p>
+<h3>Should Boulder require existing homes (not just new construction) to meet wildfire mitigation standards — such as clearing five feet around structures and banning wood fences near homes?</h3>
+<p><span class='stance yes'>yes</span></p>
+<blockquote class='answer'>Yes. I support requiring wildfire mitigation and home hardening measures for existing homes because the risk of wildfire in Boulder is too urgent to ignore. The Marshall Fire showed us that fire doesn’t stop at the wildland–urban interface; it can sweep through neighborhoods and destroy lives and property in minutes.
+
+Science shows that steps like creating a five-foot buffer of noncombustible material around homes or limiting combustible fencing near structures dramatically improve survivability. These are practical, proven measures that reduce the likelihood of homes igniting from embers or spreading fire between properties. I also recognize these requirements may create financial and logistical challenges for homeowners, particularly in denser neighborhoods. That’s why I believe mandates must be paired with education, phased timelines, and financial assistance programs such as grants, rebates, or low-interest loans.
+
+This ensures residents aren’t left on their own to shoulder the costs of resilience. Protecting our community requires both individual responsibility and city leadership. By adopting common-sense wildfire mitigation standards, while supporting homeowners with resources, we can reduce risks for families, safeguard first responders, and make Boulder a more resilient community in the face of climate-driven wildfire.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/07/2025-boulder-city-council-election-where-candidates-stand-on-making-the-city-more-wildfire-resilient/'>2025 Boulder City Council election: Where candidates stand on wildfire mitigation</a></p>
+<h3>Should Boulder City Council weigh in on foreign affairs? If not, how should it handle protests and tensions in council chambers over the war in Gaza?</h3>
+<blockquote class='answer'>I do not believe the Boulder City Council should take formal positions on foreign affairs. Our responsibility is to focus on the urgent challenges facing Boulder, housing, climate resilience, public safety, and good governance. When we wade into international conflicts, we risk dividing our community, distracting from local priorities, and making symbolic statements that do not materially affect foreign policy.
+
+That said, the terrorist attack in Israel and the subsequent war in Gaza has deeply impacted members of our community, and the emotions expressed in Council chambers are real and raw. Council has a duty to create a space where people can share their perspectives while also protecting safety, order, and respect in the public process.
+
+We must uphold the First Amendment while also speaking out against the gangrenous rise of antisemitism. We must enforce the rules that prevent disruptions, hate speech, or intimidation. City staff, Council, and the public deserve to feel safe in civic spaces. While foreign affairs should not drive Council’s policy agenda, we must remain a forum for civil discourse, protect constitutional rights, and model respect, even in moments of deep disagreement.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-councils-role-in-foreign-affairs/'>2025 Boulder City Council election: Where candidates stand on the council’s role in foreign affairs</a></p>
+<h3>Boulder needs thousands of new homes by 2032. What specific actions would you take to overcome barriers and increase housing supply?</h3>
+<blockquote class='answer'>Boulder must take bold but practical steps to address our housing shortage if we want to remain an inclusive and vibrant community.
+
+First, I will continue the work of this council to streamline and modernize our planning and permitting process. Every month of delay adds costs that get passed on to renters and buyers. Simplifying reviews, reducing redundancies, and setting clear timelines will make housing more attainable without compromising community values.
+
+Second, we must reform our land use code to allow more diverse housing types, ADUs, duplexes, townhomes, and cottage courts, especially near transit corridors. These “missing middle” homes provide attainable options for families and workers currently priced out of Boulder. I am proud to help lead Council in this direction with the update to the Boulder Valley Comprehensive Plan.
+
+Finally, I support revising our Inclusionary Housing ordinance so it better incentivizes middle-income housing. Paired with state tools like the Middle-Income Housing Tax Credit, this can finally produce housing for working families, teachers, nurses, and first responders.
+
+We need to act with urgency, cutting red tape and aligning incentives so Boulder can build the homes we need, while protecting affordability, equity, and resilience.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-housing-shortage/'>2025 Boulder City Council election: Where candidates stand on the housing shortage</a></p>
+<h3>With sales tax revenue slowing, a hiring freeze, and a $380 million maintenance backlog, what would be your top spending priorities — and what would you cut or delay?</h3>
+<blockquote class='answer'>Boulder is facing real fiscal challenges: slowing sales tax growth, a hiring freeze, a $380 million capital backlog, and uncertainty around federal funding. In this environment, we need to be disciplined and clear about our priorities. My top budgetary priorities are core services that directly impact safety, equity, and resilience:
+
+● Maintaining and repairing our streets, bridges, and water infrastructure, which are essential for safety and economic vitality.
+
+● Accelerating wildfire and flood mitigation, because delaying resilience investments will cost us far more later.
+
+● Work urgently to reinvigorate our local economy by streamlining permitting and offering economic incentives.
+
+To balance the budget, I believe we should review ongoing programs with clear outcome-based metrics, funding what delivers measurable results, and rethinking what does not. We also need to boost city revenues by going all in on our new economic development plan. Lifting up our small businesses and driving local tourism to our downtown cores is essential to strengthening our budget. Finally, we must explore new, sustainable revenue sources beyond sales tax to reduce volatility. My approach is pragmatic: protect the essentials, invest in resilience, delay what can wait, and hold ourselves accountable for outcomes.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/12/2025-boulder-city-council-election-where-candidates-stand-on-priorities-for-the-city-budget/'>2025 Boulder City Council election: Where candidates stand on city budget priorities</a></p>
 </main>
 <footer>
   Prototype. Every number on this site is cited. We do not endorse candidates.
   City of Boulder only — not county, school board, or state races.
+  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
 </footer>
 </body>
 </html>

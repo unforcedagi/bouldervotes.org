@@ -9,6 +9,8 @@ from __future__ import annotations
 import sqlite3
 from pathlib import Path
 
+from ingest import ingest_forums, ingest_measures, ingest_questionnaires
+
 ROOT = Path(__file__).resolve().parent
 DB = ROOT / "data" / "bouldervotes.db"
 SCHEMA = ROOT / "schema.sql"
@@ -548,6 +550,7 @@ def main() -> None:
         ("wages", "Wages and tipped workers", "City minimum wage vs. tipped-credit / slower base-pay increases."),
         ("budget", "City budget", "Sales-tax slowdown, maintenance backlog, rec-center bonds."),
         ("wildfire", "Wildfire resilience", "Hardening existing homes, defensible space."),
+        ("climate", "Climate", "GHG inventory, Xcel, adaptation — the 2023 BRL climate question, distinct from 2025 home-hardening."),
         ("homelessness", "Homelessness", "Camping ban when shelter is full; services vs. enforcement."),
         ("transportation", "Transportation", "Iris Ave, 30th St, bike infrastructure."),
         ("foreign-affairs", "Foreign affairs at council", "Gaza comment, divestment, whether council weighs in."),
@@ -555,10 +558,12 @@ def main() -> None:
         cur.execute("INSERT INTO issues (slug, name, description) VALUES (?,?,?)", (slug_, name, desc))
 
     cur.execute(
-        "INSERT INTO questions (prompt, issue_slug, is_canonical) VALUES (?,?,1)",
+        "INSERT INTO questions (prompt, issue_slug, year, kind, is_canonical) VALUES (?,?,?,?,1)",
         (
             "Would you support accepting federal FAA grants that could require Boulder to keep the municipal airport open in perpetuity?",
             "airport",
+            2026,
+            "forum",
         ),
     )
     q_airport = cur.lastrowid
@@ -576,15 +581,41 @@ def main() -> None:
     for person, candidacy, stance in airport_answers:
         cur.execute(
             """INSERT INTO answers
-               (candidacy_id, person_id, question_id, source_id, stance, verbatim, answered_on, notes)
-               VALUES (?,?,?,?,?,?,?,?)""",
+               (candidacy_id, person_id, question_id, source_id, event_id, kind,
+                stance, verbatim, answered_on, notes)
+               VALUES (?,?,?,?,?,?,?,?,?,?)""",
             (
-                candidacy, pid[person], q_airport, s_2026_brl_caucus, stance,
+                candidacy, pid[person], q_airport, s_2026_brl_caucus, ev_caucus, "forum", stance,
                 "Reported by Boulder Reporting Lab from the June 6 2026 Raucous Caucus. Not a written questionnaire; a journalist's grouping of spoken answers.",
                 "2026-06-06",
                 "Harvested as a first proof that answers can hang off sources. Re-verify against video/transcript when one exists.",
             ),
         )
+
+    ingest_questionnaires(cur, pid=pid, add_source=add_source, org_brl=org_brl)
+    ingest_forums(
+        cur,
+        pid=pid,
+        add_source=add_source,
+        orgs={
+            "chamber": org_chamber,
+            "plan": org_plan,
+            "progressives": org_progressives,
+            "brl": org_brl,
+            "camera": org_camera,
+            "lwv": org_lwv,
+        },
+    )
+    ingest_measures(
+        cur,
+        add_source=add_source,
+        org_city=org_city,
+        org_brl=org_brl,
+        org_camera=org_camera,
+        e2023=e2023,
+        e2025=e2025,
+        e2026=e2026,
+    )
 
     # --- results ---
     # 2023 mayor RCV (official summary of votes)
@@ -652,9 +683,9 @@ def main() -> None:
         [
             ("built_at", "2026-08-27"),
             ("builder", "GrokJi"),
-            ("scope", "City of Boulder mayor + city council, 2023–2026. Not county, not BVSD, not ballot measures — yet."),
-            ("editorial", "No endorsements. Quotes and vote totals are sourced. Synthesized 'positions' are out of scope until we have a reviewable method."),
-            ("next_harvest", "BRL 2025 questionnaire answers; city campaign-finance filings; 2026 Chamber forum notes/recording; remaining campaign sites; Vote411 when it opens."),
+            ("scope", "City of Boulder mayor + city council + city ballot measures, 2023–2026. Not county, not BVSD, not state."),
+            ("editorial", "No endorsements. Quotes and vote totals are sourced. Comparison pages stack sourced answers; they do not score candidates."),
+            ("next_harvest", "2026 Chamber forum when the Chamber releases it; city campaign-finance filings; remaining 2026 campaign sites; Vote411 when it opens; 2023/2025 forum transcripts."),
         ],
     )
 

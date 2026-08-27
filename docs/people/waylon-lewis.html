@@ -37,7 +37,8 @@ p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
 .lede { font-size: 1.1rem; }
-.note { color: var(--muted); font-size: 0.95rem; }
+.note, .empty { color: var(--muted); font-size: 0.95rem; }
+.empty { font-style: italic; }
 table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
 th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
 th { font-weight: 600; }
@@ -46,9 +47,15 @@ th { font-weight: 600; }
 .badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
+blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
@@ -65,11 +72,11 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
   <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
   <nav>
     <a href="../index.html">Home</a>
-    <a href="../2026-mayor.html">2026 mayor</a>
-    <a href="../2026-council.html">2026 council</a>
+    <a href="../2026.html">2026</a>
     <a href="../2025.html">2025</a>
     <a href="../2023.html">2023</a>
     <a href="../forums.html">Forums</a>
+    <a href="../measures.html">Measures</a>
     <a href="../sources.html">Sources</a>
     <a href="../about.html">About</a>
   </nav>
@@ -82,10 +89,45 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
 <h2>Results</h2><ul class='plain'>
 <li>2023 Boulder City Council, round 1: 8,862 votes</li>
 </ul>
+<h2>Forums</h2><ul class='plain'>
+<li>2023-08-29 Boulder Chamber City Council and Mayoral Candidate Forum — attended · <a href="https://www.youtube.com/watch?v=AEkK1eSLmNk">recording</a></li>
+<li>2023-08-29 PLAN-Boulder County city council forum — attended</li>
+</ul>
+<h2>On the record</h2>
+<h3>2023 questionnaire</h3>
+<h3>What do you think are the most promising initiatives for reducing homelessness?</h3>
+<blockquote class='answer'>First of all, stop the infighting. We can’t make meaningful progress and actually help people, increase safety and return our town to a baseline of functionality, access and safety for all.
+
+Specifically, I’m supportive of the camping ban. Our parks are for all of us. Right now they’re getting trashed, and we’re paying millions of dollars to move folks repeatedly a block or two and see the next area trashed. It’s also not safe for our homeless friends — drug use, untreated, is heartbreaking. Same with mental well-being. Same with assault, which is sadly prevalent — homeless women and youth are assaulted at alarming rates — up to 79% according to some studies. The status quo is good for no one.
+
+So not only am I supportive of the camping ban, I’m supportive of enforcing it. Then, moving folks to a safe, warm, cool, dog-friendly longer-term space where nonprofits (which cost taxpayers nothing) and our police can go to one space. That’s a two-step process that has actually worked in many cities. Saved money. And increased safety — for all.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/'>2023 Boulder City Council election: Where the candidates stand on homelessness solutions</a></p>
+<h3>What approach would you take to address camping in our parks, on our bike paths and along our waterways?</h3>
+<blockquote class='answer'>This isn’t easy, making progress — but the status quo is far harder on all of us. It’s not safe for joggers, for tourists, for seniors, for cyclists or for our homeless. It’s also a moral issue: We can not allow ourselves as a society to look the other way on freezing cold nights or 100 degree days. We can work in concert with our police force, our non-profits and our homeless friends to help folks get the care they need to get back to permanent housing and active roles in society and employment. As for those concerned about making Boulder attractive to homeless elsewhere, that’s where the “stick” of carrot-fame comes in: enforcement.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/'>2023 Boulder City Council election: Where the candidates stand on homeless encampments</a></p>
+<h3>What is your plan for increasing Boulder’s affordable housing supply?</h3>
+<blockquote class='answer'>Boulder is becoming a white-washed homogeneous and, dare I say, more boring town that it should be or inherently is. Home prices more than doubled 15 years ago, and we have yet to recover.
+
+We are losing good, “weird” and wonderful people every day who move away to buy a home, start a family and business. I’ve been to three housewarmings in Boulder in the last 10 years. I’d love for more folks who work in Boulder to be able to live here. Double our funding for [Boulder Housing Partners, a nonprofit serving as the city’s housing authority], which is doing amazing work, and they can double the speed of our affordable housing. Affordability is a must for the “missing middle,” too — for those with a healthy but not wealthy income. ADUs are a good start, and will help locals afford their mortgage. Density is a scary word in the mouths of developers, but in the hands of eco, caring citizens, it can result in more communities like Holiday where children’s bikes are strewn across front yards, where communities feel safe, unpretentious and fun for all.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/09/2023-boulder-city-council-election-where-the-candidates-stand-on-affordable-housing/'>2023 Boulder City Council election: Where the candidates stand on affordable housing</a></p>
+<h3>We are in a climate emergency. With your leadership, how would Boulder change commensurately?</h3>
+<blockquote class='answer'>This is my first issue among equals. It’s an existential question — with a fun answer. Fun? Biking around a mature-treed town to community gatherings where folks feel safe? Fun. Homes that aren’t polluted by fracking/gas fumes? A lot more fun than having asthma and health issues.
+
+Fire mitigation is an urgent priority. We need to go door-to-door with subsidies helping folks who are interested to replace wood siding and wooden fences with alternatives, to electrify and solar up their homes. The fires we saw here will return. The impact is economically devastating. This should be the top concern for the restaurant and business community. We don’t want home insurers to pull out of Boulder, as they have elsewhere. We want folks dining out on the West End patio, not hiding in their homes because it’s yet another toxic smoke day. I live on a bike. My publication, Elephant, was voted #1 for green coverage a few times. I am zero waste, vegan, and annoying in many other ways. All that’s to say: I walk my talk, I care, and we’ll do everything we can to make sure Boulder is safe and economically safe for our next generations.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-climate-change-action/'>2023 Boulder City Council election: Where the candidates stand on climate change action</a></p>
+<h3>How can we better provide alternatives to cars when existing infrastructure prioritizes cars?</h3>
+<blockquote class='answer'>Bike lanes — protected. More buses — electrified. Every person we get out of a car — because they want to, because we make it quicker and easier to do so — is less traffic, less pollution for all of us, including drivers. This is a win-win. Heat islands and traffic jams? No one’s a fan. We can do for our citizens what Paris has done for theirs, and we’re already far along. My next door neighbors would love to bike around with their three children more, but don’t feel safe doing so, so their SUV and truck see more use than their fleet of bikes. I may be the only candidate who only bikes, haven’t had a car for 15 years — and this will be a priority if elected. Not to make car drivers feel second class, but to make cyclists and our children and seniors feel safer walking, biking, busing, (and…inner-tubing) and driving.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/06/2023-boulder-city-council-election-where-the-candidates-stand-on-making-streets-safer-for-cyclists-walkers-and-others/'>2023 Boulder City Council election: Where the candidates stand on making streets safer for cyclists, walkers and others</a></p>
+<h3>Assume you are elected this November. What one specific thing will you have accomplished that you’re proud of after one year?</h3>
+<blockquote class='answer'>Thank you for assuming I’ll get elected. For me, my first priority will be process. City council should not pretend to be experts in everything, but to prioritize urgent, needed solutions to painful problems of affordability, homelessness/public safety, transportation, climate. We can be a city that we’re inspired by, every day, and grateful to live in. We can be a city that the world looks to for inspiration, again. After process, I will focus on homelessness/public safety first, in a way that will save lives, and save money, and return our city to safety and sanity. That said, climate solutions big and small, and affordability, go hat in hand with every other issue. Those three are my priorities.
+
+P.S.: You asked for one accomplishment. I regard fire mitigation, along with flood mitigation, as urgent. Disasters are coming for us — we must be ready.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-their-one-year-visions/'>2023 Boulder City Council election: Where the candidates stand on their one-year visions</a></p>
 </main>
 <footer>
   Prototype. Every number on this site is cited. We do not endorse candidates.
   City of Boulder only — not county, school board, or state races.
+  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
 </footer>
 </body>
 </html>

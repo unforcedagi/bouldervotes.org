@@ -127,6 +127,8 @@ CREATE TABLE IF NOT EXISTS questions (
   id INTEGER PRIMARY KEY,
   prompt TEXT NOT NULL,
   issue_slug TEXT REFERENCES issues(slug),
+  year INTEGER,                     -- cycle this prompt was asked; NULL if reused
+  kind TEXT NOT NULL DEFAULT 'questionnaire',  -- questionnaire | forum | interview | other
   is_canonical INTEGER NOT NULL DEFAULT 1
 );
 
@@ -136,10 +138,36 @@ CREATE TABLE IF NOT EXISTS answers (
   person_id INTEGER NOT NULL REFERENCES people(id),
   question_id INTEGER NOT NULL REFERENCES questions(id),
   source_id INTEGER NOT NULL REFERENCES sources(id),
+  event_id INTEGER REFERENCES events(id),
+  kind TEXT NOT NULL DEFAULT 'questionnaire',  -- questionnaire | forum | interview | other
   stance TEXT,                      -- yes | no | mixed | unknown — only when the source is binary
   verbatim TEXT,                    -- quote or close paraphrase, attributed
   answered_on TEXT,
   notes TEXT
+);
+
+CREATE TABLE IF NOT EXISTS measures (
+  id INTEGER PRIMARY KEY,
+  slug TEXT NOT NULL UNIQUE,
+  election_id INTEGER NOT NULL REFERENCES elections(id),
+  letter TEXT,                      -- 2A, 2B, etc. NULL until the county assigns
+  title TEXT NOT NULL,
+  kind TEXT NOT NULL,               -- bond | tax | charter | other
+  status TEXT NOT NULL,             -- referred | on_ballot | passed | failed | not_referred
+  summary TEXT,
+  ballot_language TEXT,
+  source_id INTEGER REFERENCES sources(id),
+  notes TEXT
+);
+
+CREATE TABLE IF NOT EXISTS measure_results (
+  measure_id INTEGER NOT NULL REFERENCES measures(id),
+  yes_votes INTEGER,
+  no_votes INTEGER,
+  passed INTEGER NOT NULL DEFAULT 0,
+  source_id INTEGER REFERENCES sources(id),
+  notes TEXT,
+  PRIMARY KEY (measure_id)
 );
 
 CREATE TABLE IF NOT EXISTS results (
@@ -162,5 +190,7 @@ CREATE TABLE IF NOT EXISTS meta (
 CREATE INDEX IF NOT EXISTS idx_candidacies_race ON candidacies(race_id);
 CREATE INDEX IF NOT EXISTS idx_candidacies_person ON candidacies(person_id);
 CREATE INDEX IF NOT EXISTS idx_answers_person ON answers(person_id);
+CREATE INDEX IF NOT EXISTS idx_answers_question ON answers(question_id);
 CREATE INDEX IF NOT EXISTS idx_results_candidacy ON results(candidacy_id);
 CREATE INDEX IF NOT EXISTS idx_sources_year ON sources(year);
+CREATE INDEX IF NOT EXISTS idx_measures_election ON measures(election_id);

@@ -37,7 +37,8 @@ p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
 .lede { font-size: 1.1rem; }
-.note { color: var(--muted); font-size: 0.95rem; }
+.note, .empty { color: var(--muted); font-size: 0.95rem; }
+.empty { font-style: italic; }
 table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
 th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
 th { font-weight: 600; }
@@ -46,9 +47,15 @@ th { font-weight: 600; }
 .badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
+blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
@@ -65,11 +72,11 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
   <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
   <nav>
     <a href="../index.html">Home</a>
-    <a href="../2026-mayor.html">2026 mayor</a>
-    <a href="../2026-council.html">2026 council</a>
+    <a href="../2026.html">2026</a>
     <a href="../2025.html">2025</a>
     <a href="../2023.html">2023</a>
     <a href="../forums.html">Forums</a>
+    <a href="../measures.html">Measures</a>
     <a href="../sources.html">Sources</a>
     <a href="../about.html">About</a>
   </nav>
@@ -82,10 +89,37 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
 <h2>Results</h2><ul class='plain'>
 <li>2025 Boulder City Council, round 1: 1,499 votes</li>
 </ul>
+<h2>Forums</h2><ul class='plain'>
+<li>2025-09-08 Boulder VOTES! Collaborative Candidate Forum — did not attend</li>
+<li>2025-08-26 Boulder Chamber candidate forum (2025 cycle) — attended · <a href="https://www.youtube.com/watch?v=a-6Mso1bNhA">recording</a></li>
+</ul>
+<h2>On the record</h2>
+<h3>2025 questionnaire</h3>
+<h3>What perspective or lived experience would you bring to city council, and how would it shape your approach to policy?</h3>
+<blockquote class='answer'>I’ve lived here since 1986 — twenty years at the same address in central Boulder. In spite of some personal challenges, I feel pretty good about living here and have no particular desire to move. The trend of the current city council has been to be arrogantly dismissive of people who only want what most of the world obviously wants — an end to the genocide occurring in Gaza. There might be other big issues for Boulder, but this happens to be the moral issue of the day — and council’s stance runs counter to the way most people feel. I’d like to help change the obviously unfortunate outcome regarding our public conversation.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/05/2025-boulder-city-council-election-how-candidates-say-their-life-experiences-would-shape-their-work-on-council/'>2025 Boulder City Council election: How candidates say their life experiences would shape their work on council</a></p>
+<h3>Should Boulder enforce its camping ban when the All Roads shelter is full?</h3>
+<p><span class='stance mixed'>mixed</span></p>
+<blockquote class='answer'>I believe that the camping ban has had poor results in terms of making Boulder better or safer. Boulder has, for at least the past two decades, been running in place on a treadmill in terms of solving anything. We need to stop having to make the police the go-to resource. Doesn’t mean they don’t do their best, but we have ample evidence to suggest that current policies are inadequate in terms of addressing the issues related to “urban camping,” which is something people do not for amusement, generally, but because they can’t obtain housing. I believe there’s a better way and this issue would be second only to the need for divestment from corporations profiting from the extreme suffering in Gaza.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/06/2025-boulder-city-council-election-where-candidates-stand-on-the-camping-ban/'>2025 Boulder City Council election: Where candidates stand on the camping ban</a></p>
+<h3>Should Boulder require existing homes (not just new construction) to meet wildfire mitigation standards — such as clearing five feet around structures and banning wood fences near homes?</h3>
+<p><span class='stance yes'>yes</span></p>
+<blockquote class='answer'>Yes, I think the City needs a pragmatic approach to what it demands and where. Homes with an adjacent position to open space probably need more treatment than homes in central Boulder — although we have had some extraordinary fires in central Boulder. On the other hand, if we’re talking about something like de-juniperizing the entire city, I think that might be problematic.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/07/2025-boulder-city-council-election-where-candidates-stand-on-making-the-city-more-wildfire-resilient/'>2025 Boulder City Council election: Where candidates stand on wildfire mitigation</a></p>
+<h3>Should Boulder City Council weigh in on foreign affairs? If not, how should it handle protests and tensions in council chambers over the war in Gaza?</h3>
+<blockquote class='answer'>The world, generally speaking, understands that genocide is occurring in Gaza. How then does a super-majority of council manage to simply look away and allow itself to invalidate the legitimate feelings of psychological pain, moral injury and general distress that people are experiencing? The evidence is overwhelming — we know it’s not about Israel defending itself when tens of thousands and quite likely hundreds of thousands of Palestinians, most of them women and children, are being murdered at an industrial scale. If elected, I will immediately demand a fresh look at divestment from companies that profit from the suffering in Gaza.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-councils-role-in-foreign-affairs/'>2025 Boulder City Council election: Where candidates stand on the council’s role in foreign affairs</a></p>
+<h3>Boulder needs thousands of new homes by 2032. What specific actions would you take to overcome barriers and increase housing supply?</h3>
+<blockquote class='answer'>I grew up in one of tens of thousands of apartments built by legislation supporting co-operative low- to middle-income housing. The legislation, passed in 1955, created a very clear formula for collaboration between governmental agencies and NGOs interested in creating affordable housing. I would like to see the city generate at least one pilot project to gain an understanding of the “equity framework” and whether or not the program can be expanded.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-housing-shortage/'>2025 Boulder City Council election: Where candidates stand on the housing shortage</a></p>
+<h3>With sales tax revenue slowing, a hiring freeze, and a $380 million maintenance backlog, what would be your top spending priorities — and what would you cut or delay?</h3>
+<blockquote class='answer'>Firstly, I would realign middle and upper level employees’ salaried compensation via adjustments taken from data collection from similarly sized municipalities. Separately, I would give a closer review of the technical aspects of integrated benefit management. I believe in certain types of pragmatic “best practices” implementation; I have a background that applies to this type of situation.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/12/2025-boulder-city-council-election-where-candidates-stand-on-priorities-for-the-city-budget/'>2025 Boulder City Council election: Where candidates stand on city budget priorities</a></p>
 </main>
 <footer>
   Prototype. Every number on this site is cited. We do not endorse candidates.
   City of Boulder only — not county, school board, or state races.
+  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
 </footer>
 </body>
 </html>

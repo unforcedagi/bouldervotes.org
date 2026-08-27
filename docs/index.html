@@ -37,7 +37,8 @@ p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
 .lede { font-size: 1.1rem; }
-.note { color: var(--muted); font-size: 0.95rem; }
+.note, .empty { color: var(--muted); font-size: 0.95rem; }
+.empty { font-style: italic; }
 table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
 th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
 th { font-weight: 600; }
@@ -46,9 +47,15 @@ th { font-weight: 600; }
 .badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
+blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
@@ -65,36 +72,35 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
   <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
   <nav>
     <a href="index.html">Home</a>
-    <a href="2026-mayor.html">2026 mayor</a>
-    <a href="2026-council.html">2026 council</a>
+    <a href="2026.html">2026</a>
     <a href="2025.html">2025</a>
     <a href="2023.html">2023</a>
     <a href="forums.html">Forums</a>
+    <a href="measures.html">Measures</a>
     <a href="sources.html">Sources</a>
     <a href="about.html">About</a>
   </nav>
 </header>
 <main>
 
-    <h1>Boulder’s 2026 city election, in one place</h1>
-    <p class="lede">On November 3, 2026, Boulder voters will elect a mayor (ranked-choice) and five city council members (plurality, at-large). This site is a first map of the candidates, the last two cycles, the forums, and the newsrooms that actually hold the record.</p>
-    <p>Right now the database has <strong>6 mayoral candidates</strong> and <strong>13 council candidates</strong> certified for 2026, plus the full certified fields and results for 2023 and 2025, and 29 source records. Candidate beliefs are <em>not</em> invented here — they are attached to a source, or they are absent.</p>
+    <h1>Boulder’s city elections, in one place</h1>
+    <p class="lede">On November 3, 2026, Boulder voters will elect a mayor (ranked-choice) and five city council members (plurality, at-large), and vote on city ballot measures. This site maps the candidates, what they have said, the forums they showed up for, and the last two cycles in the same shape — so 2026 is easier to read once you have seen 2023 and 2025.</p>
+    <p>Right now the database has <strong>6 mayoral candidates</strong> and <strong>13 council candidates</strong> certified for 2026, 157 sourced answers, 13 forums/events, 10 city measures, and 57 source records. Candidate beliefs are <em>not</em> invented here — they are attached to a source, or they are absent.</p>
     <h2>Start here</h2>
     <ul class="plain">
-      <li><a href="2026-mayor.html">2026 mayor</a> — six certified candidates, ranked-choice.</li>
-      <li><a href="2026-council.html">2026 city council</a> — thirteen candidates, five seats, including the vacant Wallach seat.</li>
-      <li><a href="2025.html">How 2025 went</a> — four seats, eleven candidates, certified totals.</li>
-      <li><a href="2023.html">How 2023 went</a> — first RCV mayor; council recount for the fourth seat.</li>
-      <li><a href="forums.html">Forums</a> — Chamber (Aug 26, 2026) and the June Raucous Caucus so far.</li>
+      <li><a href="2026.html">2026</a> — field, forums so far, four referred measures. Chamber recording parked until they publish.</li>
+      <li><a href="2025.html">2025</a> — eleven candidates, six BRL questions each, Chamber / VOTES! / LWV forums, CCRS 2A/2B.</li>
+      <li><a href="2023.html">2023</a> — first RCV mayor, council recount, six BRL questions × 14 candidates, Chamber / PLAN / LWV, Safe Zones 4 Kids.</li>
+      <li><a href="forums.html">Forums</a> — the calendar across years.</li>
+      <li><a href="measures.html">Measures</a> — city ballot items 2023–2026.</li>
     </ul>
-    <h2>Why five council seats this year</h2>
-    <p>Four seats were already up (the 2023 class). Mark Wallach, reelected in 2025, resigned on July 23, 2026 after the 8–1 vote to pursue FAA grants for the municipal airport. Because he resigned before August 1, the charter puts that seat on the November ballot rather than filling it by appointment. Combined with Taishya Adams running for mayor instead of her council seat, this is a large reset: a majority of the dais is in play.</p>
-    <p class="cite">Sources: <a href="https://www.axios.com/local/boulder/2026/07/24/boulder-city-council-mark-wallach-resigns">Axios, July 24 2026</a>; city clerk candidate list.</p>
+    <p>Each year page uses the same blocks, in the same order: the field, results, answers question-by-question, forums, interviews/press, ballot measures.</p>
     
 </main>
 <footer>
   Prototype. Every number on this site is cited. We do not endorse candidates.
   City of Boulder only — not county, school board, or state races.
+  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
 </footer>
 </body>
 </html>

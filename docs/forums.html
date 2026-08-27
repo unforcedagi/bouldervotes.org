@@ -37,7 +37,8 @@ p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
 .lede { font-size: 1.1rem; }
-.note { color: var(--muted); font-size: 0.95rem; }
+.note, .empty { color: var(--muted); font-size: 0.95rem; }
+.empty { font-style: italic; }
 table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
 th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
 th { font-weight: 600; }
@@ -46,9 +47,15 @@ th { font-weight: 600; }
 .badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
+blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
@@ -65,22 +72,25 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
   <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
   <nav>
     <a href="index.html">Home</a>
-    <a href="2026-mayor.html">2026 mayor</a>
-    <a href="2026-council.html">2026 council</a>
+    <a href="2026.html">2026</a>
     <a href="2025.html">2025</a>
     <a href="2023.html">2023</a>
     <a href="forums.html">Forums</a>
+    <a href="measures.html">Measures</a>
     <a href="sources.html">Sources</a>
     <a href="about.html">About</a>
   </nav>
 </header>
 <main>
 <h1>Forums and appearances</h1>
-<p>This is a thin calendar on purpose. The Chamber forum on August 26, 2026 is the season-opener; the rest of the two-month run is not yet mapped. If you have a flyer, a recording, or a host contact, that is the highest-leverage thing to add next.</p>
-<h2>Boulder Chamber City Council Candidate Forum</h2>
+<p>Same calendar the year pages use, stacked newest first. Attendance is only listed when a published source named who showed. A missing name is unknown, not a secret no-show.</p>
+<p>The August 26, 2026 Chamber forum is parked until the Chamber releases the recording and materials.</p>
+<h2>2026</h2>
+<h3>Boulder Chamber City Council Candidate Forum</h3>
 <p>2026-08-26 · eTown, 1535 Spruce St., Boulder · hosted by Boulder Chamber</p>
 <p>Annual season-opener. 5–8pm. First forum to which all qualified candidates were invited. Topics listed by Chamber: affordable housing, transportation, public safety. Attendance not independently verified in this seed — Aaron and Benjamin were there.</p>
-<h2>Boulder Progressives Raucous Caucus</h2>
+<p class="empty">Attendance not independently listed in the database. Recording or writeup is the source.</p>
+<h3>Boulder Progressives Raucous Caucus</h3>
 <p>2026-06-06 · Twisted Pine Brewing Company, Boulder · hosted by Boulder Progressives</p>
 <p>Unofficial kickoff of the 2026 cycle. Attendees reported by BRL: Tara Winer, Tina Marquis, Benita Duran, Rachel Rose Isaacson, Ryan Schuchard, Jill Grano, Aaron Brockett. Adams did not attend.</p>
 <ul class='plain'>
@@ -93,13 +103,116 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
 <li><a href='people/ryan-schuchard.html'>Ryan Schuchard</a> — attended</li>
 <li><a href='people/tara-winer.html'>Tara Winer</a> — attended</li>
 </ul>
-<h2>Boulder Chamber candidate forum (2025 cycle)</h2>
-<p>2025-08-26 · venue not recorded · hosted by Boulder Chamber</p>
-<p>BRL photo caption (Wallach resignation story) places Mark Wallach at a Chamber forum on Aug 26 2025. Full 2025 forum calendar not yet harvested.</p>
+<h2>2025</h2>
+<h3>League of Women Voters city council candidate forum</h3>
+<p>2025-09-27 · City Council Chambers, Penfield Tate II Municipal Building, 1777 Broadway · hosted by League of Women Voters of Boulder County · <a href="https://www.youtube.com/watch?v=JcJu9nd5mQk">recording</a></p>
+<p>Co-sponsored with EFAA. 10:00–11:30am. Moderator (Josephine Porter, on the recording): 11 on the ballot, 8 able to participate, all invited. Questions from audience cards plus electronic submissions. Name-by-name list not copied here; watch the video.</p>
+<p class="empty">Attendance not independently listed in the database. Recording or writeup is the source.</p>
+<h3>Boulder VOTES! Collaborative Candidate Forum</h3>
+<p>2025-09-08 · Nomad Playhouse, 1410 Quince Ave., Boulder · hosted by PLAN-Boulder County</p>
+<p>Hosted by Open Boulder, Better Boulder, and PLAN-Boulder County. 5–7:30pm. Questions not taken from the audience. Daily Camera (Sept 6) said a recording would be posted; not independently located in this pass.</p>
+<ul class='plain'>
+<li><a href='people/matt-benjamin.html'>Matt Benjamin</a> — attended</li>
+<li><a href='people/lauren-folkerts.html'>Lauren Folkerts</a> — attended</li>
+<li><a href='people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a> — attended</li>
+<li><a href='people/rob-kaplan.html'>Rob Kaplan</a> — attended</li>
+<li><a href='people/maxwell-lord.html'>Maxwell Lord</a> — attended</li>
+<li><a href='people/montserrat-palacios.html'>Montserrat Palacios</a> — did not attend</li>
+<li><a href='people/jennifer-robins.html'>Jennifer Robins</a> — attended</li>
+<li><a href='people/rob-smoke.html'>Rob Smoke</a> — did not attend</li>
+<li><a href='people/nicole-speer.html'>Nicole Speer</a> — attended</li>
+<li><a href='people/aaron-stone.html'>Aaron Stone</a> — did not attend</li>
+<li><a href='people/mark-wallach.html'>Mark Wallach</a> — attended</li>
+</ul>
+<h3>Boulder Chamber candidate forum (2025 cycle)</h3>
+<p>2025-08-26 · New Vista High School, 700 20th St., Boulder · hosted by Boulder Chamber · <a href="https://www.youtube.com/watch?v=a-6Mso1bNhA">recording</a></p>
+<p>Season-opener. Ten of eleven certified candidates spoke. Palacios is not named in the Daily Camera writeup of attendees. Recording: Boulder Chamber YouTube, &#x27;2025 City Council Candidate Forum&#x27; (2h05).</p>
+<ul class='plain'>
+<li><a href='people/matt-benjamin.html'>Matt Benjamin</a> — attended</li>
+<li><a href='people/lauren-folkerts.html'>Lauren Folkerts</a> — attended</li>
+<li><a href='people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a> — attended</li>
+<li><a href='people/rob-kaplan.html'>Rob Kaplan</a> — attended</li>
+<li><a href='people/maxwell-lord.html'>Maxwell Lord</a> — attended</li>
+<li><a href='people/montserrat-palacios.html'>Montserrat Palacios</a> — did not attend</li>
+<li><a href='people/jennifer-robins.html'>Jennifer Robins</a> — attended</li>
+<li><a href='people/rob-smoke.html'>Rob Smoke</a> — attended</li>
+<li><a href='people/nicole-speer.html'>Nicole Speer</a> — attended</li>
+<li><a href='people/aaron-stone.html'>Aaron Stone</a> — attended</li>
+<li><a href='people/mark-wallach.html'>Mark Wallach</a> — attended</li>
+</ul>
+<h2>2023</h2>
+<h3>League of Women Voters mayoral candidate forum</h3>
+<p>2023-10-22 · City Council Chambers, Penfield Tate II Municipal Building · hosted by League of Women Voters of Boulder County · <a href="https://www.youtube.com/watch?v=n89j6Wk-qc8">recording</a></p>
+<p>Co-sponsored with EFAA. City Channel 8 recording. Transcript names Brockett, Speer, Tweedlie, and Yates.</p>
+<ul class='plain'>
+<li><a href='people/aaron-brockett.html'>Aaron Brockett</a> — attended</li>
+<li><a href='people/nicole-speer.html'>Nicole Speer</a> — attended</li>
+<li><a href='people/paul-tweedlie.html'>Paul Tweedlie</a> — attended</li>
+<li><a href='people/bob-yates.html'>Bob Yates</a> — attended</li>
+</ul>
+<h3>BRL–KGNU mayoral debate</h3>
+<p>2023-10-18 · venue not recorded · hosted by Boulder Reporting Lab</p>
+<p>All four mayoral candidates. Mentioned in BRL&#x27;s Oct 27 2023 &#x27;who’s running&#x27; photo caption. Recording not independently located in this pass.</p>
+<p class="empty">Attendance not independently listed in the database. Recording or writeup is the source.</p>
+<h3>League of Women Voters city council candidate forum</h3>
+<p>2023-10-15 · City Council Chambers, Penfield Tate II Municipal Building · hosted by League of Women Voters of Boulder County · <a href="https://www.youtube.com/watch?v=Xb83hgpphXo">recording</a></p>
+<p>Co-sponsored with EFAA. City Channel 8 recording, 1h35. Attendance not copied name-by-name in this pass — the video is the source.</p>
+<p class="empty">Attendance not independently listed in the database. Recording or writeup is the source.</p>
+<h3>Climate-focused Boulder mayoral forum</h3>
+<p>2023-10-05 · venue not recorded · hosted by unknown</p>
+<p>BRL Oct 6 2023: Xcel Energy was a central subject. Date is the day before the article.</p>
+<p class="empty">Attendance not independently listed in the database. Recording or writeup is the source.</p>
+<h3>Boulder Chamber City Council and Mayoral Candidate Forum</h3>
+<p>2023-08-29 · Boulder JCC · hosted by Boulder Chamber · <a href="https://www.youtube.com/watch?v=AEkK1eSLmNk">recording</a></p>
+<p>Season-opener. All 14 certified candidates. Speer virtual. Questions from Chamber, Latino Chamber, Community Cycles: public safety, rent control, transportation, business support, labor shortages, minimum wage.</p>
+<ul class='plain'>
+<li><a href='people/taishya-adams.html'>Taishya Adams</a> — attended</li>
+<li><a href='people/silas-atkins.html'>Silas Atkins</a> — attended</li>
+<li><a href='people/terri-brncic.html'>Terri Brncic</a> — attended</li>
+<li><a href='people/aaron-brockett.html'>Aaron Brockett</a> — attended</li>
+<li><a href='people/jacques-decalo.html'>Jacques Decalo</a> — attended</li>
+<li><a href='people/waylon-lewis.html'>Waylon Lewis</a> — attended</li>
+<li><a href='people/tina-marquis.html'>Tina Marquis</a> — attended</li>
+<li><a href='people/aaron-gabriel-neyer.html'>Aaron Gabriel Neyer</a> — attended</li>
+<li><a href='people/jennifer-robins.html'>Jennifer Robins</a> — attended</li>
+<li><a href='people/ryan-schuchard.html'>Ryan Schuchard</a> — attended</li>
+<li><a href='people/nicole-speer.html'>Nicole Speer</a> — attended</li>
+<li><a href='people/paul-tweedlie.html'>Paul Tweedlie</a> — attended</li>
+<li><a href='people/tara-winer.html'>Tara Winer</a> — attended</li>
+<li><a href='people/bob-yates.html'>Bob Yates</a> — attended</li>
+</ul>
+<h3>PLAN-Boulder County city council forum</h3>
+<p>2023-08-29 · venue not recorded · hosted by PLAN-Boulder County</p>
+<p>Same calendar night as the Chamber forum. PLAN&#x27;s page names seven council candidates. Moderator Bill Briggs. Venue not stated. Silas Atkins is not named on either PLAN forum list — absence not independently confirmed.</p>
+<ul class='plain'>
+<li><a href='people/terri-brncic.html'>Terri Brncic</a> — attended</li>
+<li><a href='people/waylon-lewis.html'>Waylon Lewis</a> — attended</li>
+<li><a href='people/tina-marquis.html'>Tina Marquis</a> — attended</li>
+<li><a href='people/aaron-gabriel-neyer.html'>Aaron Gabriel Neyer</a> — attended</li>
+<li><a href='people/jennifer-robins.html'>Jennifer Robins</a> — attended</li>
+<li><a href='people/ryan-schuchard.html'>Ryan Schuchard</a> — attended</li>
+<li><a href='people/tara-winer.html'>Tara Winer</a> — attended</li>
+</ul>
+<h3>PLAN-Boulder County candidate forum (mayor + two council)</h3>
+<p>2023-08-23 · venue not recorded · hosted by PLAN-Boulder County</p>
+<p>PLAN-Boulder County&#x27;s own page: four mayoral candidates plus council candidates Taishya Adams and Jacques Decalo. Moderator Bill Briggs. Venue not stated.</p>
+<ul class='plain'>
+<li><a href='people/taishya-adams.html'>Taishya Adams</a> — attended</li>
+<li><a href='people/aaron-brockett.html'>Aaron Brockett</a> — attended</li>
+<li><a href='people/jacques-decalo.html'>Jacques Decalo</a> — attended</li>
+<li><a href='people/nicole-speer.html'>Nicole Speer</a> — attended</li>
+<li><a href='people/paul-tweedlie.html'>Paul Tweedlie</a> — attended</li>
+<li><a href='people/bob-yates.html'>Bob Yates</a> — attended</li>
+</ul>
+<h3>Boulder Progressives candidate forum</h3>
+<p>2023-06-21 · Elks Lodge, Boulder · hosted by Boulder Progressives</p>
+<p>Unofficial kickoff. BRL: eight council candidates and three mayoral candidates. Housing and homelessness dominated. Full attendance list not copied into this seed beyond the article.</p>
+<p class="empty">Attendance not independently listed in the database. Recording or writeup is the source.</p>
 </main>
 <footer>
   Prototype. Every number on this site is cited. We do not endorse candidates.
   City of Boulder only — not county, school board, or state races.
+  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
 </footer>
 </body>
 </html>

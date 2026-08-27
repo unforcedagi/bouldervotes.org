@@ -2,9 +2,9 @@
 
 Harvested 2026-08-27 by GrokJi. Negative claims are scoped to what was actually searched.
 
-`bouldervotes.org` and `wovenboulder.org` both return `Domain not found` from PIR whois as of 2026-08-27T02:12Z. Neither has A/NS records. The channel is named for a domain that is still unregistered.
+`bouldervotes.org` is live on GitHub Pages as of 2026-08-27: DNS A records point at `185.199.108–111.153`, Pages custom domain + Let’s Encrypt cert approved, `https_enforced`. From this box, `dig` sees the records; the system resolver does not — curl with `--resolve` to a GitHub IP returns 200 and the site. `www` has no record.
 
-No prior notes in the uni vault on this project. `~/REPOS/Woven-Web` holds cohereboulder.org and wovenweb.org — not a city-council conversation map.
+WovenBoulder is a retired experiment (Aaron, 2026-08-27). Do not spend cycles on it.
 
 ---
 
@@ -122,16 +122,37 @@ Housing / Area III / middle-income supply · municipal airport + FAA grant assur
 
 BRL’s June 7 2026 caucus piece is the first *binary* issue harvest: FAA grants — Brockett, Duran, Winer yes; Marquis, Schuchard, Grano, Isaacson no. That is a journalist’s grouping of spoken answers, stored as such.
 
+## Forum calendar harvested 2026-08-27
+
+**2023**
+- Progressives, June 21, Elks Lodge (BRL June 23). Eight council + three mayor; full roster not copied.
+- PLAN, Aug 23: four mayor + Adams + Decalo. PLAN, Aug 29: Winer, Brncic, Lewis, Marquis, Schuchard, Neyer, Robins. Source: planboulder.org/boulder-election-2023. Venues not on that page.
+- Chamber, Aug 29, Boulder JCC. All 14; Speer virtual. Recording: youtube.com/watch?v=AEkK1eSLmNk
+- Climate mayoral, ~Oct 5 (BRL Oct 6, Xcel).
+- LWV council, Oct 15, Channel 8: youtube.com/watch?v=Xb83hgpphXo
+- BRL–KGNU mayoral debate ~Oct 18 (mentioned in BRL Oct 27 caption; recording not located).
+- LWV mayor, Oct 22: youtube.com/watch?v=n89j6Wk-qc8 — Brockett, Speer, Tweedlie, Yates in the transcript.
+
+**2025**
+- Chamber, Aug 26, New Vista. Ten of eleven; Palacios not named. Recording: youtube.com/watch?v=a-6Mso1bNhA (Chamber upload titled “2025 City Council Candidate Forum”).
+- VOTES! Collaborative (Open Boulder / Better Boulder / PLAN), Sept 8, Nomad Playhouse. Eight present; Palacios, Smoke, Stone absent (Daily Camera Sept 6). Recording promised, not located.
+- LWV + EFAA, Sept 27, Council Chambers. 8 of 11, all invited (moderator on tape). Recording: youtube.com/watch?v=JcJu9nd5mQk
+
+**2026**
+- Raucous Caucus June 6 (BRL). Chamber Aug 26 parked until they publish.
+
+BRL questionnaires ingested via WP JSON: 2023 14×6, 2025 11×6.
+
 ## Best next harvest (ordered)
 
-1. Notes/recording from the Aug 26 2026 Chamber forum (Aaron was in the room).
-2. Ingest BRL 2025 questionnaire into `questions` / `answers` (returning candidates + Isaacson).
-3. City campaign-finance filings once the first required statements land.
-4. Remaining 2026 campaign websites (do not guess; collect from clerk / Camera profiles / the candidates).
-5. LWV / Vote411 2026 questionnaire when it opens.
-6. 2023 and 2025 Chamber / LWV / PLAN forum recordings (YouTube).
+1. 2026 Chamber forum when the Chamber releases recording/materials.
+2. City campaign-finance filings once the first required statements land.
+3. Remaining 2026 campaign websites (do not guess).
+4. LWV / Vote411 2026 questionnaire when it opens.
+5. Name-by-name attendance from the 2023/2025 LWV videos (watch, don’t invent).
+6. 2025 2A/2B certified yes/no from the county SOV.
 7. BRL vote tracker → officeholder voting record, later.
 
 ## Out of scope until we say so
 
-County races, BVSD, state, ballot measures, live social proof, AT Proto identities. The schema can grow a `did` column on `people` without rearranging the world.
+County races, BVSD, state, live social proof, AT Proto identities. The schema can grow a `did` column on `people` without rearranging the world.

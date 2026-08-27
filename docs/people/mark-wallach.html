@@ -37,7 +37,8 @@ p, li { max-width: 42rem; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
 .lede { font-size: 1.1rem; }
-.note { color: var(--muted); font-size: 0.95rem; }
+.note, .empty { color: var(--muted); font-size: 0.95rem; }
+.empty { font-style: italic; }
 table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
 th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
 th { font-weight: 600; }
@@ -46,9 +47,15 @@ th { font-weight: 600; }
 .badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
 ul.plain { padding-left: 1.1rem; }
 footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
 .cite { font-size: 0.9rem; }
+blockquote.answer { margin: 0.35rem 0 0.6rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
   table { font-size: 0.9rem; }
@@ -65,11 +72,11 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
   <p class="tagline">A map of who is running, what they have said, and where that information lives.</p>
   <nav>
     <a href="../index.html">Home</a>
-    <a href="../2026-mayor.html">2026 mayor</a>
-    <a href="../2026-council.html">2026 council</a>
+    <a href="../2026.html">2026</a>
     <a href="../2025.html">2025</a>
     <a href="../2023.html">2023</a>
     <a href="../forums.html">Forums</a>
+    <a href="../measures.html">Measures</a>
     <a href="../sources.html">Sources</a>
     <a href="../about.html">About</a>
   </nav>
@@ -86,10 +93,59 @@ footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--
 <h2>Results</h2><ul class='plain'>
 <li>2025 Boulder City Council, round 1: 17,476 votes — elected</li>
 </ul>
+<h2>Forums</h2><ul class='plain'>
+<li>2025-09-08 Boulder VOTES! Collaborative Candidate Forum — attended</li>
+<li>2025-08-26 Boulder Chamber candidate forum (2025 cycle) — attended · <a href="https://www.youtube.com/watch?v=a-6Mso1bNhA">recording</a></li>
+</ul>
+<h2>On the record</h2>
+<h3>2025 questionnaire</h3>
+<h3>What perspective or lived experience would you bring to city council, and how would it shape your approach to policy?</h3>
+<blockquote class='answer'>A formative experience for me was living in New York City during the period of its decline and bankruptcy in the mid-‘70s. There were two things that I experienced back then that have stayed with me: first, the decline and then absence of a sense of public safety. There were simply places you could not/would not go, because they were not safe for residents. That even included parts of Central Park.
+
+The second was the failure to maintain the city’s infrastructure. As a result, there were periodic derailments on the subway system, the bridges were in terrible shape, and the roads were a disaster. And, to combine the two themes, public safety on the subway system was entirely absent. As a result, property prices sunk, and people were leaving the City in droves for neighboring states and Florida.
+
+This experience demonstrated to me the absolute necessity of public safety for a city to thrive, and the implications of the failure to maintain your assets. Both of these themes are prominent in my campaign.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/05/2025-boulder-city-council-election-how-candidates-say-their-life-experiences-would-shape-their-work-on-council/'>2025 Boulder City Council election: How candidates say their life experiences would shape their work on council</a></p>
+<h3>Should Boulder enforce its camping ban when the All Roads shelter is full?</h3>
+<p><span class='stance mixed'>mixed</span></p>
+<blockquote class='answer'>Other than on days of frigid weather, yes. One of the purposes of the camping ban is to reclaim public lands for public use. The fact that the Boulder Creek Path has become so compromised as a community asset should be unacceptable, and the camping ban should certainly be enforced there and on other sensitive public lands.
+
+In addition, with our new-found sensitivity to the dangers of wildfire in this community, the presence of campers on our Open Space should be frightening to all of us. I am hopeful that if we implement the Clutch Report’s emphasis on diversion with respect to the homeless community, the number of unhoused individuals in Boulder might be sufficiently reduced to minimize overflows at the All Roads shelter. However, my view on this is independent of whether on a given night the shelter is full, although, as I stated initially, in dangerously cold weather, enforcement should be suspended.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/06/2025-boulder-city-council-election-where-candidates-stand-on-the-camping-ban/'>2025 Boulder City Council election: Where candidates stand on the camping ban</a></p>
+<h3>Should Boulder require existing homes (not just new construction) to meet wildfire mitigation standards — such as clearing five feet around structures and banning wood fences near homes?</h3>
+<p><span class='stance mixed'>mixed</span></p>
+<blockquote class='answer'>The current ordinance will apply to approximately 200 homes per year. With more than 47,000 residential units in Boulder, the time required to fully harden the City is more than 200 years. Obviously, this will not do.
+
+As a Council, we determined that we would not impose the expense upon homeowners of requiring that they rip out their existing junipers (although I believe everyone should). However, requiring a defensible space around homes is, I believe, a less onerous and still effective fire mitigation measure. In addition, all junipers should be limbed up 5-6 feet, and trimmed so that they do not touch the house. Certainly, wood fences should be prohibited going forward, or at the very least prohibited where the fence touches the house. Boulder is in the 97th percentile for fire danger in Colorado. We need to recognize that and respond to it.
+
+In some ways, this is a more significant danger than the flood danger that affects our community. Flooding will occur on exceptional occasions; one careless lit cigarette can cause a conflagration on any given day, and the time for evacuation may be very brief indeed. In light of climate change, and the prospect of a drier environment, we ignore this danger at our peril. Just ask the residents of Superior.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/07/2025-boulder-city-council-election-where-candidates-stand-on-making-the-city-more-wildfire-resilient/'>2025 Boulder City Council election: Where candidates stand on wildfire mitigation</a></p>
+<h3>Should Boulder City Council weigh in on foreign affairs? If not, how should it handle protests and tensions in council chambers over the war in Gaza?</h3>
+<blockquote class='answer'>It is already enshrined in Council’s rules that we do not opine on foreign affairs, and I agree with that. It is simply not our job to become embroiled in contentious foreign affairs issues, and if we begin to do so, there is no limit to where that practice would end (the imprisonment of 1,000,000 Uyghers in labor camps in China; the death of hundreds of thousands in Syria, the destruction and mass killing in Sudan, Russia’s war against Ukraine, etc.). The thought that the rest of the world is just waiting for guidance of the Boulder City Council on these matters is hubristic and foolish.
+
+Everyone is entitled to their beliefs on the war in Gaza and Israel’s policies, and I have no problem with individuals speaking to that subject at Open Comment, as is their constitutional right. But disruptions of the meeting, chanting, shouting and cursing have no place there. And I believe it is appropriate not to accommodate hate speech, cursing and shouting. Everyone is entitled to express their opinion, even strongly; they are not entitled to disrupt our meetings and prevent the business of Boulder from being conducted, which is our job and our obligation.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-councils-role-in-foreign-affairs/'>2025 Boulder City Council election: Where candidates stand on the council’s role in foreign affairs</a></p>
+<h3>Boulder needs thousands of new homes by 2032. What specific actions would you take to overcome barriers and increase housing supply?</h3>
+<blockquote class='answer'>I believe the premise of the question is not entirely correct. More than 90% of the housing Boulder currently produces is market rate stacked flat rental apartments. There is no shortage at the high end; the shortage exists for middle-income housing (a mere 800 units, or less than 2% of our entire housing stock) and affordable housing (Boulder Housing Partners has 2,070 units in its portfolio and growing, but the need is greater).
+
+Affordable housing takes advantage of federal tax subsidies; middle-income housing has no such subsidies, which is why we have produced only 45 for-sale, deed-restricted middle-income units in the past 10 years. These shortages will not be cured by zoning changes, streamlining regulations, or eliminating community participation in the approval process.
+
+With 60,000 in-commuters, and a unique and beautiful community, it is highly unlikely that we can build our way out of these problems; demand is virtually limitless. Littering our community with a vast number of expensive, market-rate rental buildings will not serve any of our community goals, or address the problem of too many people chasing too few units. It has gotten so bad that our 2016 goal of creating 15% affordable and middle-income units is now referred to by staff as relating only to the creation of affordable housing. And the term “missing middle” has been defined to relate only to housing typology, with no reference to the price of those housing units. Middle-income housing is nowhere to be found in the concept of the “missing middle.”
+
+However, we are not without recourse. As anyone who has followed my prior campaigns would know, I have been a consistent advocate for repurposing the municipal airport to create the middle-income and family housing that the market cannot create due to the high cost of land.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-housing-shortage/'>2025 Boulder City Council election: Where candidates stand on the housing shortage</a></p>
+<h3>With sales tax revenue slowing, a hiring freeze, and a $380 million maintenance backlog, what would be your top spending priorities — and what would you cut or delay?</h3>
+<blockquote class='answer'>On the subject of infrastructure, my main priority is the passage of the extension of the Community Culture Resilience and Safety Act, which will fund a substantial portion (but not all) of our infrastructure needs. I regret the substantial cuts we have made to our Capital Improvements Program across virtually all departments, but hopefully many of the postponed projects can be put back in the queue for 2027.
+
+As I have expressed, infrastructure maintenance is a top priority for me. One priority of the proposed budget is to attempt to retain staff, and reallocate staff, to avoid layoffs. I agree with this strategy. It is simply too hard to replace experienced, talented staff members after they have been laid off, and so the emphasis on retention is warranted.
+
+I do have some quibbles with the proposed 2026 budget (who can get excited about cutting funds for the Circle of Care program?) but overall I think it is a serious effort to manage Boulder through this period of economic certainty. I am more concerned with the potential impact on Boulder of policy decisions made in Washington, but the damage from those decisions is essentially unknowable at this time.</blockquote>
+<p class='cite'><a href='https://boulderreportinglab.org/2025/10/12/2025-boulder-city-council-election-where-candidates-stand-on-priorities-for-the-city-budget/'>2025 Boulder City Council election: Where candidates stand on city budget priorities</a></p>
 </main>
 <footer>
   Prototype. Every number on this site is cited. We do not endorse candidates.
   City of Boulder only — not county, school board, or state races.
+  Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
 </footer>
 </body>
 </html>
