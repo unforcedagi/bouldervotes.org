@@ -6,7 +6,7 @@
 <title>Forums — Boulder Votes</title>
 <style>
 :root {
-  --paper: #f6f0e4;
+  --paper: #f4efe6;
   --ink: #1c1916;
   --muted: #5c5348;
   --rule: #d4c7b0;
@@ -14,70 +14,97 @@
   --link-visited: #5a3d6e;
   --mark: #8b2e1a;
   --won: #215c3a;
+  --chip: #efe6d6;
 }
 * { box-sizing: border-box; }
-html { font-size: 20px; }
+html { font-size: 19px; scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
   font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  line-height: 1.55;
+  line-height: 1.45;
 }
-header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
-header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
-.brand { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; color: var(--ink); }
-.tagline { color: var(--muted); font-size: 0.95rem; margin: 0.25rem 0 0.75rem; }
-nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; font-size: 0.95rem; }
-nav a { color: var(--link); }
-h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.75rem; }
-h2 { font-size: 1.25rem; margin: 1.75rem 0 0.5rem; }
-h3 { font-size: 1.05rem; margin: 1.2rem 0 0.35rem; }
-h4 { font-size: 1rem; margin: 1rem 0 0.3rem; }
+header {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+.header-inner, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.1rem; }
+.header-inner { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.brand { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: var(--ink); }
+.rail { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; margin-top: 0.45rem; align-items: center; }
+.rail a, .pill {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.rail a.on, .pill.on { background: var(--ink); color: var(--paper); }
+.rail .sep { color: var(--muted); margin: 0 0.25rem; }
+nav.util { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.6rem 0.9rem; font-size: 0.9rem; }
+nav.util a { color: var(--link); }
+h1 { font-size: 1.7rem; line-height: 1.15; margin: 1.1rem 0 0.5rem; }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.45rem; }
+h3 { font-size: 1.02rem; margin: 1rem 0 0.3rem; }
 p, li { max-width: 42rem; }
+.lede { font-size: 1.05rem; margin-top: 0; }
+.note, .empty { color: var(--muted); font-size: 0.92rem; }
+.empty { font-style: italic; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
-.lede { font-size: 1.1rem; }
-.note, .empty { color: var(--muted); font-size: 0.95rem; }
-.empty { font-style: italic; }
-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
-th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
-th { font-weight: 600; }
-.num { font-variant-numeric: tabular-nums; text-align: right; }
-.won { color: var(--won); font-weight: 600; }
-.badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
+.jump { font-size: 0.92rem; margin: 0.4rem 0 1rem; }
+.jump a { margin-right: 0.8rem; }
+.card {
+  border: 1px solid var(--rule);
+  padding: 0.65rem 0.8rem;
+  margin: 0 0 0.55rem;
+  background: #f8f3ea;
+}
+.card h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+.card .meta { color: var(--muted); font-size: 0.88rem; }
+.chips { margin-top: 0.35rem; }
+.chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  border: 1px solid var(--rule);
+  background: var(--chip);
+  padding: 0.05rem 0.4rem;
+  margin: 0 0.25rem 0.25rem 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
-.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
 .stance.yes { color: var(--won); }
 .stance.no { color: var(--mark); }
 .stance.mixed { color: var(--muted); }
-ul.plain { padding-left: 1.1rem; }
-footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
-.cite { font-size: 0.9rem; }
-.toc { font-size: 0.95rem; margin: 0 0 1.5rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
-.toc a { margin-right: 0.9rem; }
-.record { margin: 0.6rem 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
-.record-head { margin: 0 0 0.25rem; }
-details.quote { margin: 0.35rem 0 0.4rem; }
-details.quote > summary {
-  cursor: pointer;
-  color: var(--ink);
-  list-style: none;
-}
-details.quote > summary::-webkit-details-marker { display: none; }
-details.quote > summary::after { content: " — read full answer"; color: var(--link); font-size: 0.9rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+th, td { text-align: left; padding: 0.35rem 0.4rem 0.35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.matrix td, .matrix th { text-align: center; }
+.matrix th:first-child, .matrix td:first-child { text-align: left; }
+.matrix a { text-decoration: none; }
+details.quote { margin: 0.25rem 0; }
+details.quote > summary { cursor: pointer; }
+details.quote > summary::after { content: " — full"; color: var(--link); font-size: 0.88rem; }
 details.quote[open] > summary::after { content: " — hide"; }
-blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
-.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
+blockquote.answer { margin: 0.35rem 0; padding-left: 0.7rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.crumb { font-size: 0.9rem; color: var(--muted); margin: 0.8rem 0 0; }
+footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
-  table { font-size: 0.9rem; }
 }
 @media print {
-  nav, .toc { display: none; }
+  header { position: static; }
+  nav.util, .jump { display: none; }
   a { color: inherit; text-decoration: none; }
-  details.quote { display: block; }
   details.quote > summary { display: none; }
   details.quote > blockquote { display: block; }
 }
@@ -85,33 +112,23 @@ blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left:
 </head>
 <body>
 <header>
-  <a class="brand" href="index.html">Boulder Votes</a>
-  <p class="tagline">Who is running, what they have said, cited. One issue at a time.</p>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="2026.html">2026</a>
-    <a href="issues.html">Issues</a>
-    <a href="people.html">People</a>
-    <a href="forums.html">Forums</a>
-    <a href="measures.html">Measures</a>
-    <a href="2025.html">2025</a>
-    <a href="2023.html">2023</a>
-    <a href="about.html">About</a>
-  </nav>
+  <div class="header-inner">
+    <a class="brand" href="index.html">Boulder Votes</a>
+    <div class="rail"><a class="" href="2026.html">2026</a><a class="" href="2025.html">2025</a><a class="" href="2023.html">2023</a></div>
+    <nav class="util"><a href="issues.html">Issues</a><a href="people.html">People</a><a href="about.html">About</a></nav>
+  </div>
 </header>
 <main>
 <h1>Forums</h1>
-<p>The calendar. Spoken answers harvested from a forum live on the matching issue page. Attendance is listed only when a published source named who showed.</p>
-<p>August 26, 2026 Chamber forum is parked until they publish the recording.</p>
+<p>The calendar behind the year pages. Attendance only when a published source named who showed.</p>
 <h2>2026</h2>
 <h3>Boulder Chamber City Council Candidate Forum</h3>
-<p>2026-08-26 · eTown, 1535 Spruce St., Boulder · hosted by Boulder Chamber</p>
-<p>Annual season-opener. 5–8pm. First forum to which all qualified candidates were invited. Topics listed by Chamber: affordable housing, transportation, public safety. Attendance not independently verified in this seed — Aaron and Benjamin were there.</p>
-<p class="empty">Attendance not independently listed. Recording or writeup is the source.</p>
+<p>2026-08-26 · eTown, 1535 Spruce St., Boulder · Boulder Chamber</p>
+<p class='note'>Annual season-opener. 5–8pm. First forum to which all qualified candidates were invited. Topics listed by Chamber: affordable housing, transportation, public safety. Attendance not independently verified in this seed — Aaron and Benjamin were there.</p>
 <h3>Boulder Progressives Raucous Caucus</h3>
-<p>2026-06-06 · Twisted Pine Brewing Company, Boulder · hosted by Boulder Progressives</p>
-<p>Unofficial kickoff of the 2026 cycle. Attendees reported by BRL: Tara Winer, Tina Marquis, Benita Duran, Rachel Rose Isaacson, Ryan Schuchard, Jill Grano, Aaron Brockett. Adams did not attend.</p>
-<ul class='plain'>
+<p>2026-06-06 · Twisted Pine Brewing Company, Boulder · Boulder Progressives</p>
+<p class='note'>Unofficial kickoff of the 2026 cycle. Attendees reported by BRL: Tara Winer, Tina Marquis, Benita Duran, Rachel Rose Isaacson, Ryan Schuchard, Jill Grano, Aaron Brockett. Adams did not attend.</p>
+<ul>
 <li><a href='people/taishya-adams.html'>Taishya Adams</a> — did not attend</li>
 <li><a href='people/aaron-brockett.html'>Aaron Brockett</a> — attended</li>
 <li><a href='people/benita-duran.html'>Benita Duran</a> — attended</li>
@@ -123,13 +140,12 @@ blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left:
 </ul>
 <h2>2025</h2>
 <h3>League of Women Voters city council candidate forum</h3>
-<p>2025-09-27 · City Council Chambers, Penfield Tate II Municipal Building, 1777 Broadway · hosted by League of Women Voters of Boulder County · <a href="https://www.youtube.com/watch?v=JcJu9nd5mQk">recording</a></p>
-<p>Co-sponsored with EFAA. 10:00–11:30am. Moderator (Josephine Porter, on the recording): 11 on the ballot, 8 able to participate, all invited. Questions from audience cards plus electronic submissions. Name-by-name list not copied here; watch the video.</p>
-<p class="empty">Attendance not independently listed. Recording or writeup is the source.</p>
+<p>2025-09-27 · City Council Chambers, Penfield Tate II Municipal Building, 1777 Broadway · League of Women Voters of Boulder County · <a href="https://www.youtube.com/watch?v=JcJu9nd5mQk">recording</a></p>
+<p class='note'>Co-sponsored with EFAA. 10:00–11:30am. Moderator (Josephine Porter, on the recording): 11 on the ballot, 8 able to participate, all invited. Questions from audience cards plus electronic submissions. Name-by-name list not copied here; watch the video.</p>
 <h3>Boulder VOTES! Collaborative Candidate Forum</h3>
-<p>2025-09-08 · Nomad Playhouse, 1410 Quince Ave., Boulder · hosted by PLAN-Boulder County</p>
-<p>Hosted by Open Boulder, Better Boulder, and PLAN-Boulder County. 5–7:30pm. Questions not taken from the audience. Daily Camera (Sept 6) said a recording would be posted; not independently located in this pass.</p>
-<ul class='plain'>
+<p>2025-09-08 · Nomad Playhouse, 1410 Quince Ave., Boulder · PLAN-Boulder County</p>
+<p class='note'>Hosted by Open Boulder, Better Boulder, and PLAN-Boulder County. 5–7:30pm. Questions not taken from the audience. Daily Camera (Sept 6) said a recording would be posted; not independently located in this pass.</p>
+<ul>
 <li><a href='people/matt-benjamin.html'>Matt Benjamin</a> — attended</li>
 <li><a href='people/lauren-folkerts.html'>Lauren Folkerts</a> — attended</li>
 <li><a href='people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a> — attended</li>
@@ -143,9 +159,9 @@ blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left:
 <li><a href='people/mark-wallach.html'>Mark Wallach</a> — attended</li>
 </ul>
 <h3>Boulder Chamber candidate forum (2025 cycle)</h3>
-<p>2025-08-26 · New Vista High School, 700 20th St., Boulder · hosted by Boulder Chamber · <a href="https://www.youtube.com/watch?v=a-6Mso1bNhA">recording</a></p>
-<p>Season-opener. Ten of eleven certified candidates spoke. Palacios is not named in the Daily Camera writeup of attendees. Recording: Boulder Chamber YouTube, &#x27;2025 City Council Candidate Forum&#x27; (2h05).</p>
-<ul class='plain'>
+<p>2025-08-26 · New Vista High School, 700 20th St., Boulder · Boulder Chamber · <a href="https://www.youtube.com/watch?v=a-6Mso1bNhA">recording</a></p>
+<p class='note'>Season-opener. Ten of eleven certified candidates spoke. Palacios is not named in the Daily Camera writeup of attendees. Recording: Boulder Chamber YouTube, &#x27;2025 City Council Candidate Forum&#x27; (2h05).</p>
+<ul>
 <li><a href='people/matt-benjamin.html'>Matt Benjamin</a> — attended</li>
 <li><a href='people/lauren-folkerts.html'>Lauren Folkerts</a> — attended</li>
 <li><a href='people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a> — attended</li>
@@ -160,30 +176,27 @@ blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left:
 </ul>
 <h2>2023</h2>
 <h3>League of Women Voters mayoral candidate forum</h3>
-<p>2023-10-22 · City Council Chambers, Penfield Tate II Municipal Building · hosted by League of Women Voters of Boulder County · <a href="https://www.youtube.com/watch?v=n89j6Wk-qc8">recording</a></p>
-<p>Co-sponsored with EFAA. City Channel 8 recording. Transcript names Brockett, Speer, Tweedlie, and Yates.</p>
-<ul class='plain'>
+<p>2023-10-22 · City Council Chambers, Penfield Tate II Municipal Building · League of Women Voters of Boulder County · <a href="https://www.youtube.com/watch?v=n89j6Wk-qc8">recording</a></p>
+<p class='note'>Co-sponsored with EFAA. City Channel 8 recording. Transcript names Brockett, Speer, Tweedlie, and Yates.</p>
+<ul>
 <li><a href='people/aaron-brockett.html'>Aaron Brockett</a> — attended</li>
 <li><a href='people/nicole-speer.html'>Nicole Speer</a> — attended</li>
 <li><a href='people/paul-tweedlie.html'>Paul Tweedlie</a> — attended</li>
 <li><a href='people/bob-yates.html'>Bob Yates</a> — attended</li>
 </ul>
 <h3>BRL–KGNU mayoral debate</h3>
-<p>2023-10-18 · venue not recorded · hosted by Boulder Reporting Lab</p>
-<p>All four mayoral candidates. Mentioned in BRL&#x27;s Oct 27 2023 &#x27;who’s running&#x27; photo caption. Recording not independently located in this pass.</p>
-<p class="empty">Attendance not independently listed. Recording or writeup is the source.</p>
+<p>2023-10-18 · venue not recorded · Boulder Reporting Lab</p>
+<p class='note'>All four mayoral candidates. Mentioned in BRL&#x27;s Oct 27 2023 &#x27;who’s running&#x27; photo caption. Recording not independently located in this pass.</p>
 <h3>League of Women Voters city council candidate forum</h3>
-<p>2023-10-15 · City Council Chambers, Penfield Tate II Municipal Building · hosted by League of Women Voters of Boulder County · <a href="https://www.youtube.com/watch?v=Xb83hgpphXo">recording</a></p>
-<p>Co-sponsored with EFAA. City Channel 8 recording, 1h35. Attendance not copied name-by-name in this pass — the video is the source.</p>
-<p class="empty">Attendance not independently listed. Recording or writeup is the source.</p>
+<p>2023-10-15 · City Council Chambers, Penfield Tate II Municipal Building · League of Women Voters of Boulder County · <a href="https://www.youtube.com/watch?v=Xb83hgpphXo">recording</a></p>
+<p class='note'>Co-sponsored with EFAA. City Channel 8 recording, 1h35. Attendance not copied name-by-name in this pass — the video is the source.</p>
 <h3>Climate-focused Boulder mayoral forum</h3>
-<p>2023-10-05 · venue not recorded · hosted by unknown</p>
-<p>BRL Oct 6 2023: Xcel Energy was a central subject. Date is the day before the article.</p>
-<p class="empty">Attendance not independently listed. Recording or writeup is the source.</p>
+<p>2023-10-05 · venue not recorded · </p>
+<p class='note'>BRL Oct 6 2023: Xcel Energy was a central subject. Date is the day before the article.</p>
 <h3>Boulder Chamber City Council and Mayoral Candidate Forum</h3>
-<p>2023-08-29 · Boulder JCC · hosted by Boulder Chamber · <a href="https://www.youtube.com/watch?v=AEkK1eSLmNk">recording</a></p>
-<p>Season-opener. All 14 certified candidates. Speer virtual. Questions from Chamber, Latino Chamber, Community Cycles: public safety, rent control, transportation, business support, labor shortages, minimum wage.</p>
-<ul class='plain'>
+<p>2023-08-29 · Boulder JCC · Boulder Chamber · <a href="https://www.youtube.com/watch?v=AEkK1eSLmNk">recording</a></p>
+<p class='note'>Season-opener. All 14 certified candidates. Speer virtual. Questions from Chamber, Latino Chamber, Community Cycles: public safety, rent control, transportation, business support, labor shortages, minimum wage.</p>
+<ul>
 <li><a href='people/taishya-adams.html'>Taishya Adams</a> — attended</li>
 <li><a href='people/silas-atkins.html'>Silas Atkins</a> — attended</li>
 <li><a href='people/terri-brncic.html'>Terri Brncic</a> — attended</li>
@@ -200,9 +213,9 @@ blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left:
 <li><a href='people/bob-yates.html'>Bob Yates</a> — attended</li>
 </ul>
 <h3>PLAN-Boulder County city council forum</h3>
-<p>2023-08-29 · venue not recorded · hosted by PLAN-Boulder County</p>
-<p>Same calendar night as the Chamber forum. PLAN&#x27;s page names seven council candidates. Moderator Bill Briggs. Venue not stated. Silas Atkins is not named on either PLAN forum list — absence not independently confirmed.</p>
-<ul class='plain'>
+<p>2023-08-29 · venue not recorded · PLAN-Boulder County</p>
+<p class='note'>Same calendar night as the Chamber forum. PLAN&#x27;s page names seven council candidates. Moderator Bill Briggs. Venue not stated. Silas Atkins is not named on either PLAN forum list — absence not independently confirmed.</p>
+<ul>
 <li><a href='people/terri-brncic.html'>Terri Brncic</a> — attended</li>
 <li><a href='people/waylon-lewis.html'>Waylon Lewis</a> — attended</li>
 <li><a href='people/tina-marquis.html'>Tina Marquis</a> — attended</li>
@@ -212,9 +225,9 @@ blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left:
 <li><a href='people/tara-winer.html'>Tara Winer</a> — attended</li>
 </ul>
 <h3>PLAN-Boulder County candidate forum (mayor + two council)</h3>
-<p>2023-08-23 · venue not recorded · hosted by PLAN-Boulder County</p>
-<p>PLAN-Boulder County&#x27;s own page: four mayoral candidates plus council candidates Taishya Adams and Jacques Decalo. Moderator Bill Briggs. Venue not stated.</p>
-<ul class='plain'>
+<p>2023-08-23 · venue not recorded · PLAN-Boulder County</p>
+<p class='note'>PLAN-Boulder County&#x27;s own page: four mayoral candidates plus council candidates Taishya Adams and Jacques Decalo. Moderator Bill Briggs. Venue not stated.</p>
+<ul>
 <li><a href='people/taishya-adams.html'>Taishya Adams</a> — attended</li>
 <li><a href='people/aaron-brockett.html'>Aaron Brockett</a> — attended</li>
 <li><a href='people/jacques-decalo.html'>Jacques Decalo</a> — attended</li>
@@ -223,14 +236,15 @@ blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left:
 <li><a href='people/bob-yates.html'>Bob Yates</a> — attended</li>
 </ul>
 <h3>Boulder Progressives candidate forum</h3>
-<p>2023-06-21 · Elks Lodge, Boulder · hosted by Boulder Progressives</p>
-<p>Unofficial kickoff. BRL: eight council candidates and three mayoral candidates. Housing and homelessness dominated. Full attendance list not copied into this seed beyond the article.</p>
-<p class="empty">Attendance not independently listed. Recording or writeup is the source.</p>
+<p>2023-06-21 · Elks Lodge, Boulder · Boulder Progressives</p>
+<p class='note'>Unofficial kickoff. BRL: eight council candidates and three mayoral candidates. Housing and homelessness dominated. Full attendance list not copied into this seed beyond the article.</p>
 </main>
 <footer>
-  Prototype. Every number is cited. We do not endorse candidates.
-  City of Boulder only. Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
-  <a href="sources.html">Source catalog</a>.
+  City of Boulder only. Cited, not scored, not an endorsement.
+  <a href="sources.html">Sources</a> ·
+  <a href="forums.html">Forums</a> ·
+  <a href="measures.html">All measures</a> ·
+  <a href="https://bouldervotes.org/">bouldervotes.org</a>
 </footer>
 </body>
 </html>

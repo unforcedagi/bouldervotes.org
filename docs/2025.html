@@ -6,7 +6,7 @@
 <title>2025 election — Boulder Votes</title>
 <style>
 :root {
-  --paper: #f6f0e4;
+  --paper: #f4efe6;
   --ink: #1c1916;
   --muted: #5c5348;
   --rule: #d4c7b0;
@@ -14,70 +14,97 @@
   --link-visited: #5a3d6e;
   --mark: #8b2e1a;
   --won: #215c3a;
+  --chip: #efe6d6;
 }
 * { box-sizing: border-box; }
-html { font-size: 20px; }
+html { font-size: 19px; scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
   font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  line-height: 1.55;
+  line-height: 1.45;
 }
-header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
-header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
-.brand { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; color: var(--ink); }
-.tagline { color: var(--muted); font-size: 0.95rem; margin: 0.25rem 0 0.75rem; }
-nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; font-size: 0.95rem; }
-nav a { color: var(--link); }
-h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.75rem; }
-h2 { font-size: 1.25rem; margin: 1.75rem 0 0.5rem; }
-h3 { font-size: 1.05rem; margin: 1.2rem 0 0.35rem; }
-h4 { font-size: 1rem; margin: 1rem 0 0.3rem; }
+header {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+.header-inner, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.1rem; }
+.header-inner { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.brand { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: var(--ink); }
+.rail { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; margin-top: 0.45rem; align-items: center; }
+.rail a, .pill {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.rail a.on, .pill.on { background: var(--ink); color: var(--paper); }
+.rail .sep { color: var(--muted); margin: 0 0.25rem; }
+nav.util { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.6rem 0.9rem; font-size: 0.9rem; }
+nav.util a { color: var(--link); }
+h1 { font-size: 1.7rem; line-height: 1.15; margin: 1.1rem 0 0.5rem; }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.45rem; }
+h3 { font-size: 1.02rem; margin: 1rem 0 0.3rem; }
 p, li { max-width: 42rem; }
+.lede { font-size: 1.05rem; margin-top: 0; }
+.note, .empty { color: var(--muted); font-size: 0.92rem; }
+.empty { font-style: italic; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
-.lede { font-size: 1.1rem; }
-.note, .empty { color: var(--muted); font-size: 0.95rem; }
-.empty { font-style: italic; }
-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
-th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
-th { font-weight: 600; }
-.num { font-variant-numeric: tabular-nums; text-align: right; }
-.won { color: var(--won); font-weight: 600; }
-.badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
+.jump { font-size: 0.92rem; margin: 0.4rem 0 1rem; }
+.jump a { margin-right: 0.8rem; }
+.card {
+  border: 1px solid var(--rule);
+  padding: 0.65rem 0.8rem;
+  margin: 0 0 0.55rem;
+  background: #f8f3ea;
+}
+.card h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+.card .meta { color: var(--muted); font-size: 0.88rem; }
+.chips { margin-top: 0.35rem; }
+.chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  border: 1px solid var(--rule);
+  background: var(--chip);
+  padding: 0.05rem 0.4rem;
+  margin: 0 0.25rem 0.25rem 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
-.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
 .stance.yes { color: var(--won); }
 .stance.no { color: var(--mark); }
 .stance.mixed { color: var(--muted); }
-ul.plain { padding-left: 1.1rem; }
-footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
-.cite { font-size: 0.9rem; }
-.toc { font-size: 0.95rem; margin: 0 0 1.5rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
-.toc a { margin-right: 0.9rem; }
-.record { margin: 0.6rem 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
-.record-head { margin: 0 0 0.25rem; }
-details.quote { margin: 0.35rem 0 0.4rem; }
-details.quote > summary {
-  cursor: pointer;
-  color: var(--ink);
-  list-style: none;
-}
-details.quote > summary::-webkit-details-marker { display: none; }
-details.quote > summary::after { content: " — read full answer"; color: var(--link); font-size: 0.9rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+th, td { text-align: left; padding: 0.35rem 0.4rem 0.35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.matrix td, .matrix th { text-align: center; }
+.matrix th:first-child, .matrix td:first-child { text-align: left; }
+.matrix a { text-decoration: none; }
+details.quote { margin: 0.25rem 0; }
+details.quote > summary { cursor: pointer; }
+details.quote > summary::after { content: " — full"; color: var(--link); font-size: 0.88rem; }
 details.quote[open] > summary::after { content: " — hide"; }
-blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
-.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
+blockquote.answer { margin: 0.35rem 0; padding-left: 0.7rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.crumb { font-size: 0.9rem; color: var(--muted); margin: 0.8rem 0 0; }
+footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
-  table { font-size: 0.9rem; }
 }
 @media print {
-  nav, .toc { display: none; }
+  header { position: static; }
+  nav.util, .jump { display: none; }
   a { color: inherit; text-decoration: none; }
-  details.quote { display: block; }
   details.quote > summary { display: none; }
   details.quote > blockquote { display: block; }
 }
@@ -85,79 +112,82 @@ blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left:
 </head>
 <body>
 <header>
-  <a class="brand" href="index.html">Boulder Votes</a>
-  <p class="tagline">Who is running, what they have said, cited. One issue at a time.</p>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="2026.html">2026</a>
-    <a href="issues.html">Issues</a>
-    <a href="people.html">People</a>
-    <a href="forums.html">Forums</a>
-    <a href="measures.html">Measures</a>
-    <a href="2025.html">2025</a>
-    <a href="2023.html">2023</a>
-    <a href="about.html">About</a>
-  </nav>
+  <div class="header-inner">
+    <a class="brand" href="index.html">Boulder Votes</a>
+    <div class="rail"><a class="" href="2026.html">2026</a><a class="on" href="2025.html">2025</a><a class="" href="2023.html">2023</a></div>
+    <nav class="util"><a href="issues.html">Issues</a><a href="people.html">People</a><a href="about.html">About</a></nav>
+  </div>
 </header>
 <main>
-
-        <h1>2025 city election</h1>
-        <p class="lede">November 4, 2025. Four council seats, no mayor. Last odd-year municipal election. BRL asked all eleven candidates the same six questions — filed under Issues.</p>
-        
-        <p>Lauren Folkerts finished sixth. Rob Kaplan took the fourth seat. Clarity ENR totals match the Dec 4 2025 seating (<a href="https://www.dailycamera.com/2025/12/05/new-boulder-city-council-sworn-in-2/">Daily Camera</a>).</p>
-        
-        <h2>The field</h2>
-<h3>City council</h3>
-<table><tr><th>Candidate</th><th></th><th>Status</th></tr><tr><td><a href="people/matt-benjamin.html">Matt Benjamin</a></td><td><span class="badge inc">incumbent</span></td><td>elected</td></tr><tr><td><a href="people/lauren-folkerts.html">Lauren Folkerts</a></td><td><span class="badge inc">incumbent</span></td><td>lost</td></tr><tr><td><a href="people/rachel-rose-isaacson.html">Rachel Rose Isaacson</a></td><td></td><td>lost</td></tr><tr><td><a href="people/rob-kaplan.html">Rob Kaplan</a></td><td></td><td>elected</td></tr><tr><td><a href="people/maxwell-lord.html">Maxwell Lord</a></td><td></td><td>lost</td></tr><tr><td><a href="people/montserrat-palacios.html">Montserrat Palacios</a></td><td></td><td>lost</td></tr><tr><td><a href="people/jennifer-robins.html">Jennifer Robins</a></td><td></td><td>lost</td></tr><tr><td><a href="people/rob-smoke.html">Rob Smoke</a></td><td></td><td>lost</td></tr><tr><td><a href="people/nicole-speer.html">Nicole Speer</a></td><td><span class="badge inc">incumbent</span></td><td>elected</td></tr><tr><td><a href="people/aaron-stone.html">Aaron Stone</a></td><td></td><td>lost</td></tr><tr><td><a href="people/mark-wallach.html">Mark Wallach</a></td><td><span class="badge inc">incumbent</span></td><td>elected</td></tr></table>
-        <h2>Results</h2>
-<h3>City council</h3>
-<table><tr><th>Place</th><th>Candidate</th><th class='num'>Votes</th><th class='num'>Share</th></tr><tr class='won'><td class='num'>1</td><td><a href='people/matt-benjamin.html'>Matt Benjamin</a> (elected)</td><td class='num'>20,276</td><td class='num'>17.80%</td></tr><tr class='won'><td class='num'>2</td><td><a href='people/mark-wallach.html'>Mark Wallach</a> (elected)</td><td class='num'>17,476</td><td class='num'>15.34%</td></tr><tr class='won'><td class='num'>3</td><td><a href='people/nicole-speer.html'>Nicole Speer</a> (elected)</td><td class='num'>16,165</td><td class='num'>14.19%</td></tr><tr class='won'><td class='num'>4</td><td><a href='people/rob-kaplan.html'>Rob Kaplan</a> (elected)</td><td class='num'>15,867</td><td class='num'>13.93%</td></tr><tr class=''><td class='num'>5</td><td><a href='people/jennifer-robins.html'>Jennifer Robins</a></td><td class='num'>14,781</td><td class='num'>12.98%</td></tr><tr class=''><td class='num'>6</td><td><a href='people/lauren-folkerts.html'>Lauren Folkerts</a></td><td class='num'>14,222</td><td class='num'>12.49%</td></tr><tr class=''><td class='num'>7</td><td><a href='people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a></td><td class='num'>5,085</td><td class='num'>4.46%</td></tr><tr class=''><td class='num'>8</td><td><a href='people/montserrat-palacios.html'>Montserrat Palacios</a></td><td class='num'>2,957</td><td class='num'>2.60%</td></tr><tr class=''><td class='num'>9</td><td><a href='people/maxwell-lord.html'>Maxwell Lord</a></td><td class='num'>2,853</td><td class='num'>2.51%</td></tr><tr class=''><td class='num'>10</td><td><a href='people/aaron-stone.html'>Aaron Stone</a></td><td class='num'>2,707</td><td class='num'>2.38%</td></tr><tr class=''><td class='num'>11</td><td><a href='people/rob-smoke.html'>Rob Smoke</a></td><td class='num'>1,499</td><td class='num'>1.32%</td></tr></table>
-        <h2>What they said</h2>
-<p>66 sourced answers, filed by issue. A new article does not make this page longer — it attaches to the issue and to the person.</p>
-<ul class='plain'>
-<li><a href='issues/budget.html'>City budget</a> — 11 answers</li>
-<li><a href='issues/foreign-affairs.html'>Foreign affairs at council</a> — 11 answers</li>
-<li><a href='issues/homelessness.html'>Homelessness</a> — 11 answers</li>
-<li><a href='issues/housing.html'>Housing</a> — 11 answers</li>
-<li><a href='issues/other.html'>This race / other</a> — 11 answers</li>
-<li><a href='issues/wildfire.html'>Wildfire resilience</a> — 11 answers</li>
+<h1>2025 city election</h1>
+<p class='lede'>Four council seats, no mayor. Last odd-year municipal election.</p>
+<p class="jump"><a href="#council">Council</a><a href="#said">What they have said</a><a href="#measures">Measures</a></p>
+<h2 id='council'>City council · 4 seats · 11 candidates</h2>
+<table><tr><th>Place</th><th>Candidate</th><th class='num'>Votes</th></tr><tr class='won'><td class='num'>1</td><td><a href='people/matt-benjamin.html'>Matt Benjamin</a> (elected)</td><td class='num'>20,276</td></tr><tr class='won'><td class='num'>2</td><td><a href='people/mark-wallach.html'>Mark Wallach</a> (elected)</td><td class='num'>17,476</td></tr><tr class='won'><td class='num'>3</td><td><a href='people/nicole-speer.html'>Nicole Speer</a> (elected)</td><td class='num'>16,165</td></tr><tr class='won'><td class='num'>4</td><td><a href='people/rob-kaplan.html'>Rob Kaplan</a> (elected)</td><td class='num'>15,867</td></tr><tr class=''><td class='num'>5</td><td><a href='people/jennifer-robins.html'>Jennifer Robins</a></td><td class='num'>14,781</td></tr><tr class=''><td class='num'>6</td><td><a href='people/lauren-folkerts.html'>Lauren Folkerts</a></td><td class='num'>14,222</td></tr><tr class=''><td class='num'>7</td><td><a href='people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a></td><td class='num'>5,085</td></tr><tr class=''><td class='num'>8</td><td><a href='people/montserrat-palacios.html'>Montserrat Palacios</a></td><td class='num'>2,957</td></tr><tr class=''><td class='num'>9</td><td><a href='people/maxwell-lord.html'>Maxwell Lord</a></td><td class='num'>2,853</td></tr><tr class=''><td class='num'>10</td><td><a href='people/aaron-stone.html'>Aaron Stone</a></td><td class='num'>2,707</td></tr><tr class=''><td class='num'>11</td><td><a href='people/rob-smoke.html'>Rob Smoke</a></td><td class='num'>1,499</td></tr></table>
+<div class="card">
+          <h3><a href="people/matt-benjamin.html">Matt Benjamin</a> <span class="badge inc">incumbent</span></h3>
+          <div class='meta'>elected</div><div class='chips'><a class='chip' href='issues/budget-2025.html'>City budget</a><a class='chip' href='issues/foreign-affairs-2025.html'>Foreign affairs at council</a><a class='chip' href='issues/homelessness-2025.html'>Homelessness</a><a class='chip' href='issues/housing-2025.html'>Housing</a><a class='chip' href='issues/wildfire-2025.html'>Wildfire resilience</a></div>
+        </div>
+<div class="card">
+          <h3><a href="people/lauren-folkerts.html">Lauren Folkerts</a> <span class="badge inc">incumbent</span></h3>
+          <div class='meta'>lost</div><div class='chips'><a class='chip' href='issues/budget-2025.html'>City budget</a><a class='chip' href='issues/foreign-affairs-2025.html'>Foreign affairs at council</a><a class='chip' href='issues/homelessness-2025.html'>Homelessness</a><a class='chip' href='issues/housing-2025.html'>Housing</a><a class='chip' href='issues/wildfire-2025.html'>Wildfire resilience</a></div>
+        </div>
+<div class="card">
+          <h3><a href="people/rachel-rose-isaacson.html">Rachel Rose Isaacson</a> </h3>
+          <div class='meta'>lost</div><div class='chips'><a class='chip' href='issues/budget-2025.html'>City budget</a><a class='chip' href='issues/foreign-affairs-2025.html'>Foreign affairs at council</a><a class='chip' href='issues/homelessness-2025.html'>Homelessness</a><a class='chip' href='issues/housing-2025.html'>Housing</a><a class='chip' href='issues/airport-2025.html'>Municipal airport</a><a class='chip' href='issues/wildfire-2025.html'>Wildfire resilience</a></div>
+        </div>
+<div class="card">
+          <h3><a href="people/rob-kaplan.html">Rob Kaplan</a> </h3>
+          <div class='meta'>elected</div><div class='chips'><a class='chip' href='issues/budget-2025.html'>City budget</a><a class='chip' href='issues/foreign-affairs-2025.html'>Foreign affairs at council</a><a class='chip' href='issues/homelessness-2025.html'>Homelessness</a><a class='chip' href='issues/housing-2025.html'>Housing</a><a class='chip' href='issues/wildfire-2025.html'>Wildfire resilience</a></div>
+        </div>
+<div class="card">
+          <h3><a href="people/maxwell-lord.html">Maxwell Lord</a> </h3>
+          <div class='meta'>lost</div><div class='chips'><a class='chip' href='issues/budget-2025.html'>City budget</a><a class='chip' href='issues/foreign-affairs-2025.html'>Foreign affairs at council</a><a class='chip' href='issues/homelessness-2025.html'>Homelessness</a><a class='chip' href='issues/housing-2025.html'>Housing</a><a class='chip' href='issues/wildfire-2025.html'>Wildfire resilience</a></div>
+        </div>
+<div class="card">
+          <h3><a href="people/montserrat-palacios.html">Montserrat Palacios</a> </h3>
+          <div class='meta'>lost</div><div class='chips'><a class='chip' href='issues/budget-2025.html'>City budget</a><a class='chip' href='issues/foreign-affairs-2025.html'>Foreign affairs at council</a><a class='chip' href='issues/homelessness-2025.html'>Homelessness</a><a class='chip' href='issues/housing-2025.html'>Housing</a><a class='chip' href='issues/wildfire-2025.html'>Wildfire resilience</a></div>
+        </div>
+<div class="card">
+          <h3><a href="people/jennifer-robins.html">Jennifer Robins</a> </h3>
+          <div class='meta'>lost</div><div class='meta'>Also: 2023 council lost</div><div class='chips'><a class='chip' href='issues/budget-2025.html'>City budget</a><a class='chip' href='issues/climate-2025.html'>Climate</a><a class='chip' href='issues/foreign-affairs-2025.html'>Foreign affairs at council</a><a class='chip' href='issues/homelessness-2025.html'>Homelessness</a><a class='chip' href='issues/housing-2025.html'>Housing</a><a class='chip' href='issues/transportation-2025.html'>Transportation</a><a class='chip' href='issues/wildfire-2025.html'>Wildfire resilience</a></div>
+        </div>
+<div class="card">
+          <h3><a href="people/rob-smoke.html">Rob Smoke</a> </h3>
+          <div class='meta'>lost</div><div class='chips'><a class='chip' href='issues/budget-2025.html'>City budget</a><a class='chip' href='issues/foreign-affairs-2025.html'>Foreign affairs at council</a><a class='chip' href='issues/homelessness-2025.html'>Homelessness</a><a class='chip' href='issues/housing-2025.html'>Housing</a><a class='chip' href='issues/wildfire-2025.html'>Wildfire resilience</a></div>
+        </div>
+<div class="card">
+          <h3><a href="people/nicole-speer.html">Nicole Speer</a> <span class="badge inc">incumbent</span></h3>
+          <div class='meta'>elected</div><div class='meta'>Also: 2023 mayor lost</div><div class='chips'><a class='chip' href='issues/budget-2025.html'>City budget</a><a class='chip' href='issues/climate-2025.html'>Climate</a><a class='chip' href='issues/foreign-affairs-2025.html'>Foreign affairs at council</a><a class='chip' href='issues/homelessness-2025.html'>Homelessness</a><a class='chip' href='issues/housing-2025.html'>Housing</a><a class='chip' href='issues/transportation-2025.html'>Transportation</a><a class='chip' href='issues/wildfire-2025.html'>Wildfire resilience</a></div>
+        </div>
+<div class="card">
+          <h3><a href="people/aaron-stone.html">Aaron Stone</a> </h3>
+          <div class='meta'>lost</div><div class='chips'><a class='chip' href='issues/budget-2025.html'>City budget</a><a class='chip' href='issues/foreign-affairs-2025.html'>Foreign affairs at council</a><a class='chip' href='issues/homelessness-2025.html'>Homelessness</a><a class='chip' href='issues/housing-2025.html'>Housing</a><a class='chip' href='issues/wildfire-2025.html'>Wildfire resilience</a></div>
+        </div>
+<div class="card">
+          <h3><a href="people/mark-wallach.html">Mark Wallach</a> <span class="badge inc">incumbent</span></h3>
+          <div class='meta'>elected</div><div class='chips'><a class='chip' href='issues/budget-2025.html'>City budget</a><a class='chip' href='issues/foreign-affairs-2025.html'>Foreign affairs at council</a><a class='chip' href='issues/homelessness-2025.html'>Homelessness</a><a class='chip' href='issues/housing-2025.html'>Housing</a><a class='chip' href='issues/wildfire-2025.html'>Wildfire resilience</a></div>
+        </div>
+<h2 id='said'>What this ballot’s candidates have said</h2>
+<p>Includes what returning candidates said in earlier cycles. A blank means we do not have it — not that they are silent.</p>
+<div class='chips'><a class='chip' href='issues/budget-2025.html'>City budget · 11</a><a class='chip' href='issues/climate-2025.html'>Climate · 2</a><a class='chip' href='issues/foreign-affairs-2025.html'>Foreign affairs at council · 11</a><a class='chip' href='issues/homelessness-2025.html'>Homelessness · 11</a><a class='chip' href='issues/housing-2025.html'>Housing · 11</a><a class='chip' href='issues/transportation-2025.html'>Transportation · 2</a><a class='chip' href='issues/wildfire-2025.html'>Wildfire resilience · 11</a><a class='chip' href='issues/other-2025.html'>This race / other · 11</a></div>
+<h2 id='measures'>City measures</h2>
+<div class='card'><h3>2A: Community, Culture, Resilience, and Safety (CCRS) tax extension</h3><div class='meta'>tax · passed</div><p>Extends the existing 0.3% CCRS sales and use tax in perpetuity (it had been set to expire Dec 31 2036) without raising the rate. Funds capital work: rec centers, fire/police stations, paths, bridges, open space…</p></div>
+<div class='card'><h3>2B: CCRS tax debt authorization</h3><div class='meta'>bond · passed</div><p>Authorizes up to $262 million principal ($350 million maximum repayment) payable solely from the CCRS tax extension, if 2A also passed. Companion to 2A.</p></div>
+<h2>Forums</h2>
+<ul>
+<li>2025-08-26 Boulder Chamber candidate forum (2025 cycle) · <a href="https://www.youtube.com/watch?v=a-6Mso1bNhA">recording</a></li>
+<li>2025-09-08 Boulder VOTES! Collaborative Candidate Forum</li>
+<li>2025-09-27 League of Women Voters city council candidate forum · <a href="https://www.youtube.com/watch?v=JcJu9nd5mQk">recording</a></li>
 </ul>
-        <h2>Forums</h2>
-<p class='note'><a href='forums.html'>Full calendar</a> with attendance.</p>
-<h3>Boulder Chamber candidate forum (2025 cycle)</h3>
-<p>2025-08-26 · New Vista High School, 700 20th St., Boulder · hosted by Boulder Chamber · <a href="https://www.youtube.com/watch?v=a-6Mso1bNhA">recording</a></p>
-<p class='note'>10 named attendees — full list on the forums page and on each person.</p>
-<h3>Boulder VOTES! Collaborative Candidate Forum</h3>
-<p>2025-09-08 · Nomad Playhouse, 1410 Quince Ave., Boulder · hosted by PLAN-Boulder County</p>
-<p class='note'>8 named attendees — full list on the forums page and on each person.</p>
-<h3>League of Women Voters city council candidate forum</h3>
-<p>2025-09-27 · City Council Chambers, Penfield Tate II Municipal Building, 1777 Broadway · hosted by League of Women Voters of Boulder County · <a href="https://www.youtube.com/watch?v=JcJu9nd5mQk">recording</a></p>
-        <h2>Interviews and press</h2>
-<p class='note'>These are the articles. Quoted claims from them belong on an issue page, attached to a person — cataloguing a URL is not the same as ingesting an answer.</p>
-<ul class='plain'>
-<li><a href='https://www.dailycamera.com/2025/09/06/boulder-groups-host-city-council-candidate-forum-next-week/'>Boulder groups host City Council candidate forum next week (Daily Camera)</a></li>
-<li>2025-09-04 — Daily Camera — <a href='https://www.dailycamera.com/2025/09/04/where-boulder-city-council-candidates-key-issues/'>Where Boulder City Council candidates stand on key issues (Daily Camera)</a></li>
-<li>2025-11-06 — Boulder Reporting Lab — <a href='https://boulderreportinglab.org/2025/11/06/boulder-2025-election-results-voters-reelect-three-incumbents-to-council-and-pass-all-tax-measures/'>Boulder 2025 election results (BRL)</a></li>
-<li>2025-11-09 — <a href='https://cuindependent.org/2025/11/09/boulders-2025-election-results/'>Boulder&#x27;s 2025 election results (CU Independent)</a></li>
-<li>2025-12-05 — Daily Camera — <a href='https://www.dailycamera.com/2025/12/05/new-boulder-city-council-sworn-in-2/'>New Boulder City Council sworn in (Daily Camera)</a></li>
-</ul>
-        <h2>City ballot measures</h2>
-<h3>2A: Community, Culture, Resilience, and Safety (CCRS) tax extension</h3>
-<p><span class='badge'>tax</span> passed</p>
-<p>Extends the existing 0.3% CCRS sales and use tax in perpetuity (it had been set to expire Dec 31 2036) without raising the rate. Funds capital work: rec centers, fire/police stations, paths, bridges, open space trailheads, etc.</p>
-<p class='note'>Passed Nov 4 2025 (BRL Nov 6). Yes/no vote totals not copied from the SOV in this pass.</p>
-<p class='cite'><a href='https://boulderreportinglab.org/2025/11/06/boulder-2025-election-results-voters-reelect-three-incumbents-to-council-and-pass-all-tax-measures/'>Boulder 2025 election results (BRL)</a></p>
-<h3>2B: CCRS tax debt authorization</h3>
-<p><span class='badge'>bond</span> passed</p>
-<p>Authorizes up to $262 million principal ($350 million maximum repayment) payable solely from the CCRS tax extension, if 2A also passed. Companion to 2A.</p>
-<p class='note'>Passed Nov 4 2025 (BRL Nov 6). Yes/no vote totals not copied from the SOV in this pass.</p>
-<p class='cite'><a href='https://boulderreportinglab.org/2025/11/06/boulder-2025-election-results-voters-reelect-three-incumbents-to-council-and-pass-all-tax-measures/'>Boulder 2025 election results (BRL)</a></p>
-        
+<p class='note'><a href='forums.html'>Attendance and notes</a></p>
 </main>
 <footer>
-  Prototype. Every number is cited. We do not endorse candidates.
-  City of Boulder only. Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
-  <a href="sources.html">Source catalog</a>.
+  City of Boulder only. Cited, not scored, not an endorsement.
+  <a href="sources.html">Sources</a> ·
+  <a href="forums.html">Forums</a> ·
+  <a href="measures.html">All measures</a> ·
+  <a href="https://bouldervotes.org/">bouldervotes.org</a>
 </footer>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <title>Maxwell Lord — Boulder Votes</title>
 <style>
 :root {
-  --paper: #f6f0e4;
+  --paper: #f4efe6;
   --ink: #1c1916;
   --muted: #5c5348;
   --rule: #d4c7b0;
@@ -14,70 +14,97 @@
   --link-visited: #5a3d6e;
   --mark: #8b2e1a;
   --won: #215c3a;
+  --chip: #efe6d6;
 }
 * { box-sizing: border-box; }
-html { font-size: 20px; }
+html { font-size: 19px; scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
   font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  line-height: 1.55;
+  line-height: 1.45;
 }
-header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
-header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
-.brand { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; color: var(--ink); }
-.tagline { color: var(--muted); font-size: 0.95rem; margin: 0.25rem 0 0.75rem; }
-nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; font-size: 0.95rem; }
-nav a { color: var(--link); }
-h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.75rem; }
-h2 { font-size: 1.25rem; margin: 1.75rem 0 0.5rem; }
-h3 { font-size: 1.05rem; margin: 1.2rem 0 0.35rem; }
-h4 { font-size: 1rem; margin: 1rem 0 0.3rem; }
+header {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+.header-inner, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.1rem; }
+.header-inner { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.brand { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: var(--ink); }
+.rail { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; margin-top: 0.45rem; align-items: center; }
+.rail a, .pill {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.rail a.on, .pill.on { background: var(--ink); color: var(--paper); }
+.rail .sep { color: var(--muted); margin: 0 0.25rem; }
+nav.util { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.6rem 0.9rem; font-size: 0.9rem; }
+nav.util a { color: var(--link); }
+h1 { font-size: 1.7rem; line-height: 1.15; margin: 1.1rem 0 0.5rem; }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.45rem; }
+h3 { font-size: 1.02rem; margin: 1rem 0 0.3rem; }
 p, li { max-width: 42rem; }
+.lede { font-size: 1.05rem; margin-top: 0; }
+.note, .empty { color: var(--muted); font-size: 0.92rem; }
+.empty { font-style: italic; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
-.lede { font-size: 1.1rem; }
-.note, .empty { color: var(--muted); font-size: 0.95rem; }
-.empty { font-style: italic; }
-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
-th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
-th { font-weight: 600; }
-.num { font-variant-numeric: tabular-nums; text-align: right; }
-.won { color: var(--won); font-weight: 600; }
-.badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
+.jump { font-size: 0.92rem; margin: 0.4rem 0 1rem; }
+.jump a { margin-right: 0.8rem; }
+.card {
+  border: 1px solid var(--rule);
+  padding: 0.65rem 0.8rem;
+  margin: 0 0 0.55rem;
+  background: #f8f3ea;
+}
+.card h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+.card .meta { color: var(--muted); font-size: 0.88rem; }
+.chips { margin-top: 0.35rem; }
+.chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  border: 1px solid var(--rule);
+  background: var(--chip);
+  padding: 0.05rem 0.4rem;
+  margin: 0 0.25rem 0.25rem 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
-.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
 .stance.yes { color: var(--won); }
 .stance.no { color: var(--mark); }
 .stance.mixed { color: var(--muted); }
-ul.plain { padding-left: 1.1rem; }
-footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
-.cite { font-size: 0.9rem; }
-.toc { font-size: 0.95rem; margin: 0 0 1.5rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
-.toc a { margin-right: 0.9rem; }
-.record { margin: 0.6rem 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
-.record-head { margin: 0 0 0.25rem; }
-details.quote { margin: 0.35rem 0 0.4rem; }
-details.quote > summary {
-  cursor: pointer;
-  color: var(--ink);
-  list-style: none;
-}
-details.quote > summary::-webkit-details-marker { display: none; }
-details.quote > summary::after { content: " — read full answer"; color: var(--link); font-size: 0.9rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+th, td { text-align: left; padding: 0.35rem 0.4rem 0.35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.matrix td, .matrix th { text-align: center; }
+.matrix th:first-child, .matrix td:first-child { text-align: left; }
+.matrix a { text-decoration: none; }
+details.quote { margin: 0.25rem 0; }
+details.quote > summary { cursor: pointer; }
+details.quote > summary::after { content: " — full"; color: var(--link); font-size: 0.88rem; }
 details.quote[open] > summary::after { content: " — hide"; }
-blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
-.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
+blockquote.answer { margin: 0.35rem 0; padding-left: 0.7rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.crumb { font-size: 0.9rem; color: var(--muted); margin: 0.8rem 0 0; }
+footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
-  table { font-size: 0.9rem; }
 }
 @media print {
-  nav, .toc { display: none; }
+  header { position: static; }
+  nav.util, .jump { display: none; }
   a { color: inherit; text-decoration: none; }
-  details.quote { display: block; }
   details.quote > summary { display: none; }
   details.quote > blockquote { display: block; }
 }
@@ -85,83 +112,73 @@ blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left:
 </head>
 <body>
 <header>
-  <a class="brand" href="../index.html">Boulder Votes</a>
-  <p class="tagline">Who is running, what they have said, cited. One issue at a time.</p>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../2026.html">2026</a>
-    <a href="../issues.html">Issues</a>
-    <a href="../people.html">People</a>
-    <a href="../forums.html">Forums</a>
-    <a href="../measures.html">Measures</a>
-    <a href="../2025.html">2025</a>
-    <a href="../2023.html">2023</a>
-    <a href="../about.html">About</a>
-  </nav>
+  <div class="header-inner">
+    <a class="brand" href="../index.html">Boulder Votes</a>
+    <div class="rail"><a class="" href="../2026.html">2026</a><a class="on" href="../2025.html">2025</a><a class="" href="../2023.html">2023</a></div>
+    <nav class="util"><a href="../issues.html">Issues</a><a href="../people.html">People</a><a href="../about.html">About</a></nav>
+  </div>
 </header>
 <main>
 <h1>Maxwell Lord</h1>
-<nav class='toc'><a href='#campaigns'>Campaigns</a><a href='#results'>Results</a><a href='#forums'>Forums</a><a href='#record'>On the record</a></nav>
-<p>BRL listed Max Lord; certified results list Maxwell Lord.</p>
-<h2 id='campaigns'>Campaigns</h2><ul class='plain'>
-<li>2025 Boulder City Council — lost</li>
-</ul>
-<h2 id='results'>Results</h2><ul class='plain'>
-<li>2025 Boulder City Council, round 1: 2,853 votes</li>
-</ul>
-<h2 id='forums'>Forums</h2><ul class='plain'>
+<p class='lede'>BRL listed Max Lord; certified results list Maxwell Lord.</p>
+<h2>Campaigns</h2>
+<table><tr><th>Year</th><th>Office</th><th>Outcome</th></tr><tr><td><a href='../2025.html'>2025</a></td><td>Boulder City Council</td><td>2,853 votes</td></tr></table>
+<h2>What they have said</h2>
+<p class='note'>Each cell is a source in that year. A dash means we do not have one. Click through for the quote.</p>
+<table class='matrix'><tr><th>Issue</th><th>2025</th></tr><tr><td><a href='../issues/budget.html'>City budget</a></td><td><a href='#i-budget-2025-154'>said</a></td></tr><tr><td><a href='../issues/foreign-affairs.html'>Foreign affairs at council</a></td><td><a href='#i-foreign-affairs-2025-131'>said</a></td></tr><tr><td><a href='../issues/homelessness.html'>Homelessness</a></td><td><a href='#i-homelessness-2025-107'>MIXED</a></td></tr><tr><td><a href='../issues/housing.html'>Housing</a></td><td><a href='#i-housing-2025-137'>said</a></td></tr><tr><td><a href='../issues/other.html'>This race / other</a></td><td><a href='#i-other-2025-93'>said</a></td></tr><tr><td><a href='../issues/wildfire.html'>Wildfire resilience</a></td><td><a href='#i-wildfire-2025-124'>MIXED</a></td></tr></table>
+<h2>City budget</h2>
+<div class='card' id='i-budget-2025-154'>
+<div class='meta'><a href='../2025.html'>2025</a> · questionnaire </div>
+<h3>With sales tax revenue slowing, a hiring freeze, and a $380 million maintenance backlog, what would be your top spending priorities — and what would you cut or delay?</h3>
+<details class='quote'><summary>I could take the easy way out, and say “performance-based metrics” and “higher revenue, and lower spending,” but it’s simply an easy way to dodge the…</summary><blockquote class='answer'>I could take the easy way out, and say “performance-based metrics” and “higher revenue, and lower spending,” but it’s simply an easy way to dodge the question. I do, of course, believe we need to have good metrics for measuring how our policies affect our cities, from the efficacy of higher policing, to the impact of more buses. I also think Council needs to be honest with its citizens, and itself about what it can no longer afford, and start looking for cheaper alternatives. This means tabling some civic projects, and looking for simpler ways to get people around safely. We spent 16 million dollars on the demolition of the old hospital, so that we could recycle the steel and say we did it sustainably. I, like everyone, want to recycle, but we can’t be spending many times over market average for commercial demolition for a warm fuzzy feeling, when the money could have gone to helping get addicts off of the streets, and people back into our shopping centers for more economic vitality.</blockquote></details>
+<p class='note'><a href='https://boulderreportinglab.org/2025/10/12/2025-boulder-city-council-election-where-candidates-stand-on-priorities-for-the-city-budget/'>2025 Boulder City Council election: Where candidates stand on city budget priorities</a></p>
+</div>
+<h2>Foreign affairs at council</h2>
+<div class='card' id='i-foreign-affairs-2025-131'>
+<div class='meta'><a href='../2025.html'>2025</a> · questionnaire </div>
+<h3>Should Boulder City Council weigh in on foreign affairs? If not, how should it handle protests and tensions in council chambers over the war in Gaza?</h3>
+<details class='quote'><summary>While I do believe as a local government we need to tend to the garden we can touch, and focus on policies that directly impact the citizens of our…</summary><blockquote class='answer'>While I do believe as a local government we need to tend to the garden we can touch, and focus on policies that directly impact the citizens of our city, I also think part of that means listening to what our citizens want. I worked building water treatment for refugees in Burma, and I can say first hand that both sides of the conflict use technology like Toyota, and Microsoft. These are massive corporations, and while they have admittedly scrupulous ethics, overhauling our civil infrastructure to prove a point is going to cause more damage to our people than any good in the grand scheme. Still though, we can provide guidance, and moral standings. We condemn violence. We condemn harassing our public officials, we condemn attacks on our citizens, just as we condemn bombing children, or violence against people we politically disagree with. None of these acts solve problems, they add fuel to a fire.</blockquote></details>
+<p class='note'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-councils-role-in-foreign-affairs/'>2025 Boulder City Council election: Where candidates stand on the council’s role in foreign affairs</a></p>
+</div>
+<h2>Homelessness</h2>
+<div class='card' id='i-homelessness-2025-107'>
+<div class='meta'><a href='../2025.html'>2025</a> · questionnaire <span class='stance mixed'>mixed</span></div>
+<h3>Should Boulder enforce its camping ban when the All Roads shelter is full?</h3>
+<details class='quote'><summary>I think that some candidates use the camping ban as a buzzword to generate appeal. This is a good example of where we could use some more honesty. It…</summary><blockquote class='answer'>I think that some candidates use the camping ban as a buzzword to generate appeal. This is a good example of where we could use some more honesty. It doesn’t matter how much you want to “enforce it.” You can’t enforce a camping ban if the shelters and the jail are full. At some point, “enforcing it” is just police driving people back and forth from the jail. Neglecting the fact that it’s impractical, it’s also immoral, and misses the core of the issue. We have All Roads, and Blue Bird, but we don’t have any sober living facilities, or hostels as a secondary option. We also don’t have an emergency plan for bad weather. I think we, as a people, and a city, can and should do better, rather than acting as if a camping ban has any meaning on policy.</blockquote></details>
+<p class='note'><a href='https://boulderreportinglab.org/2025/10/06/2025-boulder-city-council-election-where-candidates-stand-on-the-camping-ban/'>2025 Boulder City Council election: Where candidates stand on the camping ban</a></p>
+</div>
+<h2>Housing</h2>
+<div class='card' id='i-housing-2025-137'>
+<div class='meta'><a href='../2025.html'>2025</a> · questionnaire </div>
+<h3>Boulder needs thousands of new homes by 2032. What specific actions would you take to overcome barriers and increase housing supply?</h3>
+<details class='quote'><summary>I think we are going to need to accept the fact that Boulder is changing. The whole world is getting a little more crowded, and we can’t simply pull…</summary><blockquote class='answer'>I think we are going to need to accept the fact that Boulder is changing. The whole world is getting a little more crowded, and we can’t simply pull the ladder up behind us if we have lived here longer. That means changing land-use policy to allow more housing at the peripheries of the city, apartment complexes within, and duplexes and triplexes in some of our tough-to-build-in neighborhoods. We need to keep a tight eye on contractors who are hired by the city (once again, this is a good insight I think I would bring to the council) so we aren’t wasting money on city projects, and also confirm that they follow the guidelines we require for equitable housing. This only begins to address housing supply though, and we need to help renters with the existing housing by creating greater protections.</blockquote></details>
+<p class='note'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-housing-shortage/'>2025 Boulder City Council election: Where candidates stand on the housing shortage</a></p>
+</div>
+<h2>This race / other</h2>
+<div class='card' id='i-other-2025-93'>
+<div class='meta'><a href='../2025.html'>2025</a> · questionnaire </div>
+<h3>What perspective or lived experience would you bring to city council, and how would it shape your approach to policy?</h3>
+<details class='quote'><summary>I’ve lived in Boulder for a long time, and believe my diverse experience across the city is what qualifies me to be an active participant in city…</summary><blockquote class='answer'>I’ve lived in Boulder for a long time, and believe my diverse experience across the city is what qualifies me to be an active participant in city council. It isn’t always obvious where experience comes from. A good example is that I learned all the roads when I was a delivery driver late nights after college. Since then though, I’ve worked in the physics labs on campus, at NCAR, and now I am a builder around town. I am familiar with the land use regulations, as well as the homes that are currently built on them, and how they were built. Beyond that, it’s really working with the homeowners on the day to day, as well as the small businesses who rely on me, like the Trident and the Dark Horse. I’ve also volunteered with TGTHR, and Bridge House. I am familiar with our most vulnerable. I’ve worked on massive infrastructure projects, all the way down to small restaurants on the hill. It’s always about working on a team. Listening to others, understanding what you do and don’t know.</blockquote></details>
+<p class='note'><a href='https://boulderreportinglab.org/2025/10/05/2025-boulder-city-council-election-how-candidates-say-their-life-experiences-would-shape-their-work-on-council/'>2025 Boulder City Council election: How candidates say their life experiences would shape their work on council</a></p>
+</div>
+<h2>Wildfire resilience</h2>
+<div class='card' id='i-wildfire-2025-124'>
+<div class='meta'><a href='../2025.html'>2025</a> · questionnaire <span class='stance mixed'>mixed</span></div>
+<h3>Should Boulder require existing homes (not just new construction) to meet wildfire mitigation standards — such as clearing five feet around structures and banning wood fences near homes?</h3>
+<details class='quote'><summary>I think that the updated WUI districts and code are an important step to fire hardening the city. I also believe that forcing homeowners to make…</summary><blockquote class='answer'>I think that the updated WUI districts and code are an important step to fire hardening the city. I also believe that forcing homeowners to make changes to their homes is not the role of the city government, particularly when we make it so hard to do so. I think that people want to protect their homes, they want to protect our city, but the city makes it too difficult to acquire permits, or really even information. The new WUI map is confusing, the codes, while important, are difficult for people to understand. I think rather than forcing anything, we need to focus on outreach, and streamline permits for homeowners who are trying to update in case of a fire. I don’t see how any one can champion “affordable housing for the missing middle” when they are also forcing homeowners to pay exorbitant fees to even have the right to protect their homes.</blockquote></details>
+<p class='note'><a href='https://boulderreportinglab.org/2025/10/07/2025-boulder-city-council-election-where-candidates-stand-on-making-the-city-more-wildfire-resilient/'>2025 Boulder City Council election: Where candidates stand on wildfire mitigation</a></p>
+</div>
+<h2>Forums</h2><ul>
 <li>2025-09-08 Boulder VOTES! Collaborative Candidate Forum — attended</li>
 <li>2025-08-26 Boulder Chamber candidate forum (2025 cycle) — attended · <a href="https://www.youtube.com/watch?v=a-6Mso1bNhA">recording</a></li>
 </ul>
-<h2 id='record'>On the record</h2>
-<p class='note'>Grouped by issue, then by year. Each quote keeps its own source.</p>
-<h3><a href='../issues/budget.html'>City budget</a></h3>
-<div class='record'>
-<p class='record-head'>2025 · written questionnaire </p>
-<h4>With sales tax revenue slowing, a hiring freeze, and a $380 million maintenance backlog, what would be your top spending priorities — and what would you cut or delay?</h4>
-<details class='quote'><summary>I could take the easy way out, and say “performance-based metrics” and “higher revenue, and lower spending,” but it’s simply an easy way to dodge the question. I do, of course, believe we need to…</summary><blockquote class='answer'>I could take the easy way out, and say “performance-based metrics” and “higher revenue, and lower spending,” but it’s simply an easy way to dodge the question. I do, of course, believe we need to have good metrics for measuring how our policies affect our cities, from the efficacy of higher policing, to the impact of more buses. I also think Council needs to be honest with its citizens, and itself about what it can no longer afford, and start looking for cheaper alternatives. This means tabling some civic projects, and looking for simpler ways to get people around safely. We spent 16 million dollars on the demolition of the old hospital, so that we could recycle the steel and say we did it sustainably. I, like everyone, want to recycle, but we can’t be spending many times over market average for commercial demolition for a warm fuzzy feeling, when the money could have gone to helping get addicts off of the streets, and people back into our shopping centers for more economic vitality.</blockquote></details>
-<p class='cite'><a href='https://boulderreportinglab.org/2025/10/12/2025-boulder-city-council-election-where-candidates-stand-on-priorities-for-the-city-budget/'>2025 Boulder City Council election: Where candidates stand on city budget priorities</a></p>
-</div>
-<h3><a href='../issues/foreign-affairs.html'>Foreign affairs at council</a></h3>
-<div class='record'>
-<p class='record-head'>2025 · written questionnaire </p>
-<h4>Should Boulder City Council weigh in on foreign affairs? If not, how should it handle protests and tensions in council chambers over the war in Gaza?</h4>
-<details class='quote'><summary>While I do believe as a local government we need to tend to the garden we can touch, and focus on policies that directly impact the citizens of our city, I also think part of that means listening to…</summary><blockquote class='answer'>While I do believe as a local government we need to tend to the garden we can touch, and focus on policies that directly impact the citizens of our city, I also think part of that means listening to what our citizens want. I worked building water treatment for refugees in Burma, and I can say first hand that both sides of the conflict use technology like Toyota, and Microsoft. These are massive corporations, and while they have admittedly scrupulous ethics, overhauling our civil infrastructure to prove a point is going to cause more damage to our people than any good in the grand scheme. Still though, we can provide guidance, and moral standings. We condemn violence. We condemn harassing our public officials, we condemn attacks on our citizens, just as we condemn bombing children, or violence against people we politically disagree with. None of these acts solve problems, they add fuel to a fire.</blockquote></details>
-<p class='cite'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-councils-role-in-foreign-affairs/'>2025 Boulder City Council election: Where candidates stand on the council’s role in foreign affairs</a></p>
-</div>
-<h3><a href='../issues/homelessness.html'>Homelessness</a></h3>
-<div class='record'>
-<p class='record-head'>2025 · written questionnaire <span class='stance mixed'>mixed</span> </p>
-<h4>Should Boulder enforce its camping ban when the All Roads shelter is full?</h4>
-<details class='quote'><summary>I think that some candidates use the camping ban as a buzzword to generate appeal. This is a good example of where we could use some more honesty. It doesn’t matter how much you want to “enforce it.”…</summary><blockquote class='answer'>I think that some candidates use the camping ban as a buzzword to generate appeal. This is a good example of where we could use some more honesty. It doesn’t matter how much you want to “enforce it.” You can’t enforce a camping ban if the shelters and the jail are full. At some point, “enforcing it” is just police driving people back and forth from the jail. Neglecting the fact that it’s impractical, it’s also immoral, and misses the core of the issue. We have All Roads, and Blue Bird, but we don’t have any sober living facilities, or hostels as a secondary option. We also don’t have an emergency plan for bad weather. I think we, as a people, and a city, can and should do better, rather than acting as if a camping ban has any meaning on policy.</blockquote></details>
-<p class='cite'><a href='https://boulderreportinglab.org/2025/10/06/2025-boulder-city-council-election-where-candidates-stand-on-the-camping-ban/'>2025 Boulder City Council election: Where candidates stand on the camping ban</a></p>
-</div>
-<h3><a href='../issues/housing.html'>Housing</a></h3>
-<div class='record'>
-<p class='record-head'>2025 · written questionnaire </p>
-<h4>Boulder needs thousands of new homes by 2032. What specific actions would you take to overcome barriers and increase housing supply?</h4>
-<details class='quote'><summary>I think we are going to need to accept the fact that Boulder is changing. The whole world is getting a little more crowded, and we can’t simply pull the ladder up behind us if we have lived here…</summary><blockquote class='answer'>I think we are going to need to accept the fact that Boulder is changing. The whole world is getting a little more crowded, and we can’t simply pull the ladder up behind us if we have lived here longer. That means changing land-use policy to allow more housing at the peripheries of the city, apartment complexes within, and duplexes and triplexes in some of our tough-to-build-in neighborhoods. We need to keep a tight eye on contractors who are hired by the city (once again, this is a good insight I think I would bring to the council) so we aren’t wasting money on city projects, and also confirm that they follow the guidelines we require for equitable housing. This only begins to address housing supply though, and we need to help renters with the existing housing by creating greater protections.</blockquote></details>
-<p class='cite'><a href='https://boulderreportinglab.org/2025/10/09/2025-boulder-city-council-election-where-candidates-stand-on-the-housing-shortage/'>2025 Boulder City Council election: Where candidates stand on the housing shortage</a></p>
-</div>
-<h3><a href='../issues/other.html'>This race / other</a></h3>
-<div class='record'>
-<p class='record-head'>2025 · written questionnaire </p>
-<h4>What perspective or lived experience would you bring to city council, and how would it shape your approach to policy?</h4>
-<details class='quote'><summary>I’ve lived in Boulder for a long time, and believe my diverse experience across the city is what qualifies me to be an active participant in city council. It isn’t always obvious where experience…</summary><blockquote class='answer'>I’ve lived in Boulder for a long time, and believe my diverse experience across the city is what qualifies me to be an active participant in city council. It isn’t always obvious where experience comes from. A good example is that I learned all the roads when I was a delivery driver late nights after college. Since then though, I’ve worked in the physics labs on campus, at NCAR, and now I am a builder around town. I am familiar with the land use regulations, as well as the homes that are currently built on them, and how they were built. Beyond that, it’s really working with the homeowners on the day to day, as well as the small businesses who rely on me, like the Trident and the Dark Horse. I’ve also volunteered with TGTHR, and Bridge House. I am familiar with our most vulnerable. I’ve worked on massive infrastructure projects, all the way down to small restaurants on the hill. It’s always about working on a team. Listening to others, understanding what you do and don’t know.</blockquote></details>
-<p class='cite'><a href='https://boulderreportinglab.org/2025/10/05/2025-boulder-city-council-election-how-candidates-say-their-life-experiences-would-shape-their-work-on-council/'>2025 Boulder City Council election: How candidates say their life experiences would shape their work on council</a></p>
-</div>
-<h3><a href='../issues/wildfire.html'>Wildfire resilience</a></h3>
-<div class='record'>
-<p class='record-head'>2025 · written questionnaire <span class='stance mixed'>mixed</span> </p>
-<h4>Should Boulder require existing homes (not just new construction) to meet wildfire mitigation standards — such as clearing five feet around structures and banning wood fences near homes?</h4>
-<details class='quote'><summary>I think that the updated WUI districts and code are an important step to fire hardening the city. I also believe that forcing homeowners to make changes to their homes is not the role of the city…</summary><blockquote class='answer'>I think that the updated WUI districts and code are an important step to fire hardening the city. I also believe that forcing homeowners to make changes to their homes is not the role of the city government, particularly when we make it so hard to do so. I think that people want to protect their homes, they want to protect our city, but the city makes it too difficult to acquire permits, or really even information. The new WUI map is confusing, the codes, while important, are difficult for people to understand. I think rather than forcing anything, we need to focus on outreach, and streamline permits for homeowners who are trying to update in case of a fire. I don’t see how any one can champion “affordable housing for the missing middle” when they are also forcing homeowners to pay exorbitant fees to even have the right to protect their homes.</blockquote></details>
-<p class='cite'><a href='https://boulderreportinglab.org/2025/10/07/2025-boulder-city-council-election-where-candidates-stand-on-making-the-city-more-wildfire-resilient/'>2025 Boulder City Council election: Where candidates stand on wildfire mitigation</a></p>
-</div>
 </main>
 <footer>
-  Prototype. Every number is cited. We do not endorse candidates.
-  City of Boulder only. Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
-  <a href="../sources.html">Source catalog</a>.
+  City of Boulder only. Cited, not scored, not an endorsement.
+  <a href="../sources.html">Sources</a> ·
+  <a href="../forums.html">Forums</a> ·
+  <a href="../measures.html">All measures</a> ·
+  <a href="https://bouldervotes.org/">bouldervotes.org</a>
 </footer>
 </body>
 </html>

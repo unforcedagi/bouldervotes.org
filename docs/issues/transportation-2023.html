@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transportation 2023 — Boulder Votes</title>
+<style>
+:root {
+  --paper: #f4efe6;
+  --ink: #1c1916;
+  --muted: #5c5348;
+  --rule: #d4c7b0;
+  --link: #1f4b73;
+  --link-visited: #5a3d6e;
+  --mark: #8b2e1a;
+  --won: #215c3a;
+  --chip: #efe6d6;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.45;
+}
+header {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+.header-inner, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.1rem; }
+.header-inner { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.brand { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: var(--ink); }
+.rail { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; margin-top: 0.45rem; align-items: center; }
+.rail a, .pill {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.rail a.on, .pill.on { background: var(--ink); color: var(--paper); }
+.rail .sep { color: var(--muted); margin: 0 0.25rem; }
+nav.util { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.6rem 0.9rem; font-size: 0.9rem; }
+nav.util a { color: var(--link); }
+h1 { font-size: 1.7rem; line-height: 1.15; margin: 1.1rem 0 0.5rem; }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.45rem; }
+h3 { font-size: 1.02rem; margin: 1rem 0 0.3rem; }
+p, li { max-width: 42rem; }
+.lede { font-size: 1.05rem; margin-top: 0; }
+.note, .empty { color: var(--muted); font-size: 0.92rem; }
+.empty { font-style: italic; }
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+.jump { font-size: 0.92rem; margin: 0.4rem 0 1rem; }
+.jump a { margin-right: 0.8rem; }
+.card {
+  border: 1px solid var(--rule);
+  padding: 0.65rem 0.8rem;
+  margin: 0 0 0.55rem;
+  background: #f8f3ea;
+}
+.card h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+.card .meta { color: var(--muted); font-size: 0.88rem; }
+.chips { margin-top: 0.35rem; }
+.chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  border: 1px solid var(--rule);
+  background: var(--chip);
+  padding: 0.05rem 0.4rem;
+  margin: 0 0.25rem 0.25rem 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
+.badge.match { border-color: var(--mark); color: var(--mark); }
+.badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+th, td { text-align: left; padding: 0.35rem 0.4rem 0.35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.matrix td, .matrix th { text-align: center; }
+.matrix th:first-child, .matrix td:first-child { text-align: left; }
+.matrix a { text-decoration: none; }
+details.quote { margin: 0.25rem 0; }
+details.quote > summary { cursor: pointer; }
+details.quote > summary::after { content: " — full"; color: var(--link); font-size: 0.88rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.35rem 0; padding-left: 0.7rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.crumb { font-size: 0.9rem; color: var(--muted); margin: 0.8rem 0 0; }
+footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; }
+@media (max-width: 640px) {
+  html { font-size: 18px; }
+}
+@media print {
+  header { position: static; }
+  nav.util, .jump { display: none; }
+  a { color: inherit; text-decoration: none; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="brand" href="../index.html">Boulder Votes</a>
+    <div class="rail"><a class="" href="../2026.html">2026</a><a class="" href="../2025.html">2025</a><a class="on" href="../2023.html">2023</a></div>
+    <nav class="util"><a href="../issues.html">Issues</a><a href="../people.html">People</a><a href="../about.html">About</a></nav>
+  </div>
+</header>
+<main>
+<p class='crumb'><a href='../issues.html'>Issues</a> · <a href='transportation.html'>Transportation</a></p>
+<h1>Transportation · 2023</h1>
+<p class='note'>This issue in: <a class='pill on' href='transportation-2023.html'>2023</a> </p>
+<p>People on the 2023 ballot. Answers from this cycle first. If a returning candidate only answered in an earlier race, that quote is labelled as earlier — not as a 2023 answer.</p>
+<h2>How can we better provide alternatives to cars when existing infrastructure prioritizes cars?</h2>
+<p class='note'>questionnaire</p>
+<p class='note'><a href='https://boulderreportinglab.org/2023/10/06/2023-boulder-city-council-election-where-the-candidates-stand-on-making-streets-safer-for-cyclists-walkers-and-others/'>2023 Boulder City Council election: Where the candidates stand on making streets safer for cyclists, walkers and others</a></p>
+<table><tr><th>Candidate</th><th>What they said</th></tr><tr><td><a href='../people/taishya-adams.html'>Taishya Adams</a></td><td><details class='quote'><summary>We need alternatives that meet real people and families where they are. A $500 rebate on a $1,200 bike will not meet the needs of our…</summary><blockquote class='answer'>We need alternatives that meet real people and families where they are. A $500 rebate on a $1,200 bike will not meet the needs of our multi-generational/large families, families with children at different schools and multiple jobs, or people with disabilities. We need to significantly invest in expanded bus lines and service hours, car share programs, as well as related issues like a living wage which allows for many more to access rebates and other incentive programs. It is worth noting that rebates are funded by the very taxpayers who cannot afford to access the rebate.</blockquote></details></td></tr><tr><td><a href='../people/silas-atkins.html'>Silas Atkins</a></td><td><details class='quote'><summary>We need to stop prioritizing cars. All modes of transportation should be treated equally providing safe routes to where we need to go. Safer…</summary><blockquote class='answer'>We need to stop prioritizing cars. All modes of transportation should be treated equally providing safe routes to where we need to go. Safer infrastructure can reduce car crashes by up to 66% in one study, and non-car transportation reduces emissions as well as the need for costly car only infrastructure construction and maintenance.</blockquote></details></td></tr><tr><td><a href='../people/terri-brncic.html'>Terri Brncic</a></td><td><details class='quote'><summary>Prioritizing bike safety and security is one way to keep people out of their cars. We need to continue to invest in expanded and protected bike…</summary><blockquote class='answer'>Prioritizing bike safety and security is one way to keep people out of their cars. We need to continue to invest in expanded and protected bike lanes, particularly in our key commute corridors. We also need to evaluate our current policies around e-bikes to ensure that riders are educated on safe-use strategies and that our existing path infrastructure and rules are optimized to handle this type of transit. Finally, we need to do more to deter bike theft. Building well-lit, security cages around schools and key commuter centers will help prevent this criminal activity.
+
+We also need to focus on transportation. Many of our small-business workforce live outside of Boulder and commute here regularly. To encourage eco-friendly commuting, we need to provide reliable and convenient regional transit options that specifically consider the geographic footprint of our non-resident workforce. The city should also consider providing more incentives for participation in the Business EcoPass program — as well as subsidized transit for low-income commuters — as a means of encouraging eco-friendly commuting in a more equitable manner. And we should incentivize the creation of car-share and e-bike share programs in connection with multi-family housing and commercial developments.</blockquote></details></td></tr><tr><td><a href='../people/aaron-brockett.html'>Aaron Brockett</a></td><td><details class='quote'><summary>We need to make sure that our transportation infrastructure improvements improve the safety and accessibility of non-automobile transportation…</summary><blockquote class='answer'>We need to make sure that our transportation infrastructure improvements improve the safety and accessibility of non-automobile transportation options. I’m a big supporter of our CAN (Core Arterial Network) project to improve bike safety and transit times on the streets in town where the most serious crashes occur, and we need to continue that work.
+
+Collaborating with RTD and the state to continue and expand the free fare months for public transit can help get people out of their cars. We need to work with RTD to restore cuts in our bus service. Additionally, I, as mayor, have collaborated with the Northwest Mayors and Commissioners Coalition to secure a $25 million Federal grant for the construction of a bus rapid transit (BRT) system and a regional bikeway connecting Boulder and Longmont. This completes the funding for the project and construction starts next year!
+
+We are also in the earlier stages of getting funding for a BRT line along SH 7 (Arapahoe) from Boulder to points east. Finally, I have been helping to establish the Front Range Passenger Rail project, which would link Ft. Collins to Pueblo by rail, with stops in Boulder, Denver and Colorado Springs.</blockquote></details></td></tr><tr><td><a href='../people/jacques-decalo.html'>Jacques Decalo</a></td><td><details class='quote'><summary>We need to find ways to make public transit options fast, efficient and attractive to reduce this large source of emissions. To understand what…</summary><blockquote class='answer'>We need to find ways to make public transit options fast, efficient and attractive to reduce this large source of emissions. To understand what measures will move the needle, we need to do a detailed needs assessment/marketing survey to learn what programs, routes and investments (e.g., in rapid regional transportation with last-mile options such as B cycle and e scooters) can succeed — and then invest in/subsidize the options to which the data points.
+
+We may want to look at increasing the grants for e-bikes and installing solar-powered e-bike chargers around the city. The city-run Hop bus is a great alternative transportation program that I would be interested in expanding to give more neighborhoods local public transportation access to business areas. As RTD showed this summer, free buses increased rider usage. I would also like to work with business to find solutions to the 60,000 commuters that are driving into Boulder, 80% in single occupancy vehicles. Everything we can do to reduce greenhouse gases is a priority.</blockquote></details></td></tr><tr><td><a href='../people/waylon-lewis.html'>Waylon Lewis</a></td><td><details class='quote'><summary>Bike lanes — protected. More buses — electrified. Every person we get out of a car — because they want to, because we make it quicker and easier to…</summary><blockquote class='answer'>Bike lanes — protected. More buses — electrified. Every person we get out of a car — because they want to, because we make it quicker and easier to do so — is less traffic, less pollution for all of us, including drivers. This is a win-win. Heat islands and traffic jams? No one’s a fan. We can do for our citizens what Paris has done for theirs, and we’re already far along. My next door neighbors would love to bike around with their three children more, but don’t feel safe doing so, so their SUV and truck see more use than their fleet of bikes. I may be the only candidate who only bikes, haven’t had a car for 15 years — and this will be a priority if elected. Not to make car drivers feel second class, but to make cyclists and our children and seniors feel safer walking, biking, busing, (and…inner-tubing) and driving.</blockquote></details></td></tr><tr><td><a href='../people/tina-marquis.html'>Tina Marquis</a></td><td><details class='quote'><summary>In the over 20 years I have lived in Boulder, we have been trying to reduce our dependence on cars. During that time, I have observed the elimination…</summary><blockquote class='answer'>In the over 20 years I have lived in Boulder, we have been trying to reduce our dependence on cars. During that time, I have observed the elimination of some routes from RTD, and recognize that we are still dependent on the state to help with some of our transportation challenges. That being noted, I am very excited about RTD’s free fares for people 19 years of age and under and possible legislation to increase funding for RTD next legislative session. I also support the work of the city to create safe routes for bikes across the city. However, our city relies on thousands of in-commuters to provide medical services, teach and care for our children, work in our restaurants, and maintain (and manage) our city. While we encourage eco-friendly modes of transportation for those living in the city, we will need to increase public transportation for those commuting into the city as well as encourage electric vehicles, including convenient charging.</blockquote></details></td></tr><tr><td><a href='../people/aaron-gabriel-neyer.html'>Aaron Gabriel Neyer</a></td><td><details class='quote'><summary>With patience and persistence, one step at a time. I propose we start by evolving our public transit, allowing for greater flexibility so that public…</summary><blockquote class='answer'>With patience and persistence, one step at a time. I propose we start by evolving our public transit, allowing for greater flexibility so that public transit can work for a wider number of people. What could this look like? Perhaps having shuttles that can bring people directly from where they are to where they’re going, that can pick up many people along the way and be intelligently routed with the help of technology. It could also look like subsidizing car sharing systems for people with lower incomes and making it more possible for more people to not own a car in Boulder.
+
+With solutions in place I think we need to start shifting systems such that it becomes more of a conscious choice to own a car in Boulder. This could involve residential permitting systems, implemented in such a way that it does not disproportionately affect those who are of lesser means. But also such that it can be used to fund better transportation systems for everyone in Boulder, to help Boulder be a more inclusive and welcoming and climate-friendly place for all.</blockquote></details></td></tr><tr><td><a href='../people/jennifer-robins.html'>Jennifer Robins</a></td><td><details class='quote'><summary>We have to be sure any decisions made on this front are equitable. Steps to provide alternatives to cars include zoning to create housing in areas…</summary><blockquote class='answer'>We have to be sure any decisions made on this front are equitable. Steps to provide alternatives to cars include zoning to create housing in areas where we have mass transit and walkable mixed-use neighborhoods, such as our business districts. The Vision Zero program that is currently in place is a great starting point to improve the safety of our pedestrians and cyclists.
+
+We can also continue to incentivize e-bike purchases with rebates or tax credits. RTD needs to be more reliable. I think that there should be an additional tax to help fund RTD. But I think that the City and County of Broomfield and Boulder County, which never received the [promised] commuter rail, should be exempt from these proposed sales tax increases. RTD should also be working with the state for additional funding. They should also be providing additional subsidies and incentives for low-income earners to ride the RTD. Boulder should work on many fronts: collaboration with, and additional performance expectations, of RTD; collaboration with the Boulder County consortium of cities and Northwest Corridor efforts to add regional connection options that maximize transit and micro-mobility options; and full support for transportation electrification initiatives and transit.</blockquote></details></td></tr><tr><td><a href='../people/ryan-schuchard.html'>Ryan Schuchard</a></td><td><details class='quote'><summary>The transportation future Boulder needs is people-centered, transit-rich, and car-optional. Levers: Land use: Let people live near where they want to…</summary><blockquote class='answer'>The transportation future Boulder needs is people-centered, transit-rich, and car-optional. Levers:
+
+Land use: Let people live near where they want to go, primarily by reforming housing and parking policy.
+
+Mobility systems: Build an ecosystem of multiple interoperable modes working together. Components: (1) A high-frequency, granular transit system, both intra- and inter-city (requiring us to rebuild transit to pre-COVID levels, then dramatically expanding), (2) A plush bicycle system, meaning a comprehensive grid of protected bikeways (requiring us to defend, then expand the Core Arterial Network), widespread enabling infrastructure and culture at destinations, and e-bikes accessible to all, and (3) Deepening of Transportation Demand Management, by expanding programs of carrots/sticks while improving our use of behavioral science.
+
+Plans and processes: Create an intention of and accountability for using the city’s full suite of resources to allocate rights, privileges, investments and space to create a transportation system that makes non-car options competitive. Reflect this in major plans and codes, department and staff roles and coordination, and the deployment of Boulder’s advocacy resources to regional, statewide and federal jurisdictions. Also, daylight subsidies and opportunities costs in our car-centric system. Finally, establish more robust and secure funding.</blockquote></details></td></tr><tr><td><a href='../people/nicole-speer.html'>Nicole Speer</a></td><td><details class='quote'><summary>This certainly is a challenge! Public transit would be a good option but without additional funding from the state, RTD will only get back to 80% of…</summary><blockquote class='answer'>This certainly is a challenge! Public transit would be a good option but without additional funding from the state, RTD will only get back to 80% of pre-pandemic service levels in the next four years. Funding from the Denver Regional Council of Governments will create a Bus Rapid Transit (BRT) line along Arapahoe from downtown Boulder to I-25, and a multi-use path, bikeway and BRT along the Diagonal Highway between Boulder and Longmont.
+
+The Core Arterial Network will make biking, walking and rolling safer. We have started to receive funding to support this important work. As we have safer routes for bicycles, we can continue to offer e-bike rebates and expand micro-mobility options like BCycle.
+
+Moving forward, we need to be designing streets to universal design standards, where we aren’t just designing for abled people but are incorporating the needs of those living with disabilities, too. This means sidewalks that accommodate people using mobility assistive devices, and people with vision or hearing impairments, neurological disorders and mental illnesses. Universal design standards that line walkways with trees and water-absorbent natural landscapes will also support the goals of our Cool Boulder initiative and our equity and inclusion goals.</blockquote></details></td></tr><tr><td><a href='../people/paul-tweedlie.html'>Paul Tweedlie</a></td><td><blockquote class='answer'>I’m encouraged by the city’s e-bike and e-scooter programs and by our increased investment in public transport.</blockquote></td></tr><tr><td><a href='../people/tara-winer.html'>Tara Winer</a></td><td><details class='quote'><summary>Let’s change the infrastructure! We can do this by creating more protected bike lanes, and by ensuring that bike paths and bike storage spots are…</summary><blockquote class='answer'>Let’s change the infrastructure! We can do this by creating more protected bike lanes, and by ensuring that bike paths and bike storage spots are safe so that everyone feels comfortable biking around town. I particularly liked Boulder’s free bike valets, available at some of our events this summer. Let’s come up with innovative and secure ways to store our bikes. Clean and well-lit underpasses will add to our community’s comfort in switching from cars to biking and walking.
+
+Obviously, the structure and governance of RTD is not within our purview, but rapid transit is a big piece of this puzzle. If people are going to rely on buses to get them to their jobs, buses need to be fast, reliable and inexpensive. A regional approach is needed. A good example of that is the CO-7 (Arapahoe) multi-city joint project.
+
+I support programs like RTD’s Zero Fare for Better Air and new Zero Fare for Youth. Combined with lower fare structures, these programs will incentivize people to ride buses more frequently. My son-in-law and grandchildren rode the bus this summer — just for fun!
+
+I will also keep advocating for Boulder to get our long-awaited rail!</blockquote></details></td></tr><tr><td><a href='../people/bob-yates.html'>Bob Yates</a></td><td><details class='quote'><summary>For the foreseeable future, cars will continue to be used to transport seniors, children, tools and purchases. What we need to plan for in the near…</summary><blockquote class='answer'>For the foreseeable future, cars will continue to be used to transport seniors, children, tools and purchases. What we need to plan for in the near term is not a car-free world, but for a car-shared world, where cars coexist safely with cyclists and pedestrians.
+
+Cars are hard and people are squishy. We need to design our streets and pathways to minimize collisions and to slow down cars so that, when a rare collision does occur, people have a better chance of survival. I was a proud advocate for 20 is Plenty in Boulder’s neighborhoods, increasing the odds of a pedestrian’s survival in a collision five-fold.
+
+On busier streets, more protected bike lanes are needed to separate hard cars from those squishy people. We need to enforce our traffic laws, particularly speeding and red-light running. And, we need to fix the damn potholes, faster. Because, regardless of whether you are in a car or on a bike, deep potholes are dangerous for us all.
+
+With better design, better maintenance, and better behavior, cars, bikes, and pedestrians can co-exist, with fewer people getting hurt.
+
+[Editor’s note: The city has since paused its street safety efforts in neighborhoods to focus on high-traffic thoroughfares. The neighborhood-focused program included installing speed bumps and signage as part of the city’s “20 is Plenty” campaign. According to city officials, the speed-reduction effort did not end up reducing speeds on neighborhood streets.]</blockquote></details></td></tr></table>
+</main>
+<footer>
+  City of Boulder only. Cited, not scored, not an endorsement.
+  <a href="../sources.html">Sources</a> ·
+  <a href="../forums.html">Forums</a> ·
+  <a href="../measures.html">All measures</a> ·
+  <a href="https://bouldervotes.org/">bouldervotes.org</a>
+</footer>
+</body>
+</html>

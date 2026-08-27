@@ -6,7 +6,7 @@
 <title>Taishya Adams — Boulder Votes</title>
 <style>
 :root {
-  --paper: #f6f0e4;
+  --paper: #f4efe6;
   --ink: #1c1916;
   --muted: #5c5348;
   --rule: #d4c7b0;
@@ -14,70 +14,97 @@
   --link-visited: #5a3d6e;
   --mark: #8b2e1a;
   --won: #215c3a;
+  --chip: #efe6d6;
 }
 * { box-sizing: border-box; }
-html { font-size: 20px; }
+html { font-size: 19px; scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
   font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  line-height: 1.55;
+  line-height: 1.45;
 }
-header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
-header { padding-top: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
-.brand { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.01em; text-decoration: none; color: var(--ink); }
-.tagline { color: var(--muted); font-size: 0.95rem; margin: 0.25rem 0 0.75rem; }
-nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; font-size: 0.95rem; }
-nav a { color: var(--link); }
-h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.75rem; }
-h2 { font-size: 1.25rem; margin: 1.75rem 0 0.5rem; }
-h3 { font-size: 1.05rem; margin: 1.2rem 0 0.35rem; }
-h4 { font-size: 1rem; margin: 1rem 0 0.3rem; }
+header {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+.header-inner, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.1rem; }
+.header-inner { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.brand { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: var(--ink); }
+.rail { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; margin-top: 0.45rem; align-items: center; }
+.rail a, .pill {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.rail a.on, .pill.on { background: var(--ink); color: var(--paper); }
+.rail .sep { color: var(--muted); margin: 0 0.25rem; }
+nav.util { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.6rem 0.9rem; font-size: 0.9rem; }
+nav.util a { color: var(--link); }
+h1 { font-size: 1.7rem; line-height: 1.15; margin: 1.1rem 0 0.5rem; }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.45rem; }
+h3 { font-size: 1.02rem; margin: 1rem 0 0.3rem; }
 p, li { max-width: 42rem; }
+.lede { font-size: 1.05rem; margin-top: 0; }
+.note, .empty { color: var(--muted); font-size: 0.92rem; }
+.empty { font-style: italic; }
 a { color: var(--link); }
 a:visited { color: var(--link-visited); }
-.lede { font-size: 1.1rem; }
-.note, .empty { color: var(--muted); font-size: 0.95rem; }
-.empty { font-style: italic; }
-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0.75rem 0 1.25rem; }
-th, td { text-align: left; padding: 0.4rem 0.5rem 0.4rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
-th { font-weight: 600; }
-.num { font-variant-numeric: tabular-nums; text-align: right; }
-.won { color: var(--won); font-weight: 600; }
-.badge { display: inline-block; font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.05rem 0.4rem; margin-right: 0.3rem; }
+.jump { font-size: 0.92rem; margin: 0.4rem 0 1rem; }
+.jump a { margin-right: 0.8rem; }
+.card {
+  border: 1px solid var(--rule);
+  padding: 0.65rem 0.8rem;
+  margin: 0 0 0.55rem;
+  background: #f8f3ea;
+}
+.card h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+.card .meta { color: var(--muted); font-size: 0.88rem; }
+.chips { margin-top: 0.35rem; }
+.chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  border: 1px solid var(--rule);
+  background: var(--chip);
+  padding: 0.05rem 0.4rem;
+  margin: 0 0.25rem 0.25rem 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
-.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.8rem; }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
 .stance.yes { color: var(--won); }
 .stance.no { color: var(--mark); }
 .stance.mixed { color: var(--muted); }
-ul.plain { padding-left: 1.1rem; }
-footer { margin: 3rem auto 2rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
-.cite { font-size: 0.9rem; }
-.toc { font-size: 0.95rem; margin: 0 0 1.5rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
-.toc a { margin-right: 0.9rem; }
-.record { margin: 0.6rem 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
-.record-head { margin: 0 0 0.25rem; }
-details.quote { margin: 0.35rem 0 0.4rem; }
-details.quote > summary {
-  cursor: pointer;
-  color: var(--ink);
-  list-style: none;
-}
-details.quote > summary::-webkit-details-marker { display: none; }
-details.quote > summary::after { content: " — read full answer"; color: var(--link); font-size: 0.9rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+th, td { text-align: left; padding: 0.35rem 0.4rem 0.35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.matrix td, .matrix th { text-align: center; }
+.matrix th:first-child, .matrix td:first-child { text-align: left; }
+.matrix a { text-decoration: none; }
+details.quote { margin: 0.25rem 0; }
+details.quote > summary { cursor: pointer; }
+details.quote > summary::after { content: " — full"; color: var(--link); font-size: 0.88rem; }
 details.quote[open] > summary::after { content: " — hide"; }
-blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
-.year-sub { font-size: 0.95rem; margin: 0 0 1.25rem; }
+blockquote.answer { margin: 0.35rem 0; padding-left: 0.7rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.crumb { font-size: 0.9rem; color: var(--muted); margin: 0.8rem 0 0; }
+footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; }
 @media (max-width: 640px) {
   html { font-size: 18px; }
-  table { font-size: 0.9rem; }
 }
 @media print {
-  nav, .toc { display: none; }
+  header { position: static; }
+  nav.util, .jump { display: none; }
   a { color: inherit; text-decoration: none; }
-  details.quote { display: block; }
   details.quote > summary { display: none; }
   details.quote > blockquote { display: block; }
 }
@@ -85,87 +112,73 @@ blockquote.answer { margin: 0.4rem 0 0.2rem; padding-left: 0.75rem; border-left:
 </head>
 <body>
 <header>
-  <a class="brand" href="../index.html">Boulder Votes</a>
-  <p class="tagline">Who is running, what they have said, cited. One issue at a time.</p>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../2026.html">2026</a>
-    <a href="../issues.html">Issues</a>
-    <a href="../people.html">People</a>
-    <a href="../forums.html">Forums</a>
-    <a href="../measures.html">Measures</a>
-    <a href="../2025.html">2025</a>
-    <a href="../2023.html">2023</a>
-    <a href="../about.html">About</a>
-  </nav>
+  <div class="header-inner">
+    <a class="brand" href="../index.html">Boulder Votes</a>
+    <div class="rail"><a class="on" href="../2026.html">2026</a><a class="" href="../2025.html">2025</a><a class="" href="../2023.html">2023</a></div>
+    <nav class="util"><a href="../issues.html">Issues</a><a href="../people.html">People</a><a href="../about.html">About</a></nav>
+  </div>
 </header>
 <main>
 <h1>Taishya Adams</h1>
-<nav class='toc'><a href='#office'>Office</a><a href='#campaigns'>Campaigns</a><a href='#results'>Results</a><a href='#forums'>Forums</a><a href='#record'>On the record</a></nav>
-<p>Elected to council 2023; entered the 2026 mayoral race (cannot also run for her council seat).</p>
-<h2 id='office'>Office</h2><ul class='plain'>
-<li>councilmember: 2023-12-07 to 2026-12</li>
-</ul>
-<h2 id='campaigns'>Campaigns</h2><ul class='plain'>
-<li>2026 Mayor of Boulder — certified · <a href="https://www.adamsforboulder.com/">campaign site</a></li>
-<li>2023 Boulder City Council — elected</li>
-</ul>
-<h2 id='results'>Results</h2><ul class='plain'>
-<li>2023 Boulder City Council, round 1: 14,633 votes — elected</li>
-</ul>
-<h2 id='forums'>Forums</h2><ul class='plain'>
+<p class='lede'>Elected to council 2023; entered the 2026 mayoral race (cannot also run for her council seat).</p>
+<h2>Campaigns</h2>
+<table><tr><th>Year</th><th>Office</th><th>Outcome</th></tr><tr><td><a href='../2026.html'>2026</a></td><td>Mayor of Boulder · <a href='https://www.adamsforboulder.com/'>campaign</a></td><td>certified</td></tr><tr><td><a href='../2023.html'>2023</a></td><td>Boulder City Council</td><td>14,633 votes · elected</td></tr></table>
+<h2>What they have said</h2>
+<p class='note'>Each cell is a source in that year. A dash means we do not have one. Click through for the quote.</p>
+<table class='matrix'><tr><th>Issue</th><th>2026</th><th>2023</th></tr><tr><td><a href='../issues/climate.html'>Climate</a></td><td class='empty'>—</td><td><a href='#i-climate-2023-55'>said</a></td></tr><tr><td><a href='../issues/homelessness.html'>Homelessness</a></td><td class='empty'>—</td><td><a href='#i-homelessness-2023-17'>said</a></td></tr><tr><td><a href='../issues/housing.html'>Housing</a></td><td class='empty'>—</td><td><a href='#i-housing-2023-38'>said</a></td></tr><tr><td><a href='../issues/other.html'>This race / other</a></td><td class='empty'>—</td><td><a href='#i-other-2023-81'>said</a></td></tr><tr><td><a href='../issues/transportation.html'>Transportation</a></td><td class='empty'>—</td><td><a href='#i-transportation-2023-69'>said</a></td></tr></table>
+<h2>Climate</h2>
+<div class='card' id='i-climate-2023-55'>
+<div class='meta'><a href='../2023.html'>2023</a> · questionnaire </div>
+<h3>We are in a climate emergency. With your leadership, how would Boulder change commensurately?</h3>
+<details class='quote'><summary>We must access and leverage every single penny of the historic climate investments at the federal, state and city government to expand our city’s…</summary><blockquote class='answer'>We must access and leverage every single penny of the historic climate investments at the federal, state and city government to expand our city’s climate staff, budget, partnerships and resources. We must ensure climate impacts from the built environment are adequately assessed, measured, aligned to city goals, reported and used to inform every decision in our city. Without habitat for all living beings in our ecosystem, humans cannot survive.</blockquote></details>
+<p class='note'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-climate-change-action/'>2023 Boulder City Council election: Where the candidates stand on climate change action</a></p>
+</div>
+<h2>Homelessness</h2>
+<div class='card' id='i-homelessness-2023-17'>
+<div class='meta'><a href='../2023.html'>2023</a> · questionnaire </div>
+<h3>What do you think are the most promising initiatives for reducing homelessness?</h3>
+<details class='quote'><summary>Homelessness is a response to failed policy, not failed people. I believe the most promising initiatives in reducing homelessness are those that are…</summary><blockquote class='answer'>Homelessness is a response to failed policy, not failed people. I believe the most promising initiatives in reducing homelessness are those that are sufficiently funded, staffed and supported over multiple years. Our affected community members and community support organizations have been clear on the need for sustained support of existing evidence-based approaches (e.g. day community center) while expanding mental health, detox, recovery, transitional living, etc. This is not charity. These extreme inequities are a result of a system that encourages myopic economic growth on the backs of discriminatory policies.</blockquote></details>
+<p class='note'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/'>2023 Boulder City Council election: Where the candidates stand on homelessness solutions</a></p>
+</div>
+<div class='card' id='i-homelessness-2023-30'>
+<div class='meta'><a href='../2023.html'>2023</a> · questionnaire </div>
+<h3>What approach would you take to address camping in our parks, on our bike paths and along our waterways?</h3>
+<details class='quote'><summary>I advocate for investments in evidence-based, knowledge-aligned proactive approaches like basic income support, increasing the minimum wage to a…</summary><blockquote class='answer'>I advocate for investments in evidence-based, knowledge-aligned proactive approaches like basic income support, increasing the minimum wage to a living wage to stop new people from becoming unhoused, and expand affordable housing programs to include transitional and sober living options. I bring an ecosystem approach to policymaking that addresses more than the tip of the iceberg.</blockquote></details>
+<p class='note'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/'>2023 Boulder City Council election: Where the candidates stand on homeless encampments</a></p>
+</div>
+<h2>Housing</h2>
+<div class='card' id='i-housing-2023-38'>
+<div class='meta'><a href='../2023.html'>2023</a> · questionnaire </div>
+<h3>What is your plan for increasing Boulder’s affordable housing supply?</h3>
+<details class='quote'><summary>We need to better define what “affordable” means across the socioeconomic spectrum in our city. Building on the recent success of the rise in…</summary><blockquote class='answer'>We need to better define what “affordable” means across the socioeconomic spectrum in our city. Building on the recent success of the rise in occupancy limit, we must invest in climate resilient neighborhoods with multi-unit duplex, triplexes, commercial, transportation and community/communal spaces. Houses are a part of a neighborhood, which also must include access to food, jobs, childcare, schools, etc.</blockquote></details>
+<p class='note'><a href='https://boulderreportinglab.org/2023/10/09/2023-boulder-city-council-election-where-the-candidates-stand-on-affordable-housing/'>2023 Boulder City Council election: Where the candidates stand on affordable housing</a></p>
+</div>
+<h2>This race / other</h2>
+<div class='card' id='i-other-2023-81'>
+<div class='meta'><a href='../2023.html'>2023</a> · questionnaire </div>
+<h3>Assume you are elected this November. What one specific thing will you have accomplished that you’re proud of after one year?</h3>
+<details class='quote'><summary>Success after year one on council will be improved processes and community activation. We will be closer to the collaboration rating on the Boulder…</summary><blockquote class='answer'>Success after year one on council will be improved processes and community activation. We will be closer to the collaboration rating on the Boulder Engagement Framework while also reducing bottlenecks and blindspots in our city’s policies, procedures, programs and initiatives. It is critical that we move beyond informing and consulting towards collective policymaking that shares the power, knowledge, wisdom, and courage to heal across communities and co-creating policies and investments that makes seven Boulder generations from now possible.</blockquote></details>
+<p class='note'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-their-one-year-visions/'>2023 Boulder City Council election: Where the candidates stand on their one-year visions</a></p>
+</div>
+<h2>Transportation</h2>
+<div class='card' id='i-transportation-2023-69'>
+<div class='meta'><a href='../2023.html'>2023</a> · questionnaire </div>
+<h3>How can we better provide alternatives to cars when existing infrastructure prioritizes cars?</h3>
+<details class='quote'><summary>We need alternatives that meet real people and families where they are. A $500 rebate on a $1,200 bike will not meet the needs of our…</summary><blockquote class='answer'>We need alternatives that meet real people and families where they are. A $500 rebate on a $1,200 bike will not meet the needs of our multi-generational/large families, families with children at different schools and multiple jobs, or people with disabilities. We need to significantly invest in expanded bus lines and service hours, car share programs, as well as related issues like a living wage which allows for many more to access rebates and other incentive programs. It is worth noting that rebates are funded by the very taxpayers who cannot afford to access the rebate.</blockquote></details>
+<p class='note'><a href='https://boulderreportinglab.org/2023/10/06/2023-boulder-city-council-election-where-the-candidates-stand-on-making-streets-safer-for-cyclists-walkers-and-others/'>2023 Boulder City Council election: Where the candidates stand on making streets safer for cyclists, walkers and others</a></p>
+</div>
+<h2>Forums</h2><ul>
 <li>2026-06-06 Boulder Progressives Raucous Caucus — did not attend</li>
 <li>2023-08-29 Boulder Chamber City Council and Mayoral Candidate Forum — attended · <a href="https://www.youtube.com/watch?v=AEkK1eSLmNk">recording</a></li>
 <li>2023-08-23 PLAN-Boulder County candidate forum (mayor + two council) — attended</li>
 </ul>
-<h2 id='record'>On the record</h2>
-<p class='note'>Grouped by issue, then by year. Each quote keeps its own source.</p>
-<h3><a href='../issues/climate.html'>Climate</a></h3>
-<div class='record'>
-<p class='record-head'>2023 · written questionnaire </p>
-<h4>We are in a climate emergency. With your leadership, how would Boulder change commensurately?</h4>
-<details class='quote'><summary>We must access and leverage every single penny of the historic climate investments at the federal, state and city government to expand our city’s climate staff, budget, partnerships and resources. We…</summary><blockquote class='answer'>We must access and leverage every single penny of the historic climate investments at the federal, state and city government to expand our city’s climate staff, budget, partnerships and resources. We must ensure climate impacts from the built environment are adequately assessed, measured, aligned to city goals, reported and used to inform every decision in our city. Without habitat for all living beings in our ecosystem, humans cannot survive.</blockquote></details>
-<p class='cite'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-climate-change-action/'>2023 Boulder City Council election: Where the candidates stand on climate change action</a></p>
-</div>
-<h3><a href='../issues/homelessness.html'>Homelessness</a></h3>
-<div class='record'>
-<p class='record-head'>2023 · written questionnaire </p>
-<h4>What do you think are the most promising initiatives for reducing homelessness?</h4>
-<details class='quote'><summary>Homelessness is a response to failed policy, not failed people. I believe the most promising initiatives in reducing homelessness are those that are sufficiently funded, staffed and supported over…</summary><blockquote class='answer'>Homelessness is a response to failed policy, not failed people. I believe the most promising initiatives in reducing homelessness are those that are sufficiently funded, staffed and supported over multiple years. Our affected community members and community support organizations have been clear on the need for sustained support of existing evidence-based approaches (e.g. day community center) while expanding mental health, detox, recovery, transitional living, etc. This is not charity. These extreme inequities are a result of a system that encourages myopic economic growth on the backs of discriminatory policies.</blockquote></details>
-<p class='cite'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/'>2023 Boulder City Council election: Where the candidates stand on homelessness solutions</a></p>
-</div>
-<div class='record'>
-<p class='record-head'>2023 · written questionnaire </p>
-<h4>What approach would you take to address camping in our parks, on our bike paths and along our waterways?</h4>
-<details class='quote'><summary>I advocate for investments in evidence-based, knowledge-aligned proactive approaches like basic income support, increasing the minimum wage to a living wage to stop new people from becoming unhoused,…</summary><blockquote class='answer'>I advocate for investments in evidence-based, knowledge-aligned proactive approaches like basic income support, increasing the minimum wage to a living wage to stop new people from becoming unhoused, and expand affordable housing programs to include transitional and sober living options. I bring an ecosystem approach to policymaking that addresses more than the tip of the iceberg.</blockquote></details>
-<p class='cite'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/'>2023 Boulder City Council election: Where the candidates stand on homeless encampments</a></p>
-</div>
-<h3><a href='../issues/housing.html'>Housing</a></h3>
-<div class='record'>
-<p class='record-head'>2023 · written questionnaire </p>
-<h4>What is your plan for increasing Boulder’s affordable housing supply?</h4>
-<details class='quote'><summary>We need to better define what “affordable” means across the socioeconomic spectrum in our city. Building on the recent success of the rise in occupancy limit, we must invest in climate resilient…</summary><blockquote class='answer'>We need to better define what “affordable” means across the socioeconomic spectrum in our city. Building on the recent success of the rise in occupancy limit, we must invest in climate resilient neighborhoods with multi-unit duplex, triplexes, commercial, transportation and community/communal spaces. Houses are a part of a neighborhood, which also must include access to food, jobs, childcare, schools, etc.</blockquote></details>
-<p class='cite'><a href='https://boulderreportinglab.org/2023/10/09/2023-boulder-city-council-election-where-the-candidates-stand-on-affordable-housing/'>2023 Boulder City Council election: Where the candidates stand on affordable housing</a></p>
-</div>
-<h3><a href='../issues/other.html'>This race / other</a></h3>
-<div class='record'>
-<p class='record-head'>2023 · written questionnaire </p>
-<h4>Assume you are elected this November. What one specific thing will you have accomplished that you’re proud of after one year?</h4>
-<details class='quote'><summary>Success after year one on council will be improved processes and community activation. We will be closer to the collaboration rating on the Boulder Engagement Framework while also reducing…</summary><blockquote class='answer'>Success after year one on council will be improved processes and community activation. We will be closer to the collaboration rating on the Boulder Engagement Framework while also reducing bottlenecks and blindspots in our city’s policies, procedures, programs and initiatives. It is critical that we move beyond informing and consulting towards collective policymaking that shares the power, knowledge, wisdom, and courage to heal across communities and co-creating policies and investments that makes seven Boulder generations from now possible.</blockquote></details>
-<p class='cite'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-their-one-year-visions/'>2023 Boulder City Council election: Where the candidates stand on their one-year visions</a></p>
-</div>
-<h3><a href='../issues/transportation.html'>Transportation</a></h3>
-<div class='record'>
-<p class='record-head'>2023 · written questionnaire </p>
-<h4>How can we better provide alternatives to cars when existing infrastructure prioritizes cars?</h4>
-<details class='quote'><summary>We need alternatives that meet real people and families where they are. A $500 rebate on a $1,200 bike will not meet the needs of our multi-generational/large families, families with children at…</summary><blockquote class='answer'>We need alternatives that meet real people and families where they are. A $500 rebate on a $1,200 bike will not meet the needs of our multi-generational/large families, families with children at different schools and multiple jobs, or people with disabilities. We need to significantly invest in expanded bus lines and service hours, car share programs, as well as related issues like a living wage which allows for many more to access rebates and other incentive programs. It is worth noting that rebates are funded by the very taxpayers who cannot afford to access the rebate.</blockquote></details>
-<p class='cite'><a href='https://boulderreportinglab.org/2023/10/06/2023-boulder-city-council-election-where-the-candidates-stand-on-making-streets-safer-for-cyclists-walkers-and-others/'>2023 Boulder City Council election: Where the candidates stand on making streets safer for cyclists, walkers and others</a></p>
-</div>
 </main>
 <footer>
-  Prototype. Every number is cited. We do not endorse candidates.
-  City of Boulder only. Live at <a href="https://bouldervotes.org/">bouldervotes.org</a>.
-  <a href="../sources.html">Source catalog</a>.
+  City of Boulder only. Cited, not scored, not an endorsement.
+  <a href="../sources.html">Sources</a> ·
+  <a href="../forums.html">Forums</a> ·
+  <a href="../measures.html">All measures</a> ·
+  <a href="https://bouldervotes.org/">bouldervotes.org</a>
 </footer>
 </body>
 </html>

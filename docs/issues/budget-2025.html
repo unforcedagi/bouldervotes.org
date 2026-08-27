@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>City budget 2025 — Boulder Votes</title>
+<style>
+:root {
+  --paper: #f4efe6;
+  --ink: #1c1916;
+  --muted: #5c5348;
+  --rule: #d4c7b0;
+  --link: #1f4b73;
+  --link-visited: #5a3d6e;
+  --mark: #8b2e1a;
+  --won: #215c3a;
+  --chip: #efe6d6;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.45;
+}
+header {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+.header-inner, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.1rem; }
+.header-inner { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.brand { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: var(--ink); }
+.rail { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; margin-top: 0.45rem; align-items: center; }
+.rail a, .pill {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.rail a.on, .pill.on { background: var(--ink); color: var(--paper); }
+.rail .sep { color: var(--muted); margin: 0 0.25rem; }
+nav.util { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.6rem 0.9rem; font-size: 0.9rem; }
+nav.util a { color: var(--link); }
+h1 { font-size: 1.7rem; line-height: 1.15; margin: 1.1rem 0 0.5rem; }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.45rem; }
+h3 { font-size: 1.02rem; margin: 1rem 0 0.3rem; }
+p, li { max-width: 42rem; }
+.lede { font-size: 1.05rem; margin-top: 0; }
+.note, .empty { color: var(--muted); font-size: 0.92rem; }
+.empty { font-style: italic; }
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+.jump { font-size: 0.92rem; margin: 0.4rem 0 1rem; }
+.jump a { margin-right: 0.8rem; }
+.card {
+  border: 1px solid var(--rule);
+  padding: 0.65rem 0.8rem;
+  margin: 0 0 0.55rem;
+  background: #f8f3ea;
+}
+.card h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+.card .meta { color: var(--muted); font-size: 0.88rem; }
+.chips { margin-top: 0.35rem; }
+.chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  border: 1px solid var(--rule);
+  background: var(--chip);
+  padding: 0.05rem 0.4rem;
+  margin: 0 0.25rem 0.25rem 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
+.badge.match { border-color: var(--mark); color: var(--mark); }
+.badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+th, td { text-align: left; padding: 0.35rem 0.4rem 0.35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.matrix td, .matrix th { text-align: center; }
+.matrix th:first-child, .matrix td:first-child { text-align: left; }
+.matrix a { text-decoration: none; }
+details.quote { margin: 0.25rem 0; }
+details.quote > summary { cursor: pointer; }
+details.quote > summary::after { content: " — full"; color: var(--link); font-size: 0.88rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.35rem 0; padding-left: 0.7rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.crumb { font-size: 0.9rem; color: var(--muted); margin: 0.8rem 0 0; }
+footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; }
+@media (max-width: 640px) {
+  html { font-size: 18px; }
+}
+@media print {
+  header { position: static; }
+  nav.util, .jump { display: none; }
+  a { color: inherit; text-decoration: none; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="brand" href="../index.html">Boulder Votes</a>
+    <div class="rail"><a class="" href="../2026.html">2026</a><a class="on" href="../2025.html">2025</a><a class="" href="../2023.html">2023</a></div>
+    <nav class="util"><a href="../issues.html">Issues</a><a href="../people.html">People</a><a href="../about.html">About</a></nav>
+  </div>
+</header>
+<main>
+<p class='crumb'><a href='../issues.html'>Issues</a> · <a href='budget.html'>City budget</a></p>
+<h1>City budget · 2025</h1>
+<p class='note'>This issue in: <a class='pill on' href='budget-2025.html'>2025</a> </p>
+<p>People on the 2025 ballot. Answers from this cycle first. If a returning candidate only answered in an earlier race, that quote is labelled as earlier — not as a 2025 answer.</p>
+<h2>With sales tax revenue slowing, a hiring freeze, and a $380 million maintenance backlog, what would be your top spending priorities — and what would you cut or delay?</h2>
+<p class='note'>questionnaire</p>
+<p class='note'><a href='https://boulderreportinglab.org/2025/10/12/2025-boulder-city-council-election-where-candidates-stand-on-priorities-for-the-city-budget/'>2025 Boulder City Council election: Where candidates stand on city budget priorities</a></p>
+<table><tr><th>Candidate</th><th>What they said</th></tr><tr><td><a href='../people/matt-benjamin.html'>Matt Benjamin</a></td><td><details class='quote'><summary>Boulder is facing real fiscal challenges: slowing sales tax growth, a hiring freeze, a $380 million capital backlog, and uncertainty around federal…</summary><blockquote class='answer'>Boulder is facing real fiscal challenges: slowing sales tax growth, a hiring freeze, a $380 million capital backlog, and uncertainty around federal funding. In this environment, we need to be disciplined and clear about our priorities. My top budgetary priorities are core services that directly impact safety, equity, and resilience:
+
+● Maintaining and repairing our streets, bridges, and water infrastructure, which are essential for safety and economic vitality.
+
+● Accelerating wildfire and flood mitigation, because delaying resilience investments will cost us far more later.
+
+● Work urgently to reinvigorate our local economy by streamlining permitting and offering economic incentives.
+
+To balance the budget, I believe we should review ongoing programs with clear outcome-based metrics, funding what delivers measurable results, and rethinking what does not. We also need to boost city revenues by going all in on our new economic development plan. Lifting up our small businesses and driving local tourism to our downtown cores is essential to strengthening our budget. Finally, we must explore new, sustainable revenue sources beyond sales tax to reduce volatility. My approach is pragmatic: protect the essentials, invest in resilience, delay what can wait, and hold ourselves accountable for outcomes.</blockquote></details></td></tr><tr><td><a href='../people/lauren-folkerts.html'>Lauren Folkerts</a></td><td><details class='quote'><summary>With limited resources, Boulder must protect the core services residents rely on most: housing and human services, public safety, and maintaining our…</summary><blockquote class='answer'>With limited resources, Boulder must protect the core services residents rely on most: housing and human services, public safety, and maintaining our roads, buildings, and infrastructure. These are essential for equity, safety, and resilience.
+
+I don’t believe we should solve our budget challenges by shifting costs onto those who can least afford it. Instead, we should focus on efficiency and effectiveness. That’s why I supported our shift to outcomes-based budgeting, which directs dollars to the programs that deliver the greatest impact. In this year’s realignment, that approach meant we didn’t cut a number of major programs. Instead, we were able to combine programs and reduced duplication with outside agencies, while preserving what only the city can provide.
+
+It’s also important to note that many big capital projects are funded separately, through voter-dedicated revenues or state and federal grants. The real trade-offs are in the general fund, where our choices must align with community values. By prioritizing essentials, streamlining programs, and keeping equity at the center, we can manage fiscal challenges responsibly while building a stronger Boulder for the future.</blockquote></details></td></tr><tr><td><a href='../people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a></td><td><details class='quote'><summary>With slowing sales tax growth and a $380 million capital maintenance backlog, Boulder must make careful, transparent, and equitable budget decisions.…</summary><blockquote class='answer'>With slowing sales tax growth and a $380 million capital maintenance backlog, Boulder must make careful, transparent, and equitable budget decisions. My top priorities are maintaining (and improving!) essential city services, protecting our most vulnerable residents, and investing in long-term resilience. This includes ensuring public safety, housing stability, climate adaptation, and core infrastructure remain funded and functional.
+
+At the same time, we need to take a hard look at how resources are allocated. I would prioritize projects that prevent higher long-term costs such as proactive infrastructure maintenance, wildfire mitigation, and flood resiliency over discretionary or deferrable capital projects. Strategic resource management, which I am trained in, requires not only balancing the budget but also considering the downstream impacts of cuts or delays.
+
+I also believe the city should explore innovative cross-department partnerships and leverage nonprofit and philanthropic investment to meet community needs more cost-effectively. Increasing financial transparency is essential so residents can understand trade-offs and have confidence in Council decisions.
+
+Tough choices are ahead, but with disciplined, accountable, and equity-minded budgeting, we can safeguard Boulder’s core services, protect residents, and invest in a resilient future without sacrificing our community’s quality of life.</blockquote></details></td></tr><tr><td><a href='../people/rob-kaplan.html'>Rob Kaplan</a></td><td><details class='quote'><summary>My top priority is to protect core services that keep Boulder safe and functional: Fire, Police, EMS, and maintaining our basic infrastructure like…</summary><blockquote class='answer'>My top priority is to protect core services that keep Boulder safe and functional: Fire, Police, EMS, and maintaining our basic infrastructure like roads, utilities, and snow removal. We must also invest in wildfire mitigation and home hardening, which save lives and prevent catastrophic future costs.
+
+With limited resources, every city department must take responsibility for identifying opportunities to increase revenue and pinpoint where expenditures can be reduced. This shared accountability ensures we are making the most of every dollar. Projects critical to safety, basic services, or regulatory compliance should move forward, while non-essential expansions or new amenities may need to be delayed. Each city department knows its budget best and is in the strongest position to identify line items or projects where costs can be reduced or eliminated.
+
+This process shouldn’t just be about getting through this year or next, it must be a long-term commitment to smarter spending. By holding departments accountable for proactive and transparent budget management and focusing on safety, reliability, maintenance, and fiscal discipline, we can make sustainable, data-driven decisions that steadily reduce the $380 million maintenance backlog and keep Boulder strong for years to come.</blockquote></details></td></tr><tr><td><a href='../people/maxwell-lord.html'>Maxwell Lord</a></td><td><details class='quote'><summary>I could take the easy way out, and say “performance-based metrics” and “higher revenue, and lower spending,” but it’s simply an easy way to dodge the…</summary><blockquote class='answer'>I could take the easy way out, and say “performance-based metrics” and “higher revenue, and lower spending,” but it’s simply an easy way to dodge the question. I do, of course, believe we need to have good metrics for measuring how our policies affect our cities, from the efficacy of higher policing, to the impact of more buses. I also think Council needs to be honest with its citizens, and itself about what it can no longer afford, and start looking for cheaper alternatives. This means tabling some civic projects, and looking for simpler ways to get people around safely. We spent 16 million dollars on the demolition of the old hospital, so that we could recycle the steel and say we did it sustainably. I, like everyone, want to recycle, but we can’t be spending many times over market average for commercial demolition for a warm fuzzy feeling, when the money could have gone to helping get addicts off of the streets, and people back into our shopping centers for more economic vitality.</blockquote></details></td></tr><tr><td><a href='../people/montserrat-palacios.html'>Montserrat Palacios</a></td><td><details class='quote'><summary>The budget should not be a checklist, it needs to be revisited constantly and focus our attention on outcomes and impact more than on initial…</summary><blockquote class='answer'>The budget should not be a checklist, it needs to be revisited constantly and focus our attention on outcomes and impact more than on initial investments. The best way to have healthy accounts is with increased revenue through commercial activities. I am not proposing more taxes, I am proposing the activation of all the vacant commercial properties like store-fronts and office-space as those locales would bring much needed revenue. The city needs to work with the major landlords and investors and find ways to incentivize them to adopt more reasonable rent structures, acting as an important catalyst that benefits small businesses, entrepreneurs and the community at large.</blockquote></details></td></tr><tr><td><a href='../people/jennifer-robins.html'>Jennifer Robins</a></td><td><details class='quote'><summary>Boulder has a nearly $600 million budget, but most people don’t feel like they’re seeing $600 million worth of results. To me, that means it’s not…</summary><blockquote class='answer'>Boulder has a nearly $600 million budget, but most people don’t feel like they’re seeing $600 million worth of results. To me, that means it’s not just about how much money we’re spending, but how we’re spending it. We need to overhaul the budget so it’s focused on outcomes, transparency, and accountability. That starts with prioritizing the basics like fixing our streets and sidewalks, keeping bike paths clear, improving snow removal, investing in wildfire mitigation, maintaining our rec centers, and supporting public safety. These are the services every resident counts on, and they need to come first.
+
+From there, we should hold programs and contracts accountable with clear performance measures, and if something isn’t delivering results, it shouldn’t automatically get renewed. I also think the city relies far too much on outside consultants, and we’d be better off shifting those dollars into staff capacity and resident-facing services. It should be alarming to the entire community that sales tax growth is slowing. We need to look hard at that problem before jumping immediately to additional taxes.
+
+Finally, I want to bring residents directly into the process by creating a Community Accountability Committee that focuses on and reviews the budget, wildfire mitigation, and our homeless solutions.</blockquote></details></td></tr><tr><td><a href='../people/rob-smoke.html'>Rob Smoke</a></td><td><details class='quote'><summary>Firstly, I would realign middle and upper level employees’ salaried compensation via adjustments taken from data collection from similarly sized…</summary><blockquote class='answer'>Firstly, I would realign middle and upper level employees’ salaried compensation via adjustments taken from data collection from similarly sized municipalities. Separately, I would give a closer review of the technical aspects of integrated benefit management. I believe in certain types of pragmatic “best practices” implementation; I have a background that applies to this type of situation.</blockquote></details></td></tr><tr><td><a href='../people/nicole-speer.html'>Nicole Speer</a></td><td><details class='quote'><summary>Council is already addressing these budget gaps through hiring freezes, departmental realignments, and operational efficiencies. For 2026, we’ve made…</summary><blockquote class='answer'>Council is already addressing these budget gaps through hiring freezes, departmental realignments, and operational efficiencies. For 2026, we’ve made difficult decisions to preserve high-impact and essential services and programs while preparing for slower sales tax growth and uncertain federal support.
+
+We’ve known for decades that our heavy reliance on sales tax makes us vulnerable to economic shifts. Many city funds are legally restricted, which limits flexibility. Our capital maintenance backlog can’t be solved through cuts alone.
+
+That’s why I supported the Climate, Community, and Resilience Sales Tax (CCRS) in 2021 and support its extension in 2025. It provides dedicated funding for infrastructure, climate adaptation, and public facilities. I’ve also championed outcome-based budgeting, where investments are tied to measurable results aligned with Boulder’s sustainability, equity, and resilience framework.
+
+As we continue to make these decisions, my priority is that we listen to the community about what our top priorities should be. This fall, the community will help shape priorities for 2027 and beyond through the Fund Our Future conversation. I’ve advocated for this conversation because this is how we ensure our budget reflects what our whole community values most. The next Council must use this information to shape future spending decisions.</blockquote></details></td></tr><tr><td><a href='../people/aaron-stone.html'>Aaron Stone</a></td><td><details class='quote'><summary>The city council has already closed the 7.4 million dollar shortfall. However, I think we should: 1. Target the homeless issue. This issue affects…</summary><blockquote class='answer'>The city council has already closed the 7.4 million dollar shortfall. However, I think we should:
+
+1. Target the homeless issue. This issue affects public perception of safety and directly ties into the vitality of downtown.
+
+2. Helping the middle class afford housing in our community. There are several options available including reducing regulations on creating Tiny Homes, ADUs, and removing red tape on building in certain areas already slated for development.
+
+3. Commercial Rent is too high. The cost of doing business is driving restaurants and local shopping out of Boulder. I think we can find creative ways to help.</blockquote></details></td></tr><tr><td><a href='../people/mark-wallach.html'>Mark Wallach</a></td><td><details class='quote'><summary>On the subject of infrastructure, my main priority is the passage of the extension of the Community Culture Resilience and Safety Act, which will…</summary><blockquote class='answer'>On the subject of infrastructure, my main priority is the passage of the extension of the Community Culture Resilience and Safety Act, which will fund a substantial portion (but not all) of our infrastructure needs. I regret the substantial cuts we have made to our Capital Improvements Program across virtually all departments, but hopefully many of the postponed projects can be put back in the queue for 2027.
+
+As I have expressed, infrastructure maintenance is a top priority for me. One priority of the proposed budget is to attempt to retain staff, and reallocate staff, to avoid layoffs. I agree with this strategy. It is simply too hard to replace experienced, talented staff members after they have been laid off, and so the emphasis on retention is warranted.
+
+I do have some quibbles with the proposed 2026 budget (who can get excited about cutting funds for the Circle of Care program?) but overall I think it is a serious effort to manage Boulder through this period of economic certainty. I am more concerned with the potential impact on Boulder of policy decisions made in Washington, but the damage from those decisions is essentially unknowable at this time.</blockquote></details></td></tr></table>
+</main>
+<footer>
+  City of Boulder only. Cited, not scored, not an endorsement.
+  <a href="../sources.html">Sources</a> ·
+  <a href="../forums.html">Forums</a> ·
+  <a href="../measures.html">All measures</a> ·
+  <a href="https://bouldervotes.org/">bouldervotes.org</a>
+</footer>
+</body>
+</html>

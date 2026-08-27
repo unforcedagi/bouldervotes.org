@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homelessness 2023 — Boulder Votes</title>
+<style>
+:root {
+  --paper: #f4efe6;
+  --ink: #1c1916;
+  --muted: #5c5348;
+  --rule: #d4c7b0;
+  --link: #1f4b73;
+  --link-visited: #5a3d6e;
+  --mark: #8b2e1a;
+  --won: #215c3a;
+  --chip: #efe6d6;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.45;
+}
+header {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+.header-inner, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.1rem; }
+.header-inner { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.brand { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: var(--ink); }
+.rail { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; margin-top: 0.45rem; align-items: center; }
+.rail a, .pill {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.rail a.on, .pill.on { background: var(--ink); color: var(--paper); }
+.rail .sep { color: var(--muted); margin: 0 0.25rem; }
+nav.util { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.6rem 0.9rem; font-size: 0.9rem; }
+nav.util a { color: var(--link); }
+h1 { font-size: 1.7rem; line-height: 1.15; margin: 1.1rem 0 0.5rem; }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.45rem; }
+h3 { font-size: 1.02rem; margin: 1rem 0 0.3rem; }
+p, li { max-width: 42rem; }
+.lede { font-size: 1.05rem; margin-top: 0; }
+.note, .empty { color: var(--muted); font-size: 0.92rem; }
+.empty { font-style: italic; }
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+.jump { font-size: 0.92rem; margin: 0.4rem 0 1rem; }
+.jump a { margin-right: 0.8rem; }
+.card {
+  border: 1px solid var(--rule);
+  padding: 0.65rem 0.8rem;
+  margin: 0 0 0.55rem;
+  background: #f8f3ea;
+}
+.card h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+.card .meta { color: var(--muted); font-size: 0.88rem; }
+.chips { margin-top: 0.35rem; }
+.chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  border: 1px solid var(--rule);
+  background: var(--chip);
+  padding: 0.05rem 0.4rem;
+  margin: 0 0.25rem 0.25rem 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
+.badge.match { border-color: var(--mark); color: var(--mark); }
+.badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+th, td { text-align: left; padding: 0.35rem 0.4rem 0.35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.matrix td, .matrix th { text-align: center; }
+.matrix th:first-child, .matrix td:first-child { text-align: left; }
+.matrix a { text-decoration: none; }
+details.quote { margin: 0.25rem 0; }
+details.quote > summary { cursor: pointer; }
+details.quote > summary::after { content: " — full"; color: var(--link); font-size: 0.88rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.35rem 0; padding-left: 0.7rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.crumb { font-size: 0.9rem; color: var(--muted); margin: 0.8rem 0 0; }
+footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; }
+@media (max-width: 640px) {
+  html { font-size: 18px; }
+}
+@media print {
+  header { position: static; }
+  nav.util, .jump { display: none; }
+  a { color: inherit; text-decoration: none; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="brand" href="../index.html">Boulder Votes</a>
+    <div class="rail"><a class="" href="../2026.html">2026</a><a class="" href="../2025.html">2025</a><a class="on" href="../2023.html">2023</a></div>
+    <nav class="util"><a href="../issues.html">Issues</a><a href="../people.html">People</a><a href="../about.html">About</a></nav>
+  </div>
+</header>
+<main>
+<p class='crumb'><a href='../issues.html'>Issues</a> · <a href='homelessness.html'>Homelessness</a></p>
+<h1>Homelessness · 2023</h1>
+<p class='note'>This issue in: <a class='pill' href='homelessness-2025.html'>2025</a> <a class='pill on' href='homelessness-2023.html'>2023</a> </p>
+<p>People on the 2023 ballot. Answers from this cycle first. If a returning candidate only answered in an earlier race, that quote is labelled as earlier — not as a 2023 answer.</p>
+<h2>What do you think are the most promising initiatives for reducing homelessness?</h2>
+<p class='note'>questionnaire</p>
+<p class='note'><a href='https://boulderreportinglab.org/2023/10/04/2023-boulder-city-council-election-where-the-candidates-stand-on-homelessness-solutions/'>2023 Boulder City Council election: Where the candidates stand on homelessness solutions</a></p>
+<table><tr><th>Candidate</th><th>What they said</th></tr><tr><td><a href='../people/taishya-adams.html'>Taishya Adams</a></td><td><details class='quote'><summary>Homelessness is a response to failed policy, not failed people. I believe the most promising initiatives in reducing homelessness are those that are…</summary><blockquote class='answer'>Homelessness is a response to failed policy, not failed people. I believe the most promising initiatives in reducing homelessness are those that are sufficiently funded, staffed and supported over multiple years. Our affected community members and community support organizations have been clear on the need for sustained support of existing evidence-based approaches (e.g. day community center) while expanding mental health, detox, recovery, transitional living, etc. This is not charity. These extreme inequities are a result of a system that encourages myopic economic growth on the backs of discriminatory policies.</blockquote></details></td></tr><tr><td><a href='../people/silas-atkins.html'>Silas Atkins</a></td><td><details class='quote'><summary>Housing is at the core of my campaign, which is centered around meeting people’s basic needs. We do that by using safe outdoor spaces (tents and…</summary><blockquote class='answer'>Housing is at the core of my campaign, which is centered around meeting people’s basic needs. We do that by using safe outdoor spaces (tents and parking areas with bathrooms, trash service, counseling, etc.), day shelters, overnight shelters, hotels, vacant office/commercial space, sober supportive housing, transitional housing, building more housing of all types in areas with services, and expanding long term affordability through permanently affordable housing and more market rate and luxury housing stock.</blockquote></details></td></tr><tr><td><a href='../people/terri-brncic.html'>Terri Brncic</a></td><td><details class='quote'><summary>With an estimated 75% of the unsheltered population suffering from substance abuse disorders, untreated mental illness, or both, we can’t continue to…</summary><blockquote class='answer'>With an estimated 75% of the unsheltered population suffering from substance abuse disorders, untreated mental illness, or both, we can’t continue to insist that housing alone will solve the problem. We need a continuum of treatment options that will provide these individuals with the immediate care that they need while putting them on a path to stable housing.
+
+This means expanding and enhancing our detox facility so that we have an “emergency room” to intake individuals in crisis. It means building out sober-supported transitional housing where they can go after detox or post jail release to continue to focus on their recovery. And it means creating a streamlined network of treatment facilities so that we have options for individuals that are struggling and need extra support.
+
+We also need to get more data-driven about the effectiveness of permanent supportive housing. We need much more transparency around the very real issues that are occurring in this housing — overdoses, meth contamination, evictions, etc. If the city is going to insist that “housing first” is the answer, it needs to be supported with facts so that we can optimize what’s working and course correct on what’s not.</blockquote></details></td></tr><tr><td><a href='../people/aaron-brockett.html'>Aaron Brockett</a></td><td><details class='quote'><summary>The need for additional solutions for unhoused community members is great. I firmly support the creation of more permanent supportive housing using…</summary><blockquote class='answer'>The need for additional solutions for unhoused community members is great. I firmly support the creation of more permanent supportive housing using the “housing first” model as well as interim solutions like tiny home villages and safe outdoor spaces like those implemented in Denver.
+
+We also need to ensure better access to mental health and substance use treatment options, including with transitional housing. Another important piece of the puzzle is opening the day services centers to connect people experiencing homelessness with services and housing. We can make many of these initiatives possible by leveraging state Proposition 123 funding.</blockquote></details></td></tr><tr><td><a href='../people/jacques-decalo.html'>Jacques Decalo</a></td><td><details class='quote'><summary>We must address the issues at the heart of the problem, establishing facilities that can rehabilitate, house and address the mental health issue that…</summary><blockquote class='answer'>We must address the issues at the heart of the problem, establishing facilities that can rehabilitate, house and address the mental health issue that those experiencing homelessness are facing. Pushing people around from one town to another does nothing but perpetuate relapses. Over my lifetime of living in Boulder I have seen the camping and crime associated with the homeless population rise to levels never experienced. Those experiencing homelessness can feel cast out of society. We must increase touch points to build trust and have them be accepting and ready to receive help.
+
+We need to invest in regional facilities that give people an opportunity to sober up with mental health resources that allow them to understand the reason for their substance abuse. Once sober, programs that house and provide continued mental health assessments can be allocated. It is important to give people a space that they can feel is their own in order to get their feet back underneath them. We must find ways to house those ready to work and give them opportunities for income. This is not just a Boulder issue. It is regional and national. We must increase funding from the state and federal level.</blockquote></details></td></tr><tr><td><a href='../people/waylon-lewis.html'>Waylon Lewis</a></td><td><details class='quote'><summary>First of all, stop the infighting. We can’t make meaningful progress and actually help people, increase safety and return our town to a baseline of…</summary><blockquote class='answer'>First of all, stop the infighting. We can’t make meaningful progress and actually help people, increase safety and return our town to a baseline of functionality, access and safety for all.
+
+Specifically, I’m supportive of the camping ban. Our parks are for all of us. Right now they’re getting trashed, and we’re paying millions of dollars to move folks repeatedly a block or two and see the next area trashed. It’s also not safe for our homeless friends — drug use, untreated, is heartbreaking. Same with mental well-being. Same with assault, which is sadly prevalent — homeless women and youth are assaulted at alarming rates — up to 79% according to some studies. The status quo is good for no one.
+
+So not only am I supportive of the camping ban, I’m supportive of enforcing it. Then, moving folks to a safe, warm, cool, dog-friendly longer-term space where nonprofits (which cost taxpayers nothing) and our police can go to one space. That’s a two-step process that has actually worked in many cities. Saved money. And increased safety — for all.</blockquote></details></td></tr><tr><td><a href='../people/tina-marquis.html'>Tina Marquis</a></td><td><details class='quote'><summary>Homelessness is complex, and people are homeless for different reasons. I believe we’ll need several tools to address this humanitarian crisis. I…</summary><blockquote class='answer'>Homelessness is complex, and people are homeless for different reasons. I believe we’ll need several tools to address this humanitarian crisis. I would advocate for more supportive housing, increased behavioral health treatment, and ready-to-work programs. I also believe Boulder cannot solve this issue alone, and nor can Denver.
+
+I will advocate for partnerships across the metro region and hope we work together to create solutions for homelessness. I am optimistic about new grant funding received by multiple groups county-wide serving the homeless to expand support for the homeless, including housing.
+
+[Editor’s note: Earlier this year, the city was awarded $2.5 million from the state to create a respite center for homeless people and help launch a non-police behavioral health crisis response program. And last month, the city was awarded additional money to pay for 40 housing vouchers, which subsidize rent, and other homelessness services.]</blockquote></details></td></tr><tr><td><a href='../people/aaron-gabriel-neyer.html'>Aaron Gabriel Neyer</a></td><td><details class='quote'><summary>We need to work with greater urgency to spin up better services, most specifically a night shelter and a day shelter. Then we need to put more…</summary><blockquote class='answer'>We need to work with greater urgency to spin up better services, most specifically a night shelter and a day shelter. Then we need to put more resources into mental health outreach teams who can go and build relationships with the unhoused, to help understand their needs and to more effectively direct them to resources. We need to use enforcement carefully, to help nudge the unhoused people into conversations with outreach teams who will get them help and to address those who are unhoused who seem less interested in getting help and more interested in creating trouble — especially those stealing or selling drugs.</blockquote></details></td></tr><tr><td><a href='../people/jennifer-robins.html'>Jennifer Robins</a></td><td><details class='quote'><summary>There are many factors that contribute to homelessness. These include lack of housing, income inequity, substance abuse and mental health issues. I…</summary><blockquote class='answer'>There are many factors that contribute to homelessness. These include lack of housing, income inequity, substance abuse and mental health issues. I am committed to working to increase affordable housing and streamlining city processes to allow for more affordable housing opportunities. I am open to exploring the possibility for tiny homes or micro-communities, where we could move groups of people into tier 1 housing.
+
+The unhoused have communities just like you and I. If we can work with the encampments in that light, I think that the level of success would be much greater than trying to move people into individual housing and removing them from their existing personal support structure. These options should be funded by the county using the extension of the Alternative Sentencing Facility tax that will be on the ballot next year.
+
+In addition to our existing services, I think the most promising initiatives for ending homelessness include our existing night shelter and the coming day shelter. The existing council has also approved the day shelter, which will be an important addition to our current services. It will provide another path for people to get connected to services.</blockquote></details></td></tr><tr><td><a href='../people/ryan-schuchard.html'>Ryan Schuchard</a></td><td><details class='quote'><summary>Our homelessness crisis is driven by poverty and a lack of housing. These circumstances are worsening, nationally and in Boulder, with homelessness…</summary><blockquote class='answer'>Our homelessness crisis is driven by poverty and a lack of housing. These circumstances are worsening, nationally and in Boulder, with homelessness at much higher levels in communities with limited housing affordability like ours. Furthermore, we need to be realistic about the fact that the way out of homelessness is frequently complicated by mental illness and substance abuse.
+
+The most promising initiatives for reducing homelessness are the following:
+
+Immediate stability and support. Safe places for people to go, both during the day and at night, with a more robust system of caseworkers and resources to help people effectively manage individual challenges. We also need to invest in comprehensive engagement to meet the needs of “superusers,” the top 50 or so people who cycle from crisis to crisis. Finally, we must create more local treatment services for mental health and addiction for everyone, regardless of housing status.
+
+Transitional housing. More comprehensive options for tiny homes and other transitional housing, with varying levels of supervision and support, aiming to put people on paths to permanent homes. Prop 123 funding should be useful. [Editor’s note: Proposition 123 is a voter-approved 2022 ballot measure that dedicates a portion of income tax revenue to affordable housing programs.]
+
+Homelessness prevention. Renter protections and assistance, with more abundant affordable housing options overall to prevent people from slipping into homelessness.</blockquote></details></td></tr><tr><td><a href='../people/nicole-speer.html'>Nicole Speer</a></td><td><details class='quote'><summary>Homelessness encompasses the encampments in our public spaces to families doubling up in single-family homes. Regardless of the type of homelessness…</summary><blockquote class='answer'>Homelessness encompasses the encampments in our public spaces to families doubling up in single-family homes. Regardless of the type of homelessness we talk about, no one finds our current situation acceptable. Thankfully, there are evidence-based, data-driven strategies that prevent, reduce and even eliminate homelessness.
+
+Focusing on prevention will avoid continued increases in homelessness. Meanwhile, let’s support evidence-based, data-driven approaches to reducing and even ending homelessness. Read more about how we can reduce homelessness in Boulder.</blockquote></details></td></tr><tr><td><a href='../people/paul-tweedlie.html'>Paul Tweedlie</a></td><td><details class='quote'><summary>City Council’s passing of the Police Master Plan was a great step forward. [Editor’s note: The Boulder City Council has endorsed the city’s…</summary><blockquote class='answer'>City Council’s passing of the Police Master Plan was a great step forward.
+
+[Editor’s note: The Boulder City Council has endorsed the city’s “Reimagine Policing Plan,” which seeks to focus more on crime prevention and less on reacting to crime.]</blockquote></details></td></tr><tr><td><a href='../people/tara-winer.html'>Tara Winer</a></td><td><details class='quote'><summary>I believe housing with supportive services is the most effective way to help reduce homelessness. Because many people experiencing homelessness…</summary><blockquote class='answer'>I believe housing with supportive services is the most effective way to help reduce homelessness. Because many people experiencing homelessness suffer from mental health issues and or drug addiction, having 24/7 wrap-around services would give people the highest probability of success in housing. We need options for people to access this kind of help, especially options that accept Medicaid. Our state is sorely lacking in these areas. I have been working with county and state representatives to provide options.
+
+Ready-to- work programs like Bridge House offers, are unique in that they provide employment, housing and support.
+
+A few months ago, I visited The Other Side Academy. It’s a live-in program where students learn vocational and life skills. It’s dedicated to those in the criminal justice system that struggle with substance abuse. Boulder’s Community Court program made its first successful referral to The Other Side Academy for an unhoused, criminal justice-involved individual!
+
+Ultimately, we need more housing for the unhoused. The City of Aurora’s pallet homes are 10 x 10, equipped with power, air conditioning and heat. A non-profit staffs the community 24 hours a day. This, in my opinion, is the most promising initiative.</blockquote></details></td></tr><tr><td><a href='../people/bob-yates.html'>Bob Yates</a></td><td><details class='quote'><summary>In the September issue of my monthly newsletter, the Boulder Bulletin, I set forth eight solutions to eight homelessness problems. Briefly, those…</summary><blockquote class='answer'>In the September issue of my monthly newsletter, the Boulder Bulletin, I set forth eight solutions to eight homelessness problems. Briefly, those solutions are (1) providing permanent supportive housing; (2) treating mental illness and substance abuse; (3) using the night shelter more effectively; (4) opening a day shelter; (5) enforcing our camping ban; (6) cleaning up encampments rapidly; (7) establishing consequences for repeat criminal offenses; and (8) addressing transience. I invite community members to read my proposals and to provide their input.</blockquote></details></td></tr></table>
+<h2>What approach would you take to address camping in our parks, on our bike paths and along our waterways?</h2>
+<p class='note'>questionnaire</p>
+<p class='note'><a href='https://boulderreportinglab.org/2023/10/11/2023-boulder-city-council-election-where-the-candidates-stand-on-homeless-encampments/'>2023 Boulder City Council election: Where the candidates stand on homeless encampments</a></p>
+<table><tr><th>Candidate</th><th>What they said</th></tr><tr><td><a href='../people/taishya-adams.html'>Taishya Adams</a></td><td><details class='quote'><summary>I advocate for investments in evidence-based, knowledge-aligned proactive approaches like basic income support, increasing the minimum wage to a…</summary><blockquote class='answer'>I advocate for investments in evidence-based, knowledge-aligned proactive approaches like basic income support, increasing the minimum wage to a living wage to stop new people from becoming unhoused, and expand affordable housing programs to include transitional and sober living options. I bring an ecosystem approach to policymaking that addresses more than the tip of the iceberg.</blockquote></details></td></tr><tr><td><a href='../people/silas-atkins.html'>Silas Atkins</a></td><td><details class='quote'><summary>Give people a place to go, which needs to be housing first with supportive services. Moving people around is harmful, costly, and does not solve…</summary><blockquote class='answer'>Give people a place to go, which needs to be housing first with supportive services. Moving people around is harmful, costly, and does not solve anything. Everyone is welcome to and deserving of housing and everything comes back to people. We need our basic needs met, and when they are, we are more productive and engaged members of our community. When those of us that are struggling succeed, it benefits everyone long term and we all win. As was shown during the King Soopers shooting, the people that we see in the grocery store every day impact our lives as we impact theirs. Don’t you want the person who serves you lunch, teaches your children, responds to medical emergencies, and provides city services to live in your neighborhood so we all get more from our time together?</blockquote></details></td></tr><tr><td><a href='../people/terri-brncic.html'>Terri Brncic</a></td><td><details class='quote'><summary>We need to change the dialogue in our community and acknowledge that allowing individuals to suffer severe crises in our public spaces without any…</summary><blockquote class='answer'>We need to change the dialogue in our community and acknowledge that allowing individuals to suffer severe crises in our public spaces without any meaningful response is not compassionate or humane. It’s also not safe — for anyone. Boulder’s unsheltered population is 3.5 times more likely to be victimized than the housed population and incidents of assault and overdoses are widespread. At the same time, these conditions are creating a dangerous environment for our community members who no longer feel safe using our public spaces.
+
+While the city’s long-term focus is on treatment and stable housing, these solutions will take time. In the interim, we must ensure that the unsheltered population resides in a safe indoor space. The city needs to enforce the existing camping ban and enact a mandatory sheltering protocol that will take a triaged approach toward providing appropriate indoor shelter based on individual circumstances. Whether it is by utilizing the available space in our existing shelters — an average of 35 unutilized beds per night — or expanding our detox facility that can scale up to 40 beds, we must agree that we have a responsibility to protect our vulnerable residents and make public spaces available to all.
+
+[Editor’s note: While the shelter does often have empty beds in the summer, it turns people away due to a lack of capacity on some nights during the winter months, according to publicly available city data. The shelter, located in North Boulder, also prohibits people from entering for other reasons, such as not completing a screening process, known as coordinated entry, or having a pet.]</blockquote></details></td></tr><tr><td><a href='../people/aaron-brockett.html'>Aaron Brockett</a></td><td><details class='quote'><summary>A key part of the approach needs to be giving people more sheltering, service and housing options so they have alternatives to camping in town. But…</summary><blockquote class='answer'>A key part of the approach needs to be giving people more sheltering, service and housing options so they have alternatives to camping in town. But we also need to continue the enforcement of the city’s camping ban so that we don’t have permanent encampments in town with the trash, sanitation and safety issues that accompany them. That is why I supported adding a second clean up team earlier this year. We also have increased enforcement around Boulder High and now confiscate propane tanks on sight. We also now require people to move immediately if they are obstructing bike paths or other rights of way.</blockquote></details></td></tr><tr><td><a href='../people/jacques-decalo.html'>Jacques Decalo</a></td><td><details class='quote'><summary>The unsanctioned public camping is infringing on residents, tourists, businesses,and other’s freedom, safety and peaceful access to our public…</summary><blockquote class='answer'>The unsanctioned public camping is infringing on residents, tourists, businesses,and other’s freedom, safety and peaceful access to our public spaces. As a lifelong Boulder biker, I want everyone to have equally safe experiences on our paths without threat from others. I support enforcing the camping ban as well as Safe Zones for Kids.
+
+The reason these people are camping where they are is because of a multitude of reasons but primarily seeking a space for shelter. I support a combined approach of public safety guardrails and compassionate, effective programs that address homelessness and the needs of those people via better mental health resources and opportunities. Providing housing needs to be combined with coordinated entry and access to mental health and substance use rehabilitation programs. I fully support the Bridge House and other ready-to-work programs that help transition people out of homelessness with housing, job training and needed health resources. We must work to increase access to programs that rehabilitate people experiencing homelessness and encourage them to become functioning members of society. I would like to see the shelter expanded to a 24-hour shelter with increased provisions to mental health resources and drug addiction therapy.</blockquote></details></td></tr><tr><td><a href='../people/waylon-lewis.html'>Waylon Lewis</a></td><td><details class='quote'><summary>This isn’t easy, making progress — but the status quo is far harder on all of us. It’s not safe for joggers, for tourists, for seniors, for cyclists…</summary><blockquote class='answer'>This isn’t easy, making progress — but the status quo is far harder on all of us. It’s not safe for joggers, for tourists, for seniors, for cyclists or for our homeless. It’s also a moral issue: We can not allow ourselves as a society to look the other way on freezing cold nights or 100 degree days. We can work in concert with our police force, our non-profits and our homeless friends to help folks get the care they need to get back to permanent housing and active roles in society and employment. As for those concerned about making Boulder attractive to homeless elsewhere, that’s where the “stick” of carrot-fame comes in: enforcement.</blockquote></details></td></tr><tr><td><a href='../people/tina-marquis.html'>Tina Marquis</a></td><td><details class='quote'><summary>I would continue to enforce the camping ban, with priority enforcement around schools, medical centers, day cares and recreation centers, as well as…</summary><blockquote class='answer'>I would continue to enforce the camping ban, with priority enforcement around schools, medical centers, day cares and recreation centers, as well as multi-use paths, waterways and areas more vulnerable to wildfires.
+
+Enforcement around schools would continue to be the top priority for me so that our students can rely on a safe and welcoming experience every day they go to school. I am supportive of the Reimagine Policing plan that focuses on prevention, equity and compassion, which I believe balances our community’s interest in both helping those experiencing homelessness and maintaining safe and welcoming public spaces. I also support the Crisis Intervention Response Team to respond to the needs of our community as well as the homeless day center to provide a place for the unhoused to rest, receive support, and connect to services during the day. Finally, the end goal is of course to eliminate the need for camping by providing affordable and supportive housing.</blockquote></details></td></tr><tr><td><a href='../people/aaron-gabriel-neyer.html'>Aaron Gabriel Neyer</a></td><td><details class='quote'><summary>I would support police reform that amplifies more mental health outreach to better understand the problems facing those on the streets and help to…</summary><blockquote class='answer'>I would support police reform that amplifies more mental health outreach to better understand the problems facing those on the streets and help to more effectively connect them with services; and then have a light but strong touch by police which enforces people moving in the direction of getting support while ensuring that our spaces are able to stay safe and clean. This has to happen through greater collaboration between departments, which is already beginning to happen in increasing ways within city government. Mental health responders, police officers, service workers and more; need to be moving together as a team with a unified intention that both includes having safe and clean public spaces, and helping our most vulnerable populations.</blockquote></details></td></tr><tr><td><a href='../people/jennifer-robins.html'>Jennifer Robins</a></td><td><details class='quote'><summary>Encampments are not a compassionate solution. There is no sobriety on the creek. No one should be living on the street. The unhoused are a very…</summary><blockquote class='answer'>Encampments are not a compassionate solution. There is no sobriety on the creek. No one should be living on the street. The unhoused are a very vulnerable part of our community. Unfortunately, we have situations where the current encampments are the cause for micro crime hot spots, which show 30% of crime is occurring in 10% of the city. A good portion of the more serious misdemeanors are happening to the unhoused from the unhoused. [Editor’s note: The Boulder Police Department has not published publicly available data on which reports of crime involve homeless people.]
+
+We have an obligation to help those in need. We also have an obligation to provide our community the ability to enjoy the city and feel safe, and too often that is not the reality they are experiencing. A small portion of the homeless population makes a negative impact on our community by way of overrunning public spaces and transportation, theft, trash, creek pollution, property destruction and ongoing safety issues for city workers. We need to continue outreach to the people in the encampments to get them involved with coordinated entry and the services that are offered in our city. We have to enforce the camping ban laws and continue to utilize law enforcement to help with this on-going issue.</blockquote></details></td></tr><tr><td><a href='../people/ryan-schuchard.html'>Ryan Schuchard</a></td><td><details class='quote'><summary>We need to bring multiple forces under control. These solutions seem promising: Ensure the police chief has what’s needed to keep sidewalks and…</summary><blockquote class='answer'>We need to bring multiple forces under control. These solutions seem promising:
+
+Ensure the police chief has what’s needed to keep sidewalks and multi-use paths clear to minimize user conflicts. The police need to continue to be able to prioritize enforcement resources to keep pedestrian and cycling paths open and accessible for all.
+
+Implement non-police responses to assist people in mental health distress. Use civilian personnel to respond to people in crisis, which Boulder will soon do through its CARE program, which is more cost effective and a lower-confrontation way to address disruptive behaviors in public spaces.
+
+Provide resources to keep people healthy and parks clean. Boulder needs more accessible public toilets/port-a-pots, trash and needle disposal locations, access to drinking water, and other amenities to foster hygienic care and to prevent human waste from polluting public spaces.
+
+Establish a wider and more accessible network of places for people to go who have been asked to decamp. The day shelter coming online will help. We also need more options for immediate overnight camping and parking.
+
+Give people experiencing homelessness while going through a range of challenging life circumstances an accessible pipeline to crucial services.
+
+[Editor’s note: Schuchard referred to his response to a question about homelessness to expand upon his answer.]</blockquote></details></td></tr><tr><td><a href='../people/nicole-speer.html'>Nicole Speer</a></td><td><details class='quote'><summary>It is unacceptable that we have people living in our public spaces. To address this situation, we need to invest in evidence-based solutions such as…</summary><blockquote class='answer'>It is unacceptable that we have people living in our public spaces. To address this situation, we need to invest in evidence-based solutions such as those mentioned above, and divest in failed policies. The climate crisis was exacerbated by people’s inability to believe in science and accept facts. Our encampment situation is also exacerbated by our unwillingness to believe in science, listen to people with lived experience, and accept the facts about who is homeless and why.
+
+Housing ends homelessness, but we do not have the financial or staffing resources to rapidly build permanent, supportive housing for everyone who is camping in our parks and along our waterways and multi-use paths. We can, however, divert the funding we spend on encampment removals and follow Denver’s lead by creating micro-communities that can more quickly provide sheltered communities with wraparound services for people whose needs cannot be met by existing shelters.
+
+These micro-communities should be small (6-8 individuals per micro-community), they should be equitably distributed across the city, and we should incentivize their use rather than punishing use of public spaces. Read more about how we can fund evidence-based policies at no additional cost with the 2024 budget, and finally reduce encampments.</blockquote></details></td></tr><tr><td><a href='../people/paul-tweedlie.html'>Paul Tweedlie</a></td><td><blockquote class='answer'>We need to enforce our laws. A first misdemeanor gets you a ticket and a fine. If you don’t pay your fine, you go to jail.</blockquote></td></tr><tr><td><a href='../people/tara-winer.html'>Tara Winer</a></td><td><details class='quote'><summary>I support Boulder’s encampment ban. Our public spaces need to be shared. The encampment ban is certainly not a solution for homelessness, but it is a…</summary><blockquote class='answer'>I support Boulder’s encampment ban. Our public spaces need to be shared. The encampment ban is certainly not a solution for homelessness, but it is a tool to help maintain our shared spaces. Our SAMPS team (Safe and Managed Public Spaces), is a multi-departmental clean up team. I had the opportunity to walk around town with this team; they were compassionate and professional. They attempt to engage people in resources. Their process involves advanced notices. Cleanup day is the last step of a long process.
+
+We have a shelter for people to have somewhere to sleep at night. But they do need somewhere to go during the day. That is why I support a day shelter with toilets, showers, locker, and connections to other support services. About a year ago council allocated an additional $1 million for this initiative.
+
+Our bike paths need to be clear from obstructions. When biking through a dark underpass, it is crucial for safety for all that the underpass is clear. We need real solutions, not bandaids. One solution I will champion is pallet homes. Neighboring cities are having success with this inexpensive, efficient type of housing which can be constructed quickly.</blockquote></details></td></tr><tr><td><a href='../people/bob-yates.html'>Bob Yates</a></td><td><details class='quote'><summary>Camping in Boulder’s public spaces, including in parks, on bike paths, and along waterways is — and should remain — illegal. It is neither safe for…</summary><blockquote class='answer'>Camping in Boulder’s public spaces, including in parks, on bike paths, and along waterways is — and should remain — illegal. It is neither safe for the campers, nor for housed residents. When someone takes public space for their exclusive use, the rest of the community is excluded. To address this inappropriate and illegal taking, I helped launch the city’s internal encampment clean-up crew, and I successfully advocated for the clean-up crew’s doubling in 2023. We should continue to expand the clean-up crew’s capacity until it becomes clear to would-be campers that camping in Boulder’s public spaces is illegal and unsafe, and that there are safer and more appropriate places where they can live as they connect to long-term solutions to end their homelessness.</blockquote></details></td></tr></table>
+</main>
+<footer>
+  City of Boulder only. Cited, not scored, not an endorsement.
+  <a href="../sources.html">Sources</a> ·
+  <a href="../forums.html">Forums</a> ·
+  <a href="../measures.html">All measures</a> ·
+  <a href="https://bouldervotes.org/">bouldervotes.org</a>
+</footer>
+</body>
+</html>

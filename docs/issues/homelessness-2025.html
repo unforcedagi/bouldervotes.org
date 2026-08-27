@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homelessness 2025 — Boulder Votes</title>
+<style>
+:root {
+  --paper: #f4efe6;
+  --ink: #1c1916;
+  --muted: #5c5348;
+  --rule: #d4c7b0;
+  --link: #1f4b73;
+  --link-visited: #5a3d6e;
+  --mark: #8b2e1a;
+  --won: #215c3a;
+  --chip: #efe6d6;
+}
+* { box-sizing: border-box; }
+html { font-size: 19px; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.45;
+}
+header {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+.header-inner, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1.1rem; }
+.header-inner { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.brand { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: var(--ink); }
+.rail { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; margin-top: 0.45rem; align-items: center; }
+.rail a, .pill {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.rail a.on, .pill.on { background: var(--ink); color: var(--paper); }
+.rail .sep { color: var(--muted); margin: 0 0.25rem; }
+nav.util { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.6rem 0.9rem; font-size: 0.9rem; }
+nav.util a { color: var(--link); }
+h1 { font-size: 1.7rem; line-height: 1.15; margin: 1.1rem 0 0.5rem; }
+h2 { font-size: 1.2rem; margin: 1.5rem 0 0.45rem; }
+h3 { font-size: 1.02rem; margin: 1rem 0 0.3rem; }
+p, li { max-width: 42rem; }
+.lede { font-size: 1.05rem; margin-top: 0; }
+.note, .empty { color: var(--muted); font-size: 0.92rem; }
+.empty { font-style: italic; }
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+.jump { font-size: 0.92rem; margin: 0.4rem 0 1rem; }
+.jump a { margin-right: 0.8rem; }
+.card {
+  border: 1px solid var(--rule);
+  padding: 0.65rem 0.8rem;
+  margin: 0 0 0.55rem;
+  background: #f8f3ea;
+}
+.card h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+.card .meta { color: var(--muted); font-size: 0.88rem; }
+.chips { margin-top: 0.35rem; }
+.chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  border: 1px solid var(--rule);
+  background: var(--chip);
+  padding: 0.05rem 0.4rem;
+  margin: 0 0.25rem 0.25rem 0;
+  text-decoration: none;
+  color: var(--ink);
+}
+.badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
+.badge.match { border-color: var(--mark); color: var(--mark); }
+.badge.inc { border-color: var(--won); color: var(--won); }
+.stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
+.stance.yes { color: var(--won); }
+.stance.no { color: var(--mark); }
+.stance.mixed { color: var(--muted); }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.5rem 0 1rem; }
+th, td { text-align: left; padding: 0.35rem 0.4rem 0.35rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.won { color: var(--won); font-weight: 600; }
+.matrix td, .matrix th { text-align: center; }
+.matrix th:first-child, .matrix td:first-child { text-align: left; }
+.matrix a { text-decoration: none; }
+details.quote { margin: 0.25rem 0; }
+details.quote > summary { cursor: pointer; }
+details.quote > summary::after { content: " — full"; color: var(--link); font-size: 0.88rem; }
+details.quote[open] > summary::after { content: " — hide"; }
+blockquote.answer { margin: 0.35rem 0; padding-left: 0.7rem; border-left: 3px solid var(--rule); font-size: 0.95rem; }
+.crumb { font-size: 0.9rem; color: var(--muted); margin: 0.8rem 0 0; }
+footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; }
+@media (max-width: 640px) {
+  html { font-size: 18px; }
+}
+@media print {
+  header { position: static; }
+  nav.util, .jump { display: none; }
+  a { color: inherit; text-decoration: none; }
+  details.quote > summary { display: none; }
+  details.quote > blockquote { display: block; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="brand" href="../index.html">Boulder Votes</a>
+    <div class="rail"><a class="" href="../2026.html">2026</a><a class="on" href="../2025.html">2025</a><a class="" href="../2023.html">2023</a></div>
+    <nav class="util"><a href="../issues.html">Issues</a><a href="../people.html">People</a><a href="../about.html">About</a></nav>
+  </div>
+</header>
+<main>
+<p class='crumb'><a href='../issues.html'>Issues</a> · <a href='homelessness.html'>Homelessness</a></p>
+<h1>Homelessness · 2025</h1>
+<p class='note'>This issue in: <a class='pill on' href='homelessness-2025.html'>2025</a> <a class='pill' href='homelessness-2023.html'>2023</a> </p>
+<p>People on the 2025 ballot. Answers from this cycle first. If a returning candidate only answered in an earlier race, that quote is labelled as earlier — not as a 2025 answer.</p>
+<h2>Should Boulder enforce its camping ban when the All Roads shelter is full?</h2>
+<p class='note'>questionnaire</p>
+<p class='note'><a href='https://boulderreportinglab.org/2025/10/06/2025-boulder-city-council-election-where-candidates-stand-on-the-camping-ban/'>2025 Boulder City Council election: Where candidates stand on the camping ban</a></p>
+<table><tr><th>Candidate</th><th style='width:4.5rem'>Stance</th><th>What they said</th></tr><tr><td><a href='../people/matt-benjamin.html'>Matt Benjamin</a></td><td><span class='stance mixed'>mixed</span></td><td><details class='quote'><summary>Boulder has and will continue to enforce its camping ban. I do not believe Boulder should enforce its camping ban during extreme weather events when…</summary><blockquote class='answer'>Boulder has and will continue to enforce its camping ban. I do not believe Boulder should enforce its camping ban during extreme weather events when the All Roads shelter is full. Enforcing the ban in those circumstances criminalizes people for having nowhere else to go, which is neither just nor effective.
+
+That said, the new Homelessness Strategy (Clutch Report) reframes how Boulder approaches this issue. It recognizes that unsheltered homelessness is both a public health and a public safety challenge. Under the strategy, enforcement is tied more directly to services and outcomes —ensuring that outreach, rapid rehousing, diversion, and day services are part of the equation.
+
+Enforcement remains a tool, but it is no longer the first or only response. The strategy also calls for greater accountability: tracking by-name lists, expanding prevention and housing exits, and clarifying when and how enforcement should occur. This makes our approach more transparent and focused on reducing homelessness, not just moving it. Enforcement must be paired with shelter and services. With the new strategy, Boulder is shifting from a housing only model toward one centered on housing, accountability, and community safety.</blockquote></details></td></tr><tr><td><a href='../people/lauren-folkerts.html'>Lauren Folkerts</a></td><td><span class='stance no'>no</span></td><td><details class='quote'><summary>No, I do not believe Boulder should enforce its camping ban when the All Roads shelter is full. Enforcement without alternatives doesn’t solve…</summary><blockquote class='answer'>No, I do not believe Boulder should enforce its camping ban when the All Roads shelter is full. Enforcement without alternatives doesn’t solve homelessness, it just moves people around and makes their lives less safe and less stable.
+
+What I support instead is a strategy that truly works: expanding shelter and transitional housing, improving access to mental health and addiction services, and following through on the recommendations in our homelessness strategy. When safe, accessible alternatives exist, enforcement has a role. But when they don’t, we should not rely on enforcement alone.
+
+This is not about being “for” or “against” a ban, it’s about solving homelessness in ways that are compassionate, cost-effective, and proven to work. Our community is best served when we connect people with housing and services, reduce strain on emergency response, and focus on lasting solutions.</blockquote></details></td></tr><tr><td><a href='../people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a></td><td><span class='stance no'>no</span></td><td><details class='quote'><summary>No. No one should be legally punished simply because our city lacks adequate services or safe alternatives. In those moments, the responsibility is…</summary><blockquote class='answer'>No. No one should be legally punished simply because our city lacks adequate services or safe alternatives. In those moments, the responsibility is on us as a community to ensure people have legal and humane alternative places to be. At the same time, when shelter or services are available, I believe individuals should be accountable to the city’s current laws. Balancing compassion with accountability is essential, and the real solution lies in expanding services and creating pathways so no one is left without options.</blockquote></details></td></tr><tr><td><a href='../people/rob-kaplan.html'>Rob Kaplan</a></td><td><span class='stance yes'>yes</span></td><td><details class='quote'><summary>Yes. Boulder should enforce the camping ban to keep public spaces safe, healthy, and accessible. The only exception should be during extreme weather…</summary><blockquote class='answer'>Yes. Boulder should enforce the camping ban to keep public spaces safe, healthy, and accessible. The only exception should be during extreme weather events, such as dangerous cold or severe storms, when conditions could be life-threatening. In those situations, outreach teams should have discretion to temporarily pause enforcement and focus on immediate safety. Alongside enforcement, the city must offer real solutions like diversion programs to connect people with services and reunification options to help individuals return to family or support networks. This approach holds everyone accountable while providing a compassionate safety net in true emergencies.</blockquote></details></td></tr><tr><td><a href='../people/maxwell-lord.html'>Maxwell Lord</a></td><td><span class='stance mixed'>mixed</span></td><td><details class='quote'><summary>I think that some candidates use the camping ban as a buzzword to generate appeal. This is a good example of where we could use some more honesty. It…</summary><blockquote class='answer'>I think that some candidates use the camping ban as a buzzword to generate appeal. This is a good example of where we could use some more honesty. It doesn’t matter how much you want to “enforce it.” You can’t enforce a camping ban if the shelters and the jail are full. At some point, “enforcing it” is just police driving people back and forth from the jail. Neglecting the fact that it’s impractical, it’s also immoral, and misses the core of the issue. We have All Roads, and Blue Bird, but we don’t have any sober living facilities, or hostels as a secondary option. We also don’t have an emergency plan for bad weather. I think we, as a people, and a city, can and should do better, rather than acting as if a camping ban has any meaning on policy.</blockquote></details></td></tr><tr><td><a href='../people/montserrat-palacios.html'>Montserrat Palacios</a></td><td><span class='stance yes'>yes</span></td><td><details class='quote'><summary>Yes. We should continue to enforce our laws at all times. The City does not have enough resources to house everyone that decides to stop here. We…</summary><blockquote class='answer'>Yes. We should continue to enforce our laws at all times. The City does not have enough resources to house everyone that decides to stop here. We cannot run the shelters at full capacity; There needs to be space ready and available for members of our community who require it because of immediate and unforeseen circumstances (i.e. domestic violence, evictions, etc.). Boulder is a very small city and we need to work with surrounding counties and the City of Denver to redirect transient people to locations that have resources and available beds.</blockquote></details></td></tr><tr><td><a href='../people/jennifer-robins.html'>Jennifer Robins</a></td><td><span class='stance yes'>yes</span></td><td><details class='quote'><summary>Yes, we should always enforce the camping ban. Because living in our floodways, ditches, and on the creek is not a compassionate solution. There are…</summary><blockquote class='answer'>Yes, we should always enforce the camping ban. Because living in our floodways, ditches, and on the creek is not a compassionate solution. There are several strategies we should begin focusing on starting with enforcing our camping ban while also making sure we have real pathways off the street. Prioritization, diversion, and reunification are all key pieces, and the good news is that Boulder is already doing a lot of this work, so I don’t believe the cost needs to be as high as the Clutch report suggests. We should keep building on what works while coordinating closely with the county. As the new mental health tax plan takes shape, I want to make sure those dollars are directed toward inpatient and outpatient services, additional treatment beds, and real solutions that address the root causes of homelessness. This is how we can both protect public spaces and ensure people in crisis get the support they need.</blockquote></details></td></tr><tr><td><a href='../people/rob-smoke.html'>Rob Smoke</a></td><td><span class='stance mixed'>mixed</span></td><td><details class='quote'><summary>I believe that the camping ban has had poor results in terms of making Boulder better or safer. Boulder has, for at least the past two decades, been…</summary><blockquote class='answer'>I believe that the camping ban has had poor results in terms of making Boulder better or safer. Boulder has, for at least the past two decades, been running in place on a treadmill in terms of solving anything. We need to stop having to make the police the go-to resource. Doesn’t mean they don’t do their best, but we have ample evidence to suggest that current policies are inadequate in terms of addressing the issues related to “urban camping,” which is something people do not for amusement, generally, but because they can’t obtain housing. I believe there’s a better way and this issue would be second only to the need for divestment from corporations profiting from the extreme suffering in Gaza.</blockquote></details></td></tr><tr><td><a href='../people/nicole-speer.html'>Nicole Speer</a></td><td><span class='stance mixed'>mixed</span></td><td><details class='quote'><summary>I understand why people ask this question. I used to ask it myself. No one thinks people sleeping in public spaces is the solution to homelessness.…</summary><blockquote class='answer'>I understand why people ask this question. I used to ask it myself. No one thinks people sleeping in public spaces is the solution to homelessness. As we struggle with a complex problem that goes way beyond our borders, the real question is: how do we invest in solutions that reduce unsheltered homelessness and protect public health and safety for everyone?
+
+Boulder’s recent Clutch Report emphasizes that enforcement doesn’t reduce homelessness. It displaces people, puts them at higher risk of death, deepens trauma, and diverts millions of dollars from housing and services into short-term removals.
+
+I support the recommended updates to our homelessness strategy. They shift our focus to upstream solutions: housing stabilization, diversion services, family support, and coordinated systems response. This approach prevents encampments by navigating people to appropriate services. With our recent investments in a day services center, peer-led behavioral health programs, and permanent supportive housing, we are implementing interventions that work.
+
+If enforcement means issuing tickets, then no. When the shelter is full, ticketing becomes punishment for having nowhere to go. We need to stay focused on evidence-based policymaking, especially in the context of federal chaos that’s leaving more people one crisis away from losing their homes.</blockquote></details></td></tr><tr><td><a href='../people/aaron-stone.html'>Aaron Stone</a></td><td><span class='stance mixed'>mixed</span></td><td><details class='quote'><summary>To me, the answer is more nuanced than just a simple yes or no. First, let’s agree that having homeless people sprawled all over downtown causes some…</summary><blockquote class='answer'>To me, the answer is more nuanced than just a simple yes or no. First, let’s agree that having homeless people sprawled all over downtown causes some Boulderites to fear for their safety.
+
+Second, let’s agree that the homeless have a 1st Amendment right to be there, but not to sleep there. And third, let’s point out that their presence is negatively affecting the economic and social vitality of downtown.
+
+On freezing nights when the All Roads shelter is full it would be cruel and heartless to prevent people from camping. Do you want to cost someone their life? And yet, the mere presence of the homeless impacts the ability of some people to enjoy downtown. So what to do?
+
+I propose the establishment of a sanctioned encampment in North Boulder with insulated tents provided by the city where homeless folks can sleep in relative comfort, with security guards for public safety, social workers for assistance, showers and laundry facilities for cleanliness, and food trucks with free food for those who sleep there. I like to motivate people with carrots, not sticks, so let’s make this encampment comfortable and inviting so that people will be glad to go there, and camping ban enforcement will become a relative breeze.</blockquote></details></td></tr><tr><td><a href='../people/mark-wallach.html'>Mark Wallach</a></td><td><span class='stance mixed'>mixed</span></td><td><details class='quote'><summary>Other than on days of frigid weather, yes. One of the purposes of the camping ban is to reclaim public lands for public use. The fact that the…</summary><blockquote class='answer'>Other than on days of frigid weather, yes. One of the purposes of the camping ban is to reclaim public lands for public use. The fact that the Boulder Creek Path has become so compromised as a community asset should be unacceptable, and the camping ban should certainly be enforced there and on other sensitive public lands.
+
+In addition, with our new-found sensitivity to the dangers of wildfire in this community, the presence of campers on our Open Space should be frightening to all of us. I am hopeful that if we implement the Clutch Report’s emphasis on diversion with respect to the homeless community, the number of unhoused individuals in Boulder might be sufficiently reduced to minimize overflows at the All Roads shelter. However, my view on this is independent of whether on a given night the shelter is full, although, as I stated initially, in dangerously cold weather, enforcement should be suspended.</blockquote></details></td></tr></table>
+</main>
+<footer>
+  City of Boulder only. Cited, not scored, not an endorsement.
+  <a href="../sources.html">Sources</a> ·
+  <a href="../forums.html">Forums</a> ·
+  <a href="../measures.html">All measures</a> ·
+  <a href="https://bouldervotes.org/">bouldervotes.org</a>
+</footer>
+</body>
+</html>
