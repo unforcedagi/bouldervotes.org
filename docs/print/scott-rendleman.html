@@ -79,6 +79,18 @@ a:visited { color: var(--link-visited); }
 .badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
+.choice {
+  display: block;
+  border: 2px solid var(--ink);
+  padding: 0.7rem 0.9rem;
+  margin: 0.45rem 0;
+  text-decoration: none;
+  color: var(--ink);
+  background: #f8f3ea;
+  font-size: 1.05rem;
+}
+.choice:hover { background: var(--chip); }
+.choice .meta { font-size: 0.88rem; color: var(--muted); margin-top: 0.15rem; }
 .stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
 .stance.yes { color: var(--won); }
 .stance.no { color: var(--mark); }
@@ -117,7 +129,7 @@ footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid 
   <div class="header-inner">
     <a class="brand" href="../index.html">Boulder Votes</a>
     <div class="rail"><a class="on" href="../2026.html">2026</a><a class="" href="../2025.html">2025</a><a class="" href="../2023.html">2023</a><a class="" href="../2021.html">2021</a><a class="" href="../2019.html">2019</a><a class="" href="../2017.html">2017</a></div>
-    <nav class="util"><a href="../issues.html">Issues</a><a href="../people.html">People</a><a href="../print/index.html">Print</a><a href="../about.html">About</a></nav>
+    <nav class="util"><a href="../find.html">Find</a><a href="../issues.html">Issues</a><a href="../people.html">People</a><a href="../print/index.html">Print</a><a href="../about.html">About</a></nav>
   </div>
 </header>
 <main>
@@ -127,15 +139,20 @@ footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid 
 
 <h2>Campaigns</h2>
 <table><tr><th>Year</th><th>Office</th><th>Outcome</th></tr><tr><td>2026</td><td>Boulder City Council</td><td>certified</td></tr></table>
-<p class="empty">No sourced answers on file yet this cycle.</p>
+<h2>What they have said</h2>
+<table class='matrix'><tr><th>Issue</th><th>2026</th></tr><tr><td>Rec and safety bond</td><td>NO</td></tr></table>
+<h2>Three quotes</h2>
+<div class='card'><div class='meta'>2026 · Rec and safety bond <span class='stance no'>no</span></div><h3>Do you support the $400 million recreation and safety bond on the November 2026 ballot?</h3><blockquote class='answer'>Reported by Boulder Reporting Lab, Aug 30 2026: many challengers oppose the measure, arguing voters have not received enough information about how the money would be spent.</blockquote><p class='note'><a href='https://boulderreportinglab.org/2026/08/30/meet-the-19-candidates-running-for-boulder-mayor-and-city-council-in-2026/'>Meet the 19 candidates running for Boulder mayor and City Council in 2026 (BRL)</a></p></div>
 <h2>Money</h2>
-<p>Matching funds: not marked on the clerk list. Line items (how much raised) are filed with the <a href='https://bouldercolorado.gov/elections/election-committee-filings'>city clerk</a>, not TRACER. We have not copied dollar amounts yet.</p>
+<p>Raised $0 · spent $462 · matching received $0 (clerk summary as of 2026-08-28, Rendleman for Boulder). Clerk matching-funds flag: not marked on the clerk candidate list. Not TRACER.</p>
 <p class='note'><a href='../people/scott-rendleman.html'>Full dossier</a> · <a href='../2026.html'>2026 ballot</a></p>
 </main>
 <footer>
   City of Boulder only. Cited, not scored, not an endorsement.
   <a href="../sources.html">Sources</a> ·
   <a href="../forums.html">Forums</a> ·
+  <a href="../find.html">Find</a> ·
+  <a href="../finance.html">Money</a> ·
   <a href="../questionnaires.html">Questionnaires</a> ·
   <a href="../print/index.html">Print</a> ·
   <a href="../measures.html">All measures</a> ·

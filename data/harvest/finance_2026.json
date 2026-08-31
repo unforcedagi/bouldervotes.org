@@ -1,0 +1,27 @@
+{
+  "retrieved_on": "2026-08-31",
+  "source_url": "https://webapps.bouldercolorado.gov/election/report.php?report=CandESummary&electionID=25",
+  "source_title": "City of Boulder Election Finance — Summary of Contributions and Expenditures (2026)",
+  "notes": "Live city clerk app. electionID=25 is the 2026 municipal cycle. Past-year summaries were not in this app (other electionIDs returned the same 2026 table). Historical Laserfiche at documents.bouldercolorado.gov/WebLink/Browse.aspx?id=59131 is a cookie/JS archive; this harvest did not extract folder listings. Alejandro De Varona has an official committee but is not on the certified clerk candidate list — omitted. Clerk names mapped: Michael Smith→Fred Smith, Lisa Jacobs→Lisa Ann Jacobs, Rachel Isaacson→Rachel Rose Isaacson, David Rendleman→Scott Rendleman, Samuel Fuqua→Sam Fuqua, Christina Marquis→Tina Marquis.",
+  "committees": [
+    {"person": "Jameson Goldstein", "committee": "Committee For the Election of Jameson 'Jamo' Goldstein (C.F.E.J.G)", "contributions": 0, "expenditures": 0, "matching": 0, "reported_on": "2026-08-26"},
+    {"person": "Aaron Brockett", "committee": "Aaron Brockett for Mayor", "contributions": 8975, "expenditures": 2138, "matching": 8975, "reported_on": "2026-08-13"},
+    {"person": "Aquiles La Grave", "committee": "Aquiles La Grave for Mayor", "contributions": 5865, "expenditures": 1665, "matching": 0, "reported_on": "2026-08-27"},
+    {"person": "Benita Duran", "committee": "Benita for Boulder", "contributions": 0, "expenditures": 0, "matching": 0, "reported_on": "2026-08-10"},
+    {"person": "David Martus", "committee": "David Martus for Boulder City Council", "contributions": 0, "expenditures": 10, "matching": 0, "reported_on": "2026-08-27"},
+    {"person": "Lisa Ann Jacobs", "committee": "Elect Lisa Mayor", "contributions": 0, "expenditures": 0, "matching": 0, "reported_on": "2026-08-28"},
+    {"person": "Ryan Schuchard", "committee": "Friends of Ryan Schuchard", "contributions": 8418, "expenditures": 5149, "matching": 0, "reported_on": "2026-08-26"},
+    {"person": "Fred Smith", "committee": "Grateful Fred Instead", "contributions": 0, "expenditures": 0, "matching": 0, "reported_on": "2026-08-14"},
+    {"person": "Ryan Jamieson", "committee": "Jamieson for Boulder", "contributions": 50, "expenditures": 0, "matching": 0, "reported_on": "2026-08-14"},
+    {"person": "Jamillah Richmond", "committee": "Jamillah, A New Voice for Boulder", "contributions": 1935, "expenditures": 175, "matching": 0, "reported_on": "2026-08-20"},
+    {"person": "Jill Grano", "committee": "Jill for Council", "contributions": 7652, "expenditures": 539, "matching": 0, "reported_on": "2026-08-11"},
+    {"person": "Lee Gilbert", "committee": "Lee4Boulder", "contributions": 0, "expenditures": 0, "matching": 0, "reported_on": "2026-08-24"},
+    {"person": "Rachel Rose Isaacson", "committee": "Rachel Rose for Boulder", "contributions": 5397, "expenditures": 393, "matching": 5201, "reported_on": "2026-08-10"},
+    {"person": "Scott Rendleman", "committee": "Rendleman for Boulder", "contributions": 0, "expenditures": 462, "matching": 0, "reported_on": "2026-08-28"},
+    {"person": "Sam Fuqua", "committee": "Sam Fuqua For Boulder", "contributions": 7761, "expenditures": 170, "matching": 7361, "reported_on": "2026-08-26"},
+    {"person": "Lynn Segal", "committee": "Segal for Boulder", "contributions": 0, "expenditures": 0, "matching": 0, "reported_on": "2026-08-26"},
+    {"person": "Tara Winer", "committee": "Tara Winer for Council", "contributions": 12555, "expenditures": 1228, "matching": 12366, "reported_on": "2026-08-18"},
+    {"person": "Tina Marquis", "committee": "Tina for Boulder City Council", "contributions": 8949, "expenditures": 440, "matching": 8949, "reported_on": "2026-08-18"},
+    {"person": "Taishya Adams", "committee": "Together with Taishya Adams", "contributions": 0, "expenditures": 35, "matching": 0, "reported_on": "2026-08-10"}
+  ]
+}

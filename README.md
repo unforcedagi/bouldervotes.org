@@ -38,9 +38,11 @@ Python 3 stdlib only. No npm, no framework. How to extend it: [OPERATING.md](OPE
 - Catalog of Chamber / Open Boulder / PLAN / Boulder Weekly questionnaires (linked; verbatim ingested only for BRL and Beat)
 - Forum calendar 2017–2026 with recordings where they exist (including the 2025 VOTES! collaborative forum)
 - One-sheet print packet for each 2026 candidate
+- Find: two or three questions that land on sourced answers (2026 bond divide first)
+- 2026 campaign-finance snapshot from the city clerk app (raised / spent / matching received)
 - City ballot measures 2017–2026
 
-What’s *not* in it: invented positions, campaign-finance *dollar* line items (the clerk filing page is linked; matching-funds flags are on the clerk candidate list), most 2026 campaign sites, the 2026 Chamber recording (parked until they publish), county/BVSD races, 2015 and earlier.
+What’s *not* in it: invented positions, scored “matches,” Chamber 2026 written questionnaires (not published yet — the forum tape is), past-year finance dollar totals (Laserfiche not listed this pass), county/BVSD races, 2015 and earlier.
 
 ## Schema idea
 

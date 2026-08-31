@@ -9,7 +9,14 @@ from __future__ import annotations
 import sqlite3
 from pathlib import Path
 
-from ingest import ingest_beat_2023, ingest_forums, ingest_measures, ingest_questionnaires
+from ingest import (
+    ingest_beat_2023,
+    ingest_brl_2026_field,
+    ingest_finance_2026,
+    ingest_forums,
+    ingest_measures,
+    ingest_questionnaires,
+)
 
 ROOT = Path(__file__).resolve().parent
 DB = ROOT / "data" / "bouldervotes.db"
@@ -345,15 +352,25 @@ def main() -> None:
         "Taishya Adams", r2026_mayor, "certified", 0, "2026-08-05",
         campaign_url="https://www.adamsforboulder.com/",
     )
-    cand("Fred Smith", r2026_mayor, "certified", 0, "2026-08-10")
+    cand(
+        "Fred Smith", r2026_mayor, "certified", 0, "2026-08-10",
+        campaign_url="https://gratefulfredinstead.com/",
+    )
     c2026_brockett = cand(
         "Aaron Brockett", r2026_mayor, "certified", 1, "2026-08-11", 1,
         campaign_url="https://brockett4mayor.org/",
         notes="Site is live; copy may still read like the 2023 cycle in places.",
     )
-    cand("Jameson Goldstein", r2026_mayor, "certified", 0, "2026-08-24")
+    cand(
+        "Jameson Goldstein", r2026_mayor, "certified", 0, "2026-08-24",
+        campaign_url="https://www.jamoformayor.org/",
+        notes="BRL lists Jameson “Jamo” Goldstein. Student, age 21.",
+    )
     cand("Lisa Ann Jacobs", r2026_mayor, "certified", 0, "2026-08-24")
-    c2026_lagrave = cand("Aquiles La Grave", r2026_mayor, "certified", 0, "2026-08-24")
+    c2026_lagrave = cand(
+        "Aquiles La Grave", r2026_mayor, "certified", 0, "2026-08-24",
+        campaign_url="https://boulder.vote/",
+    )
 
     # 2026 council
     c2026_isaacson = cand(
@@ -364,17 +381,32 @@ def main() -> None:
         "Tara Winer", r2026_council, "certified", 1, "2026-08-05", 1,
         campaign_url="https://www.taraforboulder.com/",
     )
-    c2026_schuchard = cand("Ryan Schuchard", r2026_council, "certified", 1, "2026-08-06")
+    c2026_schuchard = cand(
+        "Ryan Schuchard", r2026_council, "certified", 1, "2026-08-06",
+        campaign_url="https://www.ryanwithboulder.com/",
+    )
     c2026_grano = cand(
         "Jill Grano", r2026_council, "certified", 0, "2026-08-06",
         campaign_url="https://www.jillforcouncil.com/",
     )
     c2026_duran = cand("Benita Duran", r2026_council, "certified", 0, "2026-08-07")
-    cand("Ryan Jamieson", r2026_council, "certified", 0, "2026-08-10")
+    cand(
+        "Ryan Jamieson", r2026_council, "certified", 0, "2026-08-10",
+        campaign_url="https://rjforboulder.com/",
+    )
     cand("Lee Gilbert", r2026_council, "certified", 0, "2026-08-17")
-    c2026_marquis = cand("Tina Marquis", r2026_council, "certified", 1, "2026-08-17", 1)
-    cand("Jamillah Richmond", r2026_council, "certified", 0, "2026-08-17")
-    cand("Sam Fuqua", r2026_council, "certified", 0, "2026-08-18")
+    c2026_marquis = cand(
+        "Tina Marquis", r2026_council, "certified", 1, "2026-08-17", 1,
+        campaign_url="https://www.tinaforboulder.com/",
+    )
+    cand(
+        "Jamillah Richmond", r2026_council, "certified", 0, "2026-08-17",
+        campaign_url="https://www.jamillahanewvoice.com/",
+    )
+    cand(
+        "Sam Fuqua", r2026_council, "certified", 0, "2026-08-18",
+        campaign_url="https://www.fuquaforcouncil.com/",
+    )
     cand("Lynn Segal", r2026_council, "certified", 0, "2026-08-20")
     cand("David Martus", r2026_council, "certified", 0, "2026-08-24")
     cand("Scott Rendleman", r2026_council, "certified", 0, "2026-08-24")
@@ -720,6 +752,7 @@ def main() -> None:
         ("foreign-affairs", "Foreign affairs at council", "Gaza comment, divestment, whether council weighs in."),
         ("policing", "Policing and oversight", "Police budget, discipline, Police Oversight Panel."),
         ("cu-south", "CU South", "Annexation agreement, flood mitigation, student/faculty housing on CU-owned south Boulder land."),
+        ("bond", "Rec and safety bond", "The November 2026 $400 million general-obligation bond for rec centers and city facilities."),
     ]:
         cur.execute("INSERT INTO issues (slug, name, description) VALUES (?,?,?)", (slug_, name, desc))
 
@@ -791,6 +824,11 @@ def main() -> None:
         e2025=e2025,
         e2026=e2026,
     )
+    ingest_brl_2026_field(
+        cur, pid=pid, add_source=add_source,
+        org_brl=org_brl, org_chamber=org_chamber, org_better=org_better,
+    )
+    ingest_finance_2026(cur, pid=pid, add_source=add_source, org_city=org_city)
 
     # --- results ---
     # 2023 mayor RCV (official summary of votes)

@@ -182,6 +182,20 @@ CREATE TABLE IF NOT EXISTS results (
   PRIMARY KEY (candidacy_id, round)
 );
 
+CREATE TABLE IF NOT EXISTS finance_snapshots (
+  id INTEGER PRIMARY KEY,
+  person_id INTEGER REFERENCES people(id),
+  candidacy_id INTEGER REFERENCES candidacies(id),
+  year INTEGER NOT NULL,
+  committee_name TEXT NOT NULL,
+  contributions REAL,
+  expenditures REAL,
+  matching_received REAL,
+  reported_on TEXT,
+  source_id INTEGER REFERENCES sources(id),
+  notes TEXT
+);
+
 CREATE TABLE IF NOT EXISTS meta (
   key TEXT PRIMARY KEY,
   value TEXT NOT NULL
