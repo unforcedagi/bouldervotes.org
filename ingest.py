@@ -1217,3 +1217,182 @@ def ingest_measures(cur, *, add_source, org_city: int, org_brl: int, org_camera:
                VALUES (?,?,?,?,?,?)""",
             (mid, None, None, 1, s_2025_results, "Certified as passed; raw yes/no not yet harvested from the county SOV."),
         )
+
+
+FINANCE_HARVEST = Path(__file__).resolve().parent / "data" / "harvest" / "finance_2026.json"
+
+
+def ingest_brl_2026_field(cur, *, pid: dict, add_source, org_brl: int, org_chamber: int, org_better: int) -> None:
+    """BRL 19-candidate roundup (2026-08-30): bond stances, plus Chamber 2026 recording."""
+    src = _ensure_source(
+        cur,
+        add_source,
+        "https://boulderreportinglab.org/2026/08/30/meet-the-19-candidates-running-for-boulder-mayor-and-city-council-in-2026/",
+        "Meet the 19 candidates running for Boulder mayor and City Council in 2026 (BRL)",
+        "article",
+        2026,
+        org_brl,
+        "2026-08-30",
+        "Occupations, campaign sites, Boulder Progressives endorsements, and the $400 million bond divide. Lisa Ann Jacobs has no full BRL profile yet. Gilbert, Martus, and Goldstein are not named on the bond yes/no lists.",
+    )
+    cur.execute("INSERT OR IGNORE INTO issues (slug, name, description) VALUES (?,?,?)", (
+        "bond",
+        "Rec and safety bond",
+        "The November 2026 $400 million general-obligation bond for rec centers and city facilities, repaid by a new property tax.",
+    ))
+    cur.execute(
+        """INSERT INTO questions (prompt, issue_slug, year, kind, is_canonical)
+           VALUES (?,?,?,?,1)""",
+        (
+            "Do you support the $400 million recreation and safety bond on the November 2026 ballot?",
+            "bond",
+            2026,
+            "interview",
+        ),
+    )
+    qid = cur.lastrowid
+    yes = [
+        "Aaron Brockett", "Taishya Adams", "Tina Marquis", "Tara Winer", "Ryan Schuchard",
+        "Sam Fuqua", "Jamillah Richmond",
+    ]
+    no = [
+        "Aquiles La Grave", "Fred Smith", "Lisa Ann Jacobs", "Benita Duran",
+        "Ryan Jamieson", "Scott Rendleman", "Rachel Rose Isaacson", "Jill Grano", "Lynn Segal",
+    ]
+    verbatim_yes = (
+        "Reported by Boulder Reporting Lab, Aug 30 2026: all five incumbent candidates support the measure, "
+        "citing more than $400 million in deferred maintenance. Sam Fuqua and Jamillah Richmond also support it."
+    )
+    verbatim_no = (
+        "Reported by Boulder Reporting Lab, Aug 30 2026: many challengers oppose the measure, arguing voters have not "
+        "received enough information about how the money would be spent."
+    )
+    for person in yes:
+        cur.execute(
+            """INSERT INTO answers
+               (candidacy_id, person_id, question_id, source_id, event_id, kind,
+                stance, verbatim, answered_on, notes)
+               VALUES (?,?,?,?,?,?,?,?,?,?)""",
+            (_cid(cur, person, 2026), pid[person], qid, src, None, "interview",
+             "yes", verbatim_yes, "2026-08-30",
+             "Journalist grouping of stated positions, not a written questionnaire."),
+        )
+    for person in no:
+        cur.execute(
+            """INSERT INTO answers
+               (candidacy_id, person_id, question_id, source_id, event_id, kind,
+                stance, verbatim, answered_on, notes)
+               VALUES (?,?,?,?,?,?,?,?,?,?)""",
+            (_cid(cur, person, 2026), pid[person], qid, src, None, "interview",
+             "no", verbatim_no, "2026-08-30",
+             "Journalist grouping of stated positions, not a written questionnaire."),
+        )
+
+    rec = "https://www.youtube.com/watch?v=rusBhvHOeCc"
+    add_source(
+        rec,
+        "City Council Candidate Forum 2026 | Boulder Chamber",
+        "video",
+        2026,
+        org_chamber,
+        "2026-08-26",
+        "Full Chamber forum at eTown. Camera (Aug 27) said 17 of 19 candidates appeared; name-by-name absences not copied here.",
+    )
+    cur.execute("SELECT id FROM events WHERE slug='2026-chamber-forum'")
+    row = cur.fetchone()
+    if row:
+        cur.execute(
+            """UPDATE events SET recording_url=?, notes=? WHERE id=?""",
+            (
+                rec,
+                "Season-opener at eTown, 5–8pm. Camera Aug 27: 17 of 19 certified candidates. Topics: housing, transportation, public safety. Recording: Chamber YouTube.",
+                row[0],
+            ),
+        )
+    add_source(
+        "https://www.dailycamera.com/2026/08/27/boulder-city-council-candidates-issues/",
+        "Meet (most of) the people running for Boulder City Council and mayor (Daily Camera)",
+        "article",
+        2026,
+        None,
+        "2026-08-27",
+        "Writeup of the Aug 26 Chamber forum. 17 of 19 present. Do not invent the two absences.",
+    )
+    cur.execute(
+        """INSERT INTO events (slug, name, starts_on, venue, host_org_id, kind, recording_url, notes)
+           VALUES (?,?,?,?,?,?,?,?)""",
+        (
+            "2026-votes-forum",
+            "Collaborative City Council Candidate Forum 2026 (Open / Better / PLAN)",
+            "2026-09-02",
+            None,
+            org_better,
+            "forum",
+            None,
+            "Co-hosted by Open Boulder, Better Boulder, and PLAN-Boulder County. 5pm social, 6pm forum. Moderator: KC Becker. Registration closed as of the Better Boulder post. Recording not yet expected — event is Sept 2 2026.",
+        ),
+    )
+    add_source(
+        "https://betterboulder.com/collaborative-candidate-forum-2026/",
+        "Collaborative Candidate Forum 2026 — Better Boulder",
+        "article",
+        2026,
+        org_better,
+        "2026-08-19",
+        "Event page. First collaborative forum of the 2026 cycle (they started co-hosting in 2025).",
+    )
+
+
+def ingest_finance_2026(cur, *, pid: dict, add_source, org_city: int) -> None:
+    data = json.loads(FINANCE_HARVEST.read_text(encoding="utf-8"))
+    src = _ensure_source(
+        cur,
+        add_source,
+        data["source_url"],
+        data["source_title"],
+        "official",
+        2026,
+        org_city,
+        data["retrieved_on"],
+        data["notes"],
+    )
+    add_source(
+        "https://webapps.bouldercolorado.gov/election/committeeFilings.php",
+        "City of Boulder Election Committee Filings (live app)",
+        "official",
+        2026,
+        org_city,
+        None,
+        "iframe behind bouldercolorado.gov/elections/election-committee-filings. Per-committee CandE statements are HTML, no JS required for the numbers.",
+    )
+    add_source(
+        "https://documents.bouldercolorado.gov/WebLink/Browse.aspx?id=59131",
+        "City of Boulder election records (Laserfiche)",
+        "official",
+        None,
+        org_city,
+        None,
+        "Historical committee filings 2008–present. JS/cookie archive; listing not extracted this pass. 2026 dollars come from the live app, not here.",
+    )
+    for row in data["committees"]:
+        person = row["person"]
+        if person not in pid:
+            raise SystemExit(f"finance person not in seed: {person}")
+        cur.execute(
+            """INSERT INTO finance_snapshots
+               (person_id, candidacy_id, year, committee_name, contributions, expenditures,
+                matching_received, reported_on, source_id, notes)
+               VALUES (?,?,?,?,?,?,?,?,?,?)""",
+            (
+                pid[person],
+                _cid(cur, person, 2026),
+                2026,
+                row["committee"],
+                row["contributions"],
+                row["expenditures"],
+                row["matching"],
+                row["reported_on"],
+                src,
+                None,
+            ),
+        )

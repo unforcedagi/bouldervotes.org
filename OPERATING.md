@@ -64,9 +64,9 @@ Municipal filings are the city clerk (`election-committee-filings`), not TRACER.
 
 ## What is parked
 
-- 2026 Chamber forum recording — they said they would publish; wait.
 - Vote411 / LWV 2026 questionnaire — when it opens.
-- Campaign-finance *dollar* line items (the filing page is linked).
+- Chamber 2026 *written* scorecard / extended-response PDF — not published as of 2026-08-31 (policy page still says 2025). The Aug 26 forum recording is up.
 - Verbatim ingest of Chamber 2025 extended PDF and Open Boulder 2025 PDFs (catalogued, not copied into `answers` yet).
+- Past-year campaign-finance dollar totals (Laserfiche archive is JS/cookie; 2026 live app is harvested).
 - 2015 and earlier cycles.
 - Forum transcripts as quotes (videos are linked; do not invent spoken words from a journalist’s grouping).

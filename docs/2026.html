@@ -79,6 +79,18 @@ a:visited { color: var(--link-visited); }
 .badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
+.choice {
+  display: block;
+  border: 2px solid var(--ink);
+  padding: 0.7rem 0.9rem;
+  margin: 0.45rem 0;
+  text-decoration: none;
+  color: var(--ink);
+  background: #f8f3ea;
+  font-size: 1.05rem;
+}
+.choice:hover { background: var(--chip); }
+.choice .meta { font-size: 0.88rem; color: var(--muted); margin-top: 0.15rem; }
 .stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
 .stance.yes { color: var(--won); }
 .stance.no { color: var(--mark); }
@@ -117,47 +129,48 @@ footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid 
   <div class="header-inner">
     <a class="brand" href="index.html">Boulder Votes</a>
     <div class="rail"><a class="on" href="2026.html">2026</a><a class="" href="2025.html">2025</a><a class="" href="2023.html">2023</a><a class="" href="2021.html">2021</a><a class="" href="2019.html">2019</a><a class="" href="2017.html">2017</a></div>
-    <nav class="util"><a href="issues.html">Issues</a><a href="people.html">People</a><a href="print/index.html">Print</a><a href="about.html">About</a></nav>
+    <nav class="util"><a href="find.html">Find</a><a href="issues.html">Issues</a><a href="people.html">People</a><a href="print/index.html">Print</a><a href="about.html">About</a></nav>
   </div>
 </header>
 <main>
 <h1>Tuesday, November 3, 2026</h1>
 <p class='lede'>Mayor is ranked-choice (one seat). Council is plurality — five highest vote-getters win. Four city measures are also on the ballot.</p>
 <p class="jump"><a href="#mayor">Mayor</a><a href="#council">Council</a><a href="#said">What they have said</a><a href="#measures">Measures</a></p>
+<p><a class='choice' href='find.html'>What do you care about?<span class='meta'>Two or three questions. You get their sourced answers, not a score.</span></a></p>
 <h2 id='mayor'>Mayor · 6 candidates</h2>
 <div class="card">
           <h3><a href="people/taishya-adams.html">Taishya Adams</a>  · <a href='https://www.adamsforboulder.com/'>campaign</a></h3>
-          <div class='meta'>Also: 2023 council elected</div><div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget</a><a class='chip' href='issues/climate-2026.html'>Climate</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness</a><a class='chip' href='issues/housing-2026.html'>Housing</a><a class='chip' href='issues/policing-2026.html'>Policing and oversight</a><a class='chip' href='issues/transportation-2026.html'>Transportation</a></div>
+          <div class='meta'>Also: 2023 council elected</div><div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget</a><a class='chip' href='issues/climate-2026.html'>Climate</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness</a><a class='chip' href='issues/housing-2026.html'>Housing</a><a class='chip' href='issues/policing-2026.html'>Policing and oversight</a><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a><a class='chip' href='issues/transportation-2026.html'>Transportation</a></div>
         </div>
 <div class="card">
           <h3><a href="people/aaron-brockett.html">Aaron Brockett</a> <span class="badge inc">incumbent</span><span class="badge match">matching funds</span> · <a href='https://brockett4mayor.org/'>campaign</a></h3>
-          <div class='meta'>Also: 2019 council elected, 2023 mayor elected</div><div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget</a><a class='chip' href='issues/climate-2026.html'>Climate</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness</a><a class='chip' href='issues/housing-2026.html'>Housing</a><a class='chip' href='issues/airport-2026.html'>Municipal airport</a><a class='chip' href='issues/policing-2026.html'>Policing and oversight</a><a class='chip' href='issues/transportation-2026.html'>Transportation</a></div>
+          <div class='meta'>Also: 2019 council elected, 2023 mayor elected</div><div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget</a><a class='chip' href='issues/climate-2026.html'>Climate</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness</a><a class='chip' href='issues/housing-2026.html'>Housing</a><a class='chip' href='issues/airport-2026.html'>Municipal airport</a><a class='chip' href='issues/policing-2026.html'>Policing and oversight</a><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a><a class='chip' href='issues/transportation-2026.html'>Transportation</a></div>
         </div>
 <div class="card">
-          <h3><a href="people/jameson-goldstein.html">Jameson Goldstein</a> </h3>
+          <h3><a href="people/jameson-goldstein.html">Jameson Goldstein</a>  · <a href='https://www.jamoformayor.org/'>campaign</a></h3>
           <div class='meta'>No sourced answers yet this cycle.</div>
         </div>
 <div class="card">
-          <h3><a href="people/aquiles-la-grave.html">Aquiles La Grave</a> </h3>
-          <div class='meta'>No sourced answers yet this cycle.</div>
+          <h3><a href="people/aquiles-la-grave.html">Aquiles La Grave</a>  · <a href='https://boulder.vote/'>campaign</a></h3>
+          <div class='chips'><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a></div>
         </div>
 <div class="card">
           <h3><a href="people/lisa-ann-jacobs.html">Lisa Ann Jacobs</a> </h3>
-          <div class='meta'>No sourced answers yet this cycle.</div>
+          <div class='chips'><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a></div>
         </div>
 <div class="card">
-          <h3><a href="people/fred-smith.html">Fred Smith</a> </h3>
-          <div class='meta'>No sourced answers yet this cycle.</div>
+          <h3><a href="people/fred-smith.html">Fred Smith</a>  · <a href='https://gratefulfredinstead.com/'>campaign</a></h3>
+          <div class='chips'><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a></div>
         </div>
 <h2 id='council'>City council · 5 seats · 13 candidates</h2>
-<p class='note'>Five seats because Wallach resigned July 23 (before Aug 1) and Adams is running for mayor. Not on this ballot (terms through 2028): Benjamin, Speer, Kaplan. Matching-funds flags are from the city clerk list. Dollar line items live on <a href='https://bouldercolorado.gov/elections/election-committee-filings'>city committee filings</a> (not TRACER) and are not scraped here. <a href='print/index.html'>Print one sheet per candidate</a>.</p>
+<p class='note'>Five seats because Wallach resigned July 23 (before Aug 1) and Adams is running for mayor. Not on this ballot (terms through 2028): Benjamin, Speer, Kaplan. <a href='find.html'>Answer a couple of questions</a> · <a href='finance.html'>Money raised</a> · <a href='print/index.html'>Print a sheet</a>.</p>
 <div class="card">
           <h3><a href="people/benita-duran.html">Benita Duran</a> </h3>
-          <div class='meta'>Also: 2019 council lost</div><div class='chips'><a class='chip' href='issues/airport-2026.html'>Municipal airport</a></div>
+          <div class='meta'>Also: 2019 council lost</div><div class='chips'><a class='chip' href='issues/airport-2026.html'>Municipal airport</a><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a></div>
         </div>
 <div class="card">
-          <h3><a href="people/sam-fuqua.html">Sam Fuqua</a> </h3>
-          <div class='meta'>No sourced answers yet this cycle.</div>
+          <h3><a href="people/sam-fuqua.html">Sam Fuqua</a>  · <a href='https://www.fuquaforcouncil.com/'>campaign</a></h3>
+          <div class='chips'><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a></div>
         </div>
 <div class="card">
           <h3><a href="people/lee-gilbert.html">Lee Gilbert</a> </h3>
@@ -165,19 +178,19 @@ footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid 
         </div>
 <div class="card">
           <h3><a href="people/jill-grano.html">Jill Grano</a>  · <a href='https://www.jillforcouncil.com/'>campaign</a></h3>
-          <div class='meta'>Also: 2017 council elected</div><div class='chips'><a class='chip' href='issues/airport-2026.html'>Municipal airport</a></div>
+          <div class='meta'>Also: 2017 council elected</div><div class='chips'><a class='chip' href='issues/airport-2026.html'>Municipal airport</a><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a></div>
         </div>
 <div class="card">
           <h3><a href="people/rachel-rose-isaacson.html">Rachel Rose Isaacson</a> <span class="badge match">matching funds</span> · <a href='https://www.rachelrose4boulder.com/'>campaign</a></h3>
-          <div class='meta'>Also: 2025 council lost</div><div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget</a><a class='chip' href='issues/foreign-affairs-2026.html'>Foreign affairs at council</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness</a><a class='chip' href='issues/housing-2026.html'>Housing</a><a class='chip' href='issues/airport-2026.html'>Municipal airport</a><a class='chip' href='issues/wildfire-2026.html'>Wildfire resilience</a></div>
+          <div class='meta'>Also: 2025 council lost</div><div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget</a><a class='chip' href='issues/foreign-affairs-2026.html'>Foreign affairs at council</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness</a><a class='chip' href='issues/housing-2026.html'>Housing</a><a class='chip' href='issues/airport-2026.html'>Municipal airport</a><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a><a class='chip' href='issues/wildfire-2026.html'>Wildfire resilience</a></div>
         </div>
 <div class="card">
-          <h3><a href="people/ryan-jamieson.html">Ryan Jamieson</a> </h3>
-          <div class='meta'>No sourced answers yet this cycle.</div>
+          <h3><a href="people/ryan-jamieson.html">Ryan Jamieson</a>  · <a href='https://rjforboulder.com/'>campaign</a></h3>
+          <div class='chips'><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a></div>
         </div>
 <div class="card">
-          <h3><a href="people/tina-marquis.html">Tina Marquis</a> <span class="badge inc">incumbent</span><span class="badge match">matching funds</span></h3>
-          <div class='meta'>Also: 2023 council elected</div><div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget</a><a class='chip' href='issues/climate-2026.html'>Climate</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness</a><a class='chip' href='issues/housing-2026.html'>Housing</a><a class='chip' href='issues/airport-2026.html'>Municipal airport</a><a class='chip' href='issues/policing-2026.html'>Policing and oversight</a><a class='chip' href='issues/transportation-2026.html'>Transportation</a></div>
+          <h3><a href="people/tina-marquis.html">Tina Marquis</a> <span class="badge inc">incumbent</span><span class="badge match">matching funds</span> · <a href='https://www.tinaforboulder.com/'>campaign</a></h3>
+          <div class='meta'>Also: 2023 council elected</div><div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget</a><a class='chip' href='issues/climate-2026.html'>Climate</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness</a><a class='chip' href='issues/housing-2026.html'>Housing</a><a class='chip' href='issues/airport-2026.html'>Municipal airport</a><a class='chip' href='issues/policing-2026.html'>Policing and oversight</a><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a><a class='chip' href='issues/transportation-2026.html'>Transportation</a></div>
         </div>
 <div class="card">
           <h3><a href="people/david-martus.html">David Martus</a> </h3>
@@ -185,27 +198,30 @@ footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid 
         </div>
 <div class="card">
           <h3><a href="people/scott-rendleman.html">Scott Rendleman</a> </h3>
-          <div class='meta'>No sourced answers yet this cycle.</div>
+          <div class='chips'><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a></div>
         </div>
 <div class="card">
-          <h3><a href="people/jamillah-richmond.html">Jamillah Richmond</a> </h3>
-          <div class='meta'>No sourced answers yet this cycle.</div>
+          <h3><a href="people/jamillah-richmond.html">Jamillah Richmond</a>  · <a href='https://www.jamillahanewvoice.com/'>campaign</a></h3>
+          <div class='chips'><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a></div>
         </div>
 <div class="card">
-          <h3><a href="people/ryan-schuchard.html">Ryan Schuchard</a> <span class="badge inc">incumbent</span></h3>
-          <div class='meta'>Also: 2023 council elected</div><div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget</a><a class='chip' href='issues/climate-2026.html'>Climate</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness</a><a class='chip' href='issues/housing-2026.html'>Housing</a><a class='chip' href='issues/airport-2026.html'>Municipal airport</a><a class='chip' href='issues/policing-2026.html'>Policing and oversight</a><a class='chip' href='issues/transportation-2026.html'>Transportation</a></div>
+          <h3><a href="people/ryan-schuchard.html">Ryan Schuchard</a> <span class="badge inc">incumbent</span> · <a href='https://www.ryanwithboulder.com/'>campaign</a></h3>
+          <div class='meta'>Also: 2023 council elected</div><div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget</a><a class='chip' href='issues/climate-2026.html'>Climate</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness</a><a class='chip' href='issues/housing-2026.html'>Housing</a><a class='chip' href='issues/airport-2026.html'>Municipal airport</a><a class='chip' href='issues/policing-2026.html'>Policing and oversight</a><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a><a class='chip' href='issues/transportation-2026.html'>Transportation</a></div>
         </div>
 <div class="card">
           <h3><a href="people/lynn-segal.html">Lynn Segal</a> </h3>
-          <div class='meta'>No sourced answers yet this cycle.</div>
+          <div class='chips'><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a></div>
         </div>
 <div class="card">
           <h3><a href="people/tara-winer.html">Tara Winer</a> <span class="badge inc">incumbent</span><span class="badge match">matching funds</span> · <a href='https://www.taraforboulder.com/'>campaign</a></h3>
-          <div class='meta'>Also: 2021 council elected, 2023 council elected</div><div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget</a><a class='chip' href='issues/climate-2026.html'>Climate</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness</a><a class='chip' href='issues/housing-2026.html'>Housing</a><a class='chip' href='issues/airport-2026.html'>Municipal airport</a><a class='chip' href='issues/policing-2026.html'>Policing and oversight</a><a class='chip' href='issues/transportation-2026.html'>Transportation</a></div>
+          <div class='meta'>Also: 2021 council elected, 2023 council elected</div><div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget</a><a class='chip' href='issues/climate-2026.html'>Climate</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness</a><a class='chip' href='issues/housing-2026.html'>Housing</a><a class='chip' href='issues/airport-2026.html'>Municipal airport</a><a class='chip' href='issues/policing-2026.html'>Policing and oversight</a><a class='chip' href='issues/bond-2026.html'>Rec and safety bond</a><a class='chip' href='issues/transportation-2026.html'>Transportation</a></div>
         </div>
+<h2 id='money'>Money so far</h2>
+<p class='note'>City clerk contributions &amp; expenditures summary, retrieved 2026-08-31. Not TRACER. $0 means they filed that, not that we guessed. <a href='finance.html'>Full table and source</a>.</p>
+<table><tr><th>Candidate</th><th class='num'>Raised</th><th class='num'>Spent</th><th class='num'>Matching</th></tr><tr><td><a href='people/tara-winer.html'>Tara Winer</a></td><td class='num'>$12,555</td><td class='num'>$1,228</td><td class='num'>$12,366</td></tr><tr><td><a href='people/aaron-brockett.html'>Aaron Brockett</a></td><td class='num'>$8,975</td><td class='num'>$2,138</td><td class='num'>$8,975</td></tr><tr><td><a href='people/tina-marquis.html'>Tina Marquis</a></td><td class='num'>$8,949</td><td class='num'>$440</td><td class='num'>$8,949</td></tr><tr><td><a href='people/ryan-schuchard.html'>Ryan Schuchard</a></td><td class='num'>$8,418</td><td class='num'>$5,149</td><td class='num'>$0</td></tr><tr><td><a href='people/sam-fuqua.html'>Sam Fuqua</a></td><td class='num'>$7,761</td><td class='num'>$170</td><td class='num'>$7,361</td></tr><tr><td><a href='people/jill-grano.html'>Jill Grano</a></td><td class='num'>$7,652</td><td class='num'>$539</td><td class='num'>$0</td></tr><tr><td><a href='people/aquiles-la-grave.html'>Aquiles La Grave</a></td><td class='num'>$5,865</td><td class='num'>$1,665</td><td class='num'>$0</td></tr><tr><td><a href='people/rachel-rose-isaacson.html'>Rachel Rose Isaacson</a></td><td class='num'>$5,397</td><td class='num'>$393</td><td class='num'>$5,201</td></tr><tr><td><a href='people/jamillah-richmond.html'>Jamillah Richmond</a></td><td class='num'>$1,935</td><td class='num'>$175</td><td class='num'>$0</td></tr><tr><td><a href='people/ryan-jamieson.html'>Ryan Jamieson</a></td><td class='num'>$50</td><td class='num'>$0</td><td class='num'>$0</td></tr><tr><td><a href='people/taishya-adams.html'>Taishya Adams</a></td><td class='num'>$0</td><td class='num'>$35</td><td class='num'>$0</td></tr><tr><td><a href='people/benita-duran.html'>Benita Duran</a></td><td class='num'>$0</td><td class='num'>$0</td><td class='num'>$0</td></tr><tr><td><a href='people/lee-gilbert.html'>Lee Gilbert</a></td><td class='num'>$0</td><td class='num'>$0</td><td class='num'>$0</td></tr><tr><td><a href='people/jameson-goldstein.html'>Jameson Goldstein</a></td><td class='num'>$0</td><td class='num'>$0</td><td class='num'>$0</td></tr><tr><td><a href='people/lisa-ann-jacobs.html'>Lisa Ann Jacobs</a></td><td class='num'>$0</td><td class='num'>$0</td><td class='num'>$0</td></tr><tr><td><a href='people/david-martus.html'>David Martus</a></td><td class='num'>$0</td><td class='num'>$10</td><td class='num'>$0</td></tr><tr><td><a href='people/scott-rendleman.html'>Scott Rendleman</a></td><td class='num'>$0</td><td class='num'>$462</td><td class='num'>$0</td></tr><tr><td><a href='people/lynn-segal.html'>Lynn Segal</a></td><td class='num'>$0</td><td class='num'>$0</td><td class='num'>$0</td></tr><tr><td><a href='people/fred-smith.html'>Fred Smith</a></td><td class='num'>$0</td><td class='num'>$0</td><td class='num'>$0</td></tr></table>
 <h2 id='said'>What this ballot’s candidates have said</h2>
 <p>Includes what returning candidates said in earlier cycles. A blank means we do not have it — not that they are silent.</p>
-<div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget · 6</a><a class='chip' href='issues/climate-2026.html'>Climate · 5</a><a class='chip' href='issues/foreign-affairs-2026.html'>Foreign affairs at council · 1</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness · 6</a><a class='chip' href='issues/housing-2026.html'>Housing · 6</a><a class='chip' href='issues/airport-2026.html'>Municipal airport · 7</a><a class='chip' href='issues/policing-2026.html'>Policing and oversight · 5</a><a class='chip' href='issues/transportation-2026.html'>Transportation · 5</a><a class='chip' href='issues/wildfire-2026.html'>Wildfire resilience · 1</a><a class='chip' href='issues/other-2026.html'>This race / other · 6</a></div>
+<div class='chips'><a class='chip' href='issues/budget-2026.html'>City budget · 6</a><a class='chip' href='issues/climate-2026.html'>Climate · 5</a><a class='chip' href='issues/foreign-affairs-2026.html'>Foreign affairs at council · 1</a><a class='chip' href='issues/homelessness-2026.html'>Homelessness · 6</a><a class='chip' href='issues/housing-2026.html'>Housing · 6</a><a class='chip' href='issues/airport-2026.html'>Municipal airport · 7</a><a class='chip' href='issues/policing-2026.html'>Policing and oversight · 5</a><a class='chip' href='issues/bond-2026.html'>Rec and safety bond · 16</a><a class='chip' href='issues/transportation-2026.html'>Transportation · 5</a><a class='chip' href='issues/wildfire-2026.html'>Wildfire resilience · 1</a><a class='chip' href='issues/other-2026.html'>This race / other · 6</a></div>
 <h2 id='measures'>City measures</h2>
 <div class='card'><h3>Building Boulder Together: Recreation and Safety Bond</h3><div class='meta'>bond · referred</div><p>Authorizes up to $400 million of general-obligation debt (maximum repayment cost $650 million) repaid by a new property tax, up to $32.5 million a year. City example: about $400 a year on a $1 million home if the full…</p></div>
 <div class='card'><h3>Charter debt-limit calculation (actual vs. assessed value)</h3><div class='meta'>charter · referred</div><p>Amends Charter §97 so the city’s debt limit is 3% of the actual value of taxable property, not the assessed value. City says this matches how most Colorado municipalities and the state calculate the cap, and would allow…</p></div>
@@ -215,7 +231,8 @@ footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid 
 <h2>Forums</h2>
 <ul>
 <li>2026-06-06 Boulder Progressives Raucous Caucus</li>
-<li>2026-08-26 Boulder Chamber City Council Candidate Forum</li>
+<li>2026-08-26 Boulder Chamber City Council Candidate Forum · <a href="https://www.youtube.com/watch?v=rusBhvHOeCc">recording</a></li>
+<li>2026-09-02 Collaborative City Council Candidate Forum 2026 (Open / Better / PLAN)</li>
 </ul>
 <p class='note'><a href='forums.html'>Attendance and notes</a></p>
 </main>
@@ -223,6 +240,8 @@ footer { margin: 2.5rem auto 1.5rem; padding-top: 0.8rem; border-top: 1px solid 
   City of Boulder only. Cited, not scored, not an endorsement.
   <a href="sources.html">Sources</a> ·
   <a href="forums.html">Forums</a> ·
+  <a href="find.html">Find</a> ·
+  <a href="finance.html">Money</a> ·
   <a href="questionnaires.html">Questionnaires</a> ·
   <a href="print/index.html">Print</a> ·
   <a href="measures.html">All measures</a> ·

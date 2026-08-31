@@ -93,6 +93,18 @@ a:visited { color: var(--link-visited); }
 .badge { display: inline-block; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; border: 1px solid var(--ink); padding: 0.02rem 0.35rem; margin-right: 0.25rem; }
 .badge.match { border-color: var(--mark); color: var(--mark); }
 .badge.inc { border-color: var(--won); color: var(--won); }
+.choice {
+  display: block;
+  border: 2px solid var(--ink);
+  padding: 0.7rem 0.9rem;
+  margin: 0.45rem 0;
+  text-decoration: none;
+  color: var(--ink);
+  background: #f8f3ea;
+  font-size: 1.05rem;
+}
+.choice:hover { background: var(--chip); }
+.choice .meta { font-size: 0.88rem; color: var(--muted); margin-top: 0.15rem; }
 .stance { font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: 0.78rem; }
 .stance.yes { color: var(--won); }
 .stance.no { color: var(--mark); }
@@ -170,6 +182,7 @@ def page(title: str, body: str, *, prefix: str = "", year: int | None = None) ->
         on = " on" if y == year else ""
         rail.append(f'<a class="{on.strip()}" href="{prefix}{y}.html">{y}</a>')
     util = [
+        f'<a href="{prefix}find.html">Find</a>',
         f'<a href="{prefix}issues.html">Issues</a>',
         f'<a href="{prefix}people.html">People</a>',
         f'<a href="{prefix}print/index.html">Print</a>',
@@ -199,6 +212,8 @@ def page(title: str, body: str, *, prefix: str = "", year: int | None = None) ->
   City of Boulder only. Cited, not scored, not an endorsement.
   <a href="{prefix}sources.html">Sources</a> ·
   <a href="{prefix}forums.html">Forums</a> ·
+  <a href="{prefix}find.html">Find</a> ·
+  <a href="{prefix}finance.html">Money</a> ·
   <a href="{prefix}questionnaires.html">Questionnaires</a> ·
   <a href="{prefix}print/index.html">Print</a> ·
   <a href="{prefix}measures.html">All measures</a> ·
@@ -217,6 +232,7 @@ def main() -> None:
     (OUT / "people").mkdir(exist_ok=True)
     (OUT / "issues").mkdir(exist_ok=True)
     (OUT / "print").mkdir(exist_ok=True)
+    (OUT / "find").mkdir(exist_ok=True)
 
     def race_id(year: int, office: str) -> int | None:
         row = q(
@@ -456,6 +472,11 @@ def main() -> None:
             f"<p class='lede'>{esc(how)}</p>",
             jump,
         ]
+        if year == 2026:
+            bits.append(
+                "<p><a class='choice' href='find.html'>What do you care about?"
+                "<span class='meta'>Two or three questions. You get their sourced answers, not a score.</span></a></p>"
+            )
         if mayor:
             bits.append(f"<h2 id='mayor'>Mayor · {len(mayor)} candidates</h2>")
             if year != 2026:
@@ -469,10 +490,9 @@ def main() -> None:
                 bits.append(
                     "<p class='note'>Five seats because Wallach resigned July 23 (before Aug 1) and Adams is running for mayor. "
                     "Not on this ballot (terms through 2028): Benjamin, Speer, Kaplan. "
-                    "Matching-funds flags are from the city clerk list. Dollar line items live on "
-                    "<a href='https://bouldercolorado.gov/elections/election-committee-filings'>city committee filings</a> "
-                    "(not TRACER) and are not scraped here. "
-                    "<a href='print/index.html'>Print one sheet per candidate</a>.</p>"
+                    "<a href='find.html'>Answer a couple of questions</a> · "
+                    "<a href='finance.html'>Money raised</a> · "
+                    "<a href='print/index.html'>Print a sheet</a>.</p>"
                 )
             if year == 2019:
                 bits.append(
@@ -483,6 +503,28 @@ def main() -> None:
                 bits.append(results_table(year, "council"))
             for r in council:
                 bits.append(candidate_card(r, year, "council"))
+            if year == 2026:
+                money = q(
+                    """SELECT p.full_name, p.slug, f.contributions, f.expenditures, f.matching_received, f.reported_on
+                       FROM finance_snapshots f JOIN people p ON p.id=f.person_id
+                       WHERE f.year=2026 ORDER BY f.contributions DESC, p.sort_name"""
+                ).fetchall()
+                if money:
+                    bits.append("<h2 id='money'>Money so far</h2>")
+                    bits.append(
+                        "<p class='note'>City clerk contributions &amp; expenditures summary, retrieved 2026-08-31. "
+                        "Not TRACER. $0 means they filed that, not that we guessed. "
+                        "<a href='finance.html'>Full table and source</a>.</p>"
+                    )
+                    rows = ["<tr><th>Candidate</th><th class='num'>Raised</th><th class='num'>Spent</th><th class='num'>Matching</th></tr>"]
+                    for m in money:
+                        rows.append(
+                            f"<tr><td><a href='{esc(person_href(m['slug']))}'>{esc(m['full_name'])}</a></td>"
+                            f"<td class='num'>${m['contributions']:,.0f}</td>"
+                            f"<td class='num'>${m['expenditures']:,.0f}</td>"
+                            f"<td class='num'>${m['matching_received']:,.0f}</td></tr>"
+                        )
+                    bits.append(f"<table>{''.join(rows)}</table>")
         bits.append("<h2 id='said'>What this ballot’s candidates have said</h2>")
         bits.append(
             "<p>Includes what returning candidates said in earlier cycles. A blank means we do not have it — not that they are silent.</p>"
@@ -980,13 +1022,25 @@ def main() -> None:
                 bits.append('<p class="empty">No sourced quotes on file yet.</p>')
         else:
             bits.append('<p class="empty">No sourced answers on file yet this cycle.</p>')
-        money = "yes" if row["matching_funds"] else "not marked on the clerk list"
+        money_flag = "yes" if row["matching_funds"] else "not marked on the clerk candidate list"
+        snap = q(
+            """SELECT contributions, expenditures, matching_received, reported_on, committee_name
+               FROM finance_snapshots WHERE person_id=? AND year=2026""",
+            (row["person_id"],),
+        ).fetchone()
         bits.append("<h2>Money</h2>")
-        bits.append(
-            f"<p>Matching funds: {money}. Line items (how much raised) are filed with the "
-            f"<a href='https://bouldercolorado.gov/elections/election-committee-filings'>city clerk</a>, "
-            f"not TRACER. We have not copied dollar amounts yet.</p>"
-        )
+        if snap:
+            bits.append(
+                f"<p>Raised ${snap['contributions']:,.0f} · spent ${snap['expenditures']:,.0f} · "
+                f"matching received ${snap['matching_received']:,.0f} "
+                f"(clerk summary as of {esc(snap['reported_on'])}, {esc(snap['committee_name'])}). "
+                f"Clerk matching-funds flag: {money_flag}. Not TRACER.</p>"
+            )
+        else:
+            bits.append(
+                f"<p>Matching funds: {money_flag}. Filings: "
+                f"<a href='https://webapps.bouldercolorado.gov/election/committeeFilings.php'>city clerk app</a>.</p>"
+            )
         bits.append(
             f"<p class='note'><a href='../people/{esc(row['slug'])}.html'>Full dossier</a> · "
             f"<a href='../2026.html'>2026 ballot</a></p>"
@@ -1029,6 +1083,141 @@ def main() -> None:
         encoding="utf-8",
     )
 
+    def bond_people(stance: str | None = None):
+        sql = """SELECT p.full_name, p.slug, a.stance, a.verbatim, s.url AS source_url, s.title AS source_title
+                 FROM answers a
+                 JOIN people p ON p.id=a.person_id
+                 JOIN questions q ON q.id=a.question_id
+                 JOIN sources s ON s.id=a.source_id
+                 WHERE q.issue_slug='bond' AND q.year=2026"""
+        args: list = []
+        if stance:
+            sql += " AND a.stance=?"
+            args.append(stance)
+        sql += " ORDER BY p.sort_name"
+        return q(sql, args).fetchall()
+
+    def bond_cards(rows, prefix=""):
+        if not rows:
+            return '<p class="empty">No sourced bond answers yet.</p>'
+        src = rows[0]
+        bits = [f"<p class='note'><a href='{esc(src['source_url'])}'>{esc(src['source_title'])}</a></p>"]
+        for r in rows:
+            bits.append(
+                f"<div class='card'><h3><a href='{esc(person_href(r['slug'], prefix))}'>{esc(r['full_name'])}</a> "
+                f"{stance_html(r['stance'])}</h3></div>"
+            )
+        return "\n".join(bits)
+
+    find_home = [
+        "<h1>What do you care about?</h1>",
+        "<p class='lede'>Answer one or two questions. You get the candidates’ sourced answers — not a score, not an endorsement.</p>",
+        "<h2>1. The $400 million rec and safety bond</h2>",
+        "<p>This is the clearest divide in the 2026 field so far (BRL, Aug 30).</p>",
+        "<a class='choice' href='find/bond-yes.html'>I support the bond<span class='meta'>See who is with you</span></a>",
+        "<a class='choice' href='find/bond-no.html'>I oppose the bond<span class='meta'>See who is with you</span></a>",
+        "<a class='choice' href='find/bond.html'>Show everyone<span class='meta'>Yes, no, and who has not been quoted</span></a>",
+        "<h2>2. Housing</h2>",
+        "<a class='choice' href='issues/housing-2026.html'>What have they said about housing?<span class='meta'>This year’s field, plus earlier answers from people who ran before</span></a>",
+        "<h2>3. Homelessness</h2>",
+        "<a class='choice' href='issues/homelessness-2026.html'>Camping, shelter, and services</a>",
+        "<h2>4. The airport</h2>",
+        "<a class='choice' href='issues/airport-2026.html'>FAA grants that could lock the airport open</a>",
+        "<h2>Or skip the questions</h2>",
+        "<p><a href='2026.html'>The 2026 ballot</a> · <a href='people.html'>A person</a> · "
+        "<a href='print/index.html'>Print a sheet</a> · <a href='finance.html'>Who has raised money</a></p>",
+        "<p class='note'>No JavaScript. Large type. A dash means we do not have it.</p>",
+    ]
+    (OUT / "find.html").write_text(page("Find", "\n".join(find_home), year=2026), encoding="utf-8")
+
+    yes_rows = bond_people("yes")
+    no_rows = bond_people("no")
+    named = {r["person_id"] if "person_id" in r.keys() else None for r in []}
+    named_slugs = {r["slug"] for r in yes_rows} | {r["slug"] for r in no_rows}
+    ballot_2026 = list(candidates_for(2026, "mayor")) + list(candidates_for(2026, "council"))
+    silent = [r for r in ballot_2026 if r["slug"] not in named_slugs]
+
+    (OUT / "find" / "bond-yes.html").write_text(
+        page(
+            "Support the bond",
+            "<p class='crumb'><a href='../find.html'>Find</a></p>"
+            "<h1>They support the $400 million bond</h1>"
+            "<p class='lede'>BRL grouped these names as supporting the rec/safety bond. Not a score.</p>"
+            + bond_cards(yes_rows, "../")
+            + "<p><a class='choice' href='bond-no.html'>See who opposes it</a>"
+            "<a class='choice' href='../issues/housing-2026.html'>Also: housing</a></p>",
+            prefix="../",
+            year=2026,
+        ),
+        encoding="utf-8",
+    )
+    (OUT / "find" / "bond-no.html").write_text(
+        page(
+            "Oppose the bond",
+            "<p class='crumb'><a href='../find.html'>Find</a></p>"
+            "<h1>They oppose the $400 million bond</h1>"
+            "<p class='lede'>BRL grouped these names as opposing the rec/safety bond, arguing voters lack enough information on how the money would be spent.</p>"
+            + bond_cards(no_rows, "../")
+            + "<p><a class='choice' href='bond-yes.html'>See who supports it</a>"
+            "<a class='choice' href='../issues/housing-2026.html'>Also: housing</a></p>",
+            prefix="../",
+            year=2026,
+        ),
+        encoding="utf-8",
+    )
+    silent_html = ""
+    if silent:
+        silent_html = "<h2>Not named on either list</h2><p class='note'>BRL did not put these names on the yes or no side. We do not invent a stance.</p>" + "".join(
+            f"<div class='card'><h3><a href='{esc(person_href(r['slug'], '../'))}'>{esc(r['full_name'])}</a></h3><div class='meta'>—</div></div>"
+            for r in silent
+        )
+    (OUT / "find" / "bond.html").write_text(
+        page(
+            "The $400 million bond",
+            "<p class='crumb'><a href='../find.html'>Find</a></p>"
+            "<h1>The $400 million rec and safety bond</h1>"
+            "<p class='lede'>Clearest divide in the 2026 field so far. Source: BRL, Aug 30 2026.</p>"
+            "<h2>Support</h2>" + bond_cards(yes_rows, "../")
+            + "<h2>Oppose</h2>" + bond_cards(no_rows, "../")
+            + silent_html,
+            prefix="../",
+            year=2026,
+        ),
+        encoding="utf-8",
+    )
+
+    fin_rows = q(
+        """SELECT p.full_name, p.slug, f.committee_name, f.contributions, f.expenditures,
+                  f.matching_received, f.reported_on, s.url AS source_url, s.title AS source_title
+           FROM finance_snapshots f
+           JOIN people p ON p.id=f.person_id
+           JOIN sources s ON s.id=f.source_id
+           WHERE f.year=2026
+           ORDER BY f.contributions DESC, p.sort_name"""
+    ).fetchall()
+    fin_html = [
+        "<h1>Campaign money — 2026</h1>",
+        "<p class='lede'>City of Boulder committee filings, not TRACER. Retrieved 2026-08-31 from the live clerk app. $0 is a filed zero, not a missing record.</p>",
+        "<p class='note'>Past-year dollars: the live app only serves 2026. Historical filings sit in the city’s "
+        "<a href='https://documents.bouldercolorado.gov/WebLink/Browse.aspx?id=59131'>Laserfiche archive</a> "
+        "(cookie/JS). This pass could not list that folder. Matching-funds asterisks on the clerk candidate list are separate from the matching-received column here.</p>",
+    ]
+    if fin_rows:
+        fin_html.append(f"<p class='note'><a href='{esc(fin_rows[0]['source_url'])}'>{esc(fin_rows[0]['source_title'])}</a></p>")
+        body = ["<tr><th>Candidate</th><th>Committee</th><th class='num'>Raised</th><th class='num'>Spent</th><th class='num'>Matching received</th><th>As of</th></tr>"]
+        for r in fin_rows:
+            body.append(
+                f"<tr><td><a href='{esc(person_href(r['slug']))}'>{esc(r['full_name'])}</a></td>"
+                f"<td>{esc(r['committee_name'])}</td>"
+                f"<td class='num'>${r['contributions']:,.0f}</td>"
+                f"<td class='num'>${r['expenditures']:,.0f}</td>"
+                f"<td class='num'>${r['matching_received']:,.0f}</td>"
+                f"<td>{esc(r['reported_on'] or '—')}</td></tr>"
+            )
+        fin_html.append(f"<table>{''.join(body)}</table>")
+    fin_html.append("<p><a href='https://webapps.bouldercolorado.gov/election/committeeFilings.php'>Open the clerk app</a> to read each statement.</p>")
+    (OUT / "finance.html").write_text(page("Money", "\n".join(fin_html), year=2026), encoding="utf-8")
+
     about = """
     <h1>About</h1>
     <p>Boulder Votes is a map of City of Boulder elections for people who have to mark a ballot, especially older voters. It is not a feed and not a scorecard.</p>
@@ -1037,6 +1226,7 @@ def main() -> None:
       <li><strong>Zoom a year</strong> — the year rail. You see that year’s ballot: people as cards, measures, the issues they have actually answered.</li>
       <li><strong>Zoom a person</strong> — the dossier. A grid of issues across the years they ran. Returning candidates keep one page.</li>
       <li><strong>Zoom an issue</strong> — pick the year. You see the people on that ballot. Earlier answers from returning candidates are labelled as earlier.</li>
+      <li><strong>Find</strong> — two or three questions. You land on sourced answers, not a score.</li>
       <li><strong>Print</strong> — one letter-size sheet per 2026 candidate. File → Print.</li>
     </ul>
     <p>Years on the rail now run 2017–2026. 2015 and earlier are out of scope for now.</p>
