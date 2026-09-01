@@ -39,7 +39,7 @@ Python 3 stdlib only. No npm, no framework. How to extend it: [OPERATING.md](OPE
 - Catalog of Chamber / Open Boulder / PLAN / Boulder Weekly questionnaires (linked; verbatim ingested only for BRL and Beat)
 - Forum calendar 2017–2026 with recordings where they exist (including the 2025 VOTES! collaborative forum)
 - One-sheet print packet for each 2026 candidate
-- Find: two or three questions that land on sourced answers (2026 bond divide first)
+- 2026 questions on the home page (bond, airport) — not a quiz; earlier-year answers stay on the person, not filed under 2026
 - 2026 campaign-finance from the city clerk app: raised / spent / matching, itemized donors and expenditures on each dossier
 - City ballot measures 2017–2026
 
