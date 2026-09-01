@@ -162,12 +162,6 @@ def dollars(n: object) -> str:
     return f"${x:,.2f}"
 
 
-def stance_html(stance: str | None) -> str:
-    if not stance:
-        return ""
-    return f"<span class='stance {esc(stance)}'>{esc(stance)}</span>"
-
-
 def kind_label(kind: str | None) -> str:
     return {
         "questionnaire": "questionnaire",
@@ -188,13 +182,41 @@ def quote_block(verbatim: str) -> str:
     )
 
 
+def render_answer(verbatim: str | None, stance: str | None, notes: str | None = None) -> str:
+    """Show the actual answer. Never let a yes/no stand in for a different question."""
+    text = verbatim or ""
+    compact = " ".join(text.split())
+    notes = notes or ""
+    low = compact.lower()
+    beat = low.startswith("answered ") and "boulder beat" in low
+    grouping = "journalist grouping" in notes.lower() or low.startswith("reported by boulder reporting lab")
+    if beat:
+        word = {"yes": "Yes", "no": "No", "mixed": "Mixed"}.get((stance or "").lower(), "Answered")
+        extra = ""
+        if "beat note:" in low:
+            extra = compact.split("Beat note:", 1)[-1].strip() if "Beat note:" in compact else compact.split("beat note:", 1)[-1].strip()
+            extra = f" {esc(extra)}"
+        return (
+            f"<p><strong>{esc(word)}</strong>.{extra} "
+            f"<span class='note'>Boulder Beat emailed yes/no — not a written explanation.</span></p>"
+        )
+    if grouping:
+        word = {"yes": "Yes", "no": "No", "mixed": "Mixed"}.get((stance or "").lower())
+        lead = f"<p><strong>{esc(word)}</strong>. {esc(compact)}</p>" if word else f"<p>{esc(compact)}</p>"
+        return (
+            lead
+            + "<p class='note'>Journalist grouping of stated positions, not a written answer from the candidate.</p>"
+        )
+    return quote_block(text)
+
+
 def page(title: str, body: str, *, prefix: str = "", year: int | None = None) -> str:
     rail = []
     for y in YEARS:
         on = " on" if y == year else ""
         rail.append(f'<a class="{on.strip()}" href="{prefix}{y}.html">{y}</a>')
     util = [
-        f'<a href="{prefix}find.html">Find</a>',
+        f'<a href="{prefix}find.html">Questions</a>',
         f'<a href="{prefix}issues.html">Issues</a>',
         f'<a href="{prefix}people.html">People</a>',
         f'<a href="{prefix}finance.html">Money</a>',
@@ -225,7 +247,7 @@ def page(title: str, body: str, *, prefix: str = "", year: int | None = None) ->
   City of Boulder only. Cited, not scored, not an endorsement.
   <a href="{prefix}sources.html">Sources</a> ·
   <a href="{prefix}forums.html">Forums</a> ·
-  <a href="{prefix}find.html">Find</a> ·
+  <a href="{prefix}find.html">Questions</a> ·
   <a href="{prefix}finance.html">Money</a> ·
   <a href="{prefix}questionnaires.html">Questionnaires</a> ·
   <a href="{prefix}print/index.html">Print</a> ·
@@ -327,15 +349,6 @@ def main() -> None:
                 bit += " lost"
             prior_bits.append(bit)
         returning = f"<div class='meta'>Also: {esc(', '.join(prior_bits))}</div>" if prior_bits else ""
-        issues = [i for i in issues_answered(row["person_id"]) if i["slug"] != "other"]
-        chips = ""
-        if issues:
-            chips = "<div class='chips'>" + "".join(
-                f"<a class='chip' href='{esc(issue_href(i['slug'], year, prefix))}'>{esc(i['name'])}</a>"
-                for i in issues
-            ) + "</div>"
-        elif year == 2026:
-            chips = "<div class='meta'>No sourced answers yet this cycle.</div>"
         site = (
             f" · <a href='{esc(row['campaign_url'])}'>campaign</a>"
             if row["campaign_url"]
@@ -354,7 +367,7 @@ def main() -> None:
                 money = f"<div class='meta'>Raised {dollars(snap['contributions'])}{match}</div>"
         return f"""<div class="card">
           <h3><a href="{esc(person_href(row['slug'], prefix))}">{esc(row['full_name'])}</a> {''.join(flags)}{site}</h3>
-          {status}{returning}{money}{chips}
+          {status}{returning}{money}
         </div>"""
 
     def results_table(year: int, office: str, prefix: str = "") -> str:
@@ -473,17 +486,21 @@ def main() -> None:
             if r["person_id"] in ballot_person_ids and (r["q_year"] or 0) <= year
         ]
 
+    def questions_this_year(year: int):
+        return q(
+            """SELECT q.id, q.prompt, q.kind, COALESCE(q.issue_slug,'other') AS slug,
+                      COALESCE(i.name,'This race / other') AS name
+               FROM questions q
+               LEFT JOIN issues i ON i.slug=q.issue_slug
+               WHERE q.year=?
+               ORDER BY q.id""",
+            (year,),
+        ).fetchall()
+
     def write_year_page(year: int, as_home: bool = False) -> None:
         mayor = candidates_for(year, "mayor")
         council = candidates_for(year, "council")
-        ballot_ids = {r["person_id"] for r in list(mayor) + list(council)}
-        issue_links = []
-        for slug, name, _desc in all_issues():
-            n = len({r["person_id"] for r in year_issue_answers(slug, year, ballot_ids)})
-            if n:
-                issue_links.append(
-                    f"<a class='chip' href='{esc(issue_href(slug, year))}'>{esc(name)} · {n}</a>"
-                )
+        qs_year = questions_this_year(year)
         how = {
             2026: "Mayor is ranked-choice (one seat). Council is plurality — five highest vote-getters win. Four city measures are also on the ballot.",
             2025: "Four council seats, no mayor. Last odd-year municipal election.",
@@ -492,10 +509,14 @@ def main() -> None:
             2019: "Six council seats after Jill Grano resigned (the vacancy added a two-year seat). No directly elected mayor. Top four: four-year; fifth and sixth: two-year. 34,971 city ballots; 68,749 active city voters.",
             2017: "Five council seats, no directly elected mayor. Top four: four-year terms; fifth: two-year. 31,765 city ballots; 72,574 active city voters.",
         }[year]
-        jump = '<p class="jump"><a href="#mayor">Mayor</a>' if mayor else '<p class="jump">'
+        jump = '<p class="jump">'
+        if qs_year:
+            jump += '<a href="#questions">Questions</a>'
+        if mayor:
+            jump += '<a href="#mayor">Mayor</a>'
         if council:
             jump += '<a href="#council">Council</a>'
-        jump += '<a href="#said">What they have said</a><a href="#measures">Measures</a>'
+        jump += '<a href="#measures">Measures</a>'
         if year == 2026:
             jump += '<a href="#money">Money</a>'
         jump += "</p>"
@@ -504,11 +525,17 @@ def main() -> None:
             f"<p class='lede'>{esc(how)}</p>",
             jump,
         ]
-        if year == 2026:
+        if qs_year:
+            bits.append(f"<h2 id='questions'>Questions asked in {year}</h2>")
             bits.append(
-                "<p><a class='choice' href='find.html'>What do you care about?"
-                "<span class='meta'>Two or three questions. You get their sourced answers, not a score.</span></a></p>"
+                "<p class='note'>These are the questions on file for this cycle — not a quiz, not a score. "
+                "Earlier answers from people who ran before live on their pages.</p>"
             )
+            for qu in qs_year:
+                bits.append(
+                    f"<a class='choice' href='{esc(issue_href(qu['slug'], year))}'>{esc(qu['prompt'])}"
+                    f"<span class='meta'>{esc(kind_label(qu['kind']))}</span></a>"
+                )
         if mayor:
             bits.append(f"<h2 id='mayor'>Mayor · {len(mayor)} candidates</h2>")
             if year != 2026:
@@ -522,7 +549,6 @@ def main() -> None:
                 bits.append(
                     "<p class='note'>Five seats because Wallach resigned July 23 (before Aug 1) and Adams is running for mayor. "
                     "Not on this ballot (terms through 2028): Benjamin, Speer, Kaplan. "
-                    "<a href='find.html'>Answer a couple of questions</a> · "
                     "<a href='finance.html'>Money raised</a> · "
                     "<a href='print/index.html'>Print a sheet</a>.</p>"
                 )
@@ -557,14 +583,6 @@ def main() -> None:
                             f"<td class='num'>{dollars(m['matching_received'])}</td></tr>"
                         )
                     bits.append(f"<table>{''.join(rows)}</table>")
-        bits.append("<h2 id='said'>What this ballot’s candidates have said</h2>")
-        bits.append(
-            "<p>Includes what returning candidates said in earlier cycles. A blank means we do not have it — not that they are silent.</p>"
-        )
-        if issue_links:
-            bits.append("<div class='chips'>" + "".join(issue_links) + "</div>")
-        else:
-            bits.append('<p class="empty">No sourced answers for this field yet.</p>')
         bits.append("<h2 id='measures'>City measures</h2>")
         bits.append(measure_cards(year))
         evs = forums_for_year(year)
@@ -593,7 +611,7 @@ def main() -> None:
     # ----- issues hub -----
     hub = [
         "<h1>Issues</h1>",
-        "<p class='lede'>Pick an issue, then a year. You will see the people on that year’s ballot and what they have said — this cycle and, if they ran before, earlier.</p>",
+        "<p class='lede'>Each year is the questions asked that cycle. A 2023 yes/no about a 2023 measure is not a 2026 position. Open a person to see what they have said across years.</p>",
     ]
     for slug, name, desc in all_issues():
         ys = issue_years(slug)
@@ -621,7 +639,7 @@ def main() -> None:
 
     def answers_for_question(qid: int, person_ids: set[int] | None = None):
         rows = q(
-            """SELECT a.id, p.id AS person_id, p.slug, p.full_name, a.stance, a.verbatim,
+            """SELECT a.id, p.id AS person_id, p.slug, p.full_name, a.stance, a.verbatim, a.notes,
                       s.title AS source_title, s.url AS source_url
                FROM answers a
                JOIN people p ON p.id=a.person_id
@@ -656,13 +674,12 @@ def main() -> None:
             page(name, "\n".join(bits), prefix="../"), encoding="utf-8"
         )
 
+        written_year_pages: set[str] = set()
         for year in YEARS:
             ballot = list(candidates_for(year, "mayor")) + list(candidates_for(year, "council"))
             ballot_ids = {r["person_id"] for r in ballot}
             qs_this = questions_for(slug, year)
-            prior_people = year_issue_answers(slug, year, ballot_ids)
-            prior_only = [r for r in prior_people if r["q_year"] != year]
-            if not qs_this and not prior_only:
+            if not qs_this:
                 continue
             year_pills = "".join(
                 f"<a class='pill{' on' if y == year else ''}' href='{esc(slug)}-{y}.html'>{y}</a> "
@@ -670,60 +687,49 @@ def main() -> None:
             )
             body = [
                 f"<p class='crumb'><a href='../issues.html'>Issues</a> · <a href='{esc(slug)}.html'>{esc(name)}</a></p>",
-                f"<h1>{esc(name)} · {year}</h1>",
-                f"<p class='note'>This issue in: {year_pills}</p>",
-                f"<p>People on the {year} ballot. Answers from this cycle first. "
-                f"If a returning candidate only answered in an earlier race, that quote is labelled as earlier — not as a {year} answer.</p>",
+                f"<h1>{esc(qs_this[0]['prompt'] if len(qs_this) == 1 else name + ' · ' + str(year))}</h1>",
+                f"<p class='note'>{year} · {esc(name)}. This issue in: {year_pills}</p>",
+                f"<p>People on the {year} ballot who answered this cycle’s question. "
+                f"We do not copy an earlier year’s yes/no onto this page.</p>",
             ]
-            # compact scan table of this year's questions
             for qu in qs_this:
                 ans = answers_for_question(qu["id"], ballot_ids)
-                body.append(f"<h2>{esc(qu['prompt'])}</h2>")
+                if len(qs_this) > 1:
+                    body.append(f"<h2>{esc(qu['prompt'])}</h2>")
                 body.append(f"<p class='note'>{esc(kind_label(qu['kind']))}</p>")
                 if ans:
                     src = ans[0]
                     body.append(f"<p class='note'><a href='{esc(src['source_url'])}'>{esc(src['source_title'])}</a></p>")
-                    show_st = any(a["stance"] for a in ans)
-                    head = "<tr><th>Candidate</th>"
-                    if show_st:
-                        head += "<th style='width:4.5rem'>Stance</th>"
-                    head += "<th>What they said</th></tr>"
-                    rows_html = [head]
-                    for a in ans:
-                        st = f"<td>{stance_html(a['stance'])}</td>" if show_st else ""
-                        rows_html.append(
-                            f"<tr><td><a href='{esc(person_href(a['slug'], '../'))}'>{esc(a['full_name'])}</a></td>"
-                            f"{st}<td>{quote_block(a['verbatim'])}</td></tr>"
+                    groups = [("yes", "Yes"), ("no", "No"), ("mixed", "Mixed"), (None, None)]
+                    used_ids = set()
+                    for key, label in groups:
+                        chunk = [a for a in ans if (a["stance"] if a["stance"] in ("yes", "no", "mixed") else None) == key]
+                        if not chunk:
+                            continue
+                        if label and any(a["stance"] in ("yes", "no", "mixed") for a in ans):
+                            body.append(f"<h2>{esc(label)}</h2>")
+                        for a in chunk:
+                            used_ids.add(a["id"])
+                            body.append(
+                                f"<div class='card'><h3><a href='{esc(person_href(a['slug'], '../'))}'>{esc(a['full_name'])}</a></h3>"
+                                f"{render_answer(a['verbatim'], a['stance'], a['notes'])}"
+                                f"</div>"
+                            )
+                    silent = [r for r in ballot if r["person_id"] not in {a["person_id"] for a in ans}]
+                    if silent:
+                        body.append(
+                            f"<p class='note'>{len(silent)} on this ballot are not in the source for this question. "
+                            f"That is not a no.</p>"
                         )
-                    body.append(f"<table>{''.join(rows_html)}</table>")
                 else:
                     body.append(f"<p class='empty'>No one on the {year} ballot answered this prompt.</p>")
-            if prior_only:
-                # unique people who have only earlier answers
-                this_year_ids = set()
-                for qu in qs_this:
-                    this_year_ids |= {a["person_id"] for a in answers_for_question(qu["id"], ballot_ids)}
-                earlier = [r for r in prior_only if r["person_id"] not in this_year_ids]
-                if earlier:
-                    body.append(f"<h2>Returning candidates — said this before {year}</h2>")
-                    body.append("<p class='note'>They are on this ballot. The quote is from an earlier cycle. We do not treat it as a {year} answer.</p>".replace("{year}", str(year)))
-                    seen = set()
-                    for r in earlier:
-                        key = (r["person_id"], r["q_year"], r["prompt"])
-                        if key in seen:
-                            continue
-                        seen.add(key)
-                        body.append(
-                            f"<div class='card'><h3><a href='{esc(person_href(r['slug'], '../'))}'>{esc(r['full_name'])}</a> "
-                            f"{stance_html(r['stance'])}</h3>"
-                            f"<div class='meta'>{r['q_year']} {esc(kind_label(r['kind']))} · {esc(clip(r['prompt'], 120))}</div>"
-                            f"{quote_block(r['verbatim'])}"
-                            f"<p class='note'><a href='{esc(r['source_url'])}'>{esc(r['source_title'])}</a></p></div>"
-                        )
-            (OUT / "issues" / f"{slug}-{year}.html").write_text(
-                page(f"{name} {year}", "\n".join(body), prefix="../", year=year),
-                encoding="utf-8",
-            )
+            dest = OUT / "issues" / f"{slug}-{year}.html"
+            dest.write_text(page(f"{name} {year}", "\n".join(body), prefix="../", year=year), encoding="utf-8")
+            written_year_pages.add(dest.name)
+        # drop leftover year-pages that were the old “prior answers bleed onto this year” files
+        for leftover in (OUT / "issues").glob(f"{slug}-20*.html"):
+            if leftover.name not in written_year_pages:
+                leftover.unlink()
 
     # rebuild issue hub pills now that slices exist — already linked
 
@@ -732,7 +738,7 @@ def main() -> None:
     on_2026 = {r["person_id"] for r in candidates_for(2026, "mayor") + candidates_for(2026, "council")}
     plist = [
         "<h1>People</h1>",
-        "<p class='lede'>A person lasts across years. Open a dossier to see the issue × year grid — what they said, and when they said it.</p>",
+        "<p class='lede'>A person lasts across years. Open a dossier for the questions they have actually answered, newest year first.</p>",
         "<h2>On the 2026 ballot</h2>",
     ]
     later = ["<h2>Earlier cycles only</h2>"]
@@ -781,7 +787,7 @@ def main() -> None:
                JOIN sources s ON s.id=a.source_id
                LEFT JOIN issues i ON i.slug=q.issue_slug
                WHERE a.person_id=?
-               ORDER BY issue_name, q.year DESC, q.id""",
+               ORDER BY q.year DESC, q.id""",
             (p["id"],),
         ).fetchall()
         appearances = q(
@@ -801,14 +807,6 @@ def main() -> None:
                ORDER BY e.year, res.round""",
             (p["id"],),
         ).fetchall()
-
-        years_in = sorted({c["year"] for c in cands} | {a["q_year"] for a in answers if a["q_year"]}, reverse=True)
-        issue_rows = []
-        seen_iss = []
-        for a in answers:
-            if a["issue_slug"] not in seen_iss:
-                seen_iss.append(a["issue_slug"])
-                issue_rows.append((a["issue_slug"], a["issue_name"]))
 
         bits = [f"<h1>{esc(p['full_name'])}</h1>"]
         if p["notes"]:
@@ -841,7 +839,38 @@ def main() -> None:
             (p["id"],),
         ).fetchall()
         if snaps:
-            bits.append("<h2>Money</h2>")
+            snap0 = snaps[0]
+            bits.append(
+                f"<p class='note'>{snap0['year']}: raised {dollars(snap0['contributions'])} · "
+                f"spent {dollars(snap0['expenditures'])} · "
+                f"matching {dollars(snap0['matching_received'])}. "
+                f"<a href='#money'>Donors and spending</a>.</p>"
+            )
+
+        if answers:
+            bits.append("<h2>What they have said</h2>")
+            bits.append(
+                "<p class='note'>Newest year first. Each card is one question. A yes/no is an answer to that question — not a position on the whole topic.</p>"
+            )
+            current_year = None
+            for a in answers:
+                if a["q_year"] != current_year:
+                    bits.append(f"<h2>{a['q_year']}</h2>")
+                    current_year = a["q_year"]
+                bits.append(f"<div class='card' id='q-{a['id']}'>")
+                bits.append(
+                    f"<div class='meta'><a href='../{a['q_year']}.html'>{a['q_year']}</a> · "
+                    f"{esc(kind_label(a['q_kind']))} · {esc(a['issue_name'])}</div>"
+                )
+                bits.append(f"<h3>{esc(a['prompt'])}</h3>")
+                bits.append(render_answer(a["verbatim"], a["stance"], a["notes"]))
+                bits.append(f"<p class='note'><a href='{esc(a['source_url'])}'>{esc(a['source_title'])}</a></p>")
+                bits.append("</div>")
+        else:
+            bits.append("<p class='empty'>No sourced answers on file yet.</p>")
+
+        if snaps:
+            bits.append("<h2 id='money'>Money</h2>")
             for snap in snaps:
                 n_donors = q(
                     """SELECT COUNT(*) FROM finance_line_items
@@ -875,7 +904,7 @@ def main() -> None:
                     f"<a href='../finance.html'>Everyone</a>.</p>"
                 )
                 contribs = q(
-                    """SELECT display_name, item_type, occurred_on, amount, from_candidate, donor_person_id
+                    """SELECT display_name, item_type, occurred_on, amount, from_candidate
                        FROM finance_line_items
                        WHERE snapshot_id=? AND direction='contribution'
                        ORDER BY amount DESC, last_name, first_name""",
@@ -911,40 +940,6 @@ def main() -> None:
                             f"<td class='num'>{dollars(item['amount'])}</td></tr>"
                         )
                     bits.append(f"<table>{''.join(body)}</table>")
-
-        if issue_rows and years_in:
-            bits.append("<h2>What they have said</h2>")
-            bits.append("<p class='note'>Each cell is a source in that year. A dash means we do not have one. Click through for the quote.</p>")
-            head = "<tr><th>Issue</th>" + "".join(f"<th>{y}</th>" for y in years_in) + "</tr>"
-            mrows = [head]
-            for slug, iname in issue_rows:
-                cells = f"<td><a href='{esc(issue_href(slug, None, '../'))}'>{esc(iname)}</a></td>"
-                for y in years_in:
-                    hits = [a for a in answers if a["issue_slug"] == slug and a["q_year"] == y]
-                    if not hits:
-                        cells += "<td class='empty'>—</td>"
-                    else:
-                        label = hits[0]["stance"].upper() if hits[0]["stance"] else "said"
-                        cells += f"<td><a href='#i-{esc(slug)}-{y}-{hits[0]['id']}'>{esc(label)}</a></td>"
-                mrows.append(f"<tr>{cells}</tr>")
-            bits.append(f"<table class='matrix'>{''.join(mrows)}</table>")
-
-            current = None
-            for a in answers:
-                if a["issue_slug"] != current:
-                    bits.append(f"<h2>{esc(a['issue_name'])}</h2>")
-                    current = a["issue_slug"]
-                bits.append(f"<div class='card' id='i-{esc(a['issue_slug'])}-{a['q_year']}-{a['id']}'>")
-                bits.append(
-                    f"<div class='meta'><a href='../{a['q_year']}.html'>{a['q_year']}</a> · "
-                    f"{esc(kind_label(a['q_kind']))} {stance_html(a['stance'])}</div>"
-                )
-                bits.append(f"<h3>{esc(a['prompt'])}</h3>")
-                bits.append(quote_block(a["verbatim"]))
-                bits.append(f"<p class='note'><a href='{esc(a['source_url'])}'>{esc(a['source_title'])}</a></p>")
-                bits.append("</div>")
-        else:
-            bits.append("<p class='empty'>No sourced answers on file yet.</p>")
 
         if appearances:
             bits.append("<h2>Forums</h2><ul>")
@@ -1045,7 +1040,7 @@ def main() -> None:
     # ----- print packet: one letter-size sheet per 2026 candidate -----
     def print_sheet(row, office: str) -> str:
         answers = q(
-            """SELECT a.verbatim, a.stance, q.prompt, q.year AS q_year, q.kind AS q_kind,
+            """SELECT a.verbatim, a.stance, a.notes, q.prompt, q.year AS q_year, q.kind AS q_kind,
                       COALESCE(q.issue_slug,'other') AS issue_slug,
                       COALESCE(i.name,'This race / other') AS issue_name,
                       s.title AS source_title, s.url AS source_url
@@ -1091,46 +1086,17 @@ def main() -> None:
             )
         bits.append(f"<table>{''.join(tbody)}</table>")
         if answers:
-            years_in = sorted({a["q_year"] for a in answers if a["q_year"]}, reverse=True)
-            issues = []
-            seen = set()
-            for a in answers:
-                if a["issue_slug"] not in seen and a["issue_slug"] != "other":
-                    seen.add(a["issue_slug"])
-                    issues.append((a["issue_slug"], a["issue_name"]))
-            if issues and years_in:
-                bits.append("<h2>What they have said</h2>")
-                head = "<tr><th>Issue</th>" + "".join(f"<th>{y}</th>" for y in years_in) + "</tr>"
-                mrows = [head]
-                for slug, iname in issues:
-                    cells = f"<td>{esc(iname)}</td>"
-                    for y in years_in:
-                        hits = [a for a in answers if a["issue_slug"] == slug and a["q_year"] == y]
-                        if not hits:
-                            cells += "<td class='empty'>—</td>"
-                        else:
-                            label = hits[0]["stance"].upper() if hits[0]["stance"] else "said"
-                            cells += f"<td>{esc(label)}</td>"
-                    mrows.append(f"<tr>{cells}</tr>")
-                bits.append(f"<table class='matrix'>{''.join(mrows)}</table>")
-            bits.append("<h2>Three quotes</h2>")
-            used_issues = set()
+            bits.append("<h2>What they have said</h2>")
             n = 0
             for a in answers:
-                if a["issue_slug"] in used_issues:
-                    continue
-                used_issues.add(a["issue_slug"])
                 bits.append(
-                    f"<div class='card'><div class='meta'>{a['q_year']} · {esc(a['issue_name'])} "
-                    f"{stance_html(a['stance'])}</div>"
-                    f"<h3>{esc(a['prompt'])}</h3>{quote_block(a['verbatim'])}"
+                    f"<div class='card'><div class='meta'>{a['q_year']} · {esc(a['issue_name'])}</div>"
+                    f"<h3>{esc(a['prompt'])}</h3>{render_answer(a['verbatim'], a['stance'], a['notes'])}"
                     f"<p class='note'><a href='{esc(a['source_url'])}'>{esc(a['source_title'])}</a></p></div>"
                 )
                 n += 1
-                if n >= 3:
+                if n >= 4:
                     break
-            if n == 0:
-                bits.append('<p class="empty">No sourced quotes on file yet.</p>')
         else:
             bits.append('<p class="empty">No sourced answers on file yet this cycle.</p>')
         money_flag = "yes" if row["matching_funds"] else "not marked on the clerk candidate list"
@@ -1164,7 +1130,7 @@ def main() -> None:
 
     print_index = [
         "<h1>Print packet</h1>",
-        "<p class='lede'>One letter-size sheet per 2026 candidate: timeline, the issue grid, three quotes, and the clerk’s raised / spent / matching totals. Print from the browser. Later in the race, forums often restrict who is invited using fundraising thresholds.</p>",
+        "<p class='lede'>One letter-size sheet per 2026 candidate: timeline, the questions they have answered, clerk totals. Print from the browser.</p>",
         "<p class='print-hint'>Open a sheet, then File → Print. No JavaScript.</p>",
         "<h2>Mayor</h2>",
     ]
@@ -1202,108 +1168,35 @@ def main() -> None:
         encoding="utf-8",
     )
 
-    def bond_people(stance: str | None = None):
-        sql = """SELECT p.full_name, p.slug, a.stance, a.verbatim, s.url AS source_url, s.title AS source_title
-                 FROM answers a
-                 JOIN people p ON p.id=a.person_id
-                 JOIN questions q ON q.id=a.question_id
-                 JOIN sources s ON s.id=a.source_id
-                 WHERE q.issue_slug='bond' AND q.year=2026"""
-        args: list = []
-        if stance:
-            sql += " AND a.stance=?"
-            args.append(stance)
-        sql += " ORDER BY p.sort_name"
-        return q(sql, args).fetchall()
-
-    def bond_cards(rows, prefix=""):
-        if not rows:
-            return '<p class="empty">No sourced bond answers yet.</p>'
-        src = rows[0]
-        bits = [f"<p class='note'><a href='{esc(src['source_url'])}'>{esc(src['source_title'])}</a></p>"]
-        for r in rows:
-            bits.append(
-                f"<div class='card'><h3><a href='{esc(person_href(r['slug'], prefix))}'>{esc(r['full_name'])}</a> "
-                f"{stance_html(r['stance'])}</h3></div>"
-            )
-        return "\n".join(bits)
-
+    qs_2026 = questions_this_year(2026)
     find_home = [
-        "<h1>What do you care about?</h1>",
-        "<p class='lede'>Answer one or two questions. You get the candidates’ sourced answers — not a score, not an endorsement.</p>",
-        "<h2>1. The $400 million rec and safety bond</h2>",
-        "<p>This is the clearest divide in the 2026 field so far (BRL, Aug 30).</p>",
-        "<a class='choice' href='find/bond-yes.html'>I support the bond<span class='meta'>See who is with you</span></a>",
-        "<a class='choice' href='find/bond-no.html'>I oppose the bond<span class='meta'>See who is with you</span></a>",
-        "<a class='choice' href='find/bond.html'>Show everyone<span class='meta'>Yes, no, and who has not been quoted</span></a>",
-        "<h2>2. Housing</h2>",
-        "<a class='choice' href='issues/housing-2026.html'>What have they said about housing?<span class='meta'>This year’s field, plus earlier answers from people who ran before</span></a>",
-        "<h2>3. Homelessness</h2>",
-        "<a class='choice' href='issues/homelessness-2026.html'>Camping, shelter, and services</a>",
-        "<h2>4. The airport</h2>",
-        "<a class='choice' href='issues/airport-2026.html'>FAA grants that could lock the airport open</a>",
-        "<h2>Or skip the questions</h2>",
-        "<p><a href='2026.html'>The 2026 ballot</a> · <a href='people.html'>A person</a> · "
-        "<a href='print/index.html'>Print a sheet</a> · <a href='finance.html'>Who has raised money</a></p>",
-        "<p class='note'>No JavaScript. Large type. A dash means we do not have it.</p>",
+        "<h1>Questions asked in 2026</h1>",
+        "<p class='lede'>Not a quiz. These are the questions on file for this cycle. Open one to read who answered, in the source’s words.</p>",
     ]
-    (OUT / "find.html").write_text(page("Find", "\n".join(find_home), year=2026), encoding="utf-8")
-
-    yes_rows = bond_people("yes")
-    no_rows = bond_people("no")
-    named = {r["person_id"] if "person_id" in r.keys() else None for r in []}
-    named_slugs = {r["slug"] for r in yes_rows} | {r["slug"] for r in no_rows}
-    ballot_2026 = list(candidates_for(2026, "mayor")) + list(candidates_for(2026, "council"))
-    silent = [r for r in ballot_2026 if r["slug"] not in named_slugs]
-
-    (OUT / "find" / "bond-yes.html").write_text(
-        page(
-            "Support the bond",
-            "<p class='crumb'><a href='../find.html'>Find</a></p>"
-            "<h1>They support the $400 million bond</h1>"
-            "<p class='lede'>BRL grouped these names as supporting the rec/safety bond. Not a score.</p>"
-            + bond_cards(yes_rows, "../")
-            + "<p><a class='choice' href='bond-no.html'>See who opposes it</a>"
-            "<a class='choice' href='../issues/housing-2026.html'>Also: housing</a></p>",
-            prefix="../",
-            year=2026,
-        ),
-        encoding="utf-8",
-    )
-    (OUT / "find" / "bond-no.html").write_text(
-        page(
-            "Oppose the bond",
-            "<p class='crumb'><a href='../find.html'>Find</a></p>"
-            "<h1>They oppose the $400 million bond</h1>"
-            "<p class='lede'>BRL grouped these names as opposing the rec/safety bond, arguing voters lack enough information on how the money would be spent.</p>"
-            + bond_cards(no_rows, "../")
-            + "<p><a class='choice' href='bond-yes.html'>See who supports it</a>"
-            "<a class='choice' href='../issues/housing-2026.html'>Also: housing</a></p>",
-            prefix="../",
-            year=2026,
-        ),
-        encoding="utf-8",
-    )
-    silent_html = ""
-    if silent:
-        silent_html = "<h2>Not named on either list</h2><p class='note'>BRL did not put these names on the yes or no side. We do not invent a stance.</p>" + "".join(
-            f"<div class='card'><h3><a href='{esc(person_href(r['slug'], '../'))}'>{esc(r['full_name'])}</a></h3><div class='meta'>—</div></div>"
-            for r in silent
+    for qu in qs_2026:
+        find_home.append(
+            f"<a class='choice' href='{esc(issue_href(qu['slug'], 2026))}'>{esc(qu['prompt'])}"
+            f"<span class='meta'>{esc(kind_label(qu['kind']))}</span></a>"
         )
-    (OUT / "find" / "bond.html").write_text(
-        page(
-            "The $400 million bond",
-            "<p class='crumb'><a href='../find.html'>Find</a></p>"
-            "<h1>The $400 million rec and safety bond</h1>"
-            "<p class='lede'>Clearest divide in the 2026 field so far. Source: BRL, Aug 30 2026.</p>"
-            "<h2>Support</h2>" + bond_cards(yes_rows, "../")
-            + "<h2>Oppose</h2>" + bond_cards(no_rows, "../")
-            + silent_html,
-            prefix="../",
-            year=2026,
-        ),
-        encoding="utf-8",
+    find_home.append(
+        "<p class='note'>Housing, homelessness, and budget quotes from earlier races live on each person’s page. "
+        "We do not file a 2023 yes/no under 2026.</p>"
+        "<p><a href='2026.html'>The 2026 ballot</a> · <a href='people.html'>A person</a> · "
+        "<a href='print/index.html'>Print a sheet</a> · <a href='finance.html'>Money</a></p>"
     )
+    (OUT / "find.html").write_text(page("Questions", "\n".join(find_home), year=2026), encoding="utf-8")
+    quiz_gone = page(
+        "Moved",
+        "<p class='crumb'><a href='../find.html'>Questions</a></p>"
+        "<h1>This quiz is gone</h1>"
+        "<p>It turned a question into a team. The 2026 questions are listed on "
+        "<a href='../find.html'>Questions</a> and on the <a href='../index.html'>home page</a>.</p>"
+        "<p><a href='../issues/bond-2026.html'>The $400 million rec and safety bond</a></p>",
+        prefix="../",
+        year=2026,
+    )
+    for stub in ("bond-yes.html", "bond-no.html", "bond.html"):
+        (OUT / "find" / stub).write_text(quiz_gone, encoding="utf-8")
 
     fin_rows = q(
         """SELECT f.id, p.full_name, p.slug, f.committee_name, f.committee_kind, f.contributions,
@@ -1405,18 +1298,17 @@ def main() -> None:
 
     about = """
     <h1>About</h1>
-    <p>Boulder Votes is a map of City of Boulder elections for people who have to mark a ballot, especially older voters. It is not a feed and not a scorecard.</p>
+    <p>Boulder Votes is a map of City of Boulder elections for people who have to mark a ballot, especially older voters. It is not a feed, not a quiz, and not a scorecard.</p>
     <h2>How to use it</h2>
     <ul>
-      <li><strong>Zoom a year</strong> — the year rail. You see that year’s ballot: people as cards, measures, the issues they have actually answered.</li>
-      <li><strong>Zoom a person</strong> — the dossier. A grid of issues across the years they ran. Returning candidates keep one page.</li>
-      <li><strong>Zoom an issue</strong> — pick the year. You see the people on that ballot. Earlier answers from returning candidates are labelled as earlier.</li>
-      <li><strong>Find</strong> — two or three questions. You land on sourced answers, not a score.</li>
+      <li><strong>A year</strong> — that year’s ballot, and the questions asked that cycle. 2026 currently has two: the rec/safety bond, and FAA grants at the airport.</li>
+      <li><strong>A person</strong> — the questions they have answered, newest year first. A 2023 yes/no is labelled 2023 and named as that question. It is not a 2026 position.</li>
+      <li><strong>A question</strong> — people on that year’s ballot who answered it. We do not copy an earlier year’s answer onto this year’s page.</li>
       <li><strong>Print</strong> — one letter-size sheet per 2026 candidate. File → Print.</li>
     </ul>
-    <p>Years on the rail now run 2017–2026. 2015 and earlier are out of scope for now.</p>
-    <p>A number without a source is not published. Two quotes are never averaged. A dash is a dash. We do not score candidates.</p>
-    <p>Municipal campaign-finance filings are with the <a href="https://bouldercolorado.gov/elections/election-committee-filings">city clerk</a>, not TRACER. 2026 raised / spent / matching totals and itemized donors live on each candidate’s page and on <a href="finance.html">Money</a>. $0 is a filed zero. Past-year dollars are not copied (the live clerk app only serves 2026; Laserfiche is a JS archive).</p>
+    <p>Years on the rail run 2017–2026. 2015 and earlier are out of scope for now.</p>
+    <p>A number without a source is not published. Two quotes are never averaged. We do not score candidates. A yes/no is an answer to the question on the card — never a stand-in for a whole topic like “city budget.”</p>
+    <p>Municipal campaign-finance filings are with the <a href="https://bouldercolorado.gov/elections/election-committee-filings">city clerk</a>, not TRACER. 2026 totals and itemized donors live on each candidate’s page (below what they have said) and on <a href="finance.html">Money</a>. $0 is a filed zero. Past-year dollars are not copied (the live clerk app only serves 2026; Laserfiche is a JS archive).</p>
     <p>No JavaScript. Large type. Print unfolds the folded answers.</p>
     """
     (OUT / "about.html").write_text(page("About", about), encoding="utf-8")

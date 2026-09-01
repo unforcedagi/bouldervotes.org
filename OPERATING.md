@@ -8,9 +8,9 @@ A sourced map of **City of Boulder** mayor and council races (plus city ballot m
 
 Three zooms:
 
-- **Year** = that year’s ballot (`2026.html`, `2025.html`, …). Home *is* the current ballot.
-- **Person** = dossier across years (`people/<slug>.html`), with an issue × year grid.
-- **Issue × year** = people on *that* ballot (`issues/<slug>-<year>.html`). Earlier answers from returning candidates are labelled as earlier.
+- **Year** = that year’s ballot (`2026.html`, `2025.html`, …). Home *is* the current ballot, with the questions asked that cycle at the top.
+- **Person** = dossier across years (`people/<slug>.html`), questions newest-first. A yes/no is an answer to that question, not a topic score.
+- **Question × year** = people on *that* ballot who answered *that year’s* prompt (`issues/<slug>-<year>.html`). Do not copy an earlier year’s answer onto this year’s page.
 
 A number or a “position” without a source is not published. Two quotes are never averaged. A dash means we do not have it.
 
