@@ -16,9 +16,10 @@ Live: https://bouldervotes.org/ (GitHub Pages; custom domain). Mirror: https://u
 
 ```bash
 cd ~/REPOS/bouldervotes.org
-python3 harvest_brl.py   # optional; writes data/harvest/brl_questionnaires.json
-python3 seed.py          # rebuilds data/bouldervotes.db from schema + seed + harvest
-python3 build.py         # writes static HTML to docs/ (GitHub Pages)
+python3 harvest_brl.py       # optional; writes data/harvest/brl_questionnaires.json
+python3 harvest_finance.py   # optional; writes data/harvest/finance_2026.json from the city clerk
+python3 seed.py              # rebuilds data/bouldervotes.db from schema + seed + harvest
+python3 build.py             # writes static HTML to docs/ (GitHub Pages)
 open docs/index.html
 ```
 
@@ -39,7 +40,7 @@ Python 3 stdlib only. No npm, no framework. How to extend it: [OPERATING.md](OPE
 - Forum calendar 2017–2026 with recordings where they exist (including the 2025 VOTES! collaborative forum)
 - One-sheet print packet for each 2026 candidate
 - Find: two or three questions that land on sourced answers (2026 bond divide first)
-- 2026 campaign-finance snapshot from the city clerk app (raised / spent / matching received)
+- 2026 campaign-finance from the city clerk app: raised / spent / matching, itemized donors and expenditures on each dossier
 - City ballot measures 2017–2026
 
 What’s *not* in it: invented positions, scored “matches,” Chamber 2026 written questionnaires (not published yet — the forum tape is), past-year finance dollar totals (Laserfiche not listed this pass), county/BVSD races, 2015 and earlier.

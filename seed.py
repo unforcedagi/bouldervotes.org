@@ -538,7 +538,7 @@ def main() -> None:
         "https://bouldercolorado.gov/elections/election-committee-filings",
         "Election Committee Filings | City of Boulder",
         "official", 2026, org_city, None,
-        "Municipal campaign-finance filings live here, not on TRACER. Line items not scraped this pass; matching-funds flags come from the clerk candidate list.",
+        "Municipal campaign-finance filings live here, not on TRACER. 2026 dollar totals and itemized contributions/expenditures are harvested from the live clerk app into finance_snapshots / finance_line_items.",
     )
     add_source(
         "https://bouldercolorado.gov/election-guidelines",
@@ -965,7 +965,7 @@ def main() -> None:
             ("builder", "GrokJi"),
             ("scope", "City of Boulder mayor + city council + city ballot measures, 2017–2026. Not county, not BVSD, not state."),
             ("editorial", "No endorsements. Quotes and vote totals are sourced. Comparison pages stack sourced answers; they do not score candidates."),
-            ("next_harvest", "2026 Chamber forum when the Chamber releases it; Vote411; campaign-finance line items from city clerk filings; Chamber/Open Boulder questionnaire verbatim; forum transcripts."),
+            ("next_harvest", "2026 Chamber written scorecard; Vote411; Chamber/Open Boulder questionnaire verbatim; forum transcripts; past-year finance if Laserfiche becomes listable."),
         ],
     )
 
@@ -975,9 +975,10 @@ def main() -> None:
     n_src = cur.execute("SELECT COUNT(*) FROM sources").fetchone()[0]
     n_ans = cur.execute("SELECT COUNT(*) FROM answers").fetchone()[0]
     n_res = cur.execute("SELECT COUNT(*) FROM results").fetchone()[0]
+    n_fin = cur.execute("SELECT COUNT(*) FROM finance_snapshots").fetchone()[0]
+    n_lines = cur.execute("SELECT COUNT(*) FROM finance_line_items").fetchone()[0]
     con.close()
-    print(f"wrote {DB}")
-    print(f"people={n_people} candidacies={n_cand} sources={n_src} answers={n_ans} results={n_res}")
+    print(f"wrote {DB} people={n_people} candidacies={n_cand} answers={n_ans} results={n_res} sources={n_src} finance={n_fin} line_items={n_lines}")
 
 
 if __name__ == "__main__":

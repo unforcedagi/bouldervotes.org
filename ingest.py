@@ -1343,13 +1343,37 @@ def ingest_brl_2026_field(cur, *, pid: dict, add_source, org_brl: int, org_chamb
     )
 
 
+def _finance_display_name(first: str | None, last: str | None) -> str:
+    first = (first or "").strip()
+    last = (last or "").strip()
+    return " ".join(p for p in (first, last) if p) or "—"
+
+
+def _donor_person_id(pid: dict, first: str | None, last: str | None) -> int | None:
+    first = (first or "").strip()
+    last = (last or "").strip()
+    if not last:
+        return None
+    candidates = []
+    if not first:
+        return None
+    candidates.append(f"{first} {last}")
+    candidates.append(f"{last}, {first}")
+    lower = {k.lower(): v for k, v in pid.items()}
+    for name in candidates:
+        hit = lower.get(name.lower())
+        if hit:
+            return hit
+    return None
+
+
 def ingest_finance_2026(cur, *, pid: dict, add_source, org_city: int) -> None:
     data = json.loads(FINANCE_HARVEST.read_text(encoding="utf-8"))
     src = _ensure_source(
         cur,
         add_source,
-        data["source_url"],
-        data["source_title"],
+        data["summary_url"],
+        data["summary_title"],
         "official",
         2026,
         org_city,
@@ -1357,7 +1381,7 @@ def ingest_finance_2026(cur, *, pid: dict, add_source, org_city: int) -> None:
         data["notes"],
     )
     add_source(
-        "https://webapps.bouldercolorado.gov/election/committeeFilings.php",
+        data["list_url"],
         "City of Boulder Election Committee Filings (live app)",
         "official",
         2026,
@@ -1375,24 +1399,101 @@ def ingest_finance_2026(cur, *, pid: dict, add_source, org_city: int) -> None:
         "Historical committee filings 2008–present. JS/cookie archive; listing not extracted this pass. 2026 dollars come from the live app, not here.",
     )
     for row in data["committees"]:
-        person = row["person"]
-        if person not in pid:
+        person = row.get("person")
+        if person and person not in pid:
             raise SystemExit(f"finance person not in seed: {person}")
+        person_id = pid[person] if person else None
+        candidacy_id = _cid(cur, person, 2026) if person else None
+        loan_total = sum(
+            c["amount"] for c in row.get("contributions", []) if (c.get("contrib_type") or "").lower() == "loan"
+        )
+        notes = None
+        if not person and row.get("kind") == "official_candidate":
+            notes = "Official committee on the clerk app; not on the certified 2026 candidate list."
+        elif loan_total:
+            notes = f"Clerk contribution total includes ${loan_total:,.2f} in loans."
         cur.execute(
             """INSERT INTO finance_snapshots
-               (person_id, candidacy_id, year, committee_name, contributions, expenditures,
-                matching_received, reported_on, source_id, notes)
-               VALUES (?,?,?,?,?,?,?,?,?,?)""",
+               (person_id, candidacy_id, year, committee_name, committee_number, clerk_committee_id,
+                committee_kind, contributions, expenditures, matching_received, in_kind, cash_on_hand,
+                reported_on, reports_url, source_id, notes)
+               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             (
-                pid[person],
-                _cid(cur, person, 2026),
+                person_id,
+                candidacy_id,
                 2026,
-                row["committee"],
-                row["contributions"],
-                row["expenditures"],
-                row["matching"],
-                row["reported_on"],
+                row["committee_name"],
+                row.get("committee_number"),
+                row.get("committee_id"),
+                row.get("kind") or "official_candidate",
+                row.get("contributions_total") or 0,
+                row.get("expenditures_total") or 0,
+                row.get("matching_received") or 0,
+                row.get("in_kind"),
+                row.get("cash_on_hand"),
+                row.get("reported_on"),
+                row.get("reports_url"),
                 src,
-                None,
+                notes,
             ),
         )
+        snap_id = cur.lastrowid
+        fallback_url = (row.get("statements") or [{}])[-1].get("url") if row.get("statements") else row.get("reports_url")
+        for item in row.get("contributions", []):
+            display = _finance_display_name(item.get("first_name"), item.get("last_name"))
+            cur.execute(
+                """INSERT INTO finance_line_items
+                   (snapshot_id, person_id, donor_person_id, year, direction, last_name, first_name,
+                    display_name, item_type, purpose, from_candidate, occurred_on, amount, match_amount,
+                    clerk_item_id, statement_id, statement_url, source_id)
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                (
+                    snap_id,
+                    person_id,
+                    _donor_person_id(pid, item.get("first_name"), item.get("last_name")),
+                    2026,
+                    "contribution",
+                    item.get("last_name") or "",
+                    item.get("first_name") or "",
+                    display,
+                    item.get("contrib_type") or "Monetary",
+                    None,
+                    1 if item.get("from_candidate") else 0,
+                    item.get("occurred_on"),
+                    item.get("amount") or 0,
+                    item.get("match_amount"),
+                    item.get("clerk_item_id"),
+                    None,
+                    fallback_url,
+                    src,
+                ),
+            )
+        for item in row.get("expenditures", []):
+            display = _finance_display_name(item.get("first_name"), item.get("last_name"))
+            cur.execute(
+                """INSERT INTO finance_line_items
+                   (snapshot_id, person_id, donor_person_id, year, direction, last_name, first_name,
+                    display_name, item_type, purpose, from_candidate, occurred_on, amount, match_amount,
+                    clerk_item_id, statement_id, statement_url, source_id)
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                (
+                    snap_id,
+                    person_id,
+                    None,
+                    2026,
+                    "expenditure",
+                    item.get("last_name") or "",
+                    item.get("first_name") or "",
+                    display,
+                    None,
+                    item.get("purpose") or "",
+                    0,
+                    item.get("occurred_on"),
+                    item.get("amount") or 0,
+                    None,
+                    item.get("clerk_item_id"),
+                    None,
+                    fallback_url,
+                    src,
+                ),
+            )

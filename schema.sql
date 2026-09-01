@@ -188,12 +188,40 @@ CREATE TABLE IF NOT EXISTS finance_snapshots (
   candidacy_id INTEGER REFERENCES candidacies(id),
   year INTEGER NOT NULL,
   committee_name TEXT NOT NULL,
+  committee_number TEXT,
+  clerk_committee_id INTEGER,
+  committee_kind TEXT NOT NULL DEFAULT 'official_candidate', -- official_candidate | unofficial_candidate | ballot_measure
   contributions REAL,
   expenditures REAL,
   matching_received REAL,
+  in_kind REAL,
+  cash_on_hand REAL,
   reported_on TEXT,
+  reports_url TEXT,
   source_id INTEGER REFERENCES sources(id),
   notes TEXT
+);
+
+CREATE TABLE IF NOT EXISTS finance_line_items (
+  id INTEGER PRIMARY KEY,
+  snapshot_id INTEGER NOT NULL REFERENCES finance_snapshots(id) ON DELETE CASCADE,
+  person_id INTEGER REFERENCES people(id),
+  donor_person_id INTEGER REFERENCES people(id),
+  year INTEGER NOT NULL,
+  direction TEXT NOT NULL,          -- contribution | expenditure
+  last_name TEXT,
+  first_name TEXT,
+  display_name TEXT NOT NULL,
+  item_type TEXT,                   -- Monetary | Loan | In-Kind | Reimbursement | …
+  purpose TEXT,
+  from_candidate INTEGER NOT NULL DEFAULT 0,
+  occurred_on TEXT,
+  amount REAL NOT NULL,
+  match_amount REAL,
+  clerk_item_id INTEGER,
+  statement_id INTEGER,
+  statement_url TEXT,
+  source_id INTEGER REFERENCES sources(id)
 );
 
 CREATE TABLE IF NOT EXISTS meta (
@@ -208,3 +236,6 @@ CREATE INDEX IF NOT EXISTS idx_answers_question ON answers(question_id);
 CREATE INDEX IF NOT EXISTS idx_results_candidacy ON results(candidacy_id);
 CREATE INDEX IF NOT EXISTS idx_sources_year ON sources(year);
 CREATE INDEX IF NOT EXISTS idx_measures_election ON measures(election_id);
+CREATE INDEX IF NOT EXISTS idx_finance_person ON finance_snapshots(person_id);
+CREATE INDEX IF NOT EXISTS idx_finance_lines_snap ON finance_line_items(snapshot_id);
+CREATE INDEX IF NOT EXISTS idx_finance_lines_person ON finance_line_items(person_id);
