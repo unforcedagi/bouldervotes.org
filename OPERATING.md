@@ -21,12 +21,13 @@ Live: https://bouldervotes.org/ — GitHub Pages from `/docs` on `main`, custom 
 Python 3 stdlib only (plus the sqlite3 module). From the repo root:
 
 ```bash
-python3 harvest_brl.py   # optional; hits BRL WP JSON, writes data/harvest/brl_questionnaires.json
-python3 seed.py          # destroys and rebuilds data/bouldervotes.db
-python3 build.py         # writes static HTML into docs/
+python3 harvest_brl.py       # optional; hits BRL WP JSON, writes data/harvest/brl_questionnaires.json
+python3 harvest_finance.py   # optional; hits the city clerk app, writes data/harvest/finance_2026.json
+python3 seed.py              # destroys and rebuilds data/bouldervotes.db
+python3 build.py             # writes static HTML into docs/
 ```
 
-`seed.py` is the whole load. It calls `ingest.py` (forums, measures, BRL harvest, Boulder Beat 2023 quiz). The SQLite file is gitignored; the harvest JSON is committed so a rebuild does not need the network.
+`seed.py` is the whole load. It calls `ingest.py` (forums, measures, BRL harvest, Boulder Beat 2023 quiz, 2026 finance). The SQLite file is gitignored; the harvest JSON is committed so a rebuild does not need the network.
 
 GitHub Pages serves `docs/` from `main`. After a merge to `main`, Pages rebuilds in ~30s. This machine’s system resolver often cannot see `bouldervotes.org`; `dig` and `curl --resolve bouldervotes.org:443:185.199.108.153 https://bouldervotes.org/` are the check.
 
@@ -56,17 +57,17 @@ Local git identity in this repo is `unforcedagi` / `unforcedagi@users.noreply.gi
 
 ## Print packet
 
-`build.py` writes `docs/print/<slug>.html` for every 2026 candidate and `docs/print/index.html`. One letter-size sheet: timeline, issue grid, three quotes, matching-funds flag. No JavaScript. File → Print.
+`build.py` writes `docs/print/<slug>.html` for every 2026 candidate and `docs/print/index.html`. One letter-size sheet: timeline, issue grid, three quotes, clerk raised/spent/matching. No JavaScript. File → Print.
 
 ## Campaign finance
 
-Municipal filings are the city clerk (`election-committee-filings`), not TRACER. Matching-funds flags come from the clerk candidate list and already hang on `candidacies.matching_funds`. Do not invent dollar amounts. When the first required statements land, harvest line items as sourced facts.
+Municipal filings are the city clerk (`election-committee-filings`), not TRACER. Matching-funds flags hang on `candidacies.matching_funds`. Dollar totals and itemized contributions/expenditures for 2026 live in `finance_snapshots` / `finance_line_items`, harvested by `harvest_finance.py` from the live clerk HTML (no JS required for the numbers). $0 is a filed zero. Do not invent dollar amounts. Re-run the harvest when new statements land.
 
 ## What is parked
 
 - Vote411 / LWV 2026 questionnaire — when it opens.
 - Chamber 2026 *written* scorecard / extended-response PDF — not published as of 2026-08-31 (policy page still says 2025). The Aug 26 forum recording is up.
 - Verbatim ingest of Chamber 2025 extended PDF and Open Boulder 2025 PDFs (catalogued, not copied into `answers` yet).
-- Past-year campaign-finance dollar totals (Laserfiche archive is JS/cookie; 2026 live app is harvested).
+- Past-year campaign-finance dollar totals (Laserfiche archive is JS/cookie; 2026 live app is harvested, including itemized donors).
 - 2015 and earlier cycles.
 - Forum transcripts as quotes (videos are linked; do not invent spoken words from a journalist’s grouping).
